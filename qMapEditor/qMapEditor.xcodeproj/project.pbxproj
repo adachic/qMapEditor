@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		813AD47C193FA3F600B949C5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813AD47B193FA3F600B949C5 /* Cocoa.framework */; };
+		813AD486193FA3F600B949C5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 813AD484193FA3F600B949C5 /* InfoPlist.strings */; };
+		813AD488193FA3F600B949C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 813AD487193FA3F600B949C5 /* main.m */; };
+		813AD48C193FA3F600B949C5 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 813AD48A193FA3F600B949C5 /* Credits.rtf */; };
+		813AD48F193FA3F600B949C5 /* MEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 813AD48E193FA3F600B949C5 /* MEAppDelegate.m */; };
+		813AD494193FA3F600B949C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 813AD493193FA3F600B949C5 /* Images.xcassets */; };
+		813AD49B193FA3F600B949C5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813AD49A193FA3F600B949C5 /* XCTest.framework */; };
+		813AD49C193FA3F600B949C5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813AD47B193FA3F600B949C5 /* Cocoa.framework */; };
+		813AD4A4193FA3F600B949C5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 813AD4A2193FA3F600B949C5 /* InfoPlist.strings */; };
+		813AD4A6193FA3F600B949C5 /* qMapEditorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 813AD4A5193FA3F600B949C5 /* qMapEditorTests.m */; };
+		813AD4B0193FC27800B949C5 /* MEMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813AD4AF193FC27800B949C5 /* MEMainMenu.xib */; };
+		813AD4B4193FC32200B949C5 /* MEMainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 813AD4B3193FC32200B949C5 /* MEMainMenu.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		813AD49D193FA3F600B949C5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 813AD470193FA3F600B949C5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 813AD477193FA3F600B949C5;
+			remoteInfo = qMapEditor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		813AD478193FA3F600B949C5 /* qMapEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qMapEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		813AD47B193FA3F600B949C5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		813AD47E193FA3F600B949C5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		813AD47F193FA3F600B949C5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		813AD480193FA3F600B949C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		813AD483193FA3F600B949C5 /* qMapEditor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "qMapEditor-Info.plist"; sourceTree = "<group>"; };
+		813AD485193FA3F600B949C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		813AD487193FA3F600B949C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		813AD489193FA3F600B949C5 /* qMapEditor-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "qMapEditor-Prefix.pch"; sourceTree = "<group>"; };
+		813AD48B193FA3F600B949C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		813AD48D193FA3F600B949C5 /* MEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MEAppDelegate.h; sourceTree = "<group>"; };
+		813AD48E193FA3F600B949C5 /* MEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MEAppDelegate.m; sourceTree = "<group>"; };
+		813AD493193FA3F600B949C5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		813AD499193FA3F600B949C5 /* qMapEditorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = qMapEditorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		813AD49A193FA3F600B949C5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		813AD4A1193FA3F600B949C5 /* qMapEditorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "qMapEditorTests-Info.plist"; sourceTree = "<group>"; };
+		813AD4A3193FA3F600B949C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		813AD4A5193FA3F600B949C5 /* qMapEditorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = qMapEditorTests.m; sourceTree = "<group>"; };
+		813AD4AF193FC27800B949C5 /* MEMainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEMainMenu.xib; sourceTree = "<group>"; };
+		813AD4B2193FC32200B949C5 /* MEMainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEMainMenu.h; sourceTree = "<group>"; };
+		813AD4B3193FC32200B949C5 /* MEMainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEMainMenu.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		813AD475193FA3F600B949C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				813AD47C193FA3F600B949C5 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		813AD496193FA3F600B949C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				813AD49C193FA3F600B949C5 /* Cocoa.framework in Frameworks */,
+				813AD49B193FA3F600B949C5 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		813AD46F193FA3F600B949C5 = {
+			isa = PBXGroup;
+			children = (
+				813AD481193FA3F600B949C5 /* qMapEditor */,
+				813AD49F193FA3F600B949C5 /* qMapEditorTests */,
+				813AD47A193FA3F600B949C5 /* Frameworks */,
+				813AD479193FA3F600B949C5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		813AD479193FA3F600B949C5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				813AD478193FA3F600B949C5 /* qMapEditor.app */,
+				813AD499193FA3F600B949C5 /* qMapEditorTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		813AD47A193FA3F600B949C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				813AD47B193FA3F600B949C5 /* Cocoa.framework */,
+				813AD49A193FA3F600B949C5 /* XCTest.framework */,
+				813AD47D193FA3F600B949C5 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		813AD47D193FA3F600B949C5 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				813AD47E193FA3F600B949C5 /* AppKit.framework */,
+				813AD47F193FA3F600B949C5 /* CoreData.framework */,
+				813AD480193FA3F600B949C5 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		813AD481193FA3F600B949C5 /* qMapEditor */ = {
+			isa = PBXGroup;
+			children = (
+				813AD4B1193FC2F700B949C5 /* View */,
+				813AD48D193FA3F600B949C5 /* MEAppDelegate.h */,
+				813AD48E193FA3F600B949C5 /* MEAppDelegate.m */,
+				813AD493193FA3F600B949C5 /* Images.xcassets */,
+				813AD482193FA3F600B949C5 /* Supporting Files */,
+			);
+			path = qMapEditor;
+			sourceTree = "<group>";
+		};
+		813AD482193FA3F600B949C5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				813AD483193FA3F600B949C5 /* qMapEditor-Info.plist */,
+				813AD484193FA3F600B949C5 /* InfoPlist.strings */,
+				813AD487193FA3F600B949C5 /* main.m */,
+				813AD489193FA3F600B949C5 /* qMapEditor-Prefix.pch */,
+				813AD48A193FA3F600B949C5 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		813AD49F193FA3F600B949C5 /* qMapEditorTests */ = {
+			isa = PBXGroup;
+			children = (
+				813AD4A5193FA3F600B949C5 /* qMapEditorTests.m */,
+				813AD4A0193FA3F600B949C5 /* Supporting Files */,
+			);
+			path = qMapEditorTests;
+			sourceTree = "<group>";
+		};
+		813AD4A0193FA3F600B949C5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				813AD4A1193FA3F600B949C5 /* qMapEditorTests-Info.plist */,
+				813AD4A2193FA3F600B949C5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		813AD4B1193FC2F700B949C5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				813AD4AF193FC27800B949C5 /* MEMainMenu.xib */,
+				813AD4B2193FC32200B949C5 /* MEMainMenu.h */,
+				813AD4B3193FC32200B949C5 /* MEMainMenu.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		813AD477193FA3F600B949C5 /* qMapEditor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 813AD4A9193FA3F600B949C5 /* Build configuration list for PBXNativeTarget "qMapEditor" */;
+			buildPhases = (
+				813AD474193FA3F600B949C5 /* Sources */,
+				813AD475193FA3F600B949C5 /* Frameworks */,
+				813AD476193FA3F600B949C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = qMapEditor;
+			productName = qMapEditor;
+			productReference = 813AD478193FA3F600B949C5 /* qMapEditor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		813AD498193FA3F600B949C5 /* qMapEditorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 813AD4AC193FA3F600B949C5 /* Build configuration list for PBXNativeTarget "qMapEditorTests" */;
+			buildPhases = (
+				813AD495193FA3F600B949C5 /* Sources */,
+				813AD496193FA3F600B949C5 /* Frameworks */,
+				813AD497193FA3F600B949C5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				813AD49E193FA3F600B949C5 /* PBXTargetDependency */,
+			);
+			name = qMapEditorTests;
+			productName = qMapEditorTests;
+			productReference = 813AD499193FA3F600B949C5 /* qMapEditorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		813AD470193FA3F600B949C5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ME;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = regalia;
+				TargetAttributes = {
+					813AD498193FA3F600B949C5 = {
+						TestTargetID = 813AD477193FA3F600B949C5;
+					};
+				};
+			};
+			buildConfigurationList = 813AD473193FA3F600B949C5 /* Build configuration list for PBXProject "qMapEditor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 813AD46F193FA3F600B949C5;
+			productRefGroup = 813AD479193FA3F600B949C5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				813AD477193FA3F600B949C5 /* qMapEditor */,
+				813AD498193FA3F600B949C5 /* qMapEditorTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		813AD476193FA3F600B949C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				813AD486193FA3F600B949C5 /* InfoPlist.strings in Resources */,
+				813AD494193FA3F600B949C5 /* Images.xcassets in Resources */,
+				813AD48C193FA3F600B949C5 /* Credits.rtf in Resources */,
+				813AD4B0193FC27800B949C5 /* MEMainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		813AD497193FA3F600B949C5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				813AD4A4193FA3F600B949C5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		813AD474193FA3F600B949C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				813AD4B4193FC32200B949C5 /* MEMainMenu.m in Sources */,
+				813AD48F193FA3F600B949C5 /* MEAppDelegate.m in Sources */,
+				813AD488193FA3F600B949C5 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		813AD495193FA3F600B949C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				813AD4A6193FA3F600B949C5 /* qMapEditorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		813AD49E193FA3F600B949C5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 813AD477193FA3F600B949C5 /* qMapEditor */;
+			targetProxy = 813AD49D193FA3F600B949C5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		813AD484193FA3F600B949C5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				813AD485193FA3F600B949C5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		813AD48A193FA3F600B949C5 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				813AD48B193FA3F600B949C5 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		813AD4A2193FA3F600B949C5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				813AD4A3193FA3F600B949C5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		813AD4A7193FA3F600B949C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		813AD4A8193FA3F600B949C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		813AD4AA193FA3F600B949C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "qMapEditor/qMapEditor-Prefix.pch";
+				INFOPLIST_FILE = "qMapEditor/qMapEditor-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		813AD4AB193FA3F600B949C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "qMapEditor/qMapEditor-Prefix.pch";
+				INFOPLIST_FILE = "qMapEditor/qMapEditor-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		813AD4AD193FA3F600B949C5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/qMapEditor.app/Contents/MacOS/qMapEditor";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "qMapEditor/qMapEditor-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "qMapEditorTests/qMapEditorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		813AD4AE193FA3F600B949C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/qMapEditor.app/Contents/MacOS/qMapEditor";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "qMapEditor/qMapEditor-Prefix.pch";
+				INFOPLIST_FILE = "qMapEditorTests/qMapEditorTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		813AD473193FA3F600B949C5 /* Build configuration list for PBXProject "qMapEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				813AD4A7193FA3F600B949C5 /* Debug */,
+				813AD4A8193FA3F600B949C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		813AD4A9193FA3F600B949C5 /* Build configuration list for PBXNativeTarget "qMapEditor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				813AD4AA193FA3F600B949C5 /* Debug */,
+				813AD4AB193FA3F600B949C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		813AD4AC193FA3F600B949C5 /* Build configuration list for PBXNativeTarget "qMapEditorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				813AD4AD193FA3F600B949C5 /* Debug */,
+				813AD4AE193FA3F600B949C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 813AD470193FA3F600B949C5 /* Project object */;
+}
