@@ -26,6 +26,9 @@
 		813BE7F51940DC420034A0B8 /* Collection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813BE7F41940DC420034A0B8 /* Collection.xib */; };
 		813BE7F81940DEFC0034A0B8 /* MEGamePartsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813BE7F71940DEFC0034A0B8 /* MEGamePartsViewController.m */; };
 		813BE7FA194102970034A0B8 /* GamePartsIconViewPrototype.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813BE7F9194102970034A0B8 /* GamePartsIconViewPrototype.xib */; };
+		817E99CE1941125300B08786 /* METileWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E99CC1941125300B08786 /* METileWindowController.m */; };
+		817E99CF1941125300B08786 /* METileWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 817E99CD1941125300B08786 /* METileWindowController.xib */; };
+		817E99D31941221200B08786 /* Tiles.xib in Resources */ = {isa = PBXBuildFile; fileRef = 817E99D21941221200B08786 /* Tiles.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +73,10 @@
 		813BE7F61940DEFC0034A0B8 /* MEGamePartsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEGamePartsViewController.h; sourceTree = "<group>"; };
 		813BE7F71940DEFC0034A0B8 /* MEGamePartsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEGamePartsViewController.m; sourceTree = "<group>"; };
 		813BE7F9194102970034A0B8 /* GamePartsIconViewPrototype.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GamePartsIconViewPrototype.xib; sourceTree = "<group>"; };
+		817E99CB1941125300B08786 /* METileWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METileWindowController.h; sourceTree = "<group>"; };
+		817E99CC1941125300B08786 /* METileWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METileWindowController.m; sourceTree = "<group>"; };
+		817E99CD1941125300B08786 /* METileWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = METileWindowController.xib; sourceTree = "<group>"; };
+		817E99D21941221200B08786 /* Tiles.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tiles.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,21 +184,49 @@
 		813AD4B1193FC2F700B949C5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				817E99CA1941122700B08786 /* Tiles */,
+				817E99C91941121200B08786 /* GamePartsEdit */,
+				817E99C8194111F700B08786 /* GamePartsList */,
 				813AD4AF193FC27800B949C5 /* MEMainMenu.xib */,
-				813BE7F41940DC420034A0B8 /* Collection.xib */,
-				813BE7F9194102970034A0B8 /* GamePartsIconViewPrototype.xib */,
 				813AD4B2193FC32200B949C5 /* MEMainMenu.h */,
 				813AD4B3193FC32200B949C5 /* MEMainMenu.m */,
-				813BE7EA1940234B0034A0B8 /* MEGamePartsEditWindowController.h */,
-				813BE7EB1940234B0034A0B8 /* MEGamePartsEditWindowController.m */,
-				813BE7EC1940234B0034A0B8 /* MEGamePartsEditWindowController.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		817E99C8194111F700B08786 /* GamePartsList */ = {
+			isa = PBXGroup;
+			children = (
+				813BE7F9194102970034A0B8 /* GamePartsIconViewPrototype.xib */,
+				813BE7F41940DC420034A0B8 /* Collection.xib */,
 				813BE7EF194023D60034A0B8 /* MEGamePartsListWindowController.h */,
 				813BE7F0194023D60034A0B8 /* MEGamePartsListWindowController.m */,
 				813BE7F1194023D60034A0B8 /* MEGamePartsListWindowController.xib */,
 				813BE7F61940DEFC0034A0B8 /* MEGamePartsViewController.h */,
 				813BE7F71940DEFC0034A0B8 /* MEGamePartsViewController.m */,
 			);
-			name = View;
+			name = GamePartsList;
+			sourceTree = "<group>";
+		};
+		817E99C91941121200B08786 /* GamePartsEdit */ = {
+			isa = PBXGroup;
+			children = (
+				813BE7EA1940234B0034A0B8 /* MEGamePartsEditWindowController.h */,
+				813BE7EB1940234B0034A0B8 /* MEGamePartsEditWindowController.m */,
+				813BE7EC1940234B0034A0B8 /* MEGamePartsEditWindowController.xib */,
+			);
+			name = GamePartsEdit;
+			sourceTree = "<group>";
+		};
+		817E99CA1941122700B08786 /* Tiles */ = {
+			isa = PBXGroup;
+			children = (
+				817E99CB1941125300B08786 /* METileWindowController.h */,
+				817E99CC1941125300B08786 /* METileWindowController.m */,
+				817E99CD1941125300B08786 /* METileWindowController.xib */,
+				817E99D21941221200B08786 /* Tiles.xib */,
+			);
+			name = Tiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,11 +309,13 @@
 				813BE7FA194102970034A0B8 /* GamePartsIconViewPrototype.xib in Resources */,
 				813BE7EE1940234B0034A0B8 /* MEGamePartsEditWindowController.xib in Resources */,
 				813AD486193FA3F600B949C5 /* InfoPlist.strings in Resources */,
+				817E99CF1941125300B08786 /* METileWindowController.xib in Resources */,
 				813AD494193FA3F600B949C5 /* Images.xcassets in Resources */,
 				813BE7F51940DC420034A0B8 /* Collection.xib in Resources */,
 				813AD48C193FA3F600B949C5 /* Credits.rtf in Resources */,
 				813BE7F3194023D60034A0B8 /* MEGamePartsListWindowController.xib in Resources */,
 				813AD4B0193FC27800B949C5 /* MEMainMenu.xib in Resources */,
+				817E99D31941221200B08786 /* Tiles.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +339,7 @@
 				813BE7ED1940234B0034A0B8 /* MEGamePartsEditWindowController.m in Sources */,
 				813BE7F2194023D60034A0B8 /* MEGamePartsListWindowController.m in Sources */,
 				813AD488193FA3F600B949C5 /* main.m in Sources */,
+				817E99CE1941125300B08786 /* METileWindowController.m in Sources */,
 				813BE7F81940DEFC0034A0B8 /* MEGamePartsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,9 +16,11 @@
 @property IBOutlet NSMenuItem *itemCreateGameParts;
 @property (retain) MEGamePartsEditWindowController *gamePartsEditWindowController;
 @property (retain) MEGamePartsListWindowController *gamePartsListWindowController;
-
+@property NSMutableArray *tileWindowControllers;
 
 - (id)initWithCoder:(NSCoder *)aDecoder ;
 - (IBAction)showGameParts:(id)sender;
 - (BOOL)validateMenuItem:(id )menuItem;
+- (IBAction)openTileFile:(id)sender;
+-(void)createTileWindow:(NSURL*)filePath;
 @end
