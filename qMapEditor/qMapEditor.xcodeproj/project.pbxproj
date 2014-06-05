@@ -19,6 +19,8 @@
 		813AD4A6193FA3F600B949C5 /* qMapEditorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 813AD4A5193FA3F600B949C5 /* qMapEditorTests.m */; };
 		813AD4B0193FC27800B949C5 /* MEMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813AD4AF193FC27800B949C5 /* MEMainMenu.xib */; };
 		813AD4B4193FC32200B949C5 /* MEMainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 813AD4B3193FC32200B949C5 /* MEMainMenu.m */; };
+		813AD4B6193FCE6900B949C5 /* MEGamePartsEditWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813AD4B5193FCE6900B949C5 /* MEGamePartsEditWindow.xib */; };
+		813AD4B9193FD1F100B949C5 /* MEGamePartsEditWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 813AD4B8193FD1F100B949C5 /* MEGamePartsEditWindow.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		813AD4AF193FC27800B949C5 /* MEMainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEMainMenu.xib; sourceTree = "<group>"; };
 		813AD4B2193FC32200B949C5 /* MEMainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEMainMenu.h; sourceTree = "<group>"; };
 		813AD4B3193FC32200B949C5 /* MEMainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEMainMenu.m; sourceTree = "<group>"; };
+		813AD4B5193FCE6900B949C5 /* MEGamePartsEditWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEGamePartsEditWindow.xib; sourceTree = "<group>"; };
+		813AD4B7193FD1F100B949C5 /* MEGamePartsEditWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEGamePartsEditWindow.h; sourceTree = "<group>"; };
+		813AD4B8193FD1F100B949C5 /* MEGamePartsEditWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEGamePartsEditWindow.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +168,9 @@
 				813AD4AF193FC27800B949C5 /* MEMainMenu.xib */,
 				813AD4B2193FC32200B949C5 /* MEMainMenu.h */,
 				813AD4B3193FC32200B949C5 /* MEMainMenu.m */,
+				813AD4B5193FCE6900B949C5 /* MEGamePartsEditWindow.xib */,
+				813AD4B7193FD1F100B949C5 /* MEGamePartsEditWindow.h */,
+				813AD4B8193FD1F100B949C5 /* MEGamePartsEditWindow.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -247,6 +255,7 @@
 				813AD486193FA3F600B949C5 /* InfoPlist.strings in Resources */,
 				813AD494193FA3F600B949C5 /* Images.xcassets in Resources */,
 				813AD48C193FA3F600B949C5 /* Credits.rtf in Resources */,
+				813AD4B6193FCE6900B949C5 /* MEGamePartsEditWindow.xib in Resources */,
 				813AD4B0193FC27800B949C5 /* MEMainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +277,7 @@
 			files = (
 				813AD4B4193FC32200B949C5 /* MEMainMenu.m in Sources */,
 				813AD48F193FA3F600B949C5 /* MEAppDelegate.m in Sources */,
+				813AD4B9193FD1F100B949C5 /* MEGamePartsEditWindow.m in Sources */,
 				813AD488193FA3F600B949C5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

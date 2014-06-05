@@ -10,12 +10,8 @@
 
 @implementation MEMainMenu
 
-- (id)init{
-    self = [super init];
-        
-    [self setAutoenablesItems:YES];
-    [self.itemCreateGameParts setTarget:self];
-    
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
     return self;
 }
 
@@ -26,6 +22,11 @@
 
 - (IBAction)createGameParts:(id)sender
 {
-
+    if(!self.gamePartsEditWindow){
+        NSArray *topLevel = [NSArray new];
+        [[NSBundle mainBundle] loadNibNamed:@"MEGamePartsEditWindow" owner:nil topLevelObjects:&topLevel];
+        self.gamePartsEditWindow = (MEGamePartsEditWindow*)[topLevel lastObject];
+        [self.gamePartsEditWindow orderFront:self];
+    }
 }
 @end

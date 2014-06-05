@@ -8,11 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "MEGamePartsEditWindow.h"
+
 @interface MEMainMenu : NSMenu
 
 @property IBOutlet NSMenuItem *itemCreateGameParts;
+@property (retain) MEGamePartsEditWindow *gamePartsEditWindow;
 
-- (id)init;
+
+- (id)initWithCoder:(NSCoder *)aDecoder ;
 - (IBAction)createGameParts:(id)sender;
 - (BOOL)validateMenuItem:(id )menuItem;
 @end
