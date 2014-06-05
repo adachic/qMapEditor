@@ -17,6 +17,6 @@
 
 
 - (id)initWithCoder:(NSCoder *)aDecoder ;
-- (IBAction)createGameParts:(id)sender;
+- (IBAction)showGameParts:(id)sender;
 - (BOOL)validateMenuItem:(id )menuItem;
 @end

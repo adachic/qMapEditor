@@ -11,7 +11,18 @@
 @implementation MEMainMenu
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
+    if([super initWithCoder:aDecoder]){
+        NSArray *topLevel = [NSArray new];
+        if(![[NSBundle mainBundle] loadNibNamed:@"MEGamePartsEditWindow" owner:nil topLevelObjects:&topLevel]){
+            return self;
+        }
+        for(id obj in topLevel){
+            if(NSClassFromString(@"MEGamePartsEditWindow") != [obj class]){
+                continue;
+            }
+            self.gamePartsEditWindow = (MEGamePartsEditWindow*)obj;
+        }
+    }
     return self;
 }
 
@@ -20,13 +31,8 @@
     return YES;
 }
 
-- (IBAction)createGameParts:(id)sender
+- (IBAction)showGameParts:(id)sender
 {
-    if(!self.gamePartsEditWindow){
-        NSArray *topLevel = [NSArray new];
-        [[NSBundle mainBundle] loadNibNamed:@"MEGamePartsEditWindow" owner:nil topLevelObjects:&topLevel];
-        self.gamePartsEditWindow = (MEGamePartsEditWindow*)[topLevel lastObject];
         [self.gamePartsEditWindow orderFront:self];
-    }
 }
 @end

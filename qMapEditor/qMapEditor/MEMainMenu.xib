@@ -54,18 +54,6 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="GameParts" id="cmV-DN-Qar">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                    <menu key="submenu" title="GameParts" id="HCe-3u-uTb">
-                        <items>
-                            <menuItem title="Create GameParts" keyEquivalent="g" id="GBO-dg-oD4" colorLabel="IBBuiltInLabel-Red">
-                                <connections>
-                                    <action selector="createGameParts:" target="AYu-sK-qS6" id="Up0-US-WVr"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
-                </menuItem>
                 <menuItem title="File" id="dMs-cI-mzQ">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="File" id="bib-Uj-vzu">
@@ -80,6 +68,10 @@
                                     <action selector="openDocument:" target="-1" id="bVn-NM-KNZ"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Open GamePartsFile " keyEquivalent="o" id="MyG-qf-Bkp">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Open TIleFile" keyEquivalent="O" id="IBj-Kx-S7M"/>
                             <menuItem title="Open Recent" id="tXI-mr-wws">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Open Recent" systemMenu="recentDocuments" id="oas-Oc-fiZ">
@@ -349,9 +341,6 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Format" id="jxT-CU-nIS">
-                    <modifierMask key="keyEquivalentModifierMask"/>
-                </menuItem>
                 <menuItem title="View" id="H8h-7b-M4v">
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="View" id="HyV-fh-RgO">
@@ -360,6 +349,11 @@
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="toggleToolbarShown:" target="-1" id="BXY-wc-z0C"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show GamePartsEditor" keyEquivalent="g" id="zZz-dc-oia">
+                                <connections>
+                                    <action selector="showGameParts:" target="AYu-sK-qS6" id="pyq-hM-dB6"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Customize Toolbar…" id="1UK-8n-QPP">
@@ -409,9 +403,6 @@
                     </menu>
                 </menuItem>
             </items>
-            <connections>
-                <outlet property="itemCreateGameParts" destination="GBO-dg-oD4" id="9PU-ir-ZV0"/>
-            </connections>
         </menu>
     </objects>
 </document>
