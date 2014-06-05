@@ -13,14 +13,19 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if([super initWithCoder:aDecoder]){
         NSArray *topLevel = [NSArray new];
-        if(![[NSBundle mainBundle] loadNibNamed:@"MEGamePartsEditWindow" owner:nil topLevelObjects:&topLevel]){
+        if(![[NSBundle mainBundle] loadNibNamed:@"MEGamePartsEditWindowController" owner:nil topLevelObjects:&topLevel]){
+            return self;
+        }
+        if(![[NSBundle mainBundle] loadNibNamed:@"MEGamePartsListWindowController" owner:nil topLevelObjects:&topLevel]){
             return self;
         }
         for(id obj in topLevel){
-            if(NSClassFromString(@"MEGamePartsEditWindow") != [obj class]){
-                continue;
+            if(NSClassFromString(@"MEGamePartsEditWindowController") == [obj class]){
+                self.gamePartsEditWindowController = (MEGamePartsEditWindowController*)obj;
             }
-            self.gamePartsEditWindow = (MEGamePartsEditWindow*)obj;
+            if(NSClassFromString(@"MEGamePartsListWindowController") == [obj class]){
+                self.gamePartsListWindowController = (MEGamePartsListWindowController*)obj;
+            }
         }
     }
     return self;
@@ -33,6 +38,6 @@
 
 - (IBAction)showGameParts:(id)sender
 {
-        [self.gamePartsEditWindow orderFront:self];
+        [self.gamePartsEditWindowController.window orderFront:self];
 }
 @end

@@ -19,8 +19,13 @@
 		813AD4A6193FA3F600B949C5 /* qMapEditorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 813AD4A5193FA3F600B949C5 /* qMapEditorTests.m */; };
 		813AD4B0193FC27800B949C5 /* MEMainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813AD4AF193FC27800B949C5 /* MEMainMenu.xib */; };
 		813AD4B4193FC32200B949C5 /* MEMainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 813AD4B3193FC32200B949C5 /* MEMainMenu.m */; };
-		813AD4B6193FCE6900B949C5 /* MEGamePartsEditWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813AD4B5193FCE6900B949C5 /* MEGamePartsEditWindow.xib */; };
-		813AD4B9193FD1F100B949C5 /* MEGamePartsEditWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 813AD4B8193FD1F100B949C5 /* MEGamePartsEditWindow.m */; };
+		813BE7ED1940234B0034A0B8 /* MEGamePartsEditWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813BE7EB1940234B0034A0B8 /* MEGamePartsEditWindowController.m */; };
+		813BE7EE1940234B0034A0B8 /* MEGamePartsEditWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813BE7EC1940234B0034A0B8 /* MEGamePartsEditWindowController.xib */; };
+		813BE7F2194023D60034A0B8 /* MEGamePartsListWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813BE7F0194023D60034A0B8 /* MEGamePartsListWindowController.m */; };
+		813BE7F3194023D60034A0B8 /* MEGamePartsListWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813BE7F1194023D60034A0B8 /* MEGamePartsListWindowController.xib */; };
+		813BE7F51940DC420034A0B8 /* Collection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813BE7F41940DC420034A0B8 /* Collection.xib */; };
+		813BE7F81940DEFC0034A0B8 /* MEGamePartsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813BE7F71940DEFC0034A0B8 /* MEGamePartsViewController.m */; };
+		813BE7FA194102970034A0B8 /* GamePartsIconViewPrototype.xib in Resources */ = {isa = PBXBuildFile; fileRef = 813BE7F9194102970034A0B8 /* GamePartsIconViewPrototype.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,9 +60,16 @@
 		813AD4AF193FC27800B949C5 /* MEMainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEMainMenu.xib; sourceTree = "<group>"; };
 		813AD4B2193FC32200B949C5 /* MEMainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEMainMenu.h; sourceTree = "<group>"; };
 		813AD4B3193FC32200B949C5 /* MEMainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEMainMenu.m; sourceTree = "<group>"; };
-		813AD4B5193FCE6900B949C5 /* MEGamePartsEditWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEGamePartsEditWindow.xib; sourceTree = "<group>"; };
-		813AD4B7193FD1F100B949C5 /* MEGamePartsEditWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEGamePartsEditWindow.h; sourceTree = "<group>"; };
-		813AD4B8193FD1F100B949C5 /* MEGamePartsEditWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEGamePartsEditWindow.m; sourceTree = "<group>"; };
+		813BE7EA1940234B0034A0B8 /* MEGamePartsEditWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEGamePartsEditWindowController.h; sourceTree = "<group>"; };
+		813BE7EB1940234B0034A0B8 /* MEGamePartsEditWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEGamePartsEditWindowController.m; sourceTree = "<group>"; };
+		813BE7EC1940234B0034A0B8 /* MEGamePartsEditWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEGamePartsEditWindowController.xib; sourceTree = "<group>"; };
+		813BE7EF194023D60034A0B8 /* MEGamePartsListWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEGamePartsListWindowController.h; sourceTree = "<group>"; };
+		813BE7F0194023D60034A0B8 /* MEGamePartsListWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEGamePartsListWindowController.m; sourceTree = "<group>"; };
+		813BE7F1194023D60034A0B8 /* MEGamePartsListWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEGamePartsListWindowController.xib; sourceTree = "<group>"; };
+		813BE7F41940DC420034A0B8 /* Collection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Collection.xib; sourceTree = "<group>"; };
+		813BE7F61940DEFC0034A0B8 /* MEGamePartsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEGamePartsViewController.h; sourceTree = "<group>"; };
+		813BE7F71940DEFC0034A0B8 /* MEGamePartsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEGamePartsViewController.m; sourceTree = "<group>"; };
+		813BE7F9194102970034A0B8 /* GamePartsIconViewPrototype.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GamePartsIconViewPrototype.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,11 +178,18 @@
 			isa = PBXGroup;
 			children = (
 				813AD4AF193FC27800B949C5 /* MEMainMenu.xib */,
+				813BE7F41940DC420034A0B8 /* Collection.xib */,
+				813BE7F9194102970034A0B8 /* GamePartsIconViewPrototype.xib */,
 				813AD4B2193FC32200B949C5 /* MEMainMenu.h */,
 				813AD4B3193FC32200B949C5 /* MEMainMenu.m */,
-				813AD4B5193FCE6900B949C5 /* MEGamePartsEditWindow.xib */,
-				813AD4B7193FD1F100B949C5 /* MEGamePartsEditWindow.h */,
-				813AD4B8193FD1F100B949C5 /* MEGamePartsEditWindow.m */,
+				813BE7EA1940234B0034A0B8 /* MEGamePartsEditWindowController.h */,
+				813BE7EB1940234B0034A0B8 /* MEGamePartsEditWindowController.m */,
+				813BE7EC1940234B0034A0B8 /* MEGamePartsEditWindowController.xib */,
+				813BE7EF194023D60034A0B8 /* MEGamePartsListWindowController.h */,
+				813BE7F0194023D60034A0B8 /* MEGamePartsListWindowController.m */,
+				813BE7F1194023D60034A0B8 /* MEGamePartsListWindowController.xib */,
+				813BE7F61940DEFC0034A0B8 /* MEGamePartsViewController.h */,
+				813BE7F71940DEFC0034A0B8 /* MEGamePartsViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -252,10 +271,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				813BE7FA194102970034A0B8 /* GamePartsIconViewPrototype.xib in Resources */,
+				813BE7EE1940234B0034A0B8 /* MEGamePartsEditWindowController.xib in Resources */,
 				813AD486193FA3F600B949C5 /* InfoPlist.strings in Resources */,
 				813AD494193FA3F600B949C5 /* Images.xcassets in Resources */,
+				813BE7F51940DC420034A0B8 /* Collection.xib in Resources */,
 				813AD48C193FA3F600B949C5 /* Credits.rtf in Resources */,
-				813AD4B6193FCE6900B949C5 /* MEGamePartsEditWindow.xib in Resources */,
+				813BE7F3194023D60034A0B8 /* MEGamePartsListWindowController.xib in Resources */,
 				813AD4B0193FC27800B949C5 /* MEMainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,8 +299,10 @@
 			files = (
 				813AD4B4193FC32200B949C5 /* MEMainMenu.m in Sources */,
 				813AD48F193FA3F600B949C5 /* MEAppDelegate.m in Sources */,
-				813AD4B9193FD1F100B949C5 /* MEGamePartsEditWindow.m in Sources */,
+				813BE7ED1940234B0034A0B8 /* MEGamePartsEditWindowController.m in Sources */,
+				813BE7F2194023D60034A0B8 /* MEGamePartsListWindowController.m in Sources */,
 				813AD488193FA3F600B949C5 /* main.m in Sources */,
+				813BE7F81940DEFC0034A0B8 /* MEGamePartsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +509,7 @@
 				813AD4AB193FA3F600B949C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		813AD4AC193FA3F600B949C5 /* Build configuration list for PBXNativeTarget "qMapEditorTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +518,7 @@
 				813AD4AE193FA3F600B949C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

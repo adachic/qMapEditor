@@ -1,5 +1,5 @@
 //
-//  MEGamePartsEditWindow.h
+//  MEGamePartsEditWindowController.h
 //  qMapEditor
 //
 //  Created by Akinori ADACHI on 2014/06/05.
@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface MEGamePartsEditWindow : NSWindow
-- (id)initWithCoder:(NSCoder *)aDecoder;
-- (void)setup;
+@interface MEGamePartsEditWindowController : NSWindowController
+
 @end
