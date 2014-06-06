@@ -14,15 +14,15 @@
 
 @implementation METileWindowController
 
-- (id)initWithWindowNibName:(NSString *)windowNibName imageURL:(NSURL*)url
-{
+- (id)initWithWindowNibName:(NSString *)windowNibName imageURL:(NSURL*)url onPickUp:(void (^)(NSImage *image))pickup{
     self = [super initWithWindowNibName:windowNibName];
     if(self){
         self.imageURL = url;
         self.widthCellsNum.stringValue = @"1";
         self.heightCellsNum.stringValue = @"1";
+        self.onPickUp = pickup;
+        readyToPickUp = false;
     }
-    NSLog(@"aho1");
     return self;
 }
 
@@ -42,7 +42,6 @@
     NSImage *image = [[NSImage alloc] initByReferencingURL:self.imageURL];
     self.imageView = [[NSImageView alloc] initWithFrame:CGRectMake(0,0,image.size.width, image.size.height)];
     
- //   [self.imageView setAlignment:NSLeftTextAlignment];
     [self.imageView setImageScaling:NSScaleNone];
     [self.imageView setImage:image];
     
@@ -51,17 +50,6 @@
     
     
     
-}
-
-- (void)clearLine
-{
-    NSRect imageRect;
-    imageRect.origin = (NSPoint){0.0f,0.0f};
-    imageRect.size = self.imageView.image.size;
-    
-    [[NSColor clearColor] set];
-    NSRectFill(imageRect);
-
 }
 
 - (IBAction)pushFixButton:(id)sender
@@ -73,15 +61,15 @@
     int widthNum_ = [self.widthCellsNum.stringValue intValue];
     int heightNum_ = [self.heightCellsNum.stringValue intValue];
     if(!(widthNum_>0 && heightNum_>0)){
+        readyToPickUp = false;
         return;
     }
+    readyToPickUp = true;
     
     widthNum = widthNum_;
     heightNum = heightNum_;
     
     [self.imageView.image lockFocus];
-    
-
     
     float widthVolume = [self.imageView image].size.width / widthNum;
     float heightVolume = [self.imageView image].size.height / heightNum;
@@ -97,26 +85,69 @@
 
     }
     //横線
-  for (int y = 1; y < heightNum; y++) {
-      NSPoint from = NSMakePoint(NSMinX([self.imageView bounds]),
-                                 NSMinY([self.imageView bounds])+heightVolume*y);
-      NSPoint to = NSMakePoint(NSMaxX([self.imageView bounds]),
-                                NSMinY([self.imageView bounds])+heightVolume*y);
-    [self drawLine:from to:to];
-  }
+    for (int y = 1; y < heightNum; y++) {
+          NSPoint from = NSMakePoint(NSMinX([self.imageView bounds]),
+                                     NSMinY([self.imageView bounds])+heightVolume*y);
+          NSPoint to = NSMakePoint(NSMaxX([self.imageView bounds]),
+                                    NSMinY([self.imageView bounds])+heightVolume*y);
+        [self drawLine:from to:to];
+    }
+    
     [self.imageView.image unlockFocus];
     
-    [self.drawView setNeedsDisplay:YES];
+    [self.imageView setNeedsDisplay:YES];
 }
+
+
 - (void)drawLine:(NSPoint)from to:(NSPoint)to
 {
-        NSBezierPath *line = [NSBezierPath bezierPath];
+    NSBezierPath *line = [NSBezierPath bezierPath];
     [line moveToPoint:from];
     [line lineToPoint:to];
     [line setLineWidth:1.0]; /// Make it easy to see
     [[NSColor blueColor] set];
     //    [[self lineColor] set]; /// Make future drawing the color of lineColor.
     [line stroke];
+}
+
+- (void)mouseDown:(NSEvent *)theEvent
+{
+    if(!readyToPickUp){
+        return;
+    }
+    NSPoint location = [self.imageView convertPoint:[theEvent locationInWindow] fromView:nil];
+    
+    float widthVolume = [self.imageView image].size.width / widthNum;
+    float heightVolume = [self.imageView image].size.height / heightNum;
+
+    for(int x = 0; x < widthNum; x++){
+        for(int y = 0; y < heightNum; y++){
+            if(location.x >= x*widthVolume && location.x < (x+1)*widthVolume &&
+               location.y >= y*heightVolume && location.y < (y+1)*heightVolume
+               ){
+                //切り取って渡す
+                self.onPickUp([self pickUpImageWithFrame:CGRectMake(x*widthVolume,
+                                                                    y*heightVolume,
+                                                                    widthVolume,
+                                                                    heightVolume)]);
+            }
+        }
+    }
+}
+
+- (NSImage*)pickUpImageWithFrame:(CGRect)frame
+{
+    //NSImage *image = [[NSImage alloc] initWithSize:frame.size];
+    NSImage *image = [[NSImage alloc] initByReferencingURL:self.imageURL];
+    [image setSize:frame.size];
+    [image lockFocus];
+    [self.imageView.image drawInRect:CGRectMake(0, 0, frame.size.width, frame.size.height)
+                            fromRect:frame
+                           operation:NSCompositeCopy
+                            fraction:1.0f];
+    [image unlockFocus];
+//    [self.imageView setImage:image];
+    return image;
 }
 
 @end

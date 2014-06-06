@@ -14,20 +14,36 @@
 
 @implementation MEGamePartsEditWindowController
 
-- (id)initWithWindow:(NSWindow *)window
-{
+- (id)initWithWindow:(NSWindow *)window {
     self = [super initWithWindow:window];
     if (self) {
         // Initialization code here.
+        self.topImageView = [[NSImageView alloc] initWithFrame:self.topView.bounds];
     }
     return self;
 }
 
-- (void)windowDidLoad
-{
+- (void)windowDidLoad {
     [super windowDidLoad];
-    
+
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
+
+//タイルセットピックアップ
+- (void)setTopViewWithImage:(NSImage *)tile {
+    NSLog(@"size:%f,%f :%@:%@:%@",tile.size.width,tile.size.height,self.topImageView,self.topView,tile);
+    [self.topImageView setImage:tile];
+}
+
+
+
+//GameParts追加
+
+//GamePartsロード
+
+//GameParts上書き
+
+//GameParts削除
+
 
 @end

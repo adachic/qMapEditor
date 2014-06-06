@@ -16,17 +16,27 @@
         self.tileWindowControllers = [NSMutableArray new];
         
         NSArray *topLevel = [NSArray new];
+        NSArray *topLevel2 = [NSArray new];
         if(![[NSBundle mainBundle] loadNibNamed:@"MEGamePartsEditWindowController" owner:nil topLevelObjects:&topLevel]){
+            NSLog(@"unko1");
             return self;
         }
-        if(![[NSBundle mainBundle] loadNibNamed:@"MEGamePartsListWindowController" owner:nil topLevelObjects:&topLevel]){
-            return self;
-        }
+        NSLog(@"aaa%@",topLevel);
         for(id obj in topLevel){
             if(NSClassFromString(@"MEGamePartsEditWindowController") == [obj class]){
+                NSLog(@"unko3");
                 self.gamePartsEditWindowController = (MEGamePartsEditWindowController*)obj;
             }
+        }
+
+        if(![[NSBundle mainBundle] loadNibNamed:@"MEGamePartsListWindowController" owner:nil topLevelObjects:&topLevel2]){
+            NSLog(@"unko2");
+            return self;
+        }
+        NSLog(@"aaa2%@",topLevel2);
+        for(id obj in topLevel2){
             if(NSClassFromString(@"MEGamePartsListWindowController") == [obj class]){
+                NSLog(@"unko4");
                 self.gamePartsListWindowController = (MEGamePartsListWindowController*)obj;
             }
         }
@@ -59,28 +69,22 @@
         NSLog(@"file opened %@",filePath);
         /*タイルウィンドウを表示*/
         [self createTileWindow:filePath];
-        
     }
-    
 }
 
 -(void)createTileWindow:(NSURL*)filePath
 {
-//    NSRect rect = NSMakeRect(0, 0, 320, 200);
+    __block MEMainMenu *blockself = self;
+    NSLog(@"aho %@",blockself.gamePartsEditWindowController);
     METileWindowController* w = [[METileWindowController alloc]
-                                 initWithWindowNibName:@"METileWindowController" imageURL:filePath];
+                                 initWithWindowNibName:@"METileWindowController"
+                                 imageURL:filePath
+                                 onPickUp:^(NSImage *image){
+                                     NSLog(@"aho %@ :%@",image,blockself.gamePartsEditWindowController);
+                                     [blockself.gamePartsEditWindowController setTopViewWithImage:image];
+                                 }];
     [w.window makeKeyAndOrderFront:nil];
     [self.tileWindowControllers addObject:w];
 
-#ifdef NEVER
-    [[NSWindow alloc]
-                   initWithContentRect:rect
-                   styleMask:NSTitledWindowMask
-                   backing:NSBackingStoreBuffered
-                   defer:NO];
-    nextTopLeft = [w cascadeTopLeftFromPoint:nextTopLeft];
-    [w setTitle:NSStringFromPoint(nextTopLeft)];
-    [w  makeKeyAndOrderFront:nil];
-#endif
 }
 @end

@@ -16,4 +16,5 @@
 @property IBOutlet NSView	*targetView;
 @property IBOutlet NSTextField *selectionField;
 
+
 @end

@@ -10,4 +10,10 @@
 
 @interface MEGamePartsEditWindowController : NSWindowController
 
+- (void)setTopViewWithImage:(NSImage *)tile;
+
+@property IBOutlet NSImageView *topImageView;
+
+@property IBOutlet NSView *topView;
+
 @end

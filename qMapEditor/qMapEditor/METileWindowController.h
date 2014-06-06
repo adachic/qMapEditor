@@ -11,7 +11,9 @@
 @interface METileWindowController : NSWindowController{
     int widthNum;
     int heightNum;
+    bool readyToPickUp;
 }
+typedef void (^_onPickUp)(NSImage *image) ;
 
 @property IBOutlet NSView	*targetView;
 @property IBOutlet NSToolbar *toolBar;
@@ -22,8 +24,13 @@
 @property NSURL *imageURL;
 @property NSImageView *imageView;
 @property NSView *drawView;
+@property (copy) _onPickUp onPickUp;
 
-- (id)initWithWindowNibName:(NSString *)windowNibName imageURL:(NSURL*)url;
+- (id)initWithWindowNibName:(NSString *)windowNibName
+                   imageURL:(NSURL*)url
+                   onPickUp:(void (^)(NSImage *image))pickup;
+
+//- (id)initWithWindowNibName:(NSString *)windowNibName imageURL:(NSURL*)url;
 - (void)showContent;
 - (IBAction)pushFixButton:(id)sender;
 
