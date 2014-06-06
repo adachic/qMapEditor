@@ -6,27 +6,101 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="METileWindowController">
             <connections>
+                <outlet property="fixButton" destination="Pkc-5Q-Zm9" id="9Ds-Eo-au1"/>
+                <outlet property="heightCellsNum" destination="7qQ-4h-DtE" id="4GT-AG-TnD"/>
                 <outlet property="targetView" destination="h9F-0F-9gN" id="ltH-8U-pQK"/>
+                <outlet property="toolBar" destination="e2v-fF-iza" id="0dg-4j-H5n"/>
+                <outlet property="widthCellsNum" destination="hcY-ob-eVt" id="ws3-UW-txJ"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+            <rect key="contentRect" x="196" y="240" width="505" height="270"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
-            <view key="contentView" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+            <view key="contentView" autoresizesSubviews="NO" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="0.0" width="505" height="270"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView id="h9F-0F-9gN">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                    <customView autoresizesSubviews="NO" id="h9F-0F-9gN">
+                        <rect key="frame" x="0.0" y="0.0" width="505" height="270"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                     </customView>
                 </subviews>
             </view>
+            <toolbar key="toolbar" implicitIdentifier="C0517753-1F79-40D5-8787-A0CA9B7090D3" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="e2v-fF-iza">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="A2958E91-71EA-44EF-8A6F-438F0EC9F887" label="WidthCellsNum" paletteLabel="WidthCellsNum" id="gfl-ei-1tL">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="25" height="22"/>
+                        <size key="maxSize" width="96" height="22"/>
+                        <textField key="view" verticalHuggingPriority="750" id="hcY-ob-eVt">
+                            <rect key="frame" x="11" y="14" width="67" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="dax-eq-xZ8">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="ywV-6J-gRi"/>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="WNb-DP-wUS"/>
+                    <toolbarItem implicitItemIdentifier="753744EE-D1E2-4561-B6A3-2EBB7B38C4B9" label="Custom View" paletteLabel="Custom View" id="el4-lN-Ykn">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="38" height="17"/>
+                        <size key="maxSize" width="38" height="17"/>
+                        <textField key="view" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Iwu-4i-TMb">
+                            <rect key="frame" x="20" y="14" width="38" height="17"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="gnd-Ve-k8D">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="4B67E22B-7CB4-4D5D-B95D-B70EBEC30300" label="Push to sepalate" paletteLabel="Push to sepalate" id="mtq-Fc-HZ9">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="116" height="25"/>
+                        <size key="maxSize" width="116" height="25"/>
+                        <button key="view" verticalHuggingPriority="750" id="Pkc-5Q-Zm9">
+                            <rect key="frame" x="0.0" y="14" width="116" height="25"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="roundTextured" title="Fix" bezelStyle="texturedRounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uIL-nk-fbG">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                        </button>
+                        <connections>
+                            <action selector="pushFixButton:" target="-2" id="npa-RZ-x00"/>
+                        </connections>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="1667378E-D582-4F14-B8EC-3359ECF2ECB2" label="HeightCellsNum" paletteLabel="HeightCellsNum" id="Vk2-GZ-Sb8">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="65" height="22"/>
+                        <size key="maxSize" width="96" height="22"/>
+                        <textField key="view" verticalHuggingPriority="750" id="7qQ-4h-DtE">
+                            <rect key="frame" x="14" y="14" width="65" height="22"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="6HT-hm-ZxJ">
+                                <font key="font" metaFont="system"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </toolbarItem>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="gfl-ei-1tL"/>
+                    <toolbarItem reference="Vk2-GZ-Sb8"/>
+                    <toolbarItem reference="mtq-Fc-HZ9"/>
+                    <toolbarItem reference="WNb-DP-wUS"/>
+                </defaultToolbarItems>
+            </toolbar>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
