@@ -32,17 +32,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MEMainMenu.h" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/qMapEditor/MEMainMenu.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="312" selection-end="312" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="555">
-              <folding>
-                <element signature="e#141#164#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MEGamePartsListWindowController.h" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEGamePartsListWindowController.h">
           <provider selected="true" editor-type-id="text-editor">
@@ -55,7 +44,7 @@
       <file leaf-file-name="MEGamePartsViewController.h" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEGamePartsViewController.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="0" selection-start="541" selection-end="541" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+            <state line="35" column="8" selection-start="802" selection-end="802" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
               <folding />
             </state>
           </provider>
@@ -108,10 +97,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="NSImageCell.h" pinned="false" current="false" current-in-tab="false">
+        <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSImageCell.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="35" column="11" selection-start="600" selection-end="600" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="MEGamePartsViewController.m" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEGamePartsViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="16" selection-start="3152" selection-end="3152" vertical-scroll-proportion="0.75842696" vertical-offset="780" max-vertical-offset="2520">
+            <state line="109" column="40" selection-start="3689" selection-end="3689" vertical-scroll-proportion="0.80898875" vertical-offset="915" max-vertical-offset="2580">
               <folding>
                 <element signature="e#156#193#0" expanded="true" />
               </folding>
@@ -467,13 +465,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGamePartsViewController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="0" selection-start="541" selection-end="541" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/qMapEditor/MEMainMenu.m">
       <provider selected="true" editor-type-id="text-editor">
         <state line="70" column="54" selection-start="2309" selection-end="2309" vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1500">
@@ -504,9 +495,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGamePartsViewController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="8" selection-start="802" selection-end="802" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="675">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSImageCell.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="11" selection-start="600" selection-end="600" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/qMapEditor/MEGamePartsViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="16" selection-start="3152" selection-end="3152" vertical-scroll-proportion="0.75842696" vertical-offset="780" max-vertical-offset="2520">
+        <state line="109" column="40" selection-start="3689" selection-end="3689" vertical-scroll-proportion="0.80898875" vertical-offset="915" max-vertical-offset="2580">
           <folding>
             <element signature="e#156#193#0" expanded="true" />
           </folding>

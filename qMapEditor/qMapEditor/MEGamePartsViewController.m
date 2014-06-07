@@ -92,10 +92,14 @@
 
 - (void)addGameParts:(MEGameParts*)gameParts{
     NSLog(@"gameparts:%@, %@",gameParts,gameParts.imageView.image);
+    /*
+    NSView *view = [[NSView alloc] initWithFrame:gameParts.imageView.frame];
+    [view addSubview:gameParts.imageView];
+    */
     if(!self.gamePartsArray){
         NSMutableArray	*tempArray = [[NSMutableArray alloc] init];
         [tempArray addObject: [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                [gameParts.imageView image], KEY_GAMEPARTS,
+                gameParts.imageView.image, KEY_GAMEPARTS,
                 @"aho", KEY_NAME,
                 nil]];
         [self setGamePartsArray:tempArray];

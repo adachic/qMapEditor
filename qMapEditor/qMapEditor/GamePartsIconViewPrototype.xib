@@ -13,14 +13,22 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
         <box autoresizesSubviews="NO" transparent="YES" boxType="custom" borderType="none" id="2" userLabel="View" customClass="IconViewBox">
-            <rect key="frame" x="0.0" y="0.0" width="121" height="60"/>
+            <rect key="frame" x="0.0" y="0.0" width="107" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView">
-                <rect key="frame" x="0.0" y="0.0" width="121" height="60"/>
+                <rect key="frame" x="0.0" y="0.0" width="107" height="60"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
+                    <imageView id="4" userLabel="Image View">
+                        <rect key="frame" x="36" y="3" width="69" height="55"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="5"/>
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="representedObject.game_parts" id="2JD-Ug-dAp"/>
+                        </connections>
+                    </imageView>
                     <textField verticalHuggingPriority="750" id="3">
-                        <rect key="frame" x="-42" y="36" width="121" height="22"/>
+                        <rect key="frame" x="-46" y="36" width="121" height="22"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                         <textFieldCell key="cell" controlSize="small" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" state="on" alignment="center" title="Label" id="6">
                             <font key="font" metaFont="smallSystem"/>
@@ -31,14 +39,6 @@
                             <binding destination="-2" name="value" keyPath="representedObject.name" id="10"/>
                         </connections>
                     </textField>
-                    <imageView id="4" userLabel="Image View">
-                        <rect key="frame" x="27" y="3" width="69" height="55"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="5"/>
-                        <connections>
-                            <binding destination="-2" name="value" keyPath="representedObject.game_parts" id="1AI-dw-Adi"/>
-                        </connections>
-                    </imageView>
                 </subviews>
             </view>
             <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
