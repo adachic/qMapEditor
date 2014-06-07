@@ -29,6 +29,7 @@
 		817E99CE1941125300B08786 /* METileWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E99CC1941125300B08786 /* METileWindowController.m */; };
 		817E99CF1941125300B08786 /* METileWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 817E99CD1941125300B08786 /* METileWindowController.xib */; };
 		817E99D31941221200B08786 /* Tiles.xib in Resources */ = {isa = PBXBuildFile; fileRef = 817E99D21941221200B08786 /* Tiles.xib */; };
+		BB6686A731B2E09E85491CB7 /* MEGameParts.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6687532CDC436EBEEC4E82 /* MEGameParts.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		817E99CC1941125300B08786 /* METileWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METileWindowController.m; sourceTree = "<group>"; };
 		817E99CD1941125300B08786 /* METileWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = METileWindowController.xib; sourceTree = "<group>"; };
 		817E99D21941221200B08786 /* Tiles.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tiles.xib; sourceTree = "<group>"; };
+		BB66867F3D2E1E1DB135E799 /* MEGameParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEGameParts.h; sourceTree = "<group>"; };
+		BB6687532CDC436EBEEC4E82 /* MEGameParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEGameParts.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +150,7 @@
 				813AD48E193FA3F600B949C5 /* MEAppDelegate.m */,
 				813AD493193FA3F600B949C5 /* Images.xcassets */,
 				813AD482193FA3F600B949C5 /* Supporting Files */,
+				BB668180DBADD1690AE2A07D /* Model */,
 			);
 			path = qMapEditor;
 			sourceTree = "<group>";
@@ -227,6 +231,15 @@
 				817E99D21941221200B08786 /* Tiles.xib */,
 			);
 			name = Tiles;
+			sourceTree = "<group>";
+		};
+		BB668180DBADD1690AE2A07D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BB6687532CDC436EBEEC4E82 /* MEGameParts.m */,
+				BB66867F3D2E1E1DB135E799 /* MEGameParts.h */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +354,7 @@
 				813AD488193FA3F600B949C5 /* main.m in Sources */,
 				817E99CE1941125300B08786 /* METileWindowController.m in Sources */,
 				813BE7F81940DEFC0034A0B8 /* MEGamePartsViewController.m in Sources */,
+				BB6686A731B2E09E85491CB7 /* MEGameParts.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

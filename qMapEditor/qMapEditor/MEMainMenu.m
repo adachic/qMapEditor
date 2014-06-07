@@ -12,77 +12,82 @@
 @implementation MEMainMenu
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-    if([super initWithCoder:aDecoder]){
-        self.tileWindowControllers = [NSMutableArray new];
-        
+    if ([super initWithCoder:aDecoder]) {
+#if 1
         NSArray *topLevel = [NSArray new];
         NSArray *topLevel2 = [NSArray new];
-        if(![[NSBundle mainBundle] loadNibNamed:@"MEGamePartsEditWindowController" owner:nil topLevelObjects:&topLevel]){
+        if (![[NSBundle mainBundle] loadNibNamed:@"MEGamePartsEditWindowController" owner:nil topLevelObjects:&topLevel]) {
             NSLog(@"unko1");
             return self;
         }
-        NSLog(@"aaa%@",topLevel);
-        for(id obj in topLevel){
-            if(NSClassFromString(@"MEGamePartsEditWindowController") == [obj class]){
+        NSLog(@"aaa%@", topLevel);
+        for (id obj in topLevel) {
+            if (NSClassFromString(@"MEGamePartsEditWindowController") == [obj class]) {
                 NSLog(@"unko3");
-                self.gamePartsEditWindowController = (MEGamePartsEditWindowController*)obj;
+                self.gamePartsEditWindowController = (MEGamePartsEditWindowController *) obj;
             }
         }
 
-        if(![[NSBundle mainBundle] loadNibNamed:@"MEGamePartsListWindowController" owner:nil topLevelObjects:&topLevel2]){
+        if (![[NSBundle mainBundle] loadNibNamed:@"MEGamePartsListWindowController" owner:nil topLevelObjects:&topLevel2]) {
             NSLog(@"unko2");
             return self;
         }
-        NSLog(@"aaa2%@",topLevel2);
-        for(id obj in topLevel2){
-            if(NSClassFromString(@"MEGamePartsListWindowController") == [obj class]){
+        for (id obj in topLevel2) {
+            if (NSClassFromString(@"MEGamePartsListWindowController") == [obj class]) {
                 NSLog(@"unko4");
-                self.gamePartsListWindowController = (MEGamePartsListWindowController*)obj;
+                self.gamePartsListWindowController = (MEGamePartsListWindowController *) obj;
             }
         }
+#endif
     }
+    self.tileWindowControllers = [NSMutableArray new];
+    __block MEMainMenu *blockself = self;
+    self.gamePartsEditWindowController.onRegistGameParts = [^(MEGameParts *gameParts) {
+        [blockself.gamePartsListWindowController.gamePartsViewController addGameParts:gameParts];
+    } copy];
+
+    NSLog(@"id:%@",self.gamePartsEditWindowController);
+
     return self;
 }
 
-- (BOOL)validateMenuItem:(id )menuItem
-{
+- (BOOL)validateMenuItem:(id)menuItem {
     return YES;
 }
 
 /*ウィンドウの表示*/
-- (IBAction)showGameParts:(id)sender
-{
-        [self.gamePartsEditWindowController.window orderFront:self];
+- (IBAction)showGameParts:(id)sender {
+    [self.gamePartsEditWindowController.window orderFront:self];
 }
 
 /*タイルマップを開く*/
-- (IBAction)openTileFile:(id)sender
-{
+- (IBAction)openTileFile:(id)sender {
     /*Openダイアログを表示*/
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
-    NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"png",@"jpg",@"bmp",nil];
+    NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"png", @"jpg", @"bmp", nil];
     [openPanel setAllowedFileTypes:allowedFileTypes];
     NSInteger pressedButton = [openPanel runModal];
-    
-    if(pressedButton == NSOKButton){
+
+    NSLog(@"id:%@",self.gamePartsEditWindowController);
+    if (pressedButton == NSOKButton) {
         NSURL *filePath = [openPanel URL];
-        NSLog(@"file opened %@",filePath);
+        NSLog(@"file opened %@", filePath);
         /*タイルウィンドウを表示*/
         [self createTileWindow:filePath];
     }
 }
 
--(void)createTileWindow:(NSURL*)filePath
-{
-    __block MEMainMenu *blockself = self;
-    NSLog(@"aho %@",blockself.gamePartsEditWindowController);
-    METileWindowController* w = [[METileWindowController alloc]
-                                 initWithWindowNibName:@"METileWindowController"
-                                 imageURL:filePath
-                                 onPickUp:^(NSImage *image){
-                                     NSLog(@"aho %@ :%@",image,blockself.gamePartsEditWindowController);
-                                     [blockself.gamePartsEditWindowController setTopViewWithImage:image];
-                                 }];
+/*タイルマップウィンドウ生成*/
+- (void)createTileWindow:(NSURL *)filePath {
+//    __block MEMainMenu *blockself = self;
+//    NSLog(@"aho %@",blockself.gamePartsEditWindowController);
+    METileWindowController *w = [[METileWindowController alloc]
+            initWithWindowNibName:@"METileWindowController"
+                         imageURL:filePath
+                         onPickUp:^(NSImage *image) {
+//                                     NSLog(@"aho %@ :%@",image,blockself.gamePartsEditWindowController);
+                             [self.gamePartsEditWindowController setTopViewWithImage:image];
+                         }];
     [w.window makeKeyAndOrderFront:nil];
     [self.tileWindowControllers addObject:w];
 

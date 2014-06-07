@@ -8,12 +8,20 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class MEGameParts;
+
 @interface MEGamePartsEditWindowController : NSWindowController
 
 - (void)setTopViewWithImage:(NSImage *)tile;
+- (IBAction)pushedAddGameParts:(id)sender;
+- (IBAction)pushedDeleteGameParts:(id)sender;
+- (IBAction)pushedModifyGameParts:(id)sender;
+
+typedef void (^_onRegistGameParts)(MEGameParts *gameParts);
+
+@property (copy) _onRegistGameParts onRegistGameParts;
 
 @property IBOutlet NSImageView *topImageView;
 
-@property IBOutlet NSView *topView;
 
 @end

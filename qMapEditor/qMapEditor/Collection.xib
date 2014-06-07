@@ -7,12 +7,22 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MEGamePartsViewController">
             <connections>
+                <outlet property="arrayController" destination="YEX-tc-coh" id="deA-ur-OxG"/>
                 <outlet property="collectionView" destination="363" id="376"/>
                 <outlet property="view" destination="360" id="368"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
+        <arrayController automaticallyRearrangesObjects="YES" id="YEX-tc-coh">
+            <declaredKeys>
+                <string>game_parts</string>
+                <string>name</string>
+            </declaredKeys>
+            <connections>
+                <binding destination="-2" name="contentArray" keyPath="gamePartsArray" id="8EE-fN-t4m"/>
+            </connections>
+        </arrayController>
         <collectionViewItem nibName="GamePartsIconViewPrototype" id="289" userLabel="Collection View Item"/>
         <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="360" userLabel="Scroll View">
             <rect key="frame" x="0.0" y="0.0" width="318" height="216"/>
@@ -27,6 +37,8 @@
                         <color key="primaryBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                         <color key="secondaryBackgroundColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                         <connections>
+                            <binding destination="YEX-tc-coh" name="content" keyPath="arrangedObjects" id="IUE-oc-n5X"/>
+                            <binding destination="YEX-tc-coh" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="IUE-oc-n5X" id="hd6-nZ-c4a"/>
                             <outlet property="delegate" destination="-2" id="380"/>
                             <outlet property="itemPrototype" destination="289" id="372"/>
                         </connections>

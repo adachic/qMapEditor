@@ -27,6 +27,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="pushedAddGameParts:" target="ThR-1Q-ZkZ" id="Uod-DK-a9Z"/>
+                        </connections>
                     </button>
                     <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yqf-tk-RLT">
                         <rect key="frame" x="124" y="81" width="312" height="347"/>
@@ -238,9 +241,9 @@
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
         </window>
-        <customObject id="h4U-ek-szC" customClass="MEGamePartsEditWindowController">
+        <customObject id="ThR-1Q-ZkZ" customClass="MEGamePartsEditWindowController">
             <connections>
-                <outlet property="topImageView" destination="yBs-pV-6VJ" id="BK3-6V-wo5"/>
+                <outlet property="topImageView" destination="yBs-pV-6VJ" id="aPm-i2-afU"/>
             </connections>
         </customObject>
     </objects>

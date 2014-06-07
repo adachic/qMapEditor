@@ -38,17 +38,14 @@
     self.gamePartsViewController = [[MEGamePartsViewController alloc] initWithNibName:@"Collection" bundle:nil];
     [self didChangeValueForKey:@"gamePartsViewController"];
 
-
     [self.targetView addSubview:[self.gamePartsViewController view]];
-
 
     // make sure we resize the viewController's view to match its super view
     [[self.gamePartsViewController view] setFrame:[self.targetView bounds]];
 
-#if 0
     [self.gamePartsViewController setSortingMode:0];		// ascending sort order
     [self.gamePartsViewController setAlternateColors:NO];	// no alternate background colors (initially use gradient background)
-#endif
+
 }
 
 @end

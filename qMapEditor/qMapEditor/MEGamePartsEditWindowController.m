@@ -7,6 +7,7 @@
 //
 
 #import "MEGamePartsEditWindowController.h"
+#import "MEGameParts.h"
 
 @interface MEGamePartsEditWindowController ()
 
@@ -18,7 +19,7 @@
     self = [super initWithWindow:window];
     if (self) {
         // Initialization code here.
-        self.topImageView = [[NSImageView alloc] initWithFrame:self.topView.bounds];
+//        self.topImageView = [[NSImageView alloc] initWithFrame:self.topView.bounds];
     }
     return self;
 }
@@ -31,19 +32,32 @@
 
 //タイルセットピックアップ
 - (void)setTopViewWithImage:(NSImage *)tile {
-    NSLog(@"size:%f,%f :%@:%@:%@",tile.size.width,tile.size.height,self.topImageView,self.topView,tile);
+    //   NSLog(@"setTopViewWithImage:size:%f,%f :%@:%@:%@", tile.size.width, tile.size.height, self.topImageView, self.topView, tile);
     [self.topImageView setImage:tile];
+    NSLog(@"topImageView  id;%@ %@",self.topImageView, self.topImageView.image);
 }
 
-
-
 //GameParts追加
+- (IBAction)pushedAddGameParts:(id)sender {
+    NSLog(@"topImageView2 id;%@ %@",self.topImageView, self.topImageView.image);
+    MEGameParts *gameParts = [[MEGameParts alloc] initWithParams:YES
+                                                       imageView:self.topImageView
+                                                    customEvents:nil];
+    NSLog(@"topImageView3 id;%@ %@",gameParts.imageView, gameParts.imageView.image);
+    self.onRegistGameParts(gameParts);
+}
 
 //GamePartsロード
 
 //GameParts上書き
+- (IBAction)pushedModifyGameParts:(id)sender {
+
+}
 
 //GameParts削除
+- (IBAction)pushedDeleteGameParts:(id)sender {
+
+}
 
 
 @end

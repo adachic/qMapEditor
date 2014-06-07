@@ -8,9 +8,32 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface MEGamePartsViewController : NSViewController
+@class MEGameParts;
 
-@property IBOutlet NSCollectionView *collectionView;
-@property IBOutlet NSArrayController *arrayController;
-
+@interface IconViewBox : NSBox
 @end
+
+@interface MyScrollView : NSScrollView {
+    NSGradient *backgroundGradient;
+}
+@end
+
+@interface MEGamePartsViewController : NSViewController <NSCollectionViewDelegate> {
+    IBOutlet NSCollectionView *collectionView;
+    IBOutlet NSArrayController *arrayController;
+    NSMutableArray *gamePartsArray;
+
+    BOOL sortingModeIsAcending;
+    BOOL alternateColors;
+
+    NSArray *savedAlternateColors;
+}
+
+@property(retain) NSMutableArray *gamePartsArray;
+@property(nonatomic, assign) NSUInteger sortingMode;
+@property(nonatomic, assign) BOOL alternateColors;
+
+- (void)addGameParts:(MEGameParts *)gameParts;
+@end
+
+
