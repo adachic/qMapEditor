@@ -7,8 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "MEGamePartsViewController.h"
 
 @interface MEGamePartsViewItem : NSCollectionViewItem
+
 - (void)mouseDown:(NSEvent *)theEvent;
-- (void)doubleClick:(id)sender ;
+@property IBOutlet __weak MEGamePartsViewController *_viewController;
 @end

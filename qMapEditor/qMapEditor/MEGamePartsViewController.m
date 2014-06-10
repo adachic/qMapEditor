@@ -110,11 +110,35 @@
         NSMutableArray	*tempArray = [[NSMutableArray alloc] init];
         [tempArray addObjectsFromArray:self.gamePartsArray];
         [tempArray addObject: [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                gameParts.imageView.image, KEY_GAMEPARTS,
-                @"aho", KEY_NAME,
+                               gameParts, KEY_GAMEPARTS,
+                @"aho2", KEY_NAME,
                 nil]];
         [self setGamePartsArray:tempArray];
     }
+}
+
+- (void)updateGameParts:(MEGameParts*)gameParts{
+//    collectionView.selectionIndexes
+    NSMutableDictionary *dict = [arrayController.selectedObjects lastObject];
+    MEGameParts *oldParts = [dict objectForKey:@"game_parts"];
+    NSLog(@"updated %@ to %@",oldParts, gameParts);
+    [oldParts.imageView setImage:[gameParts.imageView image]];
+//    oldParts = gameParts;
+    NSLog(@"updated2 %@ to %@",oldParts, gameParts);
+
+    return;
+    NSMutableArray	*tempArray = [[NSMutableArray alloc] init];
+    [tempArray addObjectsFromArray:self.gamePartsArray];
+    [self setGamePartsArray:tempArray];
+}
+
+- (void)deleteGameParts{
+    NSMutableDictionary *dict = [arrayController.selectedObjects lastObject];
+    
+    NSMutableArray	*tempArray = [[NSMutableArray alloc] init];
+    [tempArray addObjectsFromArray:self.gamePartsArray];
+    [tempArray removeObject:dict];
+    [self setGamePartsArray:tempArray];
 }
 
 - (void)setAlternateColors:(BOOL)useAlternateColors
@@ -139,6 +163,10 @@
               ascending:sortingModeIsAcending
                selector:@selector(caseInsensitiveCompare:)];
     [arrayController setSortDescriptors:[NSArray arrayWithObject:sort]];
+}
+
+- (void)selectedItem_:(id)sender{
+    NSLog(@"unko1000 omedetou");
 }
 
 

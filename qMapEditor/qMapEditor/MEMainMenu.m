@@ -42,10 +42,19 @@
     }
     self.tileWindowControllers = [NSMutableArray new];
     __block MEMainMenu *blockself = self;
+
     self.gamePartsEditWindowController.onRegistGameParts = [^(MEGameParts *gameParts) {
         [blockself.gamePartsListWindowController.gamePartsViewController addGameParts:gameParts];
     } copy];
-
+    
+    self.gamePartsEditWindowController.onUpdateGameParts = [^(MEGameParts *gameParts) {
+        [blockself.gamePartsListWindowController.gamePartsViewController updateGameParts:gameParts];
+    } copy];
+    
+    self.gamePartsEditWindowController.onDeleteGameParts = [^() {
+        [blockself.gamePartsListWindowController.gamePartsViewController deleteGameParts];
+    } copy];
+    
     NSLog(@"id:%@",self.gamePartsEditWindowController);
 
     return self;

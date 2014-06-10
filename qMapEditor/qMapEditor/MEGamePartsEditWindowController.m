@@ -19,21 +19,37 @@
     self = [super initWithWindow:window];
     if (self) {
         // Initialization code here.
-//        self.topImageView = [[NSImageView alloc] initWithFrame:self.topView.bounds];
+        //        self.topImageView = [[NSImageView alloc] initWithFrame:self.topView.bounds];
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        
+        // 通知センターに通知要求を登録する
+        // この例だと、通知センターに"Tuchi"という名前の通知がされた時に、
+        // hogeメソッドを呼び出すという通知要求の登録を行っている。
+        [nc addObserver:self selector:@selector(selectedGameParts:) name:@"selectedGameParts" object:nil];
     }
     return self;
 }
 
+#ifdef NEVER
 - (void)windowDidLoad {
     [super windowDidLoad];
 
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
+#endif
+
+- (void)selectedGameParts:(id)obj{
+    NSDictionary *dict = [[obj userInfo] objectForKey:@"KEY"];
+    MEGameParts *parts = [dict objectForKey:@"game_parts"];
+    
+    [self.topImageView setImage:parts.imageView.image];
+    NSLog(@"hoge,%@",parts);
+}
 
 //タイルセットピックアップ
 - (void)setTopViewWithImage:(NSImage *)tile {
     //   NSLog(@"setTopViewWithImage:size:%f,%f :%@:%@:%@", tile.size.width, tile.size.height, self.topImageView, self.topView, tile);
-    [self.topImageView setImage:tile];
+    [self.topImageView setImage:[tile copy]];
     NSLog(@"topImageView  id;%@ %@",self.topImageView, self.topImageView.image);
 }
 
@@ -44,6 +60,7 @@
                                                        imageView:self.topImageView
                                                     customEvents:nil];
     NSLog(@"topImageView3 id;%@ %@",gameParts.imageView, gameParts.imageView.image);
+    
     self.onRegistGameParts(gameParts);
 }
 
@@ -51,12 +68,15 @@
 
 //GameParts上書き
 - (IBAction)pushedModifyGameParts:(id)sender {
-
+    MEGameParts *gameParts = [[MEGameParts alloc] initWithParams:YES
+                                                       imageView:self.topImageView
+                                                    customEvents:nil];
+    self.onUpdateGameParts(gameParts);
 }
 
 //GameParts削除
 - (IBAction)pushedDeleteGameParts:(id)sender {
-
+    self.onDeleteGameParts();
 }
 
 

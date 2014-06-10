@@ -33,12 +33,23 @@
 - (void)mouseDown:(NSEvent *)theEvent{
     //選択状態にする
     
-    
     NSLog(@"unko, %@",self.representedObject);
+
+//    [self._viewController selectedItem_:self];
+    
+    NSDictionary *item = [NSDictionary dictionaryWithObject:self.representedObject
+                                                     forKey:@"KEY"];
+    
+//    [item objectForKey:@"game_parts"]
+    NSNotification *n =
+    [NSNotification notificationWithName:@"selectedGameParts" object:self userInfo:item];
+    [[NSNotificationCenter defaultCenter] postNotification:n];
 }
 
 
 - (void)setSelected:(BOOL)flag {
         NSLog(@"unko2");
+  
+
 }
 @end

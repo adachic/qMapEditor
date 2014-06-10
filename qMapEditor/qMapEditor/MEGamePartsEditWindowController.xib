@@ -222,6 +222,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="pushedModifyGameParts:" target="ThR-1Q-ZkZ" id="tnB-fy-sdJ"/>
+                        </connections>
                     </button>
                     <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yBs-pV-6VJ" customClass="NSImageView">
                         <rect key="frame" x="8" y="323" width="115" height="91"/>
@@ -234,6 +237,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="pushedDeleteGameParts:" target="ThR-1Q-ZkZ" id="I5s-YG-SIz"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>

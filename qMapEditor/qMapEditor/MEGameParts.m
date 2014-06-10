@@ -11,7 +11,8 @@
 - (id)initWithParams:(BOOL)walkable1 imageView:(NSImageView*)imageView1 customEvents:(NSDictionary *)customEvents1{
     if(self = [super init]){
         walkable = walkable1;
-        self.imageView = imageView1;
+        self.imageView = [[NSImageView alloc] initWithFrame:imageView1.frame];
+        [self.imageView setImage:[[imageView1 image] copy]];
         customEvents = customEvents1;
     }
     return self;
