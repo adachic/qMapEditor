@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="NSCollectionViewItem">
+        <customObject id="-2" userLabel="File's Owner" customClass="MEGamePartsViewItem">
             <connections>
                 <outlet property="view" destination="2" id="11"/>
             </connections>
@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="5"/>
                         <connections>
-                            <binding destination="-2" name="value" keyPath="representedObject.game_parts" id="2JD-Ug-dAp"/>
+                            <binding destination="-2" name="value" keyPath="representedObject.game_parts.imageView.image" id="tgz-ax-MI1"/>
                         </connections>
                     </imageView>
                     <textField verticalHuggingPriority="750" id="3">
@@ -49,7 +49,9 @@
                         <string key="NSValueTransformerName">NSNegateBoolean</string>
                     </dictionary>
                 </binding>
+                <outlet property="delegate" destination="-2" id="AQK-GK-zIh"/>
             </connections>
         </box>
+        <userDefaultsController representsSharedInstance="YES" id="GTj-0r-NH8"/>
     </objects>
 </document>

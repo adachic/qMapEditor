@@ -11,10 +11,12 @@
 
 @implementation IconViewBox
 
-- (NSView *)hitTest:(NSPoint)aPoint
-{
-    // don't allow any mouse clicks for subviews in this NSBox
-    return nil;
+- (void)mouseDown:(NSEvent *)theEvent{
+	[super mouseDown:theEvent];
+	// check for click count above one, which we assume means it's a double click
+    if(self.delegate && [self.delegate respondsToSelector:@selector(mouseDown:)]) {
+        [self.delegate performSelector:@selector(mouseDown:) withObject:theEvent];
+    }
 }
 
 @end
@@ -99,8 +101,9 @@
     if(!self.gamePartsArray){
         NSMutableArray	*tempArray = [[NSMutableArray alloc] init];
         [tempArray addObject: [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                gameParts.imageView.image, KEY_GAMEPARTS,
-                @"aho", KEY_NAME,
+                               //gameParts.imageView.image, KEY_GAMEPARTS,
+                               gameParts, KEY_GAMEPARTS,
+                               @"aho", KEY_NAME,
                 nil]];
         [self setGamePartsArray:tempArray];
     }else{

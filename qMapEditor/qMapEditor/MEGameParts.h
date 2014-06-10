@@ -6,7 +6,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface MEGameParts : NSObject
+@interface MEGameParts : NSObject <NSCopying>
 {
 //    NSImageView *imageView;
     BOOL walkable;

@@ -11,6 +11,9 @@
 @class MEGameParts;
 
 @interface IconViewBox : NSBox
+
+@property IBOutlet id delegate;
+
 @end
 
 @interface MyScrollView : NSScrollView {

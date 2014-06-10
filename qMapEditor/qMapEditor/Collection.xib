@@ -16,14 +16,15 @@
         <customObject id="-3" userLabel="Application"/>
         <arrayController automaticallyRearrangesObjects="YES" id="YEX-tc-coh">
             <declaredKeys>
-                <string>game_parts</string>
+                <string>game_parts.imageView.image</string>
                 <string>name</string>
+                <string>obj</string>
             </declaredKeys>
             <connections>
                 <binding destination="-2" name="contentArray" keyPath="gamePartsArray" id="8EE-fN-t4m"/>
             </connections>
         </arrayController>
-        <collectionViewItem nibName="GamePartsIconViewPrototype" id="289" userLabel="Collection View Item"/>
+        <collectionViewItem nibName="GamePartsIconViewPrototype" id="289" userLabel="Collection View Item" customClass="MEGamePartsViewItem"/>
         <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="360" userLabel="Scroll View">
             <rect key="frame" x="0.0" y="0.0" width="318" height="216"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
@@ -51,7 +52,7 @@
                 <autoresizingMask key="autoresizingMask"/>
             </scroller>
             <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="0.5" horizontal="NO" id="361">
-                <rect key="frame" x="301" y="1" width="16" height="214"/>
+                <rect key="frame" x="302" y="1" width="15" height="214"/>
                 <autoresizingMask key="autoresizingMask"/>
             </scroller>
         </scrollView>
