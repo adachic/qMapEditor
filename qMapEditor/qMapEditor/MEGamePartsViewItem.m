@@ -49,7 +49,6 @@
 
 - (void)setSelected:(BOOL)flag {
         NSLog(@"unko2");
-  
-
 }
+
 @end

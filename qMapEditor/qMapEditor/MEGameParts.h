@@ -30,5 +30,6 @@
            duration:(CGFloat)duration
        customEvents:(NSDictionary *)custom;
 - (NSImage *)image;
+- (void)initSampleImageWithKVO:(BOOL)notify;
 
 @end

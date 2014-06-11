@@ -54,6 +54,7 @@
 - (void)setViewWithGameParts:(MEGameParts *)gameParts {
     //   NSLog(@"setTopViewWithImage:size:%f,%f :%@:%@:%@", tile.size.width, tile.size.height, self.topImageView, self.topView, tile);
     NSAssert(gameParts, @"gameParts should not nil");
+    buildingGameParts = nil;
     buildingGameParts = gameParts;
 
     if ([buildingGameParts.tiles count] > 1) {
@@ -63,10 +64,11 @@
         buildingGameParts.tiles = gameParts.tiles;
     } else {
         [self.topImageView setImage:[buildingGameParts image]];
+        [buildingGameParts initSampleImageWithKVO:NO];
     }
 
     buildingGameParts.walkable = [self.walkable state] == NSOnState;
-    [buildingGameParts.sampleImage setImage:[buildingGameParts image]];
+//    [buildingGameParts.sampleImage setImage:[_topImageView image]];
 
     NSLog(@"topImageView  id;%@ %@", self.topImageView, self.topImageView.image);
 }

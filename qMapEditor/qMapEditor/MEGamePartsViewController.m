@@ -74,13 +74,16 @@
     NSLog(@"updated %@ to %@", oldParts, gameParts);
 
 //    oldParts = nil;
-//    oldParts = gameParts;
-    oldParts.name = gameParts.name;
-    [oldParts.sampleImage setImage:[gameParts image]];
-    NSLog(@"updated2 %@ to %@", oldParts, gameParts);
+//    [oldParts.sampleImage setImage:[gameParts image]];
+    oldParts.sampleImage.image = gameParts.sampleImage.image;
+    [oldParts initSampleImageWithKVO:YES];
+    oldParts = gameParts;
 
-    return;
-    
+//    [oldParts.sampleImage setNeedsDisplay:YES];
+//    oldParts = gameParts;
+//    [gameParts.sampleImage setImage:[gameParts.sampleImage image]];
+    NSLog(@"updated2 %@ to %@", oldParts, gameParts);
+//    return;
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
     [tempArray addObjectsFromArray:self.gamePartsArray];
     [self setGamePartsArray:tempArray];
