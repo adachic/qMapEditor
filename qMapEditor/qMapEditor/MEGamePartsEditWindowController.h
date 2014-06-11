@@ -10,6 +10,7 @@
 
 @class MEGameParts;
 @class METile;
+@class MEAnimationBaseView;
 
 @interface MEGamePartsEditWindowController : NSWindowController
 {
@@ -23,6 +24,9 @@
 - (IBAction)pushedDeleteGameParts:(id)sender;
 - (IBAction)pushedModifyGameParts:(id)sender;
 
+- (IBAction)pushedSwitchAnimMode:(id)sender;
+- (IBAction)pushedClearAnim:(id)sender;
+
 - (void)hoge:(id)obj;
 
 typedef void (^_onRegistGameParts)(MEGameParts *gameParts);
@@ -34,9 +38,15 @@ typedef void (^_onDeleteGameParts)();
 @property (copy) _onDeleteGameParts onDeleteGameParts;
 
 @property IBOutlet NSImageView *topImageView;
+@property IBOutlet NSTextField *durationPerFlame;
+
 @property IBOutlet NSButton *walkable;
 @property IBOutlet NSButton *animation;
-@property IBOutlet NSView *animationViewBase;
 
+@property IBOutlet MEAnimationBaseView *animationViewBase;
+@property IBOutlet NSButton *addAnimationModeButton;
+@property IBOutlet NSButton *clearAnimationButton;
+
+@property IBOutlet NSTextField *modeLabel;
 
 @end

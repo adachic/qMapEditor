@@ -11,12 +11,13 @@
 @property CGRect tileRect;
 
 - (id)initWithURL:(NSURL *)filePath rect:(CGRect)rect;
+- (NSImage *)image;
 @end
 
 
 @interface MEGameParts : NSObject <NSCopying> {
 }
-@property NSArray *tiles;
+@property NSMutableArray *tiles;
 @property BOOL walkable;
 @property CGFloat durationPerFrame;
 @property NSDictionary *customEvents;

@@ -8,6 +8,7 @@
 
 #import "MEGamePartsEditWindowController.h"
 #import "MEGameParts.h"
+#import "MEAnimationBaseView.h"
 
 @interface MEGamePartsEditWindowController ()
 
@@ -60,8 +61,10 @@
     if ([buildingGameParts.tiles count] > 1) {
         //アニメーションあり
         // [self animate];
+        /*
         buildingGameParts.tiles = nil ;
         buildingGameParts.tiles = gameParts.tiles;
+        */
     } else {
         [self.topImageView setImage:[buildingGameParts image]];
         [buildingGameParts initSampleImageWithKVO:NO];
@@ -75,8 +78,9 @@
 
 //タイルが指定された
 - (void)setViewWithTile:(METile *)tile {
-    NSAssert(tile, @"tile should not nil");
-    NSArray *tiles = [[NSArray alloc] initWithObjects:tile, nil];
+//    NSAssert(tile, @"tile should not nil");
+    NSMutableArray *tiles = [[NSMutableArray alloc] initWithArray:buildingGameParts.tiles];
+    [tiles addObject:tile];
     if (!buildingGameParts) {
         buildingGameParts = [[MEGameParts alloc] initWithTiles:tiles
                                                       walkable:YES
@@ -87,6 +91,17 @@
     }
     buildingGameParts.tiles = nil;
     buildingGameParts.tiles = tiles;
+    if (self.animationViewBase.editable) {
+        int idx = [tiles count];
+        idx-=2;
+        NSLog(@"idx:%d",idx);
+        CGFloat widthVolume = 10.0f;
+        CGFloat heightVolume = 10.0f;
+        NSImageView *imageView = [[NSImageView alloc]
+                initWithFrame:CGRectMake(widthVolume * (idx % 5), heightVolume * (idx / 5), widthVolume, heightVolume)];
+        [imageView setImage:[[tiles lastObject] image]];
+        [self.animationViewBase addSubview:imageView];
+    }
 
     [self setViewWithGameParts:buildingGameParts];
 }
@@ -119,7 +134,20 @@
 }
 //GamePartsロード
 
+//animボタン
+- (IBAction)pushedSwitchAnimMode:(id)sender {
+    [self.animationViewBase switchMode];
+    if (self.animationViewBase.editable) {
+        [self.modeLabel setStringValue:@"Select any tile to add animation."];
+    } else {
+        [self.modeLabel setStringValue:@"disable"];
+    }
+}
 
+//clearボタン
+- (IBAction)pushedClearAnim:(id)sender {
+
+}
 
 
 @end

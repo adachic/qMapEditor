@@ -22,6 +22,19 @@
     return another;
 }
 
+- (NSImage *)image {
+    NSImage *image = [[NSImage alloc] initByReferencingURL:self.tileFilePath];
+    NSImage *imageFrom = [[NSImage alloc] initByReferencingURL:self.tileFilePath];
+    [image setSize:self.tileRect.size];
+    [image lockFocus];
+    [imageFrom drawInRect:CGRectMake(0, 0, self.tileRect.size.width, self.tileRect.size.height)
+                 fromRect:self.tileRect
+                operation:NSCompositeCopy
+                 fraction:1.0f];
+    [image unlockFocus];
+    return image;
+}
+
 @end
 
 @implementation MEGameParts
@@ -72,7 +85,7 @@ static NSInteger idCounter = 0;
 
 - (NSImage *)image {
     METile *tile = [self.tiles lastObject];
-    NSAssert(tile, @"tile should not nil");
+    NSAssert(tile, @"GAMEPARTS:tile should not nil");
     NSImage *image = [[NSImage alloc] initByReferencingURL:tile.tileFilePath];
     NSImage *imageFrom = [[NSImage alloc] initByReferencingURL:tile.tileFilePath];
     [image setSize:tile.tileRect.size];

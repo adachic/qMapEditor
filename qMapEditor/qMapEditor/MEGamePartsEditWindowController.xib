@@ -66,9 +66,20 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
-                                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0Z-gb-3rb">
-                                            <rect key="frame" x="32" y="135" width="50" height="50"/>
+                                        <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0Z-gb-3rb" customClass="MEAnimationBaseView">
+                                            <rect key="frame" x="32" y="71" width="246" height="114"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <subviews>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QPV-yh-UB3">
+                                                    <rect key="frame" x="12" y="66" width="225" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Disable" id="OPp-kZ-sg1">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                            </subviews>
                                         </customView>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HcB-b3-rcb">
                                             <rect key="frame" x="32" y="218" width="96" height="22"/>
@@ -89,6 +100,28 @@
                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y4M-k5-BtY">
+                                            <rect key="frame" x="26" y="32" width="153" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="push" title="Switch Animmode" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NST-8d-cHl">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="pushedSwitchAnimMode:" target="ThR-1Q-ZkZ" id="jbT-ci-tdJ"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WAB-BF-Xfq">
+                                            <rect key="frame" x="198" y="32" width="73" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="push" title="Clear" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zjx-lU-cGc">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="pushedClearAnim:" target="ThR-1Q-ZkZ" id="urc-W1-HNk"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </view>
                             </tabViewItem>
@@ -249,7 +282,15 @@
         </window>
         <customObject id="ThR-1Q-ZkZ" customClass="MEGamePartsEditWindowController">
             <connections>
+                <outlet property="addAnimationModeButton" destination="Y4M-k5-BtY" id="XYh-lp-KIl"/>
+                <outlet property="animation" destination="o9F-xJ-Oct" id="llw-oL-o7A"/>
+                <outlet property="animationViewBase" destination="J0Z-gb-3rb" id="a7H-D6-rAP"/>
+                <outlet property="clearAnimationButton" destination="WAB-BF-Xfq" id="udQ-VZ-CeS"/>
+                <outlet property="durationPerFlame" destination="HcB-b3-rcb" id="Tpx-AW-5GX"/>
+                <outlet property="modeLabel" destination="QPV-yh-UB3" id="A1L-sk-1WY"/>
                 <outlet property="topImageView" destination="yBs-pV-6VJ" id="aPm-i2-afU"/>
+                <outlet property="walkable" destination="WSW-QA-cpH" id="Uub-Ve-ley"/>
+                <outlet property="window" destination="F0z-JX-Cv5" id="MJG-F4-sDS"/>
             </connections>
         </customObject>
     </objects>
