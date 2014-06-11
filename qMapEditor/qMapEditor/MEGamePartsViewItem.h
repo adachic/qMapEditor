@@ -12,5 +12,4 @@
 @interface MEGamePartsViewItem : NSCollectionViewItem
 
 - (void)mouseDown:(NSEvent *)theEvent;
-@property IBOutlet __weak MEGamePartsViewController *_viewController;
 @end

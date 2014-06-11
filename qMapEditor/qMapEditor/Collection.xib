@@ -23,15 +23,11 @@
                 <binding destination="-2" name="contentArray" keyPath="gamePartsArray" id="8EE-fN-t4m"/>
             </connections>
         </arrayController>
-        <collectionViewItem nibName="GamePartsIconViewPrototype" id="289" userLabel="Collection View Item" customClass="MEGamePartsViewItem">
-            <connections>
-                <outlet property="_viewController" destination="-2" id="ZD6-OE-mUC"/>
-            </connections>
-        </collectionViewItem>
-        <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="360" userLabel="Scroll View">
+        <collectionViewItem nibName="GamePartsIconViewPrototype" id="289" userLabel="Collection View Item" customClass="MEGamePartsViewItem"/>
+        <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="360" userLabel="Scroll View" customClass="MyScrollView">
             <rect key="frame" x="0.0" y="0.0" width="318" height="216"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
-            <clipView key="contentView" wantsLayer="YES" drawsBackground="NO" copiesOnScroll="NO" id="63X-aK-QAn">
+            <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="63X-aK-QAn">
                 <rect key="frame" x="1" y="1" width="316" height="214"/>
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
@@ -42,7 +38,6 @@
                             <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </shadow>
                         <color key="primaryBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                        <color key="secondaryBackgroundColor" name="selectedControlColor" catalog="System" colorSpace="catalog"/>
                         <connections>
                             <binding destination="YEX-tc-coh" name="content" keyPath="arrangedObjects" id="IUE-oc-n5X"/>
                             <binding destination="YEX-tc-coh" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="IUE-oc-n5X" id="hd6-nZ-c4a"/>
@@ -58,7 +53,7 @@
                 <autoresizingMask key="autoresizingMask"/>
             </scroller>
             <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="0.5" horizontal="NO" id="361">
-                <rect key="frame" x="301" y="1" width="16" height="214"/>
+                <rect key="frame" x="302" y="1" width="15" height="214"/>
                 <autoresizingMask key="autoresizingMask"/>
             </scroller>
         </scrollView>

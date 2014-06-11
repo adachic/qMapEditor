@@ -14,12 +14,12 @@
 
 @implementation MEGamePartsViewItem
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+/*
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Initialization code here.
-        NSLog(@"aho rep:%@",self.representedObject);
+        NSLog(@"aho rep:%@", self.representedObject);
     }
     return self;
 }
@@ -29,26 +29,23 @@
     NSLog(@"init called");
     return self;
 }
+*/
 
-- (void)mouseDown:(NSEvent *)theEvent{
+- (void)mouseDown:(NSEvent *)theEvent {
     //選択状態にする
-    
-    NSLog(@"unko, %@",self.representedObject);
-
-//    [self._viewController selectedItem_:self];
-    
+    NSLog(@"item mouseDown");
     NSDictionary *item = [NSDictionary dictionaryWithObject:self.representedObject
                                                      forKey:@"KEY"];
-    
-//    [item objectForKey:@"game_parts"]
     NSNotification *n =
-    [NSNotification notificationWithName:@"selectedGameParts" object:self userInfo:item];
+            [NSNotification notificationWithName:@"selectedGameParts" object:self userInfo:item];
     [[NSNotificationCenter defaultCenter] postNotification:n];
 }
 
-
+/*
 - (void)setSelected:(BOOL)flag {
-        NSLog(@"unko2");
+    [self setSelected:YES];
+    NSLog(@"item selected");
 }
+ */
 
 @end

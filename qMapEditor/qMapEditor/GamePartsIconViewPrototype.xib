@@ -52,6 +52,5 @@
                 <outlet property="delegate" destination="-2" id="AQK-GK-zIh"/>
             </connections>
         </box>
-        <userDefaultsController representsSharedInstance="YES" id="GTj-0r-NH8"/>
     </objects>
 </document>

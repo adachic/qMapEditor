@@ -19,6 +19,12 @@
     }
 }
 
+- (NSView *)hitTest:(NSPoint)aPoint
+{
+    // don't allow any mouse clicks for subviews in this NSBox
+    return self;
+}
+
 @end
 
 @interface MEGamePartsViewController ()
@@ -26,6 +32,9 @@
 @end
 
 @implementation MEGamePartsViewController
+
+
+@synthesize gamePartsArray, sortingMode, alternateColors;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -43,8 +52,18 @@
     savedAlternateColors = [collectionView backgroundColors];
 
     [self setSortingMode:0];        // icon collection in ascending sort order
-    [self setAlternateColors:YES];    // no alternate background colors (initially use gradient background)
+    [self setAlternateColors:NO];    // no alternate background colors (initially use gradient background)
 
+    
+    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    [tempArray addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                          [[MEGameParts alloc] initWithTiles:[NSArray arrayWithObjects:[[METile alloc] initWithURL:[[NSURL alloc] initWithString:@"file:///Users/adachic/Desktop/78003b0a-s.jpg"] rect:CGRectMake(0,0,100,100)],nil]
+                                                    walkable:NO
+                                                    duration:0
+                                                customEvents:nil], KEY_GAMEPARTS,
+                          @"aho", KEY_NAME,
+                          nil]];
+    [self setGamePartsArray:tempArray];
     [collectionView setDraggingSourceOperationMask:NSDragOperationCopy forLocal:NO];
 }
 
@@ -65,6 +84,7 @@
                 nil]];
         [self setGamePartsArray:tempArray];
     }
+    [collectionView updateLayer];
 }
 
 - (void)updateGameParts:(MEGameParts *)gameParts {
@@ -116,10 +136,6 @@
               ascending:sortingModeIsAcending
                selector:@selector(caseInsensitiveCompare:)];
     [arrayController setSortDescriptors:[NSArray arrayWithObject:sort]];
-}
-
-- (void)selectedItem_:(id)sender {
-    NSLog(@"unko1000 omedetou");
 }
 
 
