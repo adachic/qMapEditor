@@ -7,6 +7,7 @@
 //
 
 #import "METileWindowController.h"
+#import "MEGameParts.h"
 
 @interface METileWindowController ()
 
@@ -14,7 +15,9 @@
 
 @implementation METileWindowController
 
-- (id)initWithWindowNibName:(NSString *)windowNibName imageURL:(NSURL *)url onPickUp:(void (^)(NSImage *image))pickup {
+- (id)initWithWindowNibName:(NSString *)windowNibName
+                   imageURL:(NSURL *)url
+                   onPickUp:(void (^)(METile *tile))pickup {
     self = [super initWithWindowNibName:windowNibName];
     if (self) {
         self.imageURL = url;
@@ -46,10 +49,9 @@
 
     [self.targetView setFrame:[self.imageView frame]];
     [self.targetView addSubview:self.imageView];
-
-
 }
 
+//線引きボタン
 - (IBAction)pushFixButton:(id)sender {
     [self.imageView removeFromSuperview];
     self.imageView = nil;
@@ -77,9 +79,7 @@
                 NSMinY([self.imageView bounds]));
         NSPoint to = NSMakePoint(NSMinX([self.imageView bounds]) + widthVolume * x,
                 NSMaxY([self.imageView bounds]));
-        [self drawLine:from to:to];
-
-
+        [self _drawLine:from to:to];
     }
     //横線
     for (int y = 1; y < heightNum; y++) {
@@ -87,7 +87,7 @@
                 NSMinY([self.imageView bounds]) + heightVolume * y);
         NSPoint to = NSMakePoint(NSMaxX([self.imageView bounds]),
                 NSMinY([self.imageView bounds]) + heightVolume * y);
-        [self drawLine:from to:to];
+        [self _drawLine:from to:to];
     }
 
     [self.imageView.image unlockFocus];
@@ -96,13 +96,12 @@
 }
 
 
-- (void)drawLine:(NSPoint)from to:(NSPoint)to {
+- (void)_drawLine:(NSPoint)from to:(NSPoint)to {
     NSBezierPath *line = [NSBezierPath bezierPath];
     [line moveToPoint:from];
     [line lineToPoint:to];
     [line setLineWidth:1.0]; /// Make it easy to see
     [[NSColor blueColor] set];
-    //    [[self lineColor] set]; /// Make future drawing the color of lineColor.
     [line stroke];
 }
 
@@ -121,15 +120,18 @@
                     location.y >= y * heightVolume && location.y < (y + 1) * heightVolume
                     ) {
                 //切り取って渡す
-                self.onPickUp([self pickUpImageWithFrame:CGRectMake(x * widthVolume,
-                        y * heightVolume,
-                        widthVolume,
-                        heightVolume)]);
+                self.onPickUp([[METile alloc] initWithURL:self.imageURL
+                                                     rect:CGRectMake(x * widthVolume,
+                                                             y * heightVolume,
+                                                             widthVolume,
+                                                             heightVolume)]);
             }
         }
     }
 }
 
+
+#ifdef NEVER
 - (NSImage *)pickUpImageWithFrame:(CGRect)frame {
     //NSImage *image = [[NSImage alloc] initWithSize:frame.size];
     NSImage *image = [[NSImage alloc] initByReferencingURL:self.imageURL];
@@ -143,5 +145,6 @@
 //    [self.imageView setImage:image];
     return image;
 }
+#endif
 
 @end

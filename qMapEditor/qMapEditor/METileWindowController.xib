@@ -33,12 +33,12 @@
             </view>
             <toolbar key="toolbar" implicitIdentifier="C0517753-1F79-40D5-8787-A0CA9B7090D3" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="e2v-fF-iza">
                 <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="A2958E91-71EA-44EF-8A6F-438F0EC9F887" label="WidthCellsNum" paletteLabel="WidthCellsNum" id="gfl-ei-1tL">
+                    <toolbarItem implicitItemIdentifier="A2958E91-71EA-44EF-8A6F-438F0EC9F887" label="WidthNum" paletteLabel="WidthNum" id="gfl-ei-1tL">
                         <nil key="toolTip"/>
                         <size key="minSize" width="25" height="22"/>
                         <size key="maxSize" width="96" height="22"/>
                         <textField key="view" verticalHuggingPriority="750" id="hcY-ob-eVt">
-                            <rect key="frame" x="11" y="14" width="67" height="22"/>
+                            <rect key="frame" x="0.0" y="14" width="67" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="dax-eq-xZ8">
                                 <font key="font" metaFont="system"/>
@@ -63,12 +63,12 @@
                             </textFieldCell>
                         </textField>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="4B67E22B-7CB4-4D5D-B95D-B70EBEC30300" label="Push to sepalate" paletteLabel="Push to sepalate" id="mtq-Fc-HZ9">
+                    <toolbarItem implicitItemIdentifier="4B67E22B-7CB4-4D5D-B95D-B70EBEC30300" label="Sepalate" paletteLabel="Sepalate" id="mtq-Fc-HZ9">
                         <nil key="toolTip"/>
-                        <size key="minSize" width="116" height="25"/>
+                        <size key="minSize" width="49" height="25"/>
                         <size key="maxSize" width="116" height="25"/>
                         <button key="view" verticalHuggingPriority="750" id="Pkc-5Q-Zm9">
-                            <rect key="frame" x="0.0" y="14" width="116" height="25"/>
+                            <rect key="frame" x="1" y="14" width="50" height="25"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <buttonCell key="cell" type="roundTextured" title="Fix" bezelStyle="texturedRounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="uIL-nk-fbG">
                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -79,12 +79,12 @@
                             <action selector="pushFixButton:" target="-2" id="npa-RZ-x00"/>
                         </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="1667378E-D582-4F14-B8EC-3359ECF2ECB2" label="HeightCellsNum" paletteLabel="HeightCellsNum" id="Vk2-GZ-Sb8">
+                    <toolbarItem implicitItemIdentifier="1667378E-D582-4F14-B8EC-3359ECF2ECB2" label="HeightNum" paletteLabel="HeightNum" id="Vk2-GZ-Sb8">
                         <nil key="toolTip"/>
                         <size key="minSize" width="65" height="22"/>
                         <size key="maxSize" width="96" height="22"/>
                         <textField key="view" verticalHuggingPriority="750" id="7qQ-4h-DtE">
-                            <rect key="frame" x="14" y="14" width="65" height="22"/>
+                            <rect key="frame" x="2" y="14" width="65" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="6HT-hm-ZxJ">
                                 <font key="font" metaFont="system"/>

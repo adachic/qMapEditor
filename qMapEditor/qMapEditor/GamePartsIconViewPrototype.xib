@@ -24,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="5"/>
                         <connections>
-                            <binding destination="-2" name="value" keyPath="representedObject.game_parts.imageView.image" id="tgz-ax-MI1"/>
+                            <binding destination="-2" name="value" keyPath="representedObject.game_parts.sampleImage.image" id="nhk-cd-KV7"/>
                         </connections>
                     </imageView>
                     <textField verticalHuggingPriority="750" id="3">

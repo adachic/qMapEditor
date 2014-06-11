@@ -38,11 +38,11 @@
                         <tabViewItems>
                             <tabViewItem label="Basic" identifier="1" id="kMf-Dn-ThV">
                                 <view key="view" ambiguous="YES" id="qbl-Yo-lkW">
-                                    <rect key="frame" x="10" y="33" width="131" height="0.0"/>
+                                    <rect key="frame" x="10" y="33" width="292" height="301"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Btl-TZ-Xyk">
-                                            <rect key="frame" x="37" y="-108" width="243" height="17"/>
+                                            <rect key="frame" x="37" y="193" width="243" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="AnimationSlot (backkey to delete slot)" id="QN8-rF-vgc">
                                                 <font key="font" metaFont="system"/>
@@ -51,7 +51,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WSW-QA-cpH">
-                                            <rect key="frame" x="13" y="-24" width="78" height="18"/>
+                                            <rect key="frame" x="13" y="277" width="78" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Walkable" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="BWm-r0-0iM">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -59,7 +59,7 @@
                                             </buttonCell>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o9F-xJ-Oct">
-                                            <rect key="frame" x="13" y="-55" width="87" height="18"/>
+                                            <rect key="frame" x="13" y="246" width="87" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Animation" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="gdy-UM-ejQ">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -67,11 +67,11 @@
                                             </buttonCell>
                                         </button>
                                         <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0Z-gb-3rb">
-                                            <rect key="frame" x="32" y="-166" width="50" height="50"/>
+                                            <rect key="frame" x="32" y="135" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         </customView>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HcB-b3-rcb">
-                                            <rect key="frame" x="32" y="-83" width="96" height="22"/>
+                                            <rect key="frame" x="32" y="218" width="96" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="jVd-Ku-DTP">
                                                 <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="309" maximumFractionDigits="3" id="NR4-G8-Yzh"/>
@@ -81,7 +81,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vt7-uk-aIL">
-                                            <rect key="frame" x="134" y="-78" width="71" height="17"/>
+                                            <rect key="frame" x="134" y="223" width="71" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Sec/Frame" id="NrF-rh-WIr">
                                                 <font key="font" metaFont="system"/>

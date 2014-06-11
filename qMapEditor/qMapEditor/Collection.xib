@@ -16,7 +16,7 @@
         <customObject id="-3" userLabel="Application"/>
         <arrayController automaticallyRearrangesObjects="YES" id="YEX-tc-coh">
             <declaredKeys>
-                <string>game_parts.imageView.image</string>
+                <string>game_parts.sampleImage.image</string>
                 <string>name</string>
                 <string>obj</string>
             </declaredKeys>

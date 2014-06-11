@@ -8,12 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class METile;
+
 @interface METileWindowController : NSWindowController{
     int widthNum;
     int heightNum;
     bool readyToPickUp;
 }
-typedef void (^_onPickUp)(NSImage *image) ;
+typedef void (^_onPickUp)(METile *tile) ;
 
 @property IBOutlet NSView	*targetView;
 @property IBOutlet NSToolbar *toolBar;
@@ -24,11 +26,12 @@ typedef void (^_onPickUp)(NSImage *image) ;
 @property NSURL *imageURL;
 @property NSImageView *imageView;
 @property NSView *drawView;
+
 @property (copy) _onPickUp onPickUp;
 
 - (id)initWithWindowNibName:(NSString *)windowNibName
                    imageURL:(NSURL*)url
-                   onPickUp:(void (^)(NSImage *image))pickup;
+                   onPickUp:(void (^)(METile *tile))pickup;
 
 //- (id)initWithWindowNibName:(NSString *)windowNibName imageURL:(NSURL*)url;
 - (void)showContent;

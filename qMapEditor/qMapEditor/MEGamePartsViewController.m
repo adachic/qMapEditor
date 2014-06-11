@@ -11,10 +11,10 @@
 
 @implementation IconViewBox
 
-- (void)mouseDown:(NSEvent *)theEvent{
-	[super mouseDown:theEvent];
-	// check for click count above one, which we assume means it's a double click
-    if(self.delegate && [self.delegate respondsToSelector:@selector(mouseDown:)]) {
+- (void)mouseDown:(NSEvent *)theEvent {
+    [super mouseDown:theEvent];
+    // check for click count above one, which we assume means it's a double click
+    if (self.delegate && [self.delegate respondsToSelector:@selector(mouseDown:)]) {
         [self.delegate performSelector:@selector(mouseDown:) withObject:theEvent];
     }
 }
@@ -27,8 +27,7 @@
 
 @implementation MEGamePartsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Initialization code here.
@@ -36,126 +35,77 @@
     return self;
 }
 
-#define KEY_GAMEPARTS	@"game_parts"
-#define KEY_NAME	@"name"
+#define KEY_GAMEPARTS    @"game_parts"
+#define KEY_NAME    @"name"
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
     // save this for later when toggling between alternate colors
     savedAlternateColors = [collectionView backgroundColors];
 
-    [self setSortingMode:0];		// icon collection in ascending sort order
-    [self setAlternateColors:YES];	// no alternate background colors (initially use gradient background)
-
-#ifdef NEVER
-    // Determine the content of the collection view by reading in the plist "icons.plist",
-    // and add extra "named" template images with the help of NSImage class.
-    //
-    NSBundle		*bundle = [NSBundle mainBundle];
-    NSString		*path = [bundle pathForResource: @"icons" ofType: @"plist"];
-    NSArray			*iconEntries = [NSArray arrayWithContentsOfFile: path];
-    NSMutableArray	*tempArray = [[NSMutableArray alloc] init];
-
-    // read the list of icons from disk in 'icons.plist'
-    if (iconEntries != nil)
-    {
-        NSInteger idx;
-        NSInteger count = [iconEntries count];
-        for (idx = 0; idx < count; idx++)
-        {
-            NSDictionary *entry = [iconEntries objectAtIndex:idx];
-            if (entry != nil)
-            {
-                NSString *codeStr = [entry valueForKey: KEY_IMAGE];
-                NSString *iconName = [entry valueForKey: KEY_NAME];
-
-                OSType code = UTGetOSTypeFromString((CFStringRef)codeStr);
-                NSImage *picture = [[NSWorkspace sharedWorkspace] iconForFileType:NSFileTypeForHFSTypeCode(code)];
-                [tempArray addObject: [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                        picture, KEY_IMAGE,
-                        iconName, KEY_NAME,
-                        nil]];
-            }
-        }
-    }
-
-    // now add named image templates
-    [tempArray addObject: [NSMutableDictionary dictionaryWithObjectsAndKeys:
-            [NSImage imageNamed:NSImageNameIconViewTemplate], KEY_IMAGE,
-            NSImageNameIconViewTemplate, KEY_NAME,
-            nil]];
-
-    [self setGamePartsArray:tempArray];
-#endif
-//    self.gamePartsArray
+    [self setSortingMode:0];        // icon collection in ascending sort order
+    [self setAlternateColors:YES];    // no alternate background colors (initially use gradient background)
 
     [collectionView setDraggingSourceOperationMask:NSDragOperationCopy forLocal:NO];
 }
 
-- (void)addGameParts:(MEGameParts*)gameParts{
-    NSLog(@"gameparts:%@, %@",gameParts,gameParts.imageView.image);
-    /*
-    NSView *view = [[NSView alloc] initWithFrame:gameParts.imageView.frame];
-    [view addSubview:gameParts.imageView];
-    */
-    if(!self.gamePartsArray){
-        NSMutableArray	*tempArray = [[NSMutableArray alloc] init];
-        [tempArray addObject: [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               //gameParts.imageView.image, KEY_GAMEPARTS,
-                               gameParts, KEY_GAMEPARTS,
-                               @"aho", KEY_NAME,
+- (void)addGameParts:(MEGameParts *)gameParts {
+    if (!self.gamePartsArray) {
+        NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+        [tempArray addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                gameParts, KEY_GAMEPARTS,
+                gameParts.name, KEY_NAME,
                 nil]];
         [self setGamePartsArray:tempArray];
-    }else{
-        NSMutableArray	*tempArray = [[NSMutableArray alloc] init];
+    } else {
+        NSMutableArray *tempArray = [[NSMutableArray alloc] init];
         [tempArray addObjectsFromArray:self.gamePartsArray];
-        [tempArray addObject: [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                               gameParts, KEY_GAMEPARTS,
-                @"aho2", KEY_NAME,
+        [tempArray addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:
+                gameParts, KEY_GAMEPARTS,
+                gameParts.name, KEY_NAME,
                 nil]];
         [self setGamePartsArray:tempArray];
     }
 }
 
-- (void)updateGameParts:(MEGameParts*)gameParts{
+- (void)updateGameParts:(MEGameParts *)gameParts {
 //    collectionView.selectionIndexes
     NSMutableDictionary *dict = [arrayController.selectedObjects lastObject];
     MEGameParts *oldParts = [dict objectForKey:@"game_parts"];
-    NSLog(@"updated %@ to %@",oldParts, gameParts);
-    [oldParts.imageView setImage:[gameParts.imageView image]];
+    NSLog(@"updated %@ to %@", oldParts, gameParts);
+
+//    oldParts = nil;
 //    oldParts = gameParts;
-    NSLog(@"updated2 %@ to %@",oldParts, gameParts);
+    oldParts.name = gameParts.name;
+    [oldParts.sampleImage setImage:[gameParts image]];
+    NSLog(@"updated2 %@ to %@", oldParts, gameParts);
 
     return;
-    NSMutableArray	*tempArray = [[NSMutableArray alloc] init];
+    
+    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
     [tempArray addObjectsFromArray:self.gamePartsArray];
     [self setGamePartsArray:tempArray];
 }
 
-- (void)deleteGameParts{
+- (void)deleteGameParts {
     NSMutableDictionary *dict = [arrayController.selectedObjects lastObject];
-    
-    NSMutableArray	*tempArray = [[NSMutableArray alloc] init];
+
+    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
     [tempArray addObjectsFromArray:self.gamePartsArray];
     [tempArray removeObject:dict];
     [self setGamePartsArray:tempArray];
 }
 
-- (void)setAlternateColors:(BOOL)useAlternateColors
-{
+- (void)setAlternateColors:(BOOL)useAlternateColors {
     alternateColors = useAlternateColors;
-    if (alternateColors)
-    {
+    if (alternateColors) {
         [collectionView setBackgroundColors:[NSArray arrayWithObjects:[NSColor gridColor], [NSColor lightGrayColor], nil]];
     }
-    else
-    {
+    else {
         [collectionView setBackgroundColors:savedAlternateColors];
     }
 }
 
-- (void)setSortingMode:(BOOL)shouldAcending
-{
+- (void)setSortingMode:(BOOL)shouldAcending {
     sortingModeIsAcending = shouldAcending;
     //文字列の大小を比較
     NSSortDescriptor *sort = [[NSSortDescriptor alloc]
@@ -165,7 +115,7 @@
     [arrayController setSortDescriptors:[NSArray arrayWithObject:sort]];
 }
 
-- (void)selectedItem_:(id)sender{
+- (void)selectedItem_:(id)sender {
     NSLog(@"unko1000 omedetou");
 }
 
@@ -175,22 +125,19 @@
 
 @implementation MyScrollView
 
-- (void)awakeFromNib
-{
+- (void)awakeFromNib {
     // set up the background gradient for this custom scrollView
     backgroundGradient = [[NSGradient alloc] initWithStartingColor:
-                          [NSColor colorWithDeviceRed:0.349f green:0.6f blue:0.898f alpha:0.0f]
+            [NSColor colorWithDeviceRed:0.349f green:0.6f blue:0.898f alpha:0.0f]
                                                        endingColor:[NSColor colorWithDeviceRed:0.349f green:0.6f blue:.898f alpha:0.6f]];
 }
 
-- (void)drawRect:(NSRect)rect
-{
+- (void)drawRect:(NSRect)rect {
     // draw our special background as a gradient
     [backgroundGradient drawInRect:[self documentVisibleRect] angle:90.0f];
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
 }
 
 @end
