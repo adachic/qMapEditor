@@ -69,6 +69,21 @@
 //    [CATransaction commit];
 }
 
+- (void)updateAnimationBaseView{
+    //アニメーションあり
+    int idx = 0;
+    for (METile *tile in buildingGameParts.tiles) {
+        NSLog(@"idx:%d", idx);
+        CGFloat widthVolume = 50.0f;
+        CGFloat heightVolume = 50.0f;
+        NSImageView *imageView = [[NSImageView alloc]
+                initWithFrame:CGRectMake(widthVolume * (idx % 5), heightVolume * (idx / 5), widthVolume, heightVolume)];
+        [imageView setImage:[tile image]];
+        [self.animationViewBase addSubview:imageView];
+        idx++;
+    }
+}
+
 //セットアップ
 - (void)setViewWithGameParts:(MEGameParts *)gameParts {
     NSAssert(gameParts, @"gameParts should not nil");
@@ -78,35 +93,24 @@
     int i = 0;
     for (CALayer *layer in [self.topImageView.layer.sublayers mutableCopy]){
         [layer removeAllAnimations];
-//        [layer removeFromSuperlayer];
     }
     for (NSView *subView in [self.animationViewBase.subviews mutableCopy]) {
         NSLog(@"idx1:%d", i++);
         [subView removeFromSuperview];
     }
     if ([buildingGameParts.tiles count] > 1) {
-        //アニメーションあり
-        int idx = 0;
-        for (METile *tile in buildingGameParts.tiles) {
-            NSLog(@"idx:%d", idx);
-            CGFloat widthVolume = 50.0f;
-            CGFloat heightVolume = 50.0f;
-            NSImageView *imageView = [[NSImageView alloc]
-                    initWithFrame:CGRectMake(widthVolume * (idx % 5), heightVolume * (idx / 5), widthVolume, heightVolume)];
-            [imageView setImage:[tile image]];
-            [self.animationViewBase addSubview:imageView];
-            idx++;
-        }
+        [self updateAnimationBaseView];
+        [self.topImageView setImage:[[buildingGameParts.tiles lastObject] image]];
         [self runAnimation];
     } else {
         NSLog(@"updated imageView");
         [self.topImageView setImage:[buildingGameParts image]];
-        [buildingGameParts initSampleImageWithKVO:NO];
+        if(self.animationViewBase.editable){
+            [self updateAnimationBaseView];
+        }
     }
-
+    [buildingGameParts initSampleImageWithKVO:NO];
     buildingGameParts.walkable = [self.walkable state] == NSOnState;
-//    [buildingGameParts.sampleImage setImage:[_topImageView image]];
-
     NSLog(@"topImageView  id;%@ %@", self.topImageView, self.topImageView.image);
 }
 
@@ -141,7 +145,7 @@
     MEGameParts *parts = [dict objectForKey:@"game_parts"];
     NSLog(@"selectedGameParts,%@", parts);
 
-    [self setViewWithGameParts:parts];
+    [self setViewWithGameParts:[parts copy]];
 }
 
 //Addボタン：GameParts追加
@@ -174,7 +178,8 @@
 
 //clearボタン
 - (IBAction)pushedClearAnim:(id)sender {
-
+    [buildingGameParts.tiles removeAllObjects];
+    [self setViewWithGameParts:buildingGameParts];
 }
 
 

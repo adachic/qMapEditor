@@ -34,7 +34,6 @@
 
 @implementation MEGamePartsViewController
 
-
 @synthesize gamePartsArray, sortingMode, alternateColors;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -69,6 +68,7 @@
 }
 
 - (void)addGameParts:(MEGameParts *)gameParts {
+    [gameParts initSampleImageWithKVO:YES];
     if (!self.gamePartsArray) {
         NSMutableArray *tempArray = [[NSMutableArray alloc] init];
         [tempArray addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:
@@ -93,8 +93,6 @@
     MEGameParts *oldParts = [dict objectForKey:@"game_parts"];
     NSLog(@"updated %@ to %@", oldParts, gameParts);
 
-//    oldParts = nil;
-//    [oldParts.sampleImage setImage:[gameParts image]];
     oldParts.sampleImage.image = gameParts.sampleImage.image;
     [oldParts initSampleImageWithKVO:YES];
     oldParts = gameParts;

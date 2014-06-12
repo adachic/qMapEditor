@@ -36,7 +36,6 @@
 @property(nonatomic, assign) NSUInteger sortingMode;
 @property(nonatomic, assign) BOOL alternateColors;
 
-- (void)selectedItem_:(id)sender;
 - (void)addGameParts:(MEGameParts *)gameParts;
 - (void)updateGameParts:(MEGameParts*)gameParts;
 - (void)deleteGameParts;
