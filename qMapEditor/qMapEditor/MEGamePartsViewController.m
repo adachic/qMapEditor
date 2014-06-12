@@ -19,10 +19,12 @@
     }
 }
 
+/*
 - (NSView *)hitTest:(NSPoint)aPoint {
     // don't allow any mouse clicks for subviews in this NSBox
     return self;
 }
+*/
 
 @end
 
@@ -83,7 +85,6 @@
                 nil]];
         [self setGamePartsArray:tempArray];
     }
-    [collectionView updateLayer];
 }
 
 - (void)updateGameParts:(MEGameParts *)gameParts {

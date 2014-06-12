@@ -9,6 +9,7 @@
 #import "MEGamePartsEditWindowController.h"
 #import "MEGameParts.h"
 #import "MEAnimationBaseView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface MEGamePartsEditWindowController ()
 
@@ -39,33 +40,66 @@
 }
 #endif
 
-/* todo:がんばれよ
-- (void)animateImageView:(NSImageView *)newImageView;
-{
-    [NSAnimationContext beginGrouping];
-    [[NSAnimationContext currentContext] setDuration: 2];
-    [[newImageView animator] setAlphaValue: 1];
-    [[imageView animator] setAlphaValue: 0];
-    [NSAnimationContext endGrouping];
-}
-*/
+- (void)runAnimation {
+//    [CATransaction begin];
+    [self.topImageView setWantsLayer:YES];
 
+    CALayer* animationLayer = [CALayer layer];
+    animationLayer.frame = self.topImageView.bounds;
+    [self.topImageView.layer addSublayer:animationLayer];
+    CAKeyframeAnimation *keyAnimation = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
+    
+    NSMutableArray *array = [NSMutableArray array];
+    CGImageRef maskRef;
+    for (METile *tile in buildingGameParts.tiles) {
+        NSImage *someImage = [tile image];
+        CGImageSourceRef source;
+        source = CGImageSourceCreateWithData((__bridge CFDataRef) [someImage TIFFRepresentation], NULL);
+        maskRef = CGImageSourceCreateImageAtIndex(source, 0, NULL);
+        [array addObject:(__bridge id) (maskRef)];
+    }
+    
+    NSLog(@"array:%@",array);
+    keyAnimation.values = (NSArray*)array;
+    keyAnimation.duration = 1.0f;
+    keyAnimation.repeatCount = HUGE_VALF;
+    [keyAnimation setCalculationMode: kCAAnimationDiscrete];
+
+    [animationLayer addAnimation:keyAnimation forKey:@"aho"];
+//    [CATransaction commit];
+}
 
 //セットアップ
 - (void)setViewWithGameParts:(MEGameParts *)gameParts {
-    //   NSLog(@"setTopViewWithImage:size:%f,%f :%@:%@:%@", tile.size.width, tile.size.height, self.topImageView, self.topView, tile);
     NSAssert(gameParts, @"gameParts should not nil");
     buildingGameParts = nil;
     buildingGameParts = gameParts;
 
+    int i = 0;
+    for (CALayer *layer in [self.topImageView.layer.sublayers mutableCopy]){
+        [layer removeAllAnimations];
+//        [layer removeFromSuperlayer];
+    }
+    for (NSView *subView in [self.animationViewBase.subviews mutableCopy]) {
+        NSLog(@"idx1:%d", i++);
+        [subView removeFromSuperview];
+    }
     if ([buildingGameParts.tiles count] > 1) {
         //アニメーションあり
-        // [self animate];
-        /*
-        buildingGameParts.tiles = nil ;
-        buildingGameParts.tiles = gameParts.tiles;
-        */
+        int idx = 0;
+        for (METile *tile in buildingGameParts.tiles) {
+            NSLog(@"idx:%d", idx);
+            CGFloat widthVolume = 50.0f;
+            CGFloat heightVolume = 50.0f;
+            NSImageView *imageView = [[NSImageView alloc]
+                    initWithFrame:CGRectMake(widthVolume * (idx % 5), heightVolume * (idx / 5), widthVolume, heightVolume)];
+            [imageView setImage:[tile image]];
+            [self.animationViewBase addSubview:imageView];
+            idx++;
+        }
+        [self runAnimation];
     } else {
+        NSLog(@"updated imageView");
         [self.topImageView setImage:[buildingGameParts image]];
         [buildingGameParts initSampleImageWithKVO:NO];
     }
@@ -81,26 +115,20 @@
 //    NSAssert(tile, @"tile should not nil");
     NSMutableArray *tiles = [[NSMutableArray alloc] initWithArray:buildingGameParts.tiles];
     [tiles addObject:tile];
+
     if (!buildingGameParts) {
         buildingGameParts = [[MEGameParts alloc] initWithTiles:tiles
                                                       walkable:YES
                                                       duration:0
                                                   customEvents:nil];
-        [self setViewWithGameParts:buildingGameParts];
-        return;
     }
-    buildingGameParts.tiles = nil;
-    buildingGameParts.tiles = tiles;
+
     if (self.animationViewBase.editable) {
-        int idx = [tiles count];
-        idx-=2;
-        NSLog(@"idx:%d",idx);
-        CGFloat widthVolume = 10.0f;
-        CGFloat heightVolume = 10.0f;
-        NSImageView *imageView = [[NSImageView alloc]
-                initWithFrame:CGRectMake(widthVolume * (idx % 5), heightVolume * (idx / 5), widthVolume, heightVolume)];
-        [imageView setImage:[[tiles lastObject] image]];
-        [self.animationViewBase addSubview:imageView];
+        buildingGameParts.tiles = nil;
+        buildingGameParts.tiles = tiles;
+    } else {
+        buildingGameParts.tiles = nil;
+        buildingGameParts.tiles = [NSMutableArray arrayWithObjects:tile, nil];
     }
 
     [self setViewWithGameParts:buildingGameParts];
