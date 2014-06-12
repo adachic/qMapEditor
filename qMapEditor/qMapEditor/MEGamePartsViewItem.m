@@ -6,7 +6,9 @@
 //  Copyright (c) 2014年 regalia. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "MEGamePartsViewItem.h"
+#import "MEGameParts.h"
 
 @interface MEGamePartsViewItem ()
 
@@ -14,22 +16,64 @@
 
 @implementation MEGamePartsViewItem
 
-/*
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Initialization code here.
         NSLog(@"aho rep:%@", self.representedObject);
+        [self addObserver:self
+               forKeyPath:@"view"
+                  options:NSKeyValueObservingOptionNew
+                  context:nil];
     }
     return self;
 }
 
+/*
 - (id)init {
     self = [super init];
     NSLog(@"init called");
     return self;
 }
 */
+
+- (void)modifyed {
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    NSLog(@"hello");
+    [self runAnimation];
+}
+
+- (void)runAnimation {
+//    [CATransaction begin];
+    MEGameParts *parts = [self.representedObject objectForKey:@"game_parts"];
+    [self.imageView setWantsLayer:YES];
+
+    CALayer* animationLayer = [CALayer layer];
+    animationLayer.frame = self.imageView.bounds;
+    [self.imageView.layer addSublayer:animationLayer];
+    CAKeyframeAnimation *keyAnimation = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
+
+    NSMutableArray *array = [NSMutableArray array];
+    CGImageRef maskRef;
+    for (METile *tile in parts.tiles) {
+        NSImage *someImage = [tile image];
+        CGImageSourceRef source;
+        source = CGImageSourceCreateWithData((__bridge CFDataRef) [someImage TIFFRepresentation], NULL);
+        maskRef = CGImageSourceCreateImageAtIndex(source, 0, NULL);
+        [array addObject:(__bridge id) (maskRef)];
+    }
+
+    NSLog(@"array:%@",array);
+    keyAnimation.values = (NSArray*)array;
+    keyAnimation.duration = 1.0f;
+    keyAnimation.repeatCount = HUGE_VALF;
+    [keyAnimation setCalculationMode: kCAAnimationDiscrete];
+
+    [animationLayer addAnimation:keyAnimation forKey:@"aho"];
+//    [CATransaction commit];
+}
 
 - (void)mouseDown:(NSEvent *)theEvent {
     //選択状態にする

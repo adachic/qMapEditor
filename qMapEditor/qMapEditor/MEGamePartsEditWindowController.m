@@ -47,6 +47,7 @@
     CALayer* animationLayer = [CALayer layer];
     animationLayer.frame = self.topImageView.bounds;
     [self.topImageView.layer addSublayer:animationLayer];
+
     CAKeyframeAnimation *keyAnimation = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
     
     NSMutableArray *array = [NSMutableArray array];
@@ -65,7 +66,7 @@
     keyAnimation.repeatCount = HUGE_VALF;
     [keyAnimation setCalculationMode: kCAAnimationDiscrete];
 
-    [animationLayer addAnimation:keyAnimation forKey:@"aho"];
+    [animationLayer addAnimation:keyAnimation forKey:@"aho2"];
 //    [CATransaction commit];
 }
 
