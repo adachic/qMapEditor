@@ -88,20 +88,13 @@
 }
 
 - (void)updateGameParts:(MEGameParts *)gameParts {
-//    collectionView.selectionIndexes
     NSMutableDictionary *dict = [arrayController.selectedObjects lastObject];
     MEGameParts *oldParts = [dict objectForKey:@"game_parts"];
-    NSLog(@"updated %@ to %@", oldParts, gameParts);
 
-    oldParts.sampleImage.image = gameParts.sampleImage.image;
-    [oldParts initSampleImageWithKVO:YES];
-    oldParts = gameParts;
+    //oldParts.sampleImage = gameParts.sampleImage;
+    [oldParts refOf:gameParts];
+    //[oldParts initSampleImageWithKVO:YES];
 
-//    [oldParts.sampleImage setNeedsDisplay:YES];
-//    oldParts = gameParts;
-//    [gameParts.sampleImage setImage:[gameParts.sampleImage image]];
-    NSLog(@"updated2 %@ to %@", oldParts, gameParts);
-//    return;
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
     [tempArray addObjectsFromArray:self.gamePartsArray];
     [self setGamePartsArray:tempArray];

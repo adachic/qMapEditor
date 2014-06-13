@@ -110,4 +110,15 @@ static NSInteger idCounter = 0;
     }
 }
 
+- (void)refOf:(MEGameParts *)otherObj{
+    self.tiles = nil;
+    self.tiles = otherObj.tiles;
+    self.walkable = otherObj.walkable;
+    self.durationPerFrame = otherObj.durationPerFrame;
+    self.customEvents = nil;
+    self.customEvents = otherObj.customEvents;
+//    self.name = otherObj.name;
+
+}
+
 @end

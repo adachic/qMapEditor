@@ -32,5 +32,6 @@
        customEvents:(NSDictionary *)custom;
 - (NSImage *)image;
 - (void)initSampleImageWithKVO:(BOOL)notify;
+- (void)refOf:(MEGameParts *)otherObj;
 
 @end

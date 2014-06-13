@@ -25,19 +25,12 @@
                forKeyPath:@"view"
                   options:NSKeyValueObservingOptionNew
                   context:nil];
+        [self addObserver:self
+               forKeyPath:@"representedObject.game_parts.tiles"
+                  options:NSKeyValueObservingOptionNew
+                  context:nil];
     }
     return self;
-}
-
-/*
-- (id)init {
-    self = [super init];
-    NSLog(@"init called");
-    return self;
-}
-*/
-
-- (void)modifyed {
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -72,7 +65,6 @@
     [keyAnimation setCalculationMode: kCAAnimationDiscrete];
 
     [animationLayer addAnimation:keyAnimation forKey:@"aho"];
-//    [CATransaction commit];
 }
 
 - (void)mouseDown:(NSEvent *)theEvent {
@@ -85,11 +77,9 @@
     [[NSNotificationCenter defaultCenter] postNotification:n];
 }
 
-/*
 - (void)setSelected:(BOOL)flag {
-    [self setSelected:YES];
+    [super setSelected:flag];
     NSLog(@"item selected");
 }
- */
 
 @end

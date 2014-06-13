@@ -127,7 +127,6 @@
                                                       duration:0
                                                   customEvents:nil];
     }
-
     if (self.animationViewBase.editable) {
         buildingGameParts.tiles = nil;
         buildingGameParts.tiles = tiles;
@@ -157,8 +156,7 @@
 
 //Modifyボタン：GameParts上書き
 - (IBAction)pushedModifyGameParts:(id)sender {
-    MEGameParts *gameParts = [buildingGameParts copy];
-    self.onUpdateGameParts(gameParts);
+    self.onUpdateGameParts([buildingGameParts copy]);
 }
 
 //deleteボタン：GameParts削除
