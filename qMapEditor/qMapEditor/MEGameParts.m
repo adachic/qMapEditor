@@ -35,29 +35,47 @@
     return image;
 }
 
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.tileFilePath forKey:@"tileFilePath"];
+    [encoder encodeObject:[NSValue valueWithRect:self.tileRect] forKey:@"tileRect"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    self.tileFilePath = [decoder decodeObjectForKey:@"tileFilePath"];
+    self.tileRect = [((NSValue *) [decoder decodeObjectForKey:@"tileRect"]) rectValue];
+    return self;
+}
+
 @end
 
 @implementation MEGameParts
 
-/*
-- (id)initWithParams:(BOOL)walkable1 imageView:(NSImageView*)imageView1 customEvents:(NSDictionary *)customEvents1{
-    if(self = [super init]){
-        walkable = walkable1;
-        self.imageView = [[NSImageView alloc] initWithFrame:imageView1.frame];
-        [self.imageView setImage:[[imageView1 image] copy]];
-        customEvents = customEvents1;
-    }
+static NSInteger idCounter = 0;
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.tiles forKey:@"tiles"];
+    [encoder encodeBool:self.walkable forKey:@"walkable"];
+    [encoder encodeFloat:(float) self.durationPerFrame forKey:@"durationPerFrame"];
+    [encoder encodeObject:self.customEvents forKey:@"customEvents"];
+    [encoder encodeObject:self.sampleImage forKey:@"sampleImage"];
+    [encoder encodeObject:self.name forKey:@"name"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    self.tiles = [decoder decodeObjectForKey:@"tiles"];
+    self.walkable = [decoder decodeBoolForKey:@"walkable"];
+    self.durationPerFrame = [decoder decodeFloatForKey:@"durationPerFrame"];
+    self.customEvents = [decoder decodeObjectForKey:@"customEvents"];
+    self.sampleImage = [decoder decodeObjectForKey:@"sampleImage"];
+    self.name = [decoder decodeObjectForKey:@"name"];
     return self;
 }
-*/
-
-static NSInteger idCounter = 0;
 
 // In the implementation
 - (id)copyWithZone:(NSZone *)zone {
     // We'll ignore the zone for now
     MEGameParts *another = [[MEGameParts alloc] init];
-    another.tiles = [[NSArray allocWithZone:zone] initWithArray:_tiles copyItems:YES];
+    another.tiles = (NSMutableArray *) [[NSArray allocWithZone:zone] initWithArray:_tiles copyItems:YES];
     another.name = [NSString stringWithFormat:@"%d", ++idCounter];
     another.walkable = _walkable;
     another.durationPerFrame = _durationPerFrame;
@@ -74,7 +92,7 @@ static NSInteger idCounter = 0;
            duration:(CGFloat)duration
        customEvents:(NSDictionary *)custom {
     if (self = [super init]) {
-        _tiles = tiles;
+        _tiles = (NSMutableArray *) tiles;
         _walkable = walkable;
         _durationPerFrame = duration;
         _customEvents = custom;
@@ -98,19 +116,19 @@ static NSInteger idCounter = 0;
     return image;
 }
 
-- (void)initSampleImageWithKVO:(BOOL)notify{
+- (void)initSampleImageWithKVO:(BOOL)notify {
     if (!_sampleImage) {
         METile *tile = [self.tiles lastObject];
         _sampleImage = [[NSImageView alloc] initWithFrame:CGRectMake(0, 0, tile.tileRect.size.width, tile.tileRect.size.height)];
         [_sampleImage setImage:[self image]];
-    }else{
-        if(notify){
+    } else {
+        if (notify) {
             [_sampleImage setImage:[self image]];
         }
     }
 }
 
-- (void)refOf:(MEGameParts *)otherObj{
+- (void)refOf:(MEGameParts *)otherObj {
     self.tiles = nil;
     self.tiles = otherObj.tiles;
     self.walkable = otherObj.walkable;

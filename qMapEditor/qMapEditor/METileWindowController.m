@@ -24,11 +24,33 @@
         self.widthCellsNum.stringValue = @"1";
         self.heightCellsNum.stringValue = @"1";
         self.onPickUp = pickup;
-        readyToPickUp = false;
+        self.readyToPickUp = false;
     }
     return self;
 }
 
+- (id)initWithWindowNibName:(NSString *)windowNibName
+                   imageURL:(NSURL *)url
+                   widthNum:(NSInteger)widthNum_
+                  heightNum:(NSInteger)heightNum_
+                   onPickUp:(void (^)(METile *tile))pickup {
+    self = [super initWithWindowNibName:windowNibName];
+    if (self) {
+        self.imageURL = url;
+        self.widthCellsNum.stringValue = [NSString stringWithFormat:@"%d", widthNum_];
+        self.heightCellsNum.stringValue = [NSString stringWithFormat:@"%d", heightNum_];
+        self.onPickUp = pickup;
+        self.readyToPickUp = true;
+        widthNum = widthNum_;
+        heightNum = heightNum_;
+    }
+    return self;
+}
+
+-(void)drawLineAfterLoad{
+    [self showContent];
+    [self drawLine];
+}
 - (void)windowDidLoad {
     [super windowDidLoad];
 
@@ -60,18 +82,26 @@
     int widthNum_ = [self.widthCellsNum.stringValue intValue];
     int heightNum_ = [self.heightCellsNum.stringValue intValue];
     if (!(widthNum_ > 0 && heightNum_ > 0)) {
-        readyToPickUp = false;
+        self.readyToPickUp = false;
         return;
     }
-    readyToPickUp = true;
+    self.readyToPickUp = true;
 
     widthNum = widthNum_;
     heightNum = heightNum_;
+
+    [self drawLine];
+}
+
+- (void)drawLine{
 
     [self.imageView.image lockFocus];
 
     CGFloat widthVolume = [self.imageView image].size.width / widthNum;
     CGFloat heightVolume = [self.imageView image].size.height / heightNum;
+
+    NSLog(@"w:%d,h:%d",widthNum,heightNum);
+    NSLog(@"%@",self.imageView.image);
 
     //縦線
     for (int x = 1; x < widthNum; x++) {
@@ -93,6 +123,7 @@
     [self.imageView.image unlockFocus];
 
     [self.imageView setNeedsDisplay:YES];
+
 }
 
 
@@ -106,7 +137,7 @@
 }
 
 - (void)mouseDown:(NSEvent *)theEvent {
-    if (!readyToPickUp) {
+    if (!self.readyToPickUp) {
         return;
     }
     NSPoint location = [self.imageView convertPoint:[theEvent locationInWindow] fromView:nil];

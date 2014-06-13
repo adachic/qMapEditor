@@ -8,6 +8,7 @@
 
 #import "MEMainMenu.h"
 #import "METileWindowController.h"
+#import "MEEditSet.h"
 
 @implementation MEMainMenu
 
@@ -92,4 +93,54 @@
         [self createTileWindow:filePath];
     }
 }
+
+/*編集データを保存*/
+- (IBAction)saveEditSetFile:(id)sender {
+    /*Saveダイアログを表示*/
+    NSSavePanel *savePanel = [NSSavePanel savePanel];
+    NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"dat", nil];
+    [savePanel setAllowedFileTypes:allowedFileTypes];
+    NSInteger pressedButton = [savePanel runModal];
+
+    if (pressedButton == NSOKButton) {
+        NSURL *filePath = [savePanel URL];
+        NSLog(@"file saved %@", filePath);
+        /*シリアライズして保存*/
+        [MEEditSet saveEditSetFileWithPath:filePath
+                     tileWindowControllers:self.tileWindowControllers
+             gamePartsListWindowController:self.gamePartsListWindowController];
+    }
+}
+
+- (void)restoreWindows:(NSMutableArray *)gamePartsArray tileSheets:(NSMutableArray *)tileSheets {
+    //タイルウィンドウの復元
+    [self.tileWindowControllers removeAllObjects];
+    for (NSDictionary *tileDict in tileSheets) {
+        METileWindowController *w = [[METileWindowController alloc]
+                initWithWindowNibName:@"METileWindowController"
+                             imageURL:[tileDict objectForKey:@"filePath"]
+                             widthNum:((NSNumber *) [tileDict objectForKey:@"widthNum"]).integerValue
+                            heightNum:((NSNumber *) [tileDict objectForKey:@"heightNum"]).integerValue
+                             onPickUp:^(METile *tile) {
+                                 [self.gamePartsEditWindowController setViewWithTile:tile];
+                             }];
+        [w.window makeKeyAndOrderFront:nil];
+        [w drawLineAfterLoad];
+        [self.tileWindowControllers addObject:w];
+    }
+    //リストウィンドウの復元
+    self.gamePartsListWindowController.gamePartsViewController.gamePartsArray = gamePartsArray;
+
+}
+
+/*編集データをロード*/
+- (IBAction)openEditSetFile:(id)sender {
+    __block MEMainMenu *blockself = self;
+    [MEEditSet loadEditSetFromFile:nil
+                          complete:^(NSMutableArray *gamePartsArray, NSMutableArray *tileSheets) {
+                              [self restoreWindows:gamePartsArray tileSheets:tileSheets];
+                          }];
+}
+
+
 @end

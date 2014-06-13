@@ -10,14 +10,13 @@
 
 @class METile;
 
-@interface METileWindowController : NSWindowController{
+@interface METileWindowController : NSWindowController {
     int widthNum;
     int heightNum;
-    bool readyToPickUp;
 }
-typedef void (^_onPickUp)(METile *tile) ;
+typedef void (^_onPickUp)(METile *tile);
 
-@property IBOutlet NSView	*targetView;
+@property IBOutlet NSView *targetView;
 @property IBOutlet NSToolbar *toolBar;
 @property IBOutlet NSTextField *widthCellsNum;
 @property IBOutlet NSTextField *heightCellsNum;
@@ -26,15 +25,23 @@ typedef void (^_onPickUp)(METile *tile) ;
 @property NSURL *imageURL;
 @property NSImageView *imageView;
 @property NSView *drawView;
+@property bool readyToPickUp;
 
-@property (copy) _onPickUp onPickUp;
+@property(copy) _onPickUp onPickUp;
 
 - (id)initWithWindowNibName:(NSString *)windowNibName
-                   imageURL:(NSURL*)url
+                   imageURL:(NSURL *)url
                    onPickUp:(void (^)(METile *tile))pickup;
 
-//- (id)initWithWindowNibName:(NSString *)windowNibName imageURL:(NSURL*)url;
+- (id)initWithWindowNibName:(NSString *)windowNibName
+                   imageURL:(NSURL *)url
+                   widthNum:(NSInteger)widthNum_
+                  heightNum:(NSInteger)heightNum_
+                   onPickUp:(void (^)(METile *tile))pickup;
+
 - (void)showContent;
+-(void)drawLineAfterLoad;
+
 - (IBAction)pushFixButton:(id)sender;
 
 @end

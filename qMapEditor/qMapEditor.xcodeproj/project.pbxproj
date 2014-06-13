@@ -34,6 +34,7 @@
 		817E99EF1948845400B08786 /* MEAnimationBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E99EE1948845400B08786 /* MEAnimationBaseView.m */; };
 		817E99F119497AA100B08786 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817E99F019497AA100B08786 /* QuartzCore.framework */; };
 		BB6686A731B2E09E85491CB7 /* MEGameParts.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6687532CDC436EBEEC4E82 /* MEGameParts.m */; };
+		BB668A4D66FFDD07939EF50E /* MEEditSet.m in Sources */ = {isa = PBXBuildFile; fileRef = BB668B2D60BE2B714E3FBADE /* MEEditSet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,8 @@
 		817E99F019497AA100B08786 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BB66867F3D2E1E1DB135E799 /* MEGameParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEGameParts.h; sourceTree = "<group>"; };
 		BB6687532CDC436EBEEC4E82 /* MEGameParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEGameParts.m; sourceTree = "<group>"; };
+		BB6688EC7DE352EF17F5971D /* MEEditSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEEditSet.h; sourceTree = "<group>"; };
+		BB668B2D60BE2B714E3FBADE /* MEEditSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEEditSet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +267,8 @@
 			children = (
 				BB6687532CDC436EBEEC4E82 /* MEGameParts.m */,
 				BB66867F3D2E1E1DB135E799 /* MEGameParts.h */,
+				BB668B2D60BE2B714E3FBADE /* MEEditSet.m */,
+				BB6688EC7DE352EF17F5971D /* MEEditSet.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 				817E99CE1941125300B08786 /* METileWindowController.m in Sources */,
 				813BE7F81940DEFC0034A0B8 /* MEGamePartsViewController.m in Sources */,
 				BB6686A731B2E09E85491CB7 /* MEGameParts.m in Sources */,
+				BB668A4D66FFDD07939EF50E /* MEEditSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

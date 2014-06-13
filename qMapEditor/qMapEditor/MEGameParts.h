@@ -5,17 +5,20 @@
 
 #import <Foundation/Foundation.h>
 
-@interface METile : NSObject <NSCopying>{
+@interface METile : NSObject <NSCopying, NSCoding>{
 }
 @property NSURL *tileFilePath;
 @property CGRect tileRect;
 
 - (id)initWithURL:(NSURL *)filePath rect:(CGRect)rect;
+- (void)encodeWithCoder:(NSCoder *)encoder;
+- (id)initWithCoder:(NSCoder *)decoder;
+
 - (NSImage *)image;
 @end
 
 
-@interface MEGameParts : NSObject <NSCopying> {
+@interface MEGameParts : NSObject <NSCopying, NSCoding> {
 }
 @property NSMutableArray *tiles;
 @property BOOL walkable;
@@ -26,6 +29,7 @@
 
 //- (id)initWithParams:(BOOL)walkable imageView:(NSImageView*)imageView1 customEvents:(NSDictionary *)customEvents;
 //@property NSImageView *imageView;
+- (void)encodeWithCoder:(NSCoder *)encoder;
 - (id)initWithTiles:(NSArray *)tiles
            walkable:(BOOL)walkable
            duration:(CGFloat)duration
