@@ -71,6 +71,7 @@
                                     <action selector="openTileFile:" target="AYu-sK-qS6" id="Dcl-7a-L9j"/>
                                 </connections>
                             </menuItem>
+                            <menuItem title="Open GameMap" keyEquivalent="g" id="GoM-sr-oPb"/>
                             <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
                             <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
                                 <connections>

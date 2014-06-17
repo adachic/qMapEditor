@@ -10,6 +10,7 @@
 
 #import "MEGamePartsEditWindowController.h"
 #import "MEGamePartsListWindowController.h"
+#import "MEGameMapToolsWindowController.h"
 #import "MEGameParts.h"
 
 @interface MEMainMenu : NSMenu
@@ -19,9 +20,10 @@
 
 @property IBOutlet  MEGamePartsEditWindowController *gamePartsEditWindowController;
 @property IBOutlet  MEGamePartsListWindowController *gamePartsListWindowController;
+@property IBOutlet  MEGameMapToolsWindowController *gameMapToolsWindowController;
 
 @property NSMutableArray *tileWindowControllers;
-
+@property NSMutableArray *mapWindowControllers;
 
 - (id)initWithCoder:(NSCoder *)aDecoder ;
 - (IBAction)showGameParts:(id)sender;

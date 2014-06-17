@@ -51,6 +51,7 @@
     [self showContent];
     [self drawLine];
 }
+
 - (void)windowDidLoad {
     [super windowDidLoad];
 
@@ -94,7 +95,6 @@
 }
 
 - (void)drawLine{
-
     [self.imageView.image lockFocus];
 
     CGFloat widthVolume = [self.imageView image].size.width / widthNum;
@@ -121,9 +121,7 @@
     }
 
     [self.imageView.image unlockFocus];
-
     [self.imageView setNeedsDisplay:YES];
-
 }
 
 

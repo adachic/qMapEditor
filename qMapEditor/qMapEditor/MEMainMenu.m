@@ -9,6 +9,7 @@
 #import "MEMainMenu.h"
 #import "METileWindowController.h"
 #import "MEEditSet.h"
+#import "MEGameMapWindowController.h"
 
 @implementation MEMainMenu
 
@@ -33,8 +34,9 @@
                 (MEGamePartsEditWindowController *) [self loadFromNibWithNibNamed:@"MEGamePartsEditWindowController"];
         self.gamePartsListWindowController =
                 (MEGamePartsListWindowController *) [self loadFromNibWithNibNamed:@"MEGamePartsListWindowController"];
+        self.gameMapToolsWindowController =
+        (MEGameMapToolsWindowController *) [self loadFromNibWithNibNamed:@"MEGameMapToolsWindowController"];
     }
-
     self.tileWindowControllers = [NSMutableArray new];
     __block MEMainMenu *blockself = self;
 
@@ -50,6 +52,8 @@
     self.gamePartsEditWindowController.onDeleteGameParts = [^() {
         [blockself.gamePartsListWindowController.gamePartsViewController deleteGameParts];
     } copy];
+    
+    /*ツールウィンドウのコールバック*/
 
     return self;
 }
@@ -58,6 +62,8 @@
     return YES;
 }
 
+
+#pragma mark create_window
 
 /*タイルマップウィンドウ生成*/
 - (void)createTileWindow:(NSURL *)filePath {
@@ -69,8 +75,40 @@
                          }];
     [w.window makeKeyAndOrderFront:nil];
     [self.tileWindowControllers addObject:w];
-
 }
+
+/*マップウィンドウ生成*/
+- (void)createGameMapWindow:(NSURL *)filePath {
+    MEGameMapWindowController *w = [[MEGameMapWindowController alloc]
+            initWithWindowNibName:@"MEGameMapWindowController"
+                         fileURL:filePath];
+    [w.window makeKeyAndOrderFront:nil];
+    [self.tileWindowControllers addObject:w];
+}
+
+/*編集関係の復元*/
+- (void)restoreWindows:(NSMutableArray *)gamePartsArray tileSheets:(NSMutableArray *)tileSheets {
+    //タイルウィンドウの復元
+    [self.tileWindowControllers removeAllObjects];
+    for (NSDictionary *tileDict in tileSheets) {
+        METileWindowController *w = [[METileWindowController alloc]
+                                     initWithWindowNibName:@"METileWindowController"
+                                     imageURL:[tileDict objectForKey:@"filePath"]
+                                     widthNum:((NSNumber *) [tileDict objectForKey:@"widthNum"]).integerValue
+                                     heightNum:((NSNumber *) [tileDict objectForKey:@"heightNum"]).integerValue
+                                     onPickUp:^(METile *tile) {
+                                         [self.gamePartsEditWindowController setViewWithTile:tile];
+                                     }];
+        [w.window makeKeyAndOrderFront:nil];
+        [w drawLineAfterLoad];
+        [self.tileWindowControllers addObject:w];
+    }
+    //リストウィンドウの復元
+    self.gamePartsListWindowController.gamePartsViewController.gamePartsArray = gamePartsArray;
+    
+}
+
+#pragma mark IBActions
 
 /*ゲームパーツ編集ウィンドウの表示*/
 - (IBAction)showGameParts:(id)sender {
@@ -94,6 +132,12 @@
     }
 }
 
+/*ゲームマップウィンドウを開く*/
+- (IBAction)openGameMapWindow:(id)sender {
+    //todo:filepath
+    [self createGameMapWindow:nil];
+}
+
 /*編集データを保存*/
 - (IBAction)saveEditSetFile:(id)sender {
     /*Saveダイアログを表示*/
@@ -110,27 +154,6 @@
                      tileWindowControllers:self.tileWindowControllers
              gamePartsListWindowController:self.gamePartsListWindowController];
     }
-}
-
-- (void)restoreWindows:(NSMutableArray *)gamePartsArray tileSheets:(NSMutableArray *)tileSheets {
-    //タイルウィンドウの復元
-    [self.tileWindowControllers removeAllObjects];
-    for (NSDictionary *tileDict in tileSheets) {
-        METileWindowController *w = [[METileWindowController alloc]
-                initWithWindowNibName:@"METileWindowController"
-                             imageURL:[tileDict objectForKey:@"filePath"]
-                             widthNum:((NSNumber *) [tileDict objectForKey:@"widthNum"]).integerValue
-                            heightNum:((NSNumber *) [tileDict objectForKey:@"heightNum"]).integerValue
-                             onPickUp:^(METile *tile) {
-                                 [self.gamePartsEditWindowController setViewWithTile:tile];
-                             }];
-        [w.window makeKeyAndOrderFront:nil];
-        [w drawLineAfterLoad];
-        [self.tileWindowControllers addObject:w];
-    }
-    //リストウィンドウの復元
-    self.gamePartsListWindowController.gamePartsViewController.gamePartsArray = gamePartsArray;
-
 }
 
 /*編集データをロード*/
