@@ -8,7 +8,13 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface MEGameMapToolsWindowController : NSWindowController
+@class MEMatrix;
+
+@interface MEGameMapToolsWindowController : NSWindowController<NSWindowDelegate>
+
+typedef void (^_onSetToMapWindow)(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t);
+
+@property (strong) _onSetToMapWindow onSetToMapWindow;
 
 @property IBOutlet NSTextField *tfAspectX;
 @property IBOutlet NSTextField *tfAspectY;
@@ -21,9 +27,11 @@
 @property CGFloat aspectX;
 @property CGFloat aspectY;
 @property CGFloat aspectT;
+@property MEMatrix *maxM;
 
 
 - (IBAction)clickedAspectFix:(id)sender;
 - (void)showParhapsSize:(CGFloat)x y:(CGFloat)y t:(CGFloat)t;
+- (void)changedMapWindow:(MEMatrix *)maxM x:(CGFloat)x y:(CGFloat)y t:(CGFloat)t;
 
 @end

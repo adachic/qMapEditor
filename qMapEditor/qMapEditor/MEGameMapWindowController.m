@@ -10,21 +10,46 @@
 #import "MEMatrix.h"
 
 @interface MEGameMapWindowController ()
-
 @end
 
 @implementation MEGameMapWindowController
 
 - (id)initWithWindowNibName:(NSString *)windowNibName
-                    fileURL:(NSURL *)url {
+                    fileURL:(NSURL *)url
+                       maxM:(MEMatrix *)maxSize
+                    aspectX:(CGFloat)x
+                    aspectY:(CGFloat)y
+                    aspectT:(CGFloat)t {
     self = [super initWithWindowNibName:windowNibName];
     if (self) {
-        _maxM = [[MEMatrix alloc] initWithX:10 Y:10 Z:10];
+        [self.window setDelegate:self];
+
+        _maxM = maxSize;
+
         _shouldShowGriph = YES;
         _shouldShowLines = YES;
         _shouldShowUpper = YES;
+
+        _aspectX = x;
+        _aspectY = y;
+        _aspectT = t;
     }
     return self;
+}
+
+- (void)fixedValuesFromToolBar:(MEMatrix *)maxM x:(CGFloat)x y:(CGFloat)y t:(CGFloat)t{
+    _maxM = maxM;
+    _aspectX = x;
+    _aspectY = y;
+    _aspectT = t;
+}
+
+//ツールバーに反映
+- (void)windowDidBecomeKey:(NSNotification *)notification {
+    NSLog(@"test-- %@", notification);
+    if (self.onSetToToolWindow) {
+        self.onSetToToolWindow(self.maxM, self.aspectX, self.aspectY, self.aspectT);
+    }
 }
 
 - (void)windowDidLoad {

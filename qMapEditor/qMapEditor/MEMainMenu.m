@@ -35,9 +35,10 @@
         self.gamePartsListWindowController =
                 (MEGamePartsListWindowController *) [self loadFromNibWithNibNamed:@"MEGamePartsListWindowController"];
         self.gameMapToolsWindowController =
-        (MEGameMapToolsWindowController *) [self loadFromNibWithNibNamed:@"MEGameMapToolsWindowController"];
+                (MEGameMapToolsWindowController *) [self loadFromNibWithNibNamed:@"MEGameMapToolsWindowController"];
     }
     self.tileWindowControllers = [NSMutableArray new];
+    self.mapWindowControllers = [NSMutableArray new];
     __block MEMainMenu *blockself = self;
 
     /*編集ウィンドウ:ボタンのコールバック*/
@@ -53,14 +54,29 @@
         [blockself.gamePartsListWindowController.gamePartsViewController deleteGameParts];
     } copy];
 
-    self.gamePartsEditWindowController.onSelectedGameParts = [^(MEGameParts *gameParts){
+    //toolにparhapsを表示
+    self.gamePartsEditWindowController.onSelectedGameParts = [^(MEGameParts *gameParts) {
         METile *sample = [gameParts.tiles lastObject];
         [blockself.gameMapToolsWindowController showParhapsSize:sample.tileRect.size.width
-                                                              y:sample.tileRect.size.height/2.0f
-                                                              t:sample.tileRect.size.height/2.0f];
+                                                              y:sample.tileRect.size.height / 2.0f
+                                                              t:sample.tileRect.size.height / 2.0f];
 
     } copy];
-    
+
+    self.gameMapToolsWindowController.onSetToMapWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t){
+        NSLog(@"ahoaho");
+        MEGameMapWindowController *front = nil;
+        for(MEGameMapWindowController *mw in self.mapWindowControllers){
+            int min = 9999;
+            //一番低いやつが先頭
+            if(mw.window.orderedIndex < min){
+                min = mw.window.orderedIndex ;
+                front = mw;
+            }
+        }
+        [front fixedValuesFromToolBar:_maxM x:_x y:_y t:_t];
+    } copy];
+
     /*ツールウィンドウのコールバック*/
     return self;
 }
@@ -88,9 +104,20 @@
 - (void)createGameMapWindow:(NSURL *)filePath {
     MEGameMapWindowController *w = [[MEGameMapWindowController alloc]
             initWithWindowNibName:@"MEGameMapWindowController"
-                         fileURL:filePath];
+                          fileURL:filePath
+                             maxM:self.gameMapToolsWindowController.maxM
+                          aspectX:self.gameMapToolsWindowController.aspectX
+                          aspectY:self.gameMapToolsWindowController.aspectY
+                          aspectT:self.gameMapToolsWindowController.aspectT
+    ];
+    w.onSetToToolWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t){
+        [self.gameMapToolsWindowController changedMapWindow:_maxM
+                                                          x:_x
+                                                          y:_y
+                                                          t:_t];
+    } copy];
     [w.window makeKeyAndOrderFront:nil];
-    [self.tileWindowControllers addObject:w];
+    [self.mapWindowControllers addObject:w];
 }
 
 /*編集関係の復元*/
@@ -99,20 +126,20 @@
     [self.tileWindowControllers removeAllObjects];
     for (NSDictionary *tileDict in tileSheets) {
         METileWindowController *w = [[METileWindowController alloc]
-                                     initWithWindowNibName:@"METileWindowController"
-                                     imageURL:[tileDict objectForKey:@"filePath"]
-                                     widthNum:((NSNumber *) [tileDict objectForKey:@"widthNum"]).integerValue
-                                     heightNum:((NSNumber *) [tileDict objectForKey:@"heightNum"]).integerValue
-                                     onPickUp:^(METile *tile) {
-                                         [self.gamePartsEditWindowController setViewWithTile:tile];
-                                     }];
+                initWithWindowNibName:@"METileWindowController"
+                             imageURL:[tileDict objectForKey:@"filePath"]
+                             widthNum:((NSNumber *) [tileDict objectForKey:@"widthNum"]).integerValue
+                            heightNum:((NSNumber *) [tileDict objectForKey:@"heightNum"]).integerValue
+                             onPickUp:^(METile *tile) {
+                                 [self.gamePartsEditWindowController setViewWithTile:tile];
+                             }];
         [w.window makeKeyAndOrderFront:nil];
         [w drawLineAfterLoad];
         [self.tileWindowControllers addObject:w];
     }
     //リストウィンドウの復元
     self.gamePartsListWindowController.gamePartsViewController.gamePartsArray = gamePartsArray;
-    
+
 }
 
 #pragma mark IBActions

@@ -25,9 +25,13 @@
 @property NSMutableArray *tileWindowControllers;
 @property NSMutableArray *mapWindowControllers;
 
-- (id)initWithCoder:(NSCoder *)aDecoder ;
+- (id)initWithCoder:(NSCoder *)aDecoder;
+
 - (IBAction)showGameParts:(id)sender;
-- (BOOL)validateMenuItem:(id )menuItem;
+
+- (BOOL)validateMenuItem:(id)menuItem;
+
 - (IBAction)openTileFile:(id)sender;
--(void)createTileWindow:(NSURL*)filePath;
+
+- (void)createTileWindow:(NSURL *)filePath;
 @end
