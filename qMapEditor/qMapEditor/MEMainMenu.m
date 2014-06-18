@@ -52,9 +52,16 @@
     self.gamePartsEditWindowController.onDeleteGameParts = [^() {
         [blockself.gamePartsListWindowController.gamePartsViewController deleteGameParts];
     } copy];
+
+    self.gamePartsEditWindowController.onSelectedGameParts = [^(MEGameParts *gameParts){
+        METile *sample = [gameParts.tiles lastObject];
+        [blockself.gameMapToolsWindowController showParhapsSize:sample.tileRect.size.width
+                                                              y:sample.tileRect.size.height/2.0f
+                                                              t:sample.tileRect.size.height/2.0f];
+
+    } copy];
     
     /*ツールウィンドウのコールバック*/
-
     return self;
 }
 

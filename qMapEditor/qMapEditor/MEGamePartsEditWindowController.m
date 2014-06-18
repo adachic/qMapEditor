@@ -146,6 +146,9 @@
     NSLog(@"selectedGameParts,%@", parts);
 
     [self setViewWithGameParts:[parts copy]];
+    if (self.onSelectedGameParts) {
+        self.onSelectedGameParts([buildingGameParts copy]);
+    }
 }
 
 //Addボタン：GameParts追加

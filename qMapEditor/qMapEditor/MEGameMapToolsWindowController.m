@@ -28,6 +28,10 @@
 
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 }
+- (void)showParhapsSize:(CGFloat)x y:(CGFloat)y t:(CGFloat)t
+{
+    self.tfParhaps.stringValue = [NSString stringWithFormat:@"x:%.0f,y:%.0f,t:%.0f",x,y,t];
+}
 
 - (IBAction)clickedAspectFix:(id)sender {
     self.aspectT = [self.tfAspectT.stringValue floatValue];

@@ -246,6 +246,24 @@
                                     <rect key="frame" x="18" y="55" width="79" height="73"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 </customView>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bhM-1j-4Eg">
+                                    <rect key="frame" x="18" y="21" width="62" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Perhaps.." id="j6M-X6-w67">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RED-bk-R4u">
+                                    <rect key="frame" x="18" y="6" width="103" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="x:y:z:" id="pWu-Gc-b2U">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
                             </subviews>
                         </view>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -324,6 +342,7 @@
                 <outlet property="tfAspectT" destination="gSu-r7-Yhc" id="6Wr-pJ-cYb"/>
                 <outlet property="tfAspectX" destination="qKE-0R-E1J" id="dSJ-4j-grm"/>
                 <outlet property="tfAspectY" destination="5D7-g1-myG" id="AyS-tC-uEz"/>
+                <outlet property="tfParhaps" destination="RED-bk-R4u" id="kg4-Ls-GuZ"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="Iea-hz-1Yz"/>
             </connections>
         </customObject>
