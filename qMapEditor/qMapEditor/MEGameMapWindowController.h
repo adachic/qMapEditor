@@ -12,12 +12,13 @@
 
 @interface MEGameMapWindowController : NSWindowController <NSWindowDelegate>
 
-
 typedef void (^_onSetToToolWindow)(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t);
 
 @property (strong) _onSetToToolWindow onSetToToolWindow;
 
 @property MEMatrix *maxM;
+@property MEMatrix *currentCursor;
+
 @property CGFloat aspectX;
 @property CGFloat aspectY;
 @property CGFloat aspectT;
@@ -26,6 +27,8 @@ typedef void (^_onSetToToolWindow)(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFl
 @property BOOL shouldShowGriph;
 @property BOOL shouldShowLines;
 
+@property NSMutableDictionary *jungleJym;
+
 - (id)initWithWindowNibName:(NSString *)windowNibName
                     fileURL:(NSURL *)url
                        maxM:(MEMatrix *)maxSize
@@ -33,5 +36,7 @@ typedef void (^_onSetToToolWindow)(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFl
                     aspectY:(CGFloat)y
                     aspectT:(CGFloat)t;
 - (void)fixedValuesFromToolBar:(MEMatrix *)maxM x:(CGFloat)x y:(CGFloat)y t:(CGFloat)t;
+
+@property IBOutlet NSView *targetView;
 
 @end

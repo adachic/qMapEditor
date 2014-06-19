@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8118A6371952FA4700B9DCE7 /* MEGameMapChipLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8118A6361952FA4700B9DCE7 /* MEGameMapChipLayer.m */; };
 		813AD47C193FA3F600B949C5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813AD47B193FA3F600B949C5 /* Cocoa.framework */; };
 		813AD486193FA3F600B949C5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 813AD484193FA3F600B949C5 /* InfoPlist.strings */; };
 		813AD488193FA3F600B949C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 813AD487193FA3F600B949C5 /* main.m */; };
@@ -53,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8118A6351952FA4700B9DCE7 /* MEGameMapChipLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEGameMapChipLayer.h; sourceTree = "<group>"; };
+		8118A6361952FA4700B9DCE7 /* MEGameMapChipLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEGameMapChipLayer.m; sourceTree = "<group>"; };
 		813AD478193FA3F600B949C5 /* qMapEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qMapEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		813AD47B193FA3F600B949C5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		813AD47E193FA3F600B949C5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -287,6 +290,8 @@
 				81BD68E4194BD241005E1652 /* MEGameMapWindowController.xib */,
 				81BD68EC194C0662005E1652 /* METileView.h */,
 				81BD68ED194C0662005E1652 /* METileView.m */,
+				8118A6351952FA4700B9DCE7 /* MEGameMapChipLayer.h */,
+				8118A6361952FA4700B9DCE7 /* MEGameMapChipLayer.m */,
 			);
 			name = GameMap;
 			sourceTree = "<group>";
@@ -421,6 +426,7 @@
 				81BD68EA194BD2F2005E1652 /* MEGameMapToolsWindowController.m in Sources */,
 				813BE7F2194023D60034A0B8 /* MEGamePartsListWindowController.m in Sources */,
 				813AD488193FA3F600B949C5 /* main.m in Sources */,
+				8118A6371952FA4700B9DCE7 /* MEGameMapChipLayer.m in Sources */,
 				817E99CE1941125300B08786 /* METileWindowController.m in Sources */,
 				813BE7F81940DEFC0034A0B8 /* MEGamePartsViewController.m in Sources */,
 				BB6686A731B2E09E85491CB7 /* MEGameParts.m in Sources */,

@@ -22,13 +22,7 @@
     if (self) {
         // Initialization code here.
         [self.window setDelegate:self];
-        /*
-        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-        [nc addObserver:self
-               selector:@selector(:)
-                name:NSWindowDidExposeNotification
-                 object:nil];
-                 */
+        self.maxM = [[MEMatrix alloc] initWithX:10 Y:10 Z:10];
     }
     return self;
 }
@@ -55,6 +49,8 @@
     [self.tfAspectX setStringValue:[NSString stringWithFormat:@"%.0f", x]];
     [self.tfAspectY setStringValue:[NSString stringWithFormat:@"%.0f", y]];
     [self.tfAspectT setStringValue:[NSString stringWithFormat:@"%.0f", t]];
+    [self drawTile];
+
     NSLog(@"changedMapWindow");
 }
 
