@@ -8,6 +8,7 @@
 
 #import "MEGameMapChipLayer.h"
 #import "MEGameParts.h"
+#import "MEMatrix.h"
 
 @implementation MEGameMapChipLayer
 
@@ -116,4 +117,34 @@
     [[NSColor blueColor] set];
     [line stroke];
 }
+
+//菱型のなかに収まっていればYES
++ (BOOL)hitCursorPointWithMatrix:(MEMatrix *)matrix
+                         aspectX:(CGFloat)aspectX
+                         aspectY:(CGFloat)aspectY
+                             aid:(CGFloat)aid
+                     mouseCursor:(CGPoint)cursorPoint
+                    chipPosition:(CGPoint)chipPoint
+                zeroChipPosition:(CGPoint)zeroChipPoint {
+    CGFloat idealYUpper;
+    CGFloat idealYDowner;
+    if (cursorPoint.x < (chipPoint.x + aspectX / 2.0f)) {
+        idealYUpper = aspectY / aspectX * cursorPoint.x +
+                aspectY / 2.0f + aid - (matrix.x * aspectY);
+        idealYDowner = aspectY / aspectX * -1.0f * cursorPoint.x +
+                aspectY / 2.0f + aid + (matrix.y * aspectY);
+    } else {
+        idealYUpper = aspectY / aspectX * -1.0f * cursorPoint.x +
+                aspectY * 3.0f / 2.0f + aid + (matrix.y * aspectY);
+        idealYDowner = aspectY / aspectX * cursorPoint.x +
+                -aspectY / 2.0f + aid - (matrix.x * aspectY);
+    }
+    if (cursorPoint.y < idealYUpper &&
+            cursorPoint.y > idealYDowner
+            ) {
+        return YES;
+    }
+    return NO;
+}
+
 @end

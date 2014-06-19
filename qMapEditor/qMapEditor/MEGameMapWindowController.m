@@ -99,25 +99,19 @@
             for (int z = 0; z < self.maxM.z; z++) {
                 int tag = [self makeTagWithX:x y:y z:z];
                 MEGameParts *cube = self.jungleJym[[NSString stringWithFormat:@"%d", tag]];
-
                 MEGameMapChipLayer *chip = [[MEGameMapChipLayer alloc] initWithGameParts:cube
                                                                                        x:self.aspectX
                                                                                        y:self.aspectY
                                                                                        t:self.aspectT];
-                CGFloat xOrigin = self.aspectX / 2.0f * x +
-                        self.aspectX / 2.0f * y;
-                CGFloat yOrigin =
-                        self.aspectY / 2.0f * x * -1.0f +
-                                self.aspectY / 2.0f * y +
-                                self.aspectT * z;
-                CGFloat yAid =
-                        self.aspectY / 2.0f * self.maxM.x;
-                [chip setFrame:CGRectMake(xOrigin, yOrigin + yAid, chip.bounds.size.width, chip.bounds.size.height)];
+                CGPoint origin = [self pointOfChipPositionWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                               Y:y
+                                                                                               Z:z]];
+                [chip setFrame:CGRectMake(origin.x, origin.y, chip.bounds.size.width, chip.bounds.size.height)];
                 [self.targetView.layer addSublayer:chip];
                 if (!cube && self.currentCursor.z == z) {
                     if (self.currentCursor.x == x &&
-                        self.currentCursor.y == y &&
-                        self.currentCursor.z == z) {
+                            self.currentCursor.y == y &&
+                            self.currentCursor.z == z) {
                         [chip drawCurrentCursor];
                         continue;
                     }
@@ -128,6 +122,21 @@
             }
         }
     }
+}
+
+- (CGPoint)pointOfChipPositionWithMatrix:(MEMatrix *)matrix {
+    CGFloat xOrigin = self.aspectX / 2.0f * matrix.x +
+            self.aspectX / 2.0f * matrix.y;
+    CGFloat yOrigin =
+            self.aspectY / 2.0f * matrix.x * -1.0f +
+                    self.aspectY / 2.0f * matrix.y +
+                    self.aspectT * matrix.z;
+    CGFloat yAid = [self aid];
+    return CGPointMake(xOrigin, yOrigin + yAid);
+}
+
+- (CGFloat)aid {
+    return self.aspectY / 2.0f * self.maxM.x;
 }
 
 
@@ -151,6 +160,40 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+}
+
+- (void)mouseDown:(NSEvent *)theEvent {
+    [super mouseDown:theEvent];
+    NSPoint curPoint = [theEvent locationInWindow];
+
+    for (int x = 0; x < self.maxM.x; x++) {
+        for (int y = 0; y < self.maxM.y; y++) {
+            for (int z = 0; z < self.maxM.z; z++) {
+                if (self.currentCursor.z != z) {
+                    continue;
+                }
+                if ([MEGameMapChipLayer hitCursorPointWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                           Y:y
+                                                                                           Z:z]
+                                                         aspectX:self.aspectX
+                                                         aspectY:self.aspectY
+                                                             aid:[self aid]
+                                                     mouseCursor:curPoint
+                                                    chipPosition:[self pointOfChipPositionWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                           Y:y
+                                                                                           Z:z]]
+                        zeroChipPosition:[self pointOfChipPositionWithMatrix:[[MEMatrix alloc] initWithX:0
+                                                                                           Y:0
+                                                                                           Z:0]]
+                ]) {
+                    NSLog(@"hit %d,%d,%d",x,y,z);
+
+
+                }
+            }
+        }
+    }
+
 
 }
 

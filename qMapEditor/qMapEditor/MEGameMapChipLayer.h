@@ -9,6 +9,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @class MEGameParts;
+@class MEMatrix;
 
 @interface MEGameMapChipLayer : CALayer
 
@@ -20,6 +21,15 @@
 - (id)initWithGameParts:(MEGameParts *)gameParts1 x:(int)aspectX y:(int)aspectY t:(int)aspectT;
 
 - (void)drawEmptyCursor;
+
 - (void)drawCurrentCursor;
+
++ (BOOL)hitCursorPointWithMatrix:(MEMatrix *)matrix
+                         aspectX:(CGFloat)aspectX
+                         aspectY:(CGFloat)aspectY
+                             aid:(CGFloat)aid
+                     mouseCursor:(CGPoint)cursorPoint
+                    chipPosition:(CGPoint)chipPoint
+                zeroChipPosition:(CGPoint)zeroChipPoint;
 
 @end
