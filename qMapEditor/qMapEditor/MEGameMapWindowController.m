@@ -164,14 +164,14 @@
     CGFloat width =
             self.aspectX / 2.0f +
                     self.aspectX / 2.0f * self.maxM.x +
-                    self.aspectY / 2.0f * self.maxM.y;
+                    self.aspectX / 2.0f * self.maxM.y;
     CGFloat height =
             self.aspectY / 2.0f * self.maxM.x +
                     self.aspectY + self.aspectY / 2.0f * self.maxM.y +
                     self.aspectT * self.maxM.z;
     NSLog(@"unko2 %f,%f", width, height);
 
-    CGRect winsize = CGRectMake(0, 0, width, height);
+    CGRect winsize = CGRectMake(0, 0,  width,height);
     [self.targetView setFrame:winsize];
     [self.targetView setWantsLayer:YES];
     self.targetView.layer.backgroundColor = [[NSColor blackColor] CGColor];
