@@ -123,6 +123,9 @@
                 [chip setFrame:CGRectMake(origin.x, origin.y, chip.bounds.size.width, chip.bounds.size.height)];
                 [chip setZPosition:(x - y) * (z + 1)];
                 [self.targetView.layer addSublayer:chip];
+                [self.targetView.layer setValue:chip forKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                                              Y:y
+                                                                                                              Z:z]]];
                 if (cube) {
                     NSLog(@"chip bounds %f, %f", chip.bounds.size.width, chip.bounds.size.height);
                     [chip drawGameParts];
@@ -222,10 +225,34 @@
                             break;
 
                     }
-                    [self showTargetView];
+                    [self drawTile:[[MEMatrix alloc] initWithX:x
+                                                             Y:y
+                                                             Z:z]];
                 }
             }
         }
+    }
+}
+
+- (void)drawTile:(MEMatrix *)mat {
+    MEGameMapChipLayer *chip = [self.targetView.layer valueForKey:[self makeTagWithMatrix:mat]];
+    [chip removeFromSuperlayer];
+    chip = nil;
+
+    MEGameParts *cube = [self.jungleJym objectForKey:[self makeTagWithMatrix:mat]];
+    chip = [[MEGameMapChipLayer alloc] initWithGameParts:cube
+                                                       x:self.aspectX
+                                                       y:self.aspectY
+                                                       t:self.aspectT];
+    CGPoint origin = [self pointOfChipPositionWithMatrix:mat];
+    [chip setFrame:CGRectMake(origin.x, origin.y, chip.bounds.size.width, chip.bounds.size.height)];
+    [chip setZPosition:(mat.x - mat.y) * (mat.z + 1)];
+    [self.targetView.layer addSublayer:chip];
+    [self.targetView.layer setValue:chip forKey:[self makeTagWithMatrix:mat]];
+    if (!cube) {
+        [chip drawEmptyCursor];
+    } else {
+        [chip drawGameParts];
     }
 }
 
@@ -309,12 +336,12 @@
     self.editMapMode = kEditMapModeEraserMode;
 }
 
-- (void)fillLayer{
+- (void)fillLayer {
     for (int x = 0; x < self.maxM.x; x++) {
         for (int y = 0; y < self.maxM.y; y++) {
-            if([self.jungleJym objectForKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
-                                                                                        Y:y
-                                                                                        Z:self.currentCursor.z]]]){
+            if ([self.jungleJym objectForKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                               Y:y
+                                                                                               Z:self.currentCursor.z]]]) {
                 continue;
             }
             [self.jungleJym setObject:self.selectedGameParts
@@ -326,15 +353,15 @@
     [self showTargetView];
 }
 
-- (void)clearLayer{
+- (void)clearLayer {
     for (int x = 0; x < self.maxM.x; x++) {
         for (int y = 0; y < self.maxM.y; y++) {
-            if([self.jungleJym objectForKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
-                                                                                              Y:y
-                                                                                              Z:self.currentCursor.z]]]){
+            if ([self.jungleJym objectForKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                               Y:y
+                                                                                               Z:self.currentCursor.z]]]) {
                 [self.jungleJym removeObjectForKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
-                                                                                              Y:y
-                                                                                              Z:self.currentCursor.z]]];
+                                                                                                     Y:y
+                                                                                                     Z:self.currentCursor.z]]];
             }
         }
     }

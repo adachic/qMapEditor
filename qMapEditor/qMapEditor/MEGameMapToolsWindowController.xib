@@ -370,7 +370,7 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N7p-j5-AVL">
-                                    <rect key="frame" x="97" y="116" width="16" height="17"/>
+                                    <rect key="frame" x="97" y="116" width="62" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="z:" id="rro-wf-WEr">
                                         <font key="font" metaFont="system"/>

@@ -100,7 +100,7 @@
       <file leaf-file-name="MEGameMapWindowController.m" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapWindowController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="25" selection-start="2730" selection-end="2730" vertical-scroll-proportion="0.36629215" vertical-offset="1129" max-vertical-offset="5250">
+            <state line="231" column="16" selection-start="9502" selection-end="9502" vertical-scroll-proportion="0.53932583" vertical-offset="2985" max-vertical-offset="5655">
               <folding>
                 <element signature="e#156#193#0" expanded="true" />
               </folding>
@@ -543,7 +543,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapWindowController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="25" selection-start="2730" selection-end="2730" vertical-scroll-proportion="0.36629215" vertical-offset="1129" max-vertical-offset="5250">
+        <state line="231" column="16" selection-start="9502" selection-end="9502" vertical-scroll-proportion="0.53932583" vertical-offset="2985" max-vertical-offset="5655">
           <folding>
             <element signature="e#156#193#0" expanded="true" />
           </folding>
