@@ -101,6 +101,16 @@
         [front switchToEraserMode];
     } copy];
 
+    self.gameMapToolsWindowController.onFillLayerToMapWindow = [^() {
+        MEGameMapWindowController *front = [blockself frontGameMapWindowController];
+        [front fillLayer];
+    } copy];
+
+    self.gameMapToolsWindowController.onClearLayerToMapWindow = [^() {
+        MEGameMapWindowController *front = [blockself frontGameMapWindowController];
+        [front clearLayer];
+    } copy];
+
     /*ツールウィンドウのコールバック*/
     return self;
 }

@@ -309,4 +309,36 @@
     self.editMapMode = kEditMapModeEraserMode;
 }
 
+- (void)fillLayer{
+    for (int x = 0; x < self.maxM.x; x++) {
+        for (int y = 0; y < self.maxM.y; y++) {
+            if([self.jungleJym objectForKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                        Y:y
+                                                                                        Z:self.currentCursor.z]]]){
+                continue;
+            }
+            [self.jungleJym setObject:self.selectedGameParts
+                               forKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                        Y:y
+                                                                                        Z:self.currentCursor.z]]];
+        }
+    }
+    [self showTargetView];
+}
+
+- (void)clearLayer{
+    for (int x = 0; x < self.maxM.x; x++) {
+        for (int y = 0; y < self.maxM.y; y++) {
+            if([self.jungleJym objectForKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                              Y:y
+                                                                                              Z:self.currentCursor.z]]]){
+                [self.jungleJym removeObjectForKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                              Y:y
+                                                                                              Z:self.currentCursor.z]]];
+            }
+        }
+    }
+    [self showTargetView];
+}
+
 @end

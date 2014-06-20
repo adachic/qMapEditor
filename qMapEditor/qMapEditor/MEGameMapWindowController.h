@@ -60,6 +60,10 @@ typedef enum EditMapMode{
 
 - (void)switchToEraserMode;
 
+- (void)fillLayer;
+
+- (void)clearLayer;
+
 @property IBOutlet NSView *targetView;
 
 @end
