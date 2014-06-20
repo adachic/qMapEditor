@@ -86,6 +86,10 @@
         [self setGamePartsArray:tempArray];
     }
 }
+- (MEGameParts *)selectedGameParts{
+    NSMutableDictionary *dict = [arrayController.selectedObjects lastObject];
+    return [dict objectForKey:@"game_parts"];
+}
 
 - (void)updateGameParts:(MEGameParts *)gameParts {
     NSMutableDictionary *dict = [arrayController.selectedObjects lastObject];

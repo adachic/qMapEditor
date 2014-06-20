@@ -21,7 +21,9 @@
                        maxM:(MEMatrix *)maxSize
                     aspectX:(CGFloat)x
                     aspectY:(CGFloat)y
-                    aspectT:(CGFloat)t {
+                    aspectT:(CGFloat)t
+          selectedGameParts:(MEGameParts *)gameParts
+{
     NSLog(@"init");
     self = [super initWithWindowNibName:windowNibName];
     if (self) {
@@ -39,14 +41,19 @@
 
         _currentCursor = [[MEMatrix alloc] initWithX:0 Y:0 Z:0];
 
+        _selectedGameParts = gameParts;
+
         [self makeJungleJym];
         [self showTargetView];
+
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        [nc addObserver:self selector:@selector(selectedGameParts:) name:@"selectedGameParts" object:nil];
     }
     return self;
 }
 
-- (int)makeTagWithX:(int)x y:(int)y z:(int)z {
-    return x + y * 100 + z * 10000;
+- (NSString *)makeTagWithMatrix:(MEMatrix *)mat {
+    return [NSString stringWithFormat:@"%d",(int)(mat.x + mat.y * 100 + mat.z * 10000)];
 }
 
 //新規のジャングルジム生成
@@ -55,7 +62,7 @@
     for (int x = 0; x < self.maxM.x; x++) {
         for (int y = 0; y < self.maxM.y; y++) {
             for (int z = 0; z < self.maxM.z; z++) {
-                int tag = [self makeTagWithX:x y:y z:z];
+//                int tag = [self makeTagWithX:x y:y z:z];
                 //  self.jungleJym[[NSString stringWithFormat:@"%d", tag]] = nil;
             }
         }
@@ -79,6 +86,12 @@
     }
 }
 
+//GamePartsリストから選択された
+- (void)selectedGameParts:(id)obj {
+    NSDictionary *dict = [[obj userInfo] objectForKey:@"KEY"];
+    self.selectedGameParts = [dict objectForKey:@"game_parts"];
+}
+
 //ウィンドウサイズ、viewサイズの初期化
 - (void)showTargetView {
     [self clear];
@@ -97,8 +110,9 @@
     for (int x = 0; x < self.maxM.x; x++) {
         for (int y = 0; y < self.maxM.y; y++) {
             for (int z = 0; z < self.maxM.z; z++) {
-                int tag = [self makeTagWithX:x y:y z:z];
-                MEGameParts *cube = self.jungleJym[[NSString stringWithFormat:@"%d", tag]];
+                MEGameParts *cube = self.jungleJym[[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                                     Y:y
+                                                                                                     Z:z]]];
                 MEGameMapChipLayer *chip = [[MEGameMapChipLayer alloc] initWithGameParts:cube
                                                                                        x:self.aspectX
                                                                                        y:self.aspectY
@@ -108,7 +122,12 @@
                                                                                                Z:z]];
                 [chip setFrame:CGRectMake(origin.x, origin.y, chip.bounds.size.width, chip.bounds.size.height)];
                 [self.targetView.layer addSublayer:chip];
-                if (!cube && self.currentCursor.z == z) {
+                if(cube){
+                    NSLog(@"chip bounds %f, %f",chip.bounds.size.width, chip.bounds.size.height);
+                    [chip drawGameParts];
+                    continue;
+                }
+                if (self.currentCursor.z == z) {
                     if (self.currentCursor.x == x &&
                             self.currentCursor.y == y &&
                             self.currentCursor.z == z) {
@@ -180,15 +199,15 @@
                                                              aid:[self aid]
                                                      mouseCursor:curPoint
                                                     chipPosition:[self pointOfChipPositionWithMatrix:[[MEMatrix alloc] initWithX:x
-                                                                                           Y:y
-                                                                                           Z:z]]
-                        zeroChipPosition:[self pointOfChipPositionWithMatrix:[[MEMatrix alloc] initWithX:0
-                                                                                           Y:0
-                                                                                           Z:0]]
+                                                                                                                               Y:y
+                                                                                                                               Z:z]]
                 ]) {
-                    NSLog(@"hit %d,%d,%d",x,y,z);
-
-
+                    NSLog(@"hit %d,%d,%d", x, y, z);
+                    [self.jungleJym setObject:self.selectedGameParts
+                                       forKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                      Y:y
+                                                      Z:z]]];
+                    [self showTargetView];
                 }
             }
         }

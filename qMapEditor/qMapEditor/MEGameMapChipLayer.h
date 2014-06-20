@@ -14,22 +14,22 @@
 @interface MEGameMapChipLayer : CALayer
 
 @property MEGameParts *gameParts;
-@property NSInteger aspectX;
-@property NSInteger aspectY;
-@property NSInteger aspectT;
+@property CGFloat aspectX;
+@property CGFloat aspectY;
+@property CGFloat aspectT;
 
-- (id)initWithGameParts:(MEGameParts *)gameParts1 x:(int)aspectX y:(int)aspectY t:(int)aspectT;
+- (id)initWithGameParts:(MEGameParts *)gameParts1 x:(CGFloat)aspectX y:(CGFloat)aspectY t:(CGFloat)aspectT ;
 
 - (void)drawEmptyCursor;
 
 - (void)drawCurrentCursor;
 
+- (void)drawGameParts;
 + (BOOL)hitCursorPointWithMatrix:(MEMatrix *)matrix
                          aspectX:(CGFloat)aspectX
                          aspectY:(CGFloat)aspectY
                              aid:(CGFloat)aid
                      mouseCursor:(CGPoint)cursorPoint
-                    chipPosition:(CGPoint)chipPoint
-                zeroChipPosition:(CGPoint)zeroChipPoint;
+                    chipPosition:(CGPoint)chipPoint;
 
 @end

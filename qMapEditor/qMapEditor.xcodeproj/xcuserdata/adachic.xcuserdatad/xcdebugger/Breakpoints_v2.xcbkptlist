@@ -607,7 +607,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
             endingLineNumber = "130"
-            landmarkName = "+hitCursorPointWithMatrix:aspectX:aspectY:aid:mouseCursor:chipPosition:zeroChipPosition:"
+            landmarkName = "+hitCursorPointWithMatrix:aspectX:aspectY:aid:mouseCursor:chipPosition:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -623,7 +623,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
             endingLineNumber = "131"
-            landmarkName = "+hitCursorPointWithMatrix:aspectX:aspectY:aid:mouseCursor:chipPosition:zeroChipPosition:"
+            landmarkName = "+hitCursorPointWithMatrix:aspectX:aspectY:aid:mouseCursor:chipPosition:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -639,7 +639,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "144"
             endingLineNumber = "144"
-            landmarkName = "+hitCursorPointWithMatrix:aspectX:aspectY:aid:mouseCursor:chipPosition:zeroChipPosition:"
+            landmarkName = "+hitCursorPointWithMatrix:aspectX:aspectY:aid:mouseCursor:chipPosition:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -655,7 +655,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "145"
             endingLineNumber = "145"
-            landmarkName = "+hitCursorPointWithMatrix:aspectX:aspectY:aid:mouseCursor:chipPosition:zeroChipPosition:"
+            landmarkName = "+hitCursorPointWithMatrix:aspectX:aspectY:aid:mouseCursor:chipPosition:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -671,7 +671,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "147"
             endingLineNumber = "147"
-            landmarkName = "+hitCursorPointWithMatrix:aspectX:aspectY:aid:mouseCursor:chipPosition:zeroChipPosition:"
+            landmarkName = "+hitCursorPointWithMatrix:aspectX:aspectY:aid:mouseCursor:chipPosition:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

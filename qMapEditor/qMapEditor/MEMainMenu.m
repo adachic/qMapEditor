@@ -64,14 +64,14 @@
     } copy];
 
     //先頭のMapwindowにToolsの値を反映させる
-    self.gameMapToolsWindowController.onSetToMapWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t){
+    self.gameMapToolsWindowController.onSetToMapWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t) {
         NSLog(@"ahoaho");
         MEGameMapWindowController *front = nil;
-        for(MEGameMapWindowController *mw in self.mapWindowControllers){
+        for (MEGameMapWindowController *mw in self.mapWindowControllers) {
             int min = 9999;
             //一番低いやつが先頭
-            if(mw.window.orderedIndex < min){
-                min = mw.window.orderedIndex ;
+            if (mw.window.orderedIndex < min) {
+                min = mw.window.orderedIndex;
                 front = mw;
             }
         }
@@ -110,8 +110,9 @@
                           aspectX:self.gameMapToolsWindowController.aspectX
                           aspectY:self.gameMapToolsWindowController.aspectY
                           aspectT:self.gameMapToolsWindowController.aspectT
+                selectedGameParts:[self.gamePartsListWindowController.gamePartsViewController selectedGameParts]
     ];
-    w.onSetToToolWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t){
+    w.onSetToToolWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t) {
         [self.gameMapToolsWindowController changedMapWindow:_maxM
                                                           x:_x
                                                           y:_y

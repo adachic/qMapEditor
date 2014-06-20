@@ -40,6 +40,7 @@
 - (void)updateGameParts:(MEGameParts*)gameParts;
 - (void)deleteGameParts;
 
+- (MEGameParts *)selectedGameParts;
 @end
 
 

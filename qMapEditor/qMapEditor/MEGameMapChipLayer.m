@@ -12,12 +12,13 @@
 
 @implementation MEGameMapChipLayer
 
-- (id)initWithGameParts:(MEGameParts *)gameParts1 x:(int)aspectX y:(int)aspectY t:(int)aspectT {
+- (id)initWithGameParts:(MEGameParts *)gameParts1 x:(CGFloat)aspectX y:(CGFloat)aspectY t:(CGFloat)aspectT {
     if (self = [super init]) {
         _gameParts = gameParts1;
         _aspectX = aspectX;
         _aspectY = aspectY;
         _aspectT = aspectT;
+        [self setBounds:CGRectMake(self.bounds.origin.x,self.bounds.origin.y , aspectX, aspectY+ aspectT)];
     }
     return self;
 }
@@ -27,11 +28,11 @@
 }
 
 - (void)runAnimation {
-    [self fillBackground];
+//    [self fillBackground];
 
     CALayer *animationLayer = [CALayer layer];
+
     animationLayer.frame = self.bounds;
-    [self addSublayer:animationLayer];
     CAKeyframeAnimation *keyAnimation = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
 
     NSMutableArray *array = [NSMutableArray array];
@@ -49,6 +50,8 @@
     keyAnimation.duration = 1.0f;
     keyAnimation.repeatCount = HUGE_VALF;
     [keyAnimation setCalculationMode:kCAAnimationDiscrete];
+
+    [self addSublayer:animationLayer];
     [animationLayer addAnimation:keyAnimation forKey:@"aho"];
 }
 
@@ -62,6 +65,10 @@
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     [shapeLayer setFillColor:[[NSColor yellowColor] CGColor]];
     [self _drawLine:shapeLayer];
+}
+
+- (void)drawGameParts {
+    [self runAnimation];
 }
 
 - (void)_drawLine:(CAShapeLayer *)shapeLayer {
@@ -124,8 +131,7 @@
                          aspectY:(CGFloat)aspectY
                              aid:(CGFloat)aid
                      mouseCursor:(CGPoint)cursorPoint
-                    chipPosition:(CGPoint)chipPoint
-                zeroChipPosition:(CGPoint)zeroChipPoint {
+                    chipPosition:(CGPoint)chipPoint {
     CGFloat idealYUpper;
     CGFloat idealYDowner;
     if (cursorPoint.x < (chipPoint.x + aspectX / 2.0f)) {

@@ -9,12 +9,14 @@
 #import <Cocoa/Cocoa.h>
 
 @class MEMatrix;
+@class MEGameParts;
 
 @interface MEGameMapWindowController : NSWindowController <NSWindowDelegate>
 
 typedef void (^_onSetToToolWindow)(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t);
 
-@property (strong) _onSetToToolWindow onSetToToolWindow;
+@property(strong) _onSetToToolWindow onSetToToolWindow;
+@property MEGameParts *selectedGameParts;
 
 @property MEMatrix *maxM;
 @property MEMatrix *currentCursor;
@@ -34,7 +36,9 @@ typedef void (^_onSetToToolWindow)(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFl
                        maxM:(MEMatrix *)maxSize
                     aspectX:(CGFloat)x
                     aspectY:(CGFloat)y
-                    aspectT:(CGFloat)t;
+                    aspectT:(CGFloat)t
+          selectedGameParts:(MEGameParts *)gameParts;
+
 - (void)fixedValuesFromToolBar:(MEMatrix *)maxM x:(CGFloat)x y:(CGFloat)y t:(CGFloat)t;
 
 @property IBOutlet NSView *targetView;
