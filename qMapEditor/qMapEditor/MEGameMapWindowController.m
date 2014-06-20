@@ -22,8 +22,7 @@
                     aspectX:(CGFloat)x
                     aspectY:(CGFloat)y
                     aspectT:(CGFloat)t
-          selectedGameParts:(MEGameParts *)gameParts
-{
+          selectedGameParts:(MEGameParts *)gameParts {
     NSLog(@"init");
     self = [super initWithWindowNibName:windowNibName];
     if (self) {
@@ -53,7 +52,7 @@
 }
 
 - (NSString *)makeTagWithMatrix:(MEMatrix *)mat {
-    return [NSString stringWithFormat:@"%d",(int)(mat.x + mat.y * 100 + mat.z * 10000)];
+    return [NSString stringWithFormat:@"%d", (int) (mat.x + mat.y * 100 + mat.z * 10000)];
 }
 
 //新規のジャングルジム生成
@@ -121,10 +120,10 @@
                                                                                                Y:y
                                                                                                Z:z]];
                 [chip setFrame:CGRectMake(origin.x, origin.y, chip.bounds.size.width, chip.bounds.size.height)];
-                [chip setZPosition:(x-y)*(z+1)];
+                [chip setZPosition:(x - y) * (z + 1)];
                 [self.targetView.layer addSublayer:chip];
-                if(cube){
-                    NSLog(@"chip bounds %f, %f",chip.bounds.size.width, chip.bounds.size.height);
+                if (cube) {
+                    NSLog(@"chip bounds %f, %f", chip.bounds.size.width, chip.bounds.size.height);
                     [chip drawGameParts];
                     continue;
                 }
@@ -171,7 +170,7 @@
                     self.aspectT * self.maxM.z;
     NSLog(@"unko2 %f,%f", width, height);
 
-    CGRect winsize = CGRectMake(0, 0,  width,height);
+    CGRect winsize = CGRectMake(0, 0, width, height);
     [self.targetView setFrame:winsize];
     [self.targetView setWantsLayer:YES];
     self.targetView.layer.backgroundColor = [[NSColor blackColor] CGColor];
@@ -206,15 +205,67 @@
                     NSLog(@"hit %d,%d,%d", x, y, z);
                     [self.jungleJym setObject:self.selectedGameParts
                                        forKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
-                                                      Y:y
-                                                      Z:z]]];
+                                                                                                Y:y
+                                                                                                Z:z]]];
                     [self showTargetView];
                 }
             }
         }
     }
+}
 
+- (void)modifyMaxX:(BOOL)shouldUp {
+    if (shouldUp) {
+        self.maxM.x++;
+        if (self.maxM.x > 100) {
+            self.maxM.x = 100;
+        }
+    } else {
+        self.maxM.x--;
+        if (self.maxM.x < 1) {
+            self.maxM.x = 1;
+        }
+    }
+    if (self.onSetToToolWindow) {
+        self.onSetToToolWindow(self.maxM, self.aspectX, self.aspectY, self.aspectT);
+    }
+    [self showTargetView];
+}
 
+- (void)modifyMaxY:(BOOL)shouldUp {
+    if (shouldUp) {
+        self.maxM.y++;
+        if (self.maxM.y > 100) {
+            self.maxM.y = 100;
+        }
+    } else {
+        self.maxM.y--;
+        if (self.maxM.y < 1) {
+            self.maxM.y = 1;
+        }
+    }
+    if (self.onSetToToolWindow) {
+        self.onSetToToolWindow(self.maxM, self.aspectX, self.aspectY, self.aspectT);
+    }
+    [self showTargetView];
+}
+
+- (void)modifyMaxZ:(BOOL)shouldUp {
+    if (shouldUp) {
+        self.maxM.z++;
+        if (self.maxM.z > 100) {
+            self.maxM.z = 100;
+        }
+    } else {
+        self.maxM.z--;
+        if (self.maxM.z < 1) {
+            self.maxM.z = 1;
+        }
+    }
+    if (self.onSetToToolWindow) {
+        self.onSetToToolWindow(self.maxM, self.aspectX, self.aspectY, self.aspectT);
+    }
+    [self showTargetView];
 }
 
 @end

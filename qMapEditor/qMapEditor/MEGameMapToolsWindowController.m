@@ -50,9 +50,13 @@
     [self.tfAspectY setStringValue:[NSString stringWithFormat:@"%.0f", y]];
     [self.tfAspectT setStringValue:[NSString stringWithFormat:@"%.0f", t]];
     [self drawTile];
+    [[self tfMaxX] setStringValue:[NSString stringWithFormat:@"%d",self.maxM.x]];
+    [[self tfMaxY] setStringValue:[NSString stringWithFormat:@"%d",self.maxM.y]];
+    [[self tfMaxZ] setStringValue:[NSString stringWithFormat:@"%d",self.maxM.z]];
 
     NSLog(@"changedMapWindow");
 }
+
 
 - (IBAction)clickedAspectFix:(id)sender {
     self.aspectT = [self.tfAspectT.stringValue floatValue];
@@ -60,7 +64,7 @@
     self.aspectY = [self.tfAspectY.stringValue floatValue];
 
     //マップに反映
-    if(self.onSetToMapWindow){
+    if (self.onSetToMapWindow) {
         self.onSetToMapWindow(self.maxM, self.aspectX, self.aspectY, self.aspectT);
     }
 
@@ -81,6 +85,78 @@
     [self.sampleTileView addSubview:tileView];
 
     [tileView drawLine];
+}
+
+- (IBAction)clickdMaxXUpper:(id)sender {
+    if (self.onMaxXModifyToMapWindow) {
+        self.onMaxXModifyToMapWindow(YES);
+    }
+}
+
+- (IBAction)clickdMaxYUpper:(id)sender {
+    if (self.onMaxYModifyToMapWindow) {
+        self.onMaxYModifyToMapWindow(YES);
+    }
+}
+
+- (IBAction)clickdMaxXDowner:(id)sender {
+    if (self.onMaxXModifyToMapWindow) {
+        self.onMaxXModifyToMapWindow(NO);
+    }
+}
+
+- (IBAction)clickdMaxYDowner:(id)sender {
+    if (self.onMaxYModifyToMapWindow) {
+        self.onMaxYModifyToMapWindow(NO);
+    }
+}
+
+- (IBAction)clickdMaxZUpper:(id)sender {
+    if (self.onMaxZModifyToMapWindow) {
+        self.onMaxZModifyToMapWindow(YES);
+    }
+}
+
+- (IBAction)clickdMaxZDowner:(id)sender {
+    if (self.onMaxZModifyToMapWindow) {
+        self.onMaxZModifyToMapWindow(NO);
+    }
+}
+
+- (IBAction)clickdUpButton:(id)sender {
+    if (self.onCursorZModifyToMapWindow) {
+        self.onCursorZModifyToMapWindow(YES);
+    }
+}
+
+- (IBAction)clickdDownButton:(id)sender {
+    if (self.onCursorZModifyToMapWindow) {
+        self.onCursorZModifyToMapWindow(NO);
+    }
+}
+
+- (IBAction)clickdPenButton:(id)sender {
+    if (self.onSwitchPenToMapWindow) {
+        self.onSwitchPenToMapWindow();
+    }
+}
+
+- (IBAction)clickdEraserButton:(id)sender {
+    if (self.onSwitchEraserToMapWindow) {
+        self.onSwitchEraserToMapWindow();
+    }
+}
+
+- (IBAction)clickdFillLayerButton:(id)sender {
+    if (self.onFillLayerToMapWindow) {
+        self.onFillLayerToMapWindow();
+    }
+}
+
+- (IBAction)clickdClearLayerButton:(id)sender {
+    if (self.onClearLayerToMapWindow) {
+        self.onClearLayerToMapWindow();
+    }
 }
 
 @end

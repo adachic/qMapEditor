@@ -41,6 +41,12 @@ typedef void (^_onSetToToolWindow)(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFl
 
 - (void)fixedValuesFromToolBar:(MEMatrix *)maxM x:(CGFloat)x y:(CGFloat)y t:(CGFloat)t;
 
+- (void)modifyMaxX:(BOOL)shouldUp;
+
+- (void)modifyMaxY:(BOOL)shouldUp;
+
+- (void)modifyMaxZ:(BOOL)shouldUp;
+
 @property IBOutlet NSView *targetView;
 
 @end

@@ -66,20 +66,41 @@
     //先頭のMapwindowにToolsの値を反映させる
     self.gameMapToolsWindowController.onSetToMapWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t) {
         NSLog(@"ahoaho");
-        MEGameMapWindowController *front = nil;
-        for (MEGameMapWindowController *mw in self.mapWindowControllers) {
-            int min = 9999;
-            //一番低いやつが先頭
-            if (mw.window.orderedIndex < min) {
-                min = mw.window.orderedIndex;
-                front = mw;
-            }
-        }
+        MEGameMapWindowController *front = [blockself frontGameMapWindowController];
         [front fixedValuesFromToolBar:_maxM x:_x y:_y t:_t];
+    } copy];
+
+    self.gameMapToolsWindowController.onMaxXModifyToMapWindow = [^(BOOL shouldUp) {
+        MEGameMapWindowController *front = [blockself frontGameMapWindowController];
+        [front modifyMaxX:shouldUp];
+    } copy];
+
+    self.gameMapToolsWindowController.onMaxYModifyToMapWindow = [^(BOOL shouldUp) {
+        MEGameMapWindowController *front = [blockself frontGameMapWindowController];
+        [front modifyMaxY:shouldUp];
+    } copy];
+
+    self.gameMapToolsWindowController.onMaxZModifyToMapWindow = [^(BOOL shouldUp) {
+        MEGameMapWindowController *front = [blockself frontGameMapWindowController];
+        [front modifyMaxZ:shouldUp];
     } copy];
 
     /*ツールウィンドウのコールバック*/
     return self;
+}
+
+//一番手前にあるMapを取り出す
+- (MEGameMapWindowController *)frontGameMapWindowController {
+    MEGameMapWindowController *front = nil;
+    for (MEGameMapWindowController *mw in self.mapWindowControllers) {
+        int min = 9999;
+        //一番低いやつが先頭
+        if (mw.window.orderedIndex < min) {
+            min = mw.window.orderedIndex;
+            front = mw;
+        }
+    }
+    return front;
 }
 
 - (BOOL)validateMenuItem:(id)menuItem {
@@ -118,6 +139,7 @@
                                                           y:_y
                                                           t:_t];
     } copy];
+
     [w.window makeKeyAndOrderFront:nil];
     [self.mapWindowControllers addObject:w];
 }
