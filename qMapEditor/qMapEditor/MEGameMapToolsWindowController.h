@@ -49,8 +49,13 @@ typedef void (^_onClearLayerToMapWindow)();
 @property IBOutlet NSTextField *tfMaxY;
 @property IBOutlet NSTextField *tfMaxZ;
 
+@property IBOutlet NSTextField *tfCursorZ;
+
 @property IBOutlet NSButton *buttonAspectFix;
 @property IBOutlet NSView *sampleTileView;
+
+@property IBOutlet NSButton *buttonPen;
+@property IBOutlet NSButton *buttonEraser;
 
 @property CGFloat aspectX;
 @property CGFloat aspectY;
@@ -62,7 +67,7 @@ typedef void (^_onClearLayerToMapWindow)();
 
 - (void)showParhapsSize:(CGFloat)x y:(CGFloat)y t:(CGFloat)t;
 
-- (void)changedMapWindow:(MEMatrix *)maxM x:(CGFloat)x y:(CGFloat)y t:(CGFloat)t;
+- (void)changedMapWindow:(MEMatrix *)maxM x:(CGFloat)x y:(CGFloat)y t:(CGFloat)t cursor:(MEMatrix*)cursor;
 
 
 - (IBAction)clickdMaxXUpper:(id)sender;

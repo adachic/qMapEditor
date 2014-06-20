@@ -29,6 +29,7 @@
         [self.window setDelegate:self];
 
         _maxM = maxSize;
+        _editMapMode = kEditMapModePenMode;
 
         _shouldShowGriph = YES;
         _shouldShowLines = YES;
@@ -81,7 +82,7 @@
 - (void)windowDidBecomeKey:(NSNotification *)notification {
     NSLog(@"map window become-- %@", notification);
     if (self.onSetToToolWindow) {
-        self.onSetToToolWindow(self.maxM, self.aspectX, self.aspectY, self.aspectT);
+        self.onSetToToolWindow(self.maxM, self.aspectX, self.aspectY, self.aspectT, self.currentCursor);
     }
 }
 
@@ -157,6 +158,7 @@
 - (CGFloat)aidOfZ0Position {
     return self.aspectY / 2.0f * self.maxM.x;
 }
+
 - (CGFloat)aidOfZCurrentCursorPosition {
     return self.aspectY / 2.0f * self.maxM.x + self.currentCursor.z * self.aspectT;
 }
@@ -206,10 +208,20 @@
                                                                                                                                Z:z]]
                 ]) {
                     NSLog(@"hit %d,%d,%d", x, y, z);
-                    [self.jungleJym setObject:self.selectedGameParts
-                                       forKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
-                                                                                                Y:y
-                                                                                                Z:z]]];
+                    switch (self.editMapMode) {
+                        case kEditMapModePenMode:
+                            [self.jungleJym setObject:self.selectedGameParts
+                                               forKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                                        Y:y
+                                                                                                        Z:z]]];
+                            break;
+                        case kEditMapModeEraserMode:
+                            [self.jungleJym removeObjectForKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                                                 Y:y
+                                                                                                                 Z:z]]];
+                            break;
+
+                    }
                     [self showTargetView];
                 }
             }
@@ -230,7 +242,7 @@
         }
     }
     if (self.onSetToToolWindow) {
-        self.onSetToToolWindow(self.maxM, self.aspectX, self.aspectY, self.aspectT);
+        self.onSetToToolWindow(self.maxM, self.aspectX, self.aspectY, self.aspectT, self.currentCursor);
     }
     [self showTargetView];
 }
@@ -248,7 +260,7 @@
         }
     }
     if (self.onSetToToolWindow) {
-        self.onSetToToolWindow(self.maxM, self.aspectX, self.aspectY, self.aspectT);
+        self.onSetToToolWindow(self.maxM, self.aspectX, self.aspectY, self.aspectT, self.currentCursor);
     }
     [self showTargetView];
 }
@@ -266,7 +278,7 @@
         }
     }
     if (self.onSetToToolWindow) {
-        self.onSetToToolWindow(self.maxM, self.aspectX, self.aspectY, self.aspectT);
+        self.onSetToToolWindow(self.maxM, self.aspectX, self.aspectY, self.aspectT, self.currentCursor);
     }
     [self showTargetView];
 }
@@ -275,7 +287,7 @@
     if (shouldUp) {
         self.currentCursor.z++;
         if (self.maxM.z <= self.currentCursor.z) {
-            self.currentCursor.z = self.maxM.z -1;
+            self.currentCursor.z = self.maxM.z - 1;
         }
     } else {
         self.currentCursor.z--;
@@ -283,8 +295,18 @@
             self.currentCursor.z = 0;
         }
     }
+    if (self.onSetToToolWindow) {
+        self.onSetToToolWindow(self.maxM, self.aspectX, self.aspectY, self.aspectT, self.currentCursor);
+    }
     [self showTargetView];
+}
 
+- (void)switchToPenMode {
+    self.editMapMode = kEditMapModePenMode;
+}
+
+- (void)switchToEraserMode {
+    self.editMapMode = kEditMapModeEraserMode;
 }
 
 @end

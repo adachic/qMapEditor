@@ -10,6 +10,7 @@
 #import "METileWindowController.h"
 #import "MEEditSet.h"
 #import "MEGameMapWindowController.h"
+#import "MEMatrix.h"
 
 @implementation MEMainMenu
 
@@ -90,6 +91,15 @@
         [front modifyCursorZ:shouldUp];
     } copy];
 
+    self.gameMapToolsWindowController.onSwitchPenToMapWindow = [^() {
+        MEGameMapWindowController *front = [blockself frontGameMapWindowController];
+        [front switchToPenMode];
+    } copy];
+
+    self.gameMapToolsWindowController.onSwitchEraserToMapWindow = [^() {
+        MEGameMapWindowController *front = [blockself frontGameMapWindowController];
+        [front switchToEraserMode];
+    } copy];
 
     /*ツールウィンドウのコールバック*/
     return self;
@@ -139,11 +149,12 @@
                           aspectT:self.gameMapToolsWindowController.aspectT
                 selectedGameParts:[self.gamePartsListWindowController.gamePartsViewController selectedGameParts]
     ];
-    w.onSetToToolWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t) {
+    w.onSetToToolWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t, MEMatrix *cursor) {
         [self.gameMapToolsWindowController changedMapWindow:_maxM
                                                           x:_x
                                                           y:_y
-                                                          t:_t];
+                                                          t:_t
+        cursor:cursor];
     } copy];
 
     [w.window makeKeyAndOrderFront:nil];

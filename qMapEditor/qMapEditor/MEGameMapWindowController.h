@@ -13,7 +13,7 @@
 
 @interface MEGameMapWindowController : NSWindowController <NSWindowDelegate>
 
-typedef void (^_onSetToToolWindow)(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t);
+typedef void (^_onSetToToolWindow)(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t, MEMatrix *cursor);
 
 @property(strong) _onSetToToolWindow onSetToToolWindow;
 @property MEGameParts *selectedGameParts;
@@ -30,6 +30,13 @@ typedef void (^_onSetToToolWindow)(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFl
 @property BOOL shouldShowLines;
 
 @property NSMutableDictionary *jungleJym;
+
+typedef enum EditMapMode{
+    kEditMapModePenMode,
+    kEditMapModeEraserMode,
+};
+
+@property enum EditMapMode editMapMode;
 
 - (id)initWithWindowNibName:(NSString *)windowNibName
                     fileURL:(NSURL *)url
@@ -48,6 +55,10 @@ typedef void (^_onSetToToolWindow)(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFl
 - (void)modifyMaxZ:(BOOL)shouldUp;
 
 - (void)modifyCursorZ:(BOOL)shouldUp;
+
+- (void)switchToPenMode;
+
+- (void)switchToEraserMode;
 
 @property IBOutlet NSView *targetView;
 

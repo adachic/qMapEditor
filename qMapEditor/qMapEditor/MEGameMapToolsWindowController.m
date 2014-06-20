@@ -23,6 +23,8 @@
         // Initialization code here.
         [self.window setDelegate:self];
         self.maxM = [[MEMatrix alloc] initWithX:10 Y:10 Z:10];
+        [self.buttonEraser setWantsLayer:YES];
+        [self.buttonPen setWantsLayer:YES];
     }
     return self;
 }
@@ -41,7 +43,7 @@
     NSLog(@"test3 %@", notification);
 }
 
-- (void)changedMapWindow:(MEMatrix *)maxM x:(CGFloat)x y:(CGFloat)y t:(CGFloat)t {
+- (void)changedMapWindow:(MEMatrix *)maxM x:(CGFloat)x y:(CGFloat)y t:(CGFloat)t cursor:(MEMatrix *)cursor {
     self.aspectX = x;
     self.aspectY = y;
     self.aspectT = t;
@@ -49,10 +51,11 @@
     [self.tfAspectX setStringValue:[NSString stringWithFormat:@"%.0f", x]];
     [self.tfAspectY setStringValue:[NSString stringWithFormat:@"%.0f", y]];
     [self.tfAspectT setStringValue:[NSString stringWithFormat:@"%.0f", t]];
+    [[self tfMaxX] setStringValue:[NSString stringWithFormat:@"%d", self.maxM.x]];
+    [[self tfMaxY] setStringValue:[NSString stringWithFormat:@"%d", self.maxM.y]];
+    [[self tfMaxZ] setStringValue:[NSString stringWithFormat:@"%d", self.maxM.z]];
+    [[self tfCursorZ] setStringValue:[NSString stringWithFormat:@"z:%d/%d", cursor.z, self.maxM.z]];
     [self drawTile];
-    [[self tfMaxX] setStringValue:[NSString stringWithFormat:@"%d",self.maxM.x]];
-    [[self tfMaxY] setStringValue:[NSString stringWithFormat:@"%d",self.maxM.y]];
-    [[self tfMaxZ] setStringValue:[NSString stringWithFormat:@"%d",self.maxM.z]];
 
     NSLog(@"changedMapWindow");
 }
@@ -137,12 +140,16 @@
 
 - (IBAction)clickdPenButton:(id)sender {
     if (self.onSwitchPenToMapWindow) {
+        self.buttonPen.layer.backgroundColor = [[NSColor greenColor] CGColor];
+        self.buttonEraser.layer.backgroundColor = [[NSColor clearColor] CGColor];
         self.onSwitchPenToMapWindow();
     }
 }
 
 - (IBAction)clickdEraserButton:(id)sender {
     if (self.onSwitchEraserToMapWindow) {
+        self.buttonEraser.layer.backgroundColor = [[NSColor greenColor] CGColor];
+        self.buttonPen.layer.backgroundColor = [[NSColor clearColor] CGColor];
         self.onSwitchEraserToMapWindow();
     }
 }
