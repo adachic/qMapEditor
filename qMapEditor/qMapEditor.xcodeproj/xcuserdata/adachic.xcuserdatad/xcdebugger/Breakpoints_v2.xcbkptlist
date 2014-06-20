@@ -607,7 +607,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "130"
             endingLineNumber = "130"
-            landmarkName = "+hitCursorPointWithMatrix:aspectX:aspectY:aid:mouseCursor:chipPosition:"
+            landmarkName = "-_drawLine:to:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -623,8 +623,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
             endingLineNumber = "131"
-            landmarkName = "+hitCursorPointWithMatrix:aspectX:aspectY:aid:mouseCursor:chipPosition:"
-            landmarkType = "5">
+            landmarkName = "@implementation MEGameMapChipLayer"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

@@ -121,6 +121,7 @@
                                                                                                Y:y
                                                                                                Z:z]];
                 [chip setFrame:CGRectMake(origin.x, origin.y, chip.bounds.size.width, chip.bounds.size.height)];
+                [chip setZPosition:(x-y)*(z+1)];
                 [self.targetView.layer addSublayer:chip];
                 if(cube){
                     NSLog(@"chip bounds %f, %f",chip.bounds.size.width, chip.bounds.size.height);

@@ -39,11 +39,16 @@
 }
 
 - (void)runAnimation {
-//    [CATransaction begin];
     MEGameParts *parts = [self.representedObject objectForKey:@"game_parts"];
     [self.imageView setWantsLayer:YES];
 
+    /*
+    CGContextRef context = [[NSGraphicsContext currentContext] graphicsPort];
+    CGContextSetBlendMode(context, kCGBlendModeClear);
+    */
+
     CALayer* animationLayer = [CALayer layer];
+    //[animationLayer drawInContext:context];
     animationLayer.frame = self.imageView.bounds;
     [self.imageView.layer addSublayer:animationLayer];
     CAKeyframeAnimation *keyAnimation = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
@@ -65,6 +70,7 @@
     [keyAnimation setCalculationMode: kCAAnimationDiscrete];
 
     [animationLayer addAnimation:keyAnimation forKey:@"aho"];
+
 }
 
 - (void)mouseDown:(NSEvent *)theEvent {

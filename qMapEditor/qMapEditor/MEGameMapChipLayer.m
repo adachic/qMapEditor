@@ -30,7 +30,11 @@
 - (void)runAnimation {
 //    [self fillBackground];
 
+    CGContextRef context = [[NSGraphicsContext currentContext] graphicsPort];
+    CGContextSetBlendMode(context, kCGBlendModeScreen);
+
     CALayer *animationLayer = [CALayer layer];
+
 
     animationLayer.frame = self.bounds;
     CAKeyframeAnimation *keyAnimation = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
