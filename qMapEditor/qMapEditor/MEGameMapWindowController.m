@@ -150,12 +150,15 @@
             self.aspectY / 2.0f * matrix.x * -1.0f +
                     self.aspectY / 2.0f * matrix.y +
                     self.aspectT * matrix.z;
-    CGFloat yAid = [self aid];
+    CGFloat yAid = [self aidOfZ0Position];
     return CGPointMake(xOrigin, yOrigin + yAid);
 }
 
-- (CGFloat)aid {
+- (CGFloat)aidOfZ0Position {
     return self.aspectY / 2.0f * self.maxM.x;
+}
+- (CGFloat)aidOfZCurrentCursorPosition {
+    return self.aspectY / 2.0f * self.maxM.x + self.currentCursor.z * self.aspectT;
 }
 
 
@@ -196,7 +199,7 @@
                                                                                            Z:z]
                                                          aspectX:self.aspectX
                                                          aspectY:self.aspectY
-                                                             aid:[self aid]
+                                                             aid:[self aidOfZCurrentCursorPosition]
                                                      mouseCursor:curPoint
                                                     chipPosition:[self pointOfChipPositionWithMatrix:[[MEMatrix alloc] initWithX:x
                                                                                                                                Y:y
@@ -266,6 +269,22 @@
         self.onSetToToolWindow(self.maxM, self.aspectX, self.aspectY, self.aspectT);
     }
     [self showTargetView];
+}
+
+- (void)modifyCursorZ:(BOOL)shouldUp {
+    if (shouldUp) {
+        self.currentCursor.z++;
+        if (self.maxM.z <= self.currentCursor.z) {
+            self.currentCursor.z = self.maxM.z -1;
+        }
+    } else {
+        self.currentCursor.z--;
+        if (self.currentCursor.z < 0) {
+            self.currentCursor.z = 0;
+        }
+    }
+    [self showTargetView];
+
 }
 
 @end

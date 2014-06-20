@@ -47,6 +47,8 @@ typedef void (^_onSetToToolWindow)(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFl
 
 - (void)modifyMaxZ:(BOOL)shouldUp;
 
+- (void)modifyCursorZ:(BOOL)shouldUp;
+
 @property IBOutlet NSView *targetView;
 
 @end

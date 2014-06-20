@@ -85,6 +85,12 @@
         [front modifyMaxZ:shouldUp];
     } copy];
 
+    self.gameMapToolsWindowController.onCursorZModifyToMapWindow = [^(BOOL shouldUp) {
+        MEGameMapWindowController *front = [blockself frontGameMapWindowController];
+        [front modifyCursorZ:shouldUp];
+    } copy];
+
+
     /*ツールウィンドウのコールバック*/
     return self;
 }
