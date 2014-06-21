@@ -30,8 +30,9 @@ typedef void (^_onSetToToolWindow)(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFl
 @property BOOL shouldShowLines;
 
 @property NSMutableDictionary *jungleJym;
+@property NSString *filePath;
 
-typedef enum EditMapMode{
+typedef enum EditMapMode {
     kEditMapModePenMode,
     kEditMapModeEraserMode,
 };
@@ -44,6 +45,7 @@ typedef enum EditMapMode{
                     aspectX:(CGFloat)x
                     aspectY:(CGFloat)y
                     aspectT:(CGFloat)t
+                  jungleGym:(NSMutableDictionary *)jungleGym
           selectedGameParts:(MEGameParts *)gameParts;
 
 - (void)fixedValuesFromToolBar:(MEMatrix *)maxM x:(CGFloat)x y:(CGFloat)y t:(CGFloat)t;

@@ -22,6 +22,7 @@
                     aspectX:(CGFloat)x
                     aspectY:(CGFloat)y
                     aspectT:(CGFloat)t
+                  jungleGym:(NSMutableDictionary *)materialGym
           selectedGameParts:(MEGameParts *)gameParts {
     NSLog(@"init");
     self = [super initWithWindowNibName:windowNibName];
@@ -35,6 +36,8 @@
         _shouldShowLines = YES;
         _shouldShowUpper = YES;
 
+        _filePath = [url path];
+
         _aspectX = x;
         _aspectY = y;
         _aspectT = t;
@@ -43,7 +46,12 @@
 
         _selectedGameParts = gameParts;
 
-        [self makeJungleJym];
+        if (!materialGym) {
+            [self makeJungleJym];
+        } else {
+//            [self restoreJungleJym:materialGym];
+            self.jungleJym = materialGym;
+        }
         [self showTargetView];
 
         NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
@@ -59,14 +67,28 @@
 //新規のジャングルジム生成
 - (void)makeJungleJym {
     self.jungleJym = [NSMutableDictionary dictionary];
+}
+
+//ジャングルジムの復元
+- (void)restoreJungleJym:(NSMutableDictionary *)materialGym {
+    self.jungleJym = [NSMutableDictionary dictionary];
     for (int x = 0; x < self.maxM.x; x++) {
         for (int y = 0; y < self.maxM.y; y++) {
             for (int z = 0; z < self.maxM.z; z++) {
+                MEGameParts *parts = [materialGym objectForKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                                                 Y:y
+                                                                                                                 Z:z]]];
+
+
+
+
+
 //                int tag = [self makeTagWithX:x y:y z:z];
                 //  self.jungleJym[[NSString stringWithFormat:@"%d", tag]] = nil;
             }
         }
     }
+
 }
 
 //ツールバーのfixを押した

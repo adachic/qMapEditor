@@ -157,6 +157,7 @@
                           aspectX:self.gameMapToolsWindowController.aspectX
                           aspectY:self.gameMapToolsWindowController.aspectY
                           aspectT:self.gameMapToolsWindowController.aspectT
+                        jungleGym:nil
                 selectedGameParts:[self.gamePartsListWindowController.gamePartsViewController selectedGameParts]
     ];
     w.onSetToToolWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t, MEMatrix *cursor) {
@@ -164,7 +165,7 @@
                                                           x:_x
                                                           y:_y
                                                           t:_t
-        cursor:cursor];
+                                                     cursor:cursor];
     } copy];
 
     [w.window makeKeyAndOrderFront:nil];
@@ -172,7 +173,7 @@
 }
 
 /*編集関係の復元*/
-- (void)restoreWindows:(NSMutableArray *)gamePartsArray tileSheets:(NSMutableArray *)tileSheets {
+- (void)restoreGamePartsListWindows:(NSMutableArray *)gamePartsArray tileSheets:(NSMutableArray *)tileSheets {
     //タイルウィンドウの復元
     [self.tileWindowControllers removeAllObjects];
     for (NSDictionary *tileDict in tileSheets) {
@@ -190,7 +191,38 @@
     }
     //リストウィンドウの復元
     self.gamePartsListWindowController.gamePartsViewController.gamePartsArray = gamePartsArray;
+}
 
+//マップの復元
+- (void)restoreMapWindow:(NSMutableArray *)gamePartsArray
+              tileSheets:(NSMutableArray *)tileSheets
+                 mapInfo:(NSMutableDictionary *)mapInfo
+                filePath:(NSURL *)filePath {
+    __block MEMainMenu *blockself = self;
+    [self restoreGamePartsListWindows:gamePartsArray
+                           tileSheets:tileSheets];
+    //マップの復元
+    MEGameMapWindowController *w = [[MEGameMapWindowController alloc]
+            initWithWindowNibName:@"MEGameMapWindowController"
+                          fileURL:filePath
+                             maxM:[[MEMatrix alloc] initWithX:[mapInfo[@"maxX"] integerValue]
+                                                            Y:[mapInfo[@"maxY"] integerValue]
+                                                            Z:[mapInfo[@"maxZ"] integerValue]]
+                          aspectX:[mapInfo[@"aspectX"] floatValue]
+                          aspectY:[mapInfo[@"aspectY"] floatValue]
+                          aspectT:[mapInfo[@"aspectT"] floatValue]
+                        jungleGym:mapInfo[@"jungleGym"]
+                selectedGameParts:[self.gamePartsListWindowController.gamePartsViewController selectedGameParts]
+    ];
+    w.onSetToToolWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t, MEMatrix *cursor) {
+        [blockself.gameMapToolsWindowController changedMapWindow:_maxM
+                                                               x:_x
+                                                               y:_y
+                                                               t:_t
+                                                          cursor:cursor];
+    } copy];
+    [w.window makeKeyAndOrderFront:nil];
+    [self.mapWindowControllers addObject:w];
 }
 
 #pragma mark IBActions
@@ -219,15 +251,41 @@
 
 /*ゲームマップウィンドウを開く*/
 - (IBAction)openGameMapWindow:(id)sender {
-    //todo:filepath
+    __block MEMainMenu *blockself = self;
+    /*Openダイアログを表示*/
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"mdat", nil];
+    [openPanel setAllowedFileTypes:allowedFileTypes];
+    NSInteger pressedButton = [openPanel runModal];
+
+    // NSLog(@"id:%@", self.gamePartsEditWindowController);
+    if (pressedButton == NSOKButton) {
+        NSURL *filePath = [openPanel URL];
+        NSLog(@"file opened %@", filePath);
+        [MEEditSet loadMapFromFile:filePath
+                          complete:^(
+                                  NSMutableArray *gamePartsArray,
+                                  NSMutableArray *tileSheets,
+                                  NSMutableDictionary *mapInfo
+                          ) {
+                              [blockself restoreMapWindow:gamePartsArray
+                                               tileSheets:tileSheets
+                                                  mapInfo:mapInfo
+                                                 filePath:filePath
+                              ];
+                          }];
+    }
+}
+
+- (IBAction)newGameMapWindow:(id)sender {
     [self createGameMapWindow:nil];
 }
 
-/*編集データを保存*/
-- (IBAction)saveEditSetFile:(id)sender {
+//ゲームマップを保存
+- (IBAction)saveGameMapWindow:(id)sender {
     /*Saveダイアログを表示*/
     NSSavePanel *savePanel = [NSSavePanel savePanel];
-    NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"dat", nil];
+    NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"mdat", nil];
     [savePanel setAllowedFileTypes:allowedFileTypes];
     NSInteger pressedButton = [savePanel runModal];
 
@@ -235,19 +293,57 @@
         NSURL *filePath = [savePanel URL];
         NSLog(@"file saved %@", filePath);
         /*シリアライズして保存*/
-        [MEEditSet saveEditSetFileWithPath:filePath
-                     tileWindowControllers:self.tileWindowControllers
-             gamePartsListWindowController:self.gamePartsListWindowController];
+        [MEEditSet saveGameMapWithPath:filePath
+                 tileWindowControllers:self.tileWindowControllers
+         gamePartsListWindowController:self.gamePartsListWindowController
+               gameMapWindowController:[self frontGameMapWindowController]
+        ];
+    }
+
+}
+
+/*GamePartsListを保存*/
+- (IBAction)saveGamePartsListFile:(id)sender {
+    /*Saveダイアログを表示*/
+    NSSavePanel *savePanel = [NSSavePanel savePanel];
+    NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"pdat", nil];
+    [savePanel setAllowedFileTypes:allowedFileTypes];
+    NSInteger pressedButton = [savePanel runModal];
+
+    if (pressedButton == NSOKButton) {
+        NSURL *filePath = [savePanel URL];
+        NSLog(@"file saved %@", filePath);
+        /*シリアライズして保存*/
+        //todo:ファイル名保存
+        [MEEditSet saveGamePartsListWithPath:filePath
+                       tileWindowControllers:self.tileWindowControllers
+               gamePartsListWindowController:self.gamePartsListWindowController];
     }
 }
 
-/*編集データをロード*/
-- (IBAction)openEditSetFile:(id)sender {
+/*GamePartsListをロード*/
+- (IBAction)openGamePartsListFile:(id)sender {
     __block MEMainMenu *blockself = self;
-    [MEEditSet loadEditSetFromFile:nil
-                          complete:^(NSMutableArray *gamePartsArray, NSMutableArray *tileSheets) {
-                              [self restoreWindows:gamePartsArray tileSheets:tileSheets];
-                          }];
+    /*Openダイアログを表示*/
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"pdat", nil];
+    [openPanel setAllowedFileTypes:allowedFileTypes];
+    NSInteger pressedButton = [openPanel runModal];
+
+    NSLog(@"id:%@", self.gamePartsEditWindowController);
+    if (pressedButton == NSOKButton) {
+        NSURL *filePath = [openPanel URL];
+        NSLog(@"file opened %@", filePath);
+        [MEEditSet loadEditSetFromFile:filePath
+                              complete:^(NSMutableArray *gamePartsArray, NSMutableArray *tileSheets) {
+                                  [blockself restoreGamePartsListWindows:gamePartsArray tileSheets:tileSheets];
+                              }];
+    }
+}
+
+//Mapをjsonとしてexportする
+- (IBAction)exportGameMapWindow:(id)sender {
+
 }
 
 

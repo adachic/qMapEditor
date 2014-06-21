@@ -60,6 +60,7 @@
 }
 
 - (void)drawEmptyCursor {
+    NSLog(@"emptyCursor");
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
     [shapeLayer setFillColor:[[NSColor clearColor] CGColor]];
     [self _drawLine:shapeLayer];

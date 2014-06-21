@@ -6,15 +6,30 @@
 #import <Foundation/Foundation.h>
 
 @class MEGamePartsListWindowController;
+@class MEGameMapWindowController;
 
 
 @interface MEEditSet : NSObject
 
-+ (void)saveEditSetFileWithPath:(NSURL *)filePath
-          tileWindowControllers:(NSArray *)tileWindowControllers
-  gamePartsListWindowController:(MEGamePartsListWindowController*)gamePartsListWindowController;
++ (void)saveGamePartsListWithPath:(NSURL *)filePath
+            tileWindowControllers:(NSArray *)tileWindowControllers
+    gamePartsListWindowController:(MEGamePartsListWindowController *)gamePartsListWindowController;
 
 + (void)loadEditSetFromFile:(NSURL *)filePath
-                   complete:(void (^)(NSMutableArray *gamePartsArray, NSMutableArray *tileSheets))completed;
+                   complete:(void (^)(
+                           NSMutableArray *gamePartsArray,
+                           NSMutableArray *tileSheets
+                   ))completed;
 
++ (void)saveGameMapWithPath:(NSURL *)filePath
+        tileWindowControllers:(NSArray *)tileWindowControllers
+gamePartsListWindowController:(MEGamePartsListWindowController *)gamePartsListWindowController
+      gameMapWindowController:(MEGameMapWindowController *)gameMapWindowController;
+
++ (void)loadMapFromFile:filePath
+               complete:(void (^)(
+                       NSMutableArray *gamePartsArray,
+                       NSMutableArray *tileSheets,
+                       NSMutableDictionary *mapInfo
+               ))completed;
 @end
