@@ -8,6 +8,7 @@
 #import "METileWindowController.h"
 #import "MEGameMapWindowController.h"
 #import "MEMatrix.h"
+#import "MEGameParts.h"
 
 
 @implementation MEEditSet
@@ -112,17 +113,90 @@ gamePartsListWindowController:(MEGamePartsListWindowController *)gamePartsListWi
     }
 }
 
-+ (void)loadMapFromFile:filePath
++ (void)loadMapFromFile:(NSURL *)filePath
                complete:(void (^)(
                        NSMutableArray *gamePartsArray,
                        NSMutableArray *tileSheets,
                        NSMutableDictionary *mapInfo
-               ))completed
-{
+               ))completed {
     NSDictionary *loadDict = [NSKeyedUnarchiver unarchiveObjectWithFile:[filePath path]];
     NSMutableArray *gamePartsArray = [loadDict objectForKey:@"gamePartsArray"];
     NSMutableArray *tileSheets = [loadDict objectForKey:@"tileSheets"];
-    NSDictionary *mapInfo = [loadDict objectForKey:@"mapInfo"];
+    NSMutableDictionary *mapInfo = [loadDict objectForKey:@"mapInfo"];
     completed(gamePartsArray, tileSheets, mapInfo);
 };
+
++ (void)saveMapJsonWithPath:(NSURL *)filePath
+        mapWindowController:(MEGameMapWindowController *)mapWindowController {
+
+    NSMutableDictionary *mapData = [NSMutableDictionary dictionary];
+    NSMutableArray *gamePartsArray = [NSMutableArray array];
+    NSMutableSet *doubleCheck = [NSMutableSet set];
+    for (int x = 0; x < mapWindowController.maxM.x; x++) {
+        for (int y = 0; y < mapWindowController.maxM.y; y++) {
+            for (int z = 0; z < mapWindowController.maxM.z; z++) {
+                MEGameParts *cube = [mapWindowController.jungleJym objectForKey:[mapWindowController makeTagWithMatrix:[[MEMatrix alloc]
+                        initWithX:x Y:y Z:z]]];
+                if (!cube) {
+                    continue;
+                }
+                if ([doubleCheck containsObject:cube.name]){
+                    continue;
+                }
+                [doubleCheck addObject:cube.name];
+                NSMutableDictionary *partsDict = [NSMutableDictionary dictionary];
+                [partsDict setObject:cube.name forKey:@"id"];
+                NSMutableArray *tiles = [NSMutableArray array];
+                for (METile *tile in cube.tiles) {
+                    NSMutableDictionary *tileDict = [NSMutableDictionary dictionary];
+                    [tileDict setObject:[tile.tileFilePath lastPathComponent] forKey:@"tile"];
+                    [tileDict setObject:[NSNumber numberWithFloat:(float) tile.tileRect.origin.x] forKey:@"x"];
+                    [tileDict setObject:[NSNumber numberWithFloat:(float) tile.tileRect.origin.y] forKey:@"y"];
+                    [tileDict setObject:[NSNumber numberWithFloat:(float) tile.tileRect.size.width] forKey:@"w"];
+                    [tileDict setObject:[NSNumber numberWithFloat:(float) tile.tileRect.size.height] forKey:@"h"];
+                    [tiles addObject:tileDict];
+                }
+                [partsDict setObject:tiles forKey:@"tiles"];
+                [partsDict setObject:[NSNumber numberWithBool:cube.walkable] forKey:@"walkable"];
+                [gamePartsArray addObject:partsDict];
+            }
+        }
+    }
+    [mapData setObject:gamePartsArray forKey:@"gameParts"];
+
+    [mapData setObject:[NSNumber numberWithFloat:(float) mapWindowController.aspectX] forKey:@"aspectX"];
+    [mapData setObject:[NSNumber numberWithFloat:(float) mapWindowController.aspectY] forKey:@"aspectY"];
+    [mapData setObject:[NSNumber numberWithFloat:(float) mapWindowController.aspectT] forKey:@"aspectT"];
+    [mapData setObject:[NSNumber numberWithInteger:mapWindowController.maxM.x] forKey:@"maxX"];
+    [mapData setObject:[NSNumber numberWithInteger:mapWindowController.maxM.y] forKey:@"maxY"];
+    [mapData setObject:[NSNumber numberWithInteger:mapWindowController.maxM.z] forKey:@"maxZ"];
+    NSMutableArray *cubes = [NSMutableArray array];
+    for (int x = 0; x < mapWindowController.maxM.x; x++) {
+        for (int y = 0; y < mapWindowController.maxM.y; y++) {
+            for (int z = 0; z < mapWindowController.maxM.z; z++) {
+                MEGameParts *cube = [mapWindowController.jungleJym objectForKey:[mapWindowController makeTagWithMatrix:[[MEMatrix alloc]
+                        initWithX:x Y:y Z:z]]];
+                if (!cube) {
+                    continue;
+                }
+                NSMutableDictionary *cubeDict = [NSMutableDictionary dictionary];
+                [cubeDict setObject:cube.name forKey:@"id"];
+                [cubeDict setObject:[NSNumber numberWithInteger:x] forKey:@"x"];
+                [cubeDict setObject:[NSNumber numberWithInteger:y] forKey:@"y"];
+                [cubeDict setObject:[NSNumber numberWithInteger:z] forKey:@"z"];
+                [cubes addObject:cubeDict];
+            }
+        }
+    }
+    [mapData setObject:cubes forKey:@"jungleGym"];
+
+
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:mapData options:0 error:&error];
+    NSLog(@"returned error1: %@", [error localizedDescription]);
+    [jsonData writeToFile:[filePath path] options:NSDataWritingAtomic error:&error];
+    NSLog(@"returned error2: %@", [error localizedDescription]);
+}
+
+
 @end

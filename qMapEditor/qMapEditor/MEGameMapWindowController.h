@@ -66,6 +66,7 @@ typedef enum EditMapMode {
 
 - (void)clearLayer;
 
+- (NSString *)makeTagWithMatrix:(MEMatrix *)mat;
 @property IBOutlet NSView *targetView;
 
 @end

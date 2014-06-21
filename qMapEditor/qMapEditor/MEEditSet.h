@@ -32,4 +32,7 @@ gamePartsListWindowController:(MEGamePartsListWindowController *)gamePartsListWi
                        NSMutableArray *tileSheets,
                        NSMutableDictionary *mapInfo
                ))completed;
+
++ (void)saveMapJsonWithPath:(NSURL *)filePath
+        mapWindowController:(MEGameMapWindowController *)mapWindowController;
 @end

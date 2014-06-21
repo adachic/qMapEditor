@@ -343,6 +343,19 @@
 
 //Mapをjsonとしてexportする
 - (IBAction)exportGameMapWindow:(id)sender {
+    /*Saveダイアログを表示*/
+    NSSavePanel *savePanel = [NSSavePanel savePanel];
+    NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"map", nil];
+    [savePanel setAllowedFileTypes:allowedFileTypes];
+    NSInteger pressedButton = [savePanel runModal];
+
+    if (pressedButton == NSOKButton) {
+        NSURL *filePath = [savePanel URL];
+        NSLog(@"file saved %@", filePath);
+        /*jsonシリアライズして保存*/
+        [MEEditSet saveMapJsonWithPath:filePath
+                   mapWindowController:[self frontGameMapWindowController]];
+    }
 
 }
 

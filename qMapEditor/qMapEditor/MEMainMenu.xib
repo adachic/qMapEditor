@@ -92,7 +92,11 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="GpV-5U-jc5"/>
-                            <menuItem title="Export GameMap" keyEquivalent="e" id="rhJ-F4-p56"/>
+                            <menuItem title="Export GameMap" keyEquivalent="e" id="rhJ-F4-p56">
+                                <connections>
+                                    <action selector="exportGameMapWindow:" target="AYu-sK-qS6" id="7y8-Ym-A1R"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="wEX-cH-d6P"/>
                             <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
                                 <connections>
