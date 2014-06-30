@@ -143,7 +143,7 @@
                                                                                                Y:y
                                                                                                Z:z]];
                 [chip setFrame:CGRectMake(origin.x, origin.y, chip.bounds.size.width, chip.bounds.size.height)];
-                [chip setZPosition:(x - y) * (z + 1)];
+                [chip setZPosition:(x - y) +1000* (z + 1)];
                 [self.targetView.layer addSublayer:chip];
                 [self.targetView.layer setValue:chip forKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
                                                                                                               Y:y
@@ -268,7 +268,7 @@
                                                        t:self.aspectT];
     CGPoint origin = [self pointOfChipPositionWithMatrix:mat];
     [chip setFrame:CGRectMake(origin.x, origin.y, chip.bounds.size.width, chip.bounds.size.height)];
-    [chip setZPosition:(mat.x - mat.y) * (mat.z + 1)];
+    [chip setZPosition:(mat.x - mat.y) + 1000*(mat.z + 1)];
     [self.targetView.layer addSublayer:chip];
     [self.targetView.layer setValue:chip forKey:[self makeTagWithMatrix:mat]];
     if (!cube) {

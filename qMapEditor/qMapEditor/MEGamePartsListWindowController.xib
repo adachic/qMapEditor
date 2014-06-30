@@ -24,6 +24,51 @@
                     </customView>
                 </subviews>
             </view>
+            <toolbar key="toolbar" implicitIdentifier="EE743519-62BC-4E76-A058-F5B6BC0C80D1" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="rxf-Hh-Vsy">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="2cj-cH-Mt7"/>
+                    <toolbarItem implicitItemIdentifier="3DBFF7A6-8E3F-4844-9811-2EB7C7605778" label="" paletteLabel="" image="C5D64772-ACE0-43CC-A3E1-24B20477BF4E" id="UpT-sS-1zM">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="61" height="18"/>
+                        <size key="maxSize" width="78" height="18"/>
+                        <button key="view" id="mc3-Gq-8ut">
+                            <rect key="frame" x="0.0" y="14" width="78" height="18"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <buttonCell key="cell" type="check" title="Walkable" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="AKt-pr-vCX">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                                <connections>
+                                    <binding destination="cwX-Wi-L3c" name="value" keyPath="gamePartsViewController.showWalkable" id="r4P-8n-5dk"/>
+                                </connections>
+                            </buttonCell>
+                        </button>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="7005ADDA-C4CE-4D5D-A607-843982897282" label="Parts Ordering" paletteLabel="Parts Ordering" id="1HQ-z2-UMX">
+                        <nil key="toolTip"/>
+                        <size key="minSize" width="158" height="20"/>
+                        <size key="maxSize" width="158" height="20"/>
+                        <segmentedControl key="view" verticalHuggingPriority="750" id="pMT-7H-J4n">
+                            <rect key="frame" x="0.0" y="14" width="158" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <segmentedCell key="cell" controlSize="small" alignment="left" style="rounded" trackingMode="selectOne" id="783-39-gpa">
+                                <font key="font" metaFont="smallSystem"/>
+                                <segments>
+                                    <segment label="Ascending" imageScaling="none"/>
+                                    <segment label="Descending" imageScaling="none" selected="YES" tag="1"/>
+                                </segments>
+                                <connections>
+                                    <binding destination="cwX-Wi-L3c" name="selectedIndex" keyPath="gamePartsViewController.sortingMode" id="oOP-Hy-vWx"/>
+                                </connections>
+                            </segmentedCell>
+                        </segmentedControl>
+                    </toolbarItem>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="1HQ-z2-UMX"/>
+                    <toolbarItem reference="UpT-sS-1zM"/>
+                    <toolbarItem reference="2cj-cH-Mt7"/>
+                </defaultToolbarItems>
+            </toolbar>
         </window>
         <customObject id="cwX-Wi-L3c" customClass="MEGamePartsListWindowController">
             <connections>
@@ -31,5 +76,27 @@
                 <outlet property="window" destination="F0z-JX-Cv5" id="q65-SM-18e"/>
             </connections>
         </customObject>
+        <userDefaultsController representsSharedInstance="YES" id="V8b-YG-rXq"/>
     </objects>
+    <resources>
+        <image name="C5D64772-ACE0-43CC-A3E1-24B20477BF4E" width="18" height="18">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGW1xYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QFwcI
+ERYbHCc0NTY3ODk6O0JDRElMT1VYVSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNS
+ZXBzV05TQ29sb3KAFhIAwwAAgAKAFNISCRMVWk5TLm9iamVjdHOhFIADgBPSEgkXGqIYGYAEgAWAEhAA
+1h0eHwkgISIbIyQlJlZOU1NpemVfEA9OU0JpdHNQZXJTYW1wbGVfEBBOU0NvbG9yU3BhY2VOYW1lWk5T
+SGFzQWxwaGFfEBROU0NvcmVVSUltYWdlT3B0aW9uc4APgBCAEQmABtMoEgkpLjNXTlMua2V5c6QqKywt
+gAeACIAJgAqkLxgxMoALgASADIANgA5Uc2l6ZVV2YWx1ZVVzdGF0ZVZ3aWRnZXRXcmVndWxhclZub3Jt
+YWxYY2hlY2tib3jSPD0+P1okY2xhc3NuYW1lWCRjbGFzc2VzXxATTlNNdXRhYmxlRGljdGlvbmFyeaM+
+QEFcTlNEaWN0aW9uYXJ5WE5TT2JqZWN0WHsxOCwgMTh9XxAZTlNDYWxpYnJhdGVkUkdCQ29sb3JTcGFj
+ZdI8PUVGXxAQTlNDb3JlVUlJbWFnZVJlcKNHSEFfEBBOU0NvcmVVSUltYWdlUmVwWk5TSW1hZ2VSZXDS
+PD1KS1dOU0FycmF5okpB0jw9TU5eTlNNdXRhYmxlQXJyYXmjTUpB01BRCVJTVFdOU1doaXRlXE5TQ29s
+b3JTcGFjZUQwIDAAEAOAFdI8PVZXV05TQ29sb3KiVkHSPD1ZWldOU0ltYWdlollBXxAPTlNLZXllZEFy
+Y2hpdmVy0V1eVHJvb3SAAQAIABEAGgAjAC0AMgA3AFEAVwBgAGcAdAB7AIMAhQCKAIwAjgCTAJ4AoACi
+AKQAqQCsAK4AsACyALQAwQDIANoA7QD4AQ8BEQETARUBFgEYAR8BJwEsAS4BMAEyATQBOQE7AT0BPwFB
+AUMBSAFOAVQBWwFjAWoBcwF4AYMBjAGiAaYBswG8AcUB4QHmAfkB/QIQAhsCIAIoAisCMAI/AkMCSgJS
+Al8CZAJmAmgCbQJ1AngCfQKFAogCmgKdAqIAAAAAAAACAQAAAAAAAABfAAAAAAAAAAAAAAAAAAACpA
+</mutableData>
+        </image>
+    </resources>
 </document>

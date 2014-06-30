@@ -35,6 +35,9 @@
 @property(retain) NSMutableArray *gamePartsArray;
 @property(nonatomic, assign) NSUInteger sortingMode;
 @property(nonatomic, assign) BOOL alternateColors;
+@property(nonatomic, assign) BOOL showWalkable;
+
+
 
 - (void)addGameParts:(MEGameParts *)gameParts;
 - (void)updateGameParts:(MEGameParts*)gameParts;

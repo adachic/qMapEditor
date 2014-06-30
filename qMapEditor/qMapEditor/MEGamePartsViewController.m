@@ -123,6 +123,14 @@
     }
 }
 
+- (void)setShowWalkable:(BOOL)showWalkable{
+    if(showWalkable){
+        [arrayController setFilterPredicate:[NSPredicate predicateWithFormat:@"walkable == YES"]];
+    }else{
+        [arrayController setFilterPredicate:[NSPredicate predicateWithFormat:@"walkable == NO"]];
+    }
+}
+
 - (void)setSortingMode:(BOOL)shouldAcending {
     sortingModeIsAcending = shouldAcending;
     //文字列の大小を比較
