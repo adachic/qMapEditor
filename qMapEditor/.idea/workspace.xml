@@ -35,7 +35,7 @@
       <file leaf-file-name="MEEditSet.m" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEEditSet.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="145" column="47" selection-start="6583" selection-end="6583" vertical-scroll-proportion="0.32022473" vertical-offset="1890" max-vertical-offset="3105">
+            <state line="127" column="0" selection-start="5667" selection-end="5667" vertical-scroll-proportion="0.084269665" vertical-offset="1830" max-vertical-offset="3105">
               <folding>
                 <element signature="e#103#124#0" expanded="true" />
               </folding>
@@ -368,6 +368,7 @@
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="FullScreen" value="false" />
     <property name="OBJC.PRESERVED_TARGET_SELECTION" value="qMapEditor" />
   </component>
   <component name="RunManager" selected="Application.qMapEditor">
@@ -543,7 +544,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/qMapEditor/MEEditSet.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="145" column="47" selection-start="6583" selection-end="6583" vertical-scroll-proportion="0.32022473" vertical-offset="1890" max-vertical-offset="3105">
+        <state line="127" column="0" selection-start="5667" selection-end="5667" vertical-scroll-proportion="0.084269665" vertical-offset="1830" max-vertical-offset="3105">
           <folding>
             <element signature="e#103#124#0" expanded="true" />
           </folding>
