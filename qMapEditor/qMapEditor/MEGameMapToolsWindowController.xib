@@ -14,14 +14,14 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="194" height="573"/>
+            <rect key="contentRect" x="196" y="240" width="194" height="574"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
             <view key="contentView" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="194" height="573"/>
+                <rect key="frame" x="0.0" y="0.0" width="194" height="574"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Map size" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="hVT-N6-xyh">
-                        <rect key="frame" x="9" y="296" width="177" height="114"/>
+                        <rect key="frame" x="9" y="297" width="177" height="114"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="175" height="98"/>
@@ -153,7 +153,7 @@
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <box autoresizesSubviews="NO" fixedFrame="YES" title="View option" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="rsh-lv-YxH">
-                        <rect key="frame" x="9" y="178" width="177" height="114"/>
+                        <rect key="frame" x="9" y="179" width="177" height="114"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="175" height="98"/>
@@ -189,7 +189,7 @@
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Tile config" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="CK3-jV-VPF">
-                        <rect key="frame" x="9" y="414" width="177" height="154"/>
+                        <rect key="frame" x="9" y="415" width="177" height="154"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="175" height="138"/>
@@ -288,7 +288,7 @@
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Tools" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="YEU-n2-GhC">
-                        <rect key="frame" x="9" y="5" width="177" height="169"/>
+                        <rect key="frame" x="9" y="6" width="177" height="169"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="175" height="153"/>

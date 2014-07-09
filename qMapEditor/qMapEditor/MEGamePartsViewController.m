@@ -141,6 +141,18 @@
     [arrayController setSortDescriptors:[NSArray arrayWithObject:sort]];
 }
 
+- (MEGameParts *)searchItemWithName:(NSString*)name{
+    MEGameParts *ret = nil;
+    for(NSMutableDictionary *dict in self.gamePartsArray){
+        MEGameParts *gp = [dict objectForKey:KEY_GAMEPARTS];
+        if([gp.name isEqualToString:name]){
+            ret = gp;
+            break;
+        }
+    }
+    return ret;
+}
+
 
 @end
 

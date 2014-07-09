@@ -43,6 +43,8 @@
 - (void)updateGameParts:(MEGameParts*)gameParts;
 - (void)deleteGameParts;
 
+- (MEGameParts *)searchItemWithName:(NSString*)name;
+
 - (MEGameParts *)selectedGameParts;
 @end
 

@@ -390,4 +390,7 @@
     [self showTargetView];
 }
 
+- (void)syncToGameParts {
+    [self showTargetView];
+}
 @end

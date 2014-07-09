@@ -34,4 +34,6 @@
 - (IBAction)openTileFile:(id)sender;
 
 - (void)createTileWindow:(NSURL *)filePath;
+
+- (IBAction)syncToGameParts:(id)menuItem;
 @end

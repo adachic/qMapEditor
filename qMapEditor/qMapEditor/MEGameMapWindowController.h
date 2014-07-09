@@ -66,7 +66,10 @@ typedef enum EditMapMode {
 
 - (void)clearLayer;
 
+- (void)syncToGameParts;
+
 - (NSString *)makeTagWithMatrix:(MEMatrix *)mat;
+
 @property IBOutlet NSView *targetView;
 
 @end

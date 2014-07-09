@@ -295,7 +295,7 @@
                 <outlet property="animationViewBase" destination="J0Z-gb-3rb" id="a7H-D6-rAP"/>
                 <outlet property="clearAnimationButton" destination="WAB-BF-Xfq" id="udQ-VZ-CeS"/>
                 <outlet property="durationPerFlame" destination="HcB-b3-rcb" id="Tpx-AW-5GX"/>
-                <outlet property="half" destination="UOQ-3b-AE0" id="4so-7k-n7D"/>
+                <outlet property="harf" destination="UOQ-3b-AE0" id="JEQ-Y9-5gG"/>
                 <outlet property="modeLabel" destination="QPV-yh-UB3" id="A1L-sk-1WY"/>
                 <outlet property="topImageView" destination="yBs-pV-6VJ" id="aPm-i2-afU"/>
                 <outlet property="walkable" destination="WSW-QA-cpH" id="Uub-Ve-ley"/>

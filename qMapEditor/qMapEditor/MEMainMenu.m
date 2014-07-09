@@ -360,4 +360,35 @@
 }
 
 
+- (IBAction)syncToGameParts:(id)menuItem{
+    MEGameMapWindowController *front = [self frontGameMapWindowController];
+    if(!front){
+        return;
+    }
+    
+    for (int x = 0; x < front.maxM.x; x++) {
+        for (int y = 0; y < front.maxM.y; y++) {
+            for (int z = 0; z < front.maxM.z; z++) {
+                MEGameParts * cube = [front.jungleJym objectForKey:[front makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                                    Y:y
+                                                                                                    Z:z]]];
+                
+                if(!cube){
+                    continue;
+                }
+
+                MEGameParts * cube2 = [self.gamePartsListWindowController.gamePartsViewController searchItemWithName:cube.name];
+                if (!cube2) {
+                    NSLog(@"name:%@ is nil. skip.",cube.name);
+                    continue;
+                    
+                }
+                [front.jungleJym setObject:cube2 forKey:[front makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                                Y:y
+                                                                                                          Z:z]]];
+            }
+        }
+    }
+    [front syncToGameParts];
+}
 @end
