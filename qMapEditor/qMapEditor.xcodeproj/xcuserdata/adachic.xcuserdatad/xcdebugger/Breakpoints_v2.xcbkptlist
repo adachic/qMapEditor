@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "qMapEditor/MEGamePartsViewItem.m"
-            timestampString = "424064775.912686"
+            timestampString = "426578677.474892"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "-observeValueForKeyPath:ofObject:change:context:"
             landmarkType = "5">
          </BreakpointContent>
@@ -234,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "qMapEditor/MEGamePartsViewController.m"
-            timestampString = "425796536.458367"
+            timestampString = "426575091.826507"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "158"
@@ -314,13 +314,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "qMapEditor/MEGamePartsViewItem.m"
-            timestampString = "424322236.235019"
+            timestampString = "426578677.474892"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "@implementation MEGamePartsViewItem"
-            landmarkType = "3">
+            startingLineNumber = "104"
+            endingLineNumber = "104"
+            landmarkName = "-mouseDown:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -330,7 +330,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "qMapEditor/MEGamePartsViewItem.m"
-            timestampString = "424322240.970991"
+            timestampString = "426578677.474892"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
@@ -778,11 +778,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "qMapEditor/MEEditSet.m"
-            timestampString = "425081850.532464"
+            timestampString = "426556074.210718"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "+saveMapJsonWithPath:mapWindowController:"
             landmarkType = "5">
          </BreakpointContent>
@@ -816,6 +816,38 @@
             startingLineNumber = "137"
             endingLineNumber = "137"
             landmarkName = "+saveMapJsonWithPath:mapWindowController:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "qMapEditor/MEGamePartsViewItem.m"
+            timestampString = "426578677.474892"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-updateImageView2"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "qMapEditor/MEGamePartsViewItem.m"
+            timestampString = "426578677.474892"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "-updateImageView2"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

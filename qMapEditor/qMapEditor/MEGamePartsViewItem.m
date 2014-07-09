@@ -35,7 +35,32 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     NSLog(@"hello");
+    [self updateImageView2];
     [self runAnimation];
+}
+
+- (void)updateImageView2{
+    MEGameParts *parts = [self.representedObject objectForKey:@"game_parts"];
+    [self.imageView2 setWantsLayer:YES];
+    self.imageView2.layer.backgroundColor = [NSColor clearColor].CGColor;
+    
+    for(CALayer *layer in [self.imageView2.layer.sublayers mutableCopy]){
+        [layer removeFromSuperlayer];
+    }
+    
+    if (parts.walkable) {
+        CALayer *sublayer = [CALayer layer];
+        sublayer.backgroundColor = [NSColor blueColor].CGColor;
+        sublayer.frame = CGRectMake(0, 0, 10, 10);
+        [self.imageView2.layer addSublayer:sublayer];
+    }
+    if (parts.harf) {
+        CALayer *sublayer2 = [CALayer layer];
+        sublayer2.backgroundColor = [NSColor orangeColor].CGColor;
+        sublayer2.frame = CGRectMake(10, 0, 10, 10);
+        [self.imageView2.layer addSublayer:sublayer2];
+    }
+    
 }
 
 - (void)runAnimation {

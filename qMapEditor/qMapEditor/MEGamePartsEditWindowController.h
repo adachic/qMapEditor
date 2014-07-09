@@ -43,6 +43,7 @@ typedef void (^_onSelectedGameParts)(MEGameParts *gameParts);
 @property IBOutlet NSTextField *durationPerFlame;
 
 @property IBOutlet NSButton *walkable;
+@property IBOutlet NSButton *half;
 @property IBOutlet NSButton *animation;
 
 @property IBOutlet MEAnimationBaseView *animationViewBase;

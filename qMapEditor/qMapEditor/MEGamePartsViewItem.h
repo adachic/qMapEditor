@@ -12,4 +12,5 @@
 @interface MEGamePartsViewItem : NSCollectionViewItem
 
 - (void)mouseDown:(NSEvent *)theEvent;
+@property IBOutlet NSImageView *imageView2;
 @end

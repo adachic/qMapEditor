@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MEGamePartsViewItem">
             <connections>
                 <outlet property="imageView" destination="4" id="asg-k4-KGZ"/>
+                <outlet property="imageView2" destination="cfH-Au-ZL7" id="Uh5-6C-BCb"/>
                 <outlet property="view" destination="2" id="11"/>
             </connections>
         </customObject>
@@ -24,6 +25,11 @@
                         <rect key="frame" x="3" y="16" width="38" height="25"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="5"/>
+                    </imageView>
+                    <imageView id="cfH-Au-ZL7" userLabel="Image View">
+                        <rect key="frame" x="2" y="2" width="38" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="pI2-Mi-Gfd"/>
                     </imageView>
                     <textField verticalHuggingPriority="750" id="3">
                         <rect key="frame" x="-1" y="4" width="44" height="14"/>

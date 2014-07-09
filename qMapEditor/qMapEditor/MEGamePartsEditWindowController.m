@@ -112,6 +112,7 @@
     }
     [buildingGameParts initSampleImageWithKVO:NO];
     buildingGameParts.walkable = [self.walkable state] == NSOnState;
+    buildingGameParts.harf = [self.half state] == NSOnState;
     NSLog(@"topImageView  id;%@ %@", self.topImageView, self.topImageView.image);
 }
 
@@ -124,6 +125,7 @@
     if (!buildingGameParts) {
         buildingGameParts = [[MEGameParts alloc] initWithTiles:tiles
                                                       walkable:YES
+                                                        harf:NO
                                                       duration:0
                                                   customEvents:nil];
     }

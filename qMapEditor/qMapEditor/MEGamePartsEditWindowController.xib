@@ -66,6 +66,14 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UOQ-3b-AE0">
+                                            <rect key="frame" x="126" y="277" width="48" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="Half" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="mdZ-Uw-uBB">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
                                         <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0Z-gb-3rb" customClass="MEAnimationBaseView">
                                             <rect key="frame" x="32" y="71" width="246" height="114"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -287,6 +295,7 @@
                 <outlet property="animationViewBase" destination="J0Z-gb-3rb" id="a7H-D6-rAP"/>
                 <outlet property="clearAnimationButton" destination="WAB-BF-Xfq" id="udQ-VZ-CeS"/>
                 <outlet property="durationPerFlame" destination="HcB-b3-rcb" id="Tpx-AW-5GX"/>
+                <outlet property="half" destination="UOQ-3b-AE0" id="4so-7k-n7D"/>
                 <outlet property="modeLabel" destination="QPV-yh-UB3" id="A1L-sk-1WY"/>
                 <outlet property="topImageView" destination="yBs-pV-6VJ" id="aPm-i2-afU"/>
                 <outlet property="walkable" destination="WSW-QA-cpH" id="Uub-Ve-ley"/>

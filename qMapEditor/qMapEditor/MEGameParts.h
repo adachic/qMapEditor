@@ -22,6 +22,7 @@
 }
 @property NSMutableArray *tiles;
 @property BOOL walkable;
+@property BOOL harf;
 @property CGFloat durationPerFrame;
 @property NSDictionary *customEvents;
 @property NSImageView *sampleImage;
@@ -32,6 +33,7 @@
 - (void)encodeWithCoder:(NSCoder *)encoder;
 - (id)initWithTiles:(NSArray *)tiles
            walkable:(BOOL)walkable
+           harf:(BOOL)harf
            duration:(CGFloat)duration
        customEvents:(NSDictionary *)custom;
 - (NSImage *)image;

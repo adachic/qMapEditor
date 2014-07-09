@@ -55,6 +55,7 @@ static NSInteger idCounter = 0;
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:self.tiles forKey:@"tiles"];
     [encoder encodeBool:self.walkable forKey:@"walkable"];
+    [encoder encodeBool:self.harf forKey:@"harf"];
     [encoder encodeFloat:(float) self.durationPerFrame forKey:@"durationPerFrame"];
     [encoder encodeObject:self.customEvents forKey:@"customEvents"];
     [encoder encodeObject:self.sampleImage forKey:@"sampleImage"];
@@ -64,6 +65,7 @@ static NSInteger idCounter = 0;
 - (id)initWithCoder:(NSCoder *)decoder {
     self.tiles = [decoder decodeObjectForKey:@"tiles"];
     self.walkable = [decoder decodeBoolForKey:@"walkable"];
+    self.harf = [decoder decodeBoolForKey:@"harf"];
     self.durationPerFrame = [decoder decodeFloatForKey:@"durationPerFrame"];
     self.customEvents = [decoder decodeObjectForKey:@"customEvents"];
     self.sampleImage = [decoder decodeObjectForKey:@"sampleImage"];
@@ -78,22 +80,25 @@ static NSInteger idCounter = 0;
     another.tiles = (NSMutableArray *) [[NSArray allocWithZone:zone] initWithArray:_tiles copyItems:YES];
     another.name = [NSString stringWithFormat:@"%d", ++idCounter];
     another.walkable = _walkable;
+    another.harf = _harf;
+
     another.durationPerFrame = _durationPerFrame;
     another.customEvents = [[NSDictionary allocWithZone:zone] initWithDictionary:_customEvents];
 
     another.sampleImage = [[NSImageView allocWithZone:zone] initWithFrame:_sampleImage.frame];
     [another.sampleImage setImage:[_sampleImage.image copyWithZone:zone]];
-
     return another;
 }
 
 - (id)initWithTiles:(NSArray *)tiles
            walkable:(BOOL)walkable
+           harf:(BOOL)harf
            duration:(CGFloat)duration
        customEvents:(NSDictionary *)custom {
     if (self = [super init]) {
         _tiles = (NSMutableArray *) tiles;
         _walkable = walkable;
+        _harf = harf;
         _durationPerFrame = duration;
         _customEvents = custom;
         _name = [NSString stringWithFormat:@"%d", ++idCounter];
@@ -132,6 +137,7 @@ static NSInteger idCounter = 0;
     self.tiles = nil;
     self.tiles = otherObj.tiles;
     self.walkable = otherObj.walkable;
+    self.harf = otherObj.harf;
     self.durationPerFrame = otherObj.durationPerFrame;
     self.customEvents = nil;
     self.customEvents = otherObj.customEvents;
