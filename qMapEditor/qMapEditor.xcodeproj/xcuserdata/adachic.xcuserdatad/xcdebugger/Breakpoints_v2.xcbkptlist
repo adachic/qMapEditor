@@ -698,11 +698,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "qMapEditor/MEGameMapWindowController.m"
-            timestampString = "424951412.691136"
+            timestampString = "428737523.88105"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "-pointOfChipPositionWithMatrix:"
             landmarkType = "5">
          </BreakpointContent>
