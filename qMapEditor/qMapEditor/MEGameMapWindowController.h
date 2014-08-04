@@ -31,7 +31,7 @@ typedef void (^_onSetToToolWindow)(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFl
 
 @property NSMutableDictionary *jungleJym;
 @property NSString *filePath;
-
+@property NSMutableArray *workingEmptyCursors;
 typedef enum EditMapMode {
     kEditMapModePenMode,
     kEditMapModeEraserMode,

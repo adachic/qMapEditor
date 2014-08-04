@@ -50,7 +50,7 @@
 
 @implementation MEGameParts
 
-static NSInteger idCounter = 0;
+static NSInteger idCounter = 1000;
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:self.tiles forKey:@"tiles"];

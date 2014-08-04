@@ -41,6 +41,8 @@
         _aspectX = x;
         _aspectY = y;
         _aspectT = t;
+        
+        _workingEmptyCursors = [NSMutableArray array];
 
         _currentCursor = [[MEMatrix alloc] initWithX:0 Y:0 Z:0];
 
@@ -128,24 +130,49 @@
     }
 }
 
-static int emptyChipCount = 0;
+
 
 //碁盤の目の再描画
 - (void)redrawEmptyCursor{
     //前回のものを消去
+    for (NSNumber *number in self.workingEmptyCursors) {
+  
+        MEGameMapChipLayer *child = [self.targetView.layer
+                                     valueForKey:[NSString stringWithFormat:@"%d",[number intValue]]];
+
+        int tag = [number intValue];
+        int x = tag %100;
+        int y = (tag%10000 - x)/100;
+        int z = (tag%1000000 - x - y*100)/10000;
+        MEMatrix *mat = [[MEMatrix alloc] initWithX:x Y:y Z:z];
+        MEGameParts *cube = [self.jungleJym objectForKey:[self makeTagWithMatrix:mat]];
+        if (!cube) {
+            if(child){
+                [child removeFromSuperlayer];
+            }
+            continue;
+        }
+        [self drawTile:mat];
+        /*
+         */
+    }
+
+    /*
     for(int i = 0; i < emptyChipCount ; i++){
         MEGameMapChipLayer *child = [self.targetView.layer valueForKey:[NSString stringWithFormat:@"%d",i]];
         if(child){
             [child removeFromSuperlayer];
         }
     }
-    
-    emptyChipCount = 0;
+     */
+    [self.workingEmptyCursors removeAllObjects];
     
     for (int x = 0; x < self.maxM.x; x++) {
         for (int y = 0; y < self.maxM.y; y++) {
             int z = self.currentCursor.z;
-                MEGameParts *cube = self.jungleJym[[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+            [self drawTile:[[MEMatrix alloc] initWithX:x Y:y Z:z]];
+/*
+            MEGameParts *cube = self.jungleJym[[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
                                                                                                      Y:y
                                                                                                      Z:z]]];
                 MEGameMapChipLayer *chip = [[MEGameMapChipLayer alloc] initWithGameParts:cube
@@ -162,15 +189,17 @@ static int emptyChipCount = 0;
                                                                                                               Y:y
                                                                                                               Z:z]]];
                 if (cube) {
+                    [chip drawGameParts];
                     continue;
                 }
             
                     //空四角形を描画
                     [self.targetView.layer setValue:chip
-                                         forKeyPath:[NSString stringWithFormat:@"%d",emptyChipCount]];
-                    [chip drawEmptyCursor];
-                    emptyChipCount++;
-                    continue;
+                                         forKeyPath:[NSString stringWithFormat:@"%d",x+100*y+10000*z]];
+                    [chip drawEmptyCursor];*/
+            
+            [self.workingEmptyCursors addObject:@(x+100*y+10000*z)];
+            continue;
             
         }
     }
@@ -288,6 +317,7 @@ static int emptyChipCount = 0;
                     [self drawTile:[[MEMatrix alloc] initWithX:x
                                                              Y:y
                                                              Z:z]];
+
                 }
             }
         }
