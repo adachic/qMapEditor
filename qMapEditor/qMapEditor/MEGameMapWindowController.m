@@ -419,11 +419,15 @@
     [self modifyMaxZ:YES];
     for (int x = 0; x < self.maxM.x; x++) {
         for (int y = 0; y < self.maxM.y; y++) {
-            for (int z = (self.maxM.z - 1); z <= 0; z--) {
+            for (int z = (self.maxM.z - 1); z >= 0; z--) {
                 if ([self.jungleJym objectForKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
                                                                                                    Y:y
                                                                                                    Z:z - 1]]]) {
-                    [self.jungleJym setObject:self.selectedGameParts
+                    MEGameParts *cube =
+                            [[self.jungleJym objectForKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                                   Y:y
+                                                                                                   Z:z - 1]]] copy];
+                    [self.jungleJym setObject:cube
                                        forKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
                                                                                                 Y:y
                                                                                                 Z:z]]];
