@@ -138,22 +138,51 @@
     }
 }
 
-- (IBAction)clickdPenButton:(id)sender {
+- (IBAction)clickdPen1Button:(id)sender {
     if (self.onSwitchPenToMapWindow) {
         self.buttonPen.layer.backgroundColor = [[NSColor greenColor] CGColor];
         self.buttonEraser.layer.backgroundColor = [[NSColor clearColor] CGColor];
-        self.onSwitchPenToMapWindow();
+        self.onSwitchPenToMapWindow(1);
     }
 }
 
-- (IBAction)clickdEraserButton:(id)sender {
+- (IBAction)clickdPen2Button:(id)sender {
+    if (self.onSwitchPenToMapWindow) {
+        self.buttonPen.layer.backgroundColor = [[NSColor greenColor] CGColor];
+        self.buttonEraser.layer.backgroundColor = [[NSColor clearColor] CGColor];
+        self.onSwitchPenToMapWindow(2);
+    }
+}
+
+- (IBAction)clickdPen3Button:(id)sender {
+    if (self.onSwitchPenToMapWindow) {
+        self.buttonPen.layer.backgroundColor = [[NSColor greenColor] CGColor];
+        self.buttonEraser.layer.backgroundColor = [[NSColor clearColor] CGColor];
+        self.onSwitchPenToMapWindow(3);
+    }
+}
+
+- (IBAction)clickdEraser1Button:(id)sender {
     if (self.onSwitchEraserToMapWindow) {
         self.buttonEraser.layer.backgroundColor = [[NSColor greenColor] CGColor];
         self.buttonPen.layer.backgroundColor = [[NSColor clearColor] CGColor];
-        self.onSwitchEraserToMapWindow();
+        self.onSwitchEraserToMapWindow(1);
     }
 }
-
+- (IBAction)clickdEraser2Button:(id)sender {
+    if (self.onSwitchEraserToMapWindow) {
+        self.buttonEraser.layer.backgroundColor = [[NSColor greenColor] CGColor];
+        self.buttonPen.layer.backgroundColor = [[NSColor clearColor] CGColor];
+        self.onSwitchEraserToMapWindow(2);
+    }
+}
+- (IBAction)clickdEraser3Button:(id)sender {
+    if (self.onSwitchEraserToMapWindow) {
+        self.buttonEraser.layer.backgroundColor = [[NSColor greenColor] CGColor];
+        self.buttonPen.layer.backgroundColor = [[NSColor clearColor] CGColor];
+        self.onSwitchEraserToMapWindow(2);
+    }
+}
 - (IBAction)clickdFillLayerButton:(id)sender {
     if (self.onFillLayerToMapWindow) {
         self.onFillLayerToMapWindow();
@@ -166,4 +195,9 @@
     }
 }
 
+- (IBAction)clickdShiftUpZButton:(id)sender{
+    if (self.onShiftUpZMapWindow) {
+        self.onShiftUpZMapWindow();
+    }
+}
 @end

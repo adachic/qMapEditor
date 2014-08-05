@@ -91,14 +91,14 @@
         [front modifyCursorZ:shouldUp];
     } copy];
 
-    self.gameMapToolsWindowController.onSwitchPenToMapWindow = [^() {
+    self.gameMapToolsWindowController.onSwitchPenToMapWindow = [^(int penSize) {
         MEGameMapWindowController *front = [blockself frontGameMapWindowController];
-        [front switchToPenMode];
+        [front switchToPenMode:penSize];
     } copy];
 
-    self.gameMapToolsWindowController.onSwitchEraserToMapWindow = [^() {
+    self.gameMapToolsWindowController.onSwitchEraserToMapWindow = [^(int eraseSize) {
         MEGameMapWindowController *front = [blockself frontGameMapWindowController];
-        [front switchToEraserMode];
+        [front switchToEraserMode:eraseSize];
     } copy];
 
     self.gameMapToolsWindowController.onFillLayerToMapWindow = [^() {
@@ -109,6 +109,11 @@
     self.gameMapToolsWindowController.onClearLayerToMapWindow = [^() {
         MEGameMapWindowController *front = [blockself frontGameMapWindowController];
         [front clearLayer];
+    } copy];
+
+    self.gameMapToolsWindowController.onShiftUpZMapWindow = [^() {
+        MEGameMapWindowController *front = [blockself frontGameMapWindowController];
+        [front shiftUpZ];
     } copy];
 
     /*ツールウィンドウのコールバック*/

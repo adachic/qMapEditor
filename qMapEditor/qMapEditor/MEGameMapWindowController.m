@@ -41,11 +41,12 @@
         _aspectX = x;
         _aspectY = y;
         _aspectT = t;
-        
+
+        _penSize = 1;
+        _eraseSize = 1;
+
         _workingEmptyCursors = [NSMutableArray array];
-
         _currentCursor = [[MEMatrix alloc] initWithX:0 Y:0 Z:0];
-
         _selectedGameParts = gameParts;
 
         if (!materialGym) {
@@ -131,9 +132,8 @@
 }
 
 
-
 //碁盤の目の再描画
-- (void)redrawEmptyCursor:(int)beforeZ{
+- (void)redrawEmptyCursor:(int)beforeZ {
     //前回のものを空のカーソルだけ消去
     for (int x = 0; x < self.maxM.x; x++) {
         for (int y = 0; y < self.maxM.y; y++) {
@@ -142,7 +142,7 @@
             if (!cube) {
                 MEGameMapChipLayer *child = [self.targetView.layer
                         valueForKey:[self makeTagWithMatrix:mat]];
-                if(child){
+                if (child) {
                     [child removeFromSuperlayer];
                 }
                 continue;
@@ -155,7 +155,7 @@
             int z = self.currentCursor.z;
             MEMatrix *mat = [[MEMatrix alloc] initWithX:x Y:y Z:z];
             MEGameParts *cube = [self.jungleJym objectForKey:[self makeTagWithMatrix:mat]];
-            if(cube){
+            if (cube) {
                 continue;
             }
             [self drawTile:[[MEMatrix alloc] initWithX:x Y:y Z:z]];
@@ -179,7 +179,7 @@
                                                                                                Y:y
                                                                                                Z:z]];
                 [chip setFrame:CGRectMake(origin.x, origin.y, chip.bounds.size.width, chip.bounds.size.height)];
-                [chip setZPosition:(x - y) +1000* (z + 1)];
+                [chip setZPosition:(x - y) + 1000 * (z + 1)];
                 [self.targetView.layer addSublayer:chip];
                 [self.targetView.layer setValue:chip forKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
                                                                                                               Y:y
@@ -257,24 +257,52 @@
                                                                                                                                Y:y
                                                                                                                                Z:z]]
                 ]) {
+                    //クリックした場所の座標が確定
                     NSLog(@"hit %d,%d,%d", x, y, z);
                     switch (self.editMapMode) {
                         case kEditMapModePenMode:
-                            [self.jungleJym setObject:self.selectedGameParts
-                                               forKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
-                                                                                                        Y:y
-                                                                                                        Z:z]]];
+                            for(int i = 0; i < self.penSize ; i++){
+                                for(int xoffs = 0; xoffs < self.penSize; xoffs++){
+                                    if((x+xoffs) >= self.maxM.x){
+                                        continue;
+                                    }
+                                    for(int yoffs = 0; yoffs < self.penSize; yoffs++){
+                                        if((y+yoffs) >= self.maxM.y){
+                                            continue;
+                                        }
+                                        [self.jungleJym setObject:self.selectedGameParts
+                                                           forKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x+xoffs
+                                                                                                                    Y:y+yoffs
+                                                                                                                    Z:z]]];
+                                        [self drawTile:[[MEMatrix alloc] initWithX:x+xoffs
+                                                                                 Y:y+yoffs
+                                                                                 Z:z]];
+                                    }
+                                }
+                            }
                             break;
                         case kEditMapModeEraserMode:
-                            [self.jungleJym removeObjectForKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
-                                                                                                                 Y:y
-                                                                                                                 Z:z]]];
+                            for(int i = 0; i < self.penSize ; i++){
+                                for(int xoffs = 0; xoffs < self.penSize; xoffs++){
+                                    if((x+xoffs) >= self.maxM.x){
+                                        continue;
+                                    }
+                                    for(int yoffs = 0; yoffs < self.penSize; yoffs++){
+                                        if((y+yoffs) >= self.maxM.y){
+                                            continue;
+                                        }
+                                        [self.jungleJym removeObjectForKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x+xoffs
+                                                                                                                             Y:y+yoffs
+                                                                                                                             Z:z]]];
+                                        [self drawTile:[[MEMatrix alloc] initWithX:x+xoffs
+                                                                                 Y:y+yoffs
+                                                                                 Z:z]];
+                                    }
+                                }
+                            }
                             break;
 
                     }
-                    [self drawTile:[[MEMatrix alloc] initWithX:x
-                                                             Y:y
-                                                             Z:z]];
 
                 }
             }
@@ -294,7 +322,7 @@
                                                        t:self.aspectT];
     CGPoint origin = [self pointOfChipPositionWithMatrix:mat];
     [chip setFrame:CGRectMake(origin.x, origin.y, chip.bounds.size.width, chip.bounds.size.height)];
-    [chip setZPosition:(mat.x - mat.y) + 1000*(mat.z + 1)];
+    [chip setZPosition:(mat.x - mat.y) + 1000 * (mat.z + 1)];
     [self.targetView.layer addSublayer:chip];
     [self.targetView.layer setValue:chip forKey:[self makeTagWithMatrix:mat]];
     if (!cube) {
@@ -377,12 +405,37 @@
     [self redrawEmptyCursor:beforeZ];
 }
 
-- (void)switchToPenMode {
+- (void)switchToPenMode:(int)penSize {
     self.editMapMode = kEditMapModePenMode;
+    self.penSize = penSize;
 }
 
-- (void)switchToEraserMode {
+- (void)switchToEraserMode:(int)eraseSize {
     self.editMapMode = kEditMapModeEraserMode;
+    self.eraseSize = eraseSize;
+}
+
+- (void)shiftUpZ {
+    [self modifyMaxZ:YES];
+    for (int x = 0; x < self.maxM.x; x++) {
+        for (int y = 0; y < self.maxM.y; y++) {
+            for (int z = (self.maxM.z - 1); z <= 0; z--) {
+                if ([self.jungleJym objectForKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                                   Y:y
+                                                                                                   Z:z - 1]]]) {
+                    [self.jungleJym setObject:self.selectedGameParts
+                                       forKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                                Y:y
+                                                                                                Z:z]]];
+                    [self.jungleJym removeObjectForKey:[self makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                                         Y:y
+                                                                                                         Z:z-1]]];
+                    continue;
+                }
+            }
+        }
+    }
+    [self showTargetView];
 }
 
 - (void)fillLayer {

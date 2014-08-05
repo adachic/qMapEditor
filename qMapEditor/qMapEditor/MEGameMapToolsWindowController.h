@@ -22,13 +22,15 @@ typedef void (^_onMaxZModifyToMapWindow)(BOOL shouldUp);
 
 typedef void (^_onCursorZModifyToMapWindow)(BOOL shouldUp);
 
-typedef void (^_onSwitchPenToMapWindow)();
+typedef void (^_onSwitchPenToMapWindow)(int penSize);
 
-typedef void (^_onSwitchEraserToMapWindow)();
+typedef void (^_onSwitchEraserToMapWindow)(int eraseSize);
 
 typedef void (^_onFillLayerToMapWindow)();
 
 typedef void (^_onClearLayerToMapWindow)();
+
+typedef void (^_onShiftUpZMapWindow)();
 
 @property(strong) _onSetToMapWindow onSetToMapWindow;
 @property(strong) _onMaxXModifyToMapWindow onMaxXModifyToMapWindow;
@@ -39,6 +41,7 @@ typedef void (^_onClearLayerToMapWindow)();
 @property(strong) _onSwitchEraserToMapWindow onSwitchEraserToMapWindow;
 @property(strong) _onFillLayerToMapWindow onFillLayerToMapWindow;
 @property(strong) _onClearLayerToMapWindow onClearLayerToMapWindow;
+@property(strong) _onShiftUpZMapWindow onShiftUpZMapWindow;
 
 @property IBOutlet NSTextField *tfAspectX;
 @property IBOutlet NSTextField *tfAspectY;
@@ -86,12 +89,18 @@ typedef void (^_onClearLayerToMapWindow)();
 
 - (IBAction)clickdDownButton:(id)sender;
 
-- (IBAction)clickdPenButton:(id)sender;
+- (IBAction)clickdPen1Button:(id)sender;
+- (IBAction)clickdPen2Button:(id)sender;
+- (IBAction)clickdPen3Button:(id)sender;
 
-- (IBAction)clickdEraserButton:(id)sender;
+- (IBAction)clickdEraser1Button:(id)sender;
+- (IBAction)clickdEraser2Button:(id)sender;
+- (IBAction)clickdEraser3Button:(id)sender;
 
 - (IBAction)clickdFillLayerButton:(id)sender;
 
 - (IBAction)clickdClearLayerButton:(id)sender;
+
+- (IBAction)clickdShiftUpZButton:(id)sender;
 
 @end

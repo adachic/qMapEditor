@@ -58,15 +58,20 @@ typedef enum EditMapMode {
 
 - (void)modifyCursorZ:(BOOL)shouldUp;
 
-- (void)switchToPenMode;
+- (void)switchToPenMode:(int)penSize;
 
-- (void)switchToEraserMode;
+- (void)switchToEraserMode:(int)eraseSize;
+
+@property int penSize;
+@property int eraseSize;
 
 - (void)fillLayer;
 
 - (void)clearLayer;
 
 - (void)syncToGameParts;
+
+-(void) shiftUpZ;
 
 - (NSString *)makeTagWithMatrix:(MEMatrix *)mat;
 

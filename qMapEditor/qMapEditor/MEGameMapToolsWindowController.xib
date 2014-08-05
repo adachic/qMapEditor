@@ -14,14 +14,14 @@
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="194" height="574"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1058"/>
+            <rect key="contentRect" x="196" y="240" width="194" height="649"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
             <view key="contentView" id="se5-gp-TjO">
-                <rect key="frame" x="0.0" y="0.0" width="194" height="574"/>
+                <rect key="frame" x="0.0" y="0.0" width="194" height="649"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Map size" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="hVT-N6-xyh">
-                        <rect key="frame" x="9" y="297" width="177" height="114"/>
+                        <rect key="frame" x="9" y="372" width="177" height="114"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="175" height="98"/>
@@ -153,7 +153,7 @@
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <box autoresizesSubviews="NO" fixedFrame="YES" title="View option" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="rsh-lv-YxH">
-                        <rect key="frame" x="9" y="179" width="177" height="114"/>
+                        <rect key="frame" x="9" y="254" width="177" height="114"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="175" height="98"/>
@@ -189,7 +189,7 @@
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Tile config" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="CK3-jV-VPF">
-                        <rect key="frame" x="9" y="415" width="177" height="154"/>
+                        <rect key="frame" x="9" y="490" width="177" height="154"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="175" height="138"/>
@@ -288,25 +288,47 @@
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
                     <box autoresizesSubviews="NO" fixedFrame="YES" title="Tools" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="YEU-n2-GhC">
-                        <rect key="frame" x="9" y="6" width="177" height="169"/>
+                        <rect key="frame" x="9" y="5" width="177" height="245"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="175" height="153"/>
+                            <rect key="frame" x="1" y="1" width="175" height="229"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="REX-dq-RIq">
-                                    <rect key="frame" x="12" y="115" width="63" height="32"/>
+                                    <rect key="frame" x="5" y="191" width="87" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="push" title="Pen" bezelStyle="rounded" alignment="center" state="mixed" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="Qqz-bO-cSY">
+                                    <buttonCell key="cell" type="push" title="Pen1x1" bezelStyle="rounded" alignment="center" state="mixed" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="Qqz-bO-cSY">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
                                     <connections>
-                                        <action selector="clickdPenButton:" target="CPC-wt-uy5" id="ElW-BN-dUQ"/>
+                                        <action selector="clickdPen1Button:" target="CPC-wt-uy5" id="ElW-BN-dUQ"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MuB-Ap-09L">
+                                    <rect key="frame" x="4" y="164" width="87" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="push" title="Pen2x2" bezelStyle="rounded" alignment="center" state="mixed" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="Mjc-YM-gqL">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="clickdPen2Button:" target="CPC-wt-uy5" id="6Cf-ie-mpi"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JV0-1e-lwD">
+                                    <rect key="frame" x="5" y="137" width="87" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="push" title="Pen3x3" bezelStyle="rounded" alignment="center" state="mixed" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="utH-te-LrT">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="clickdPen3Button:" target="CPC-wt-uy5" id="7GV-jN-bfV"/>
                                     </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xcs-A5-1s7">
-                                    <rect key="frame" x="12" y="27" width="93" height="32"/>
+                                    <rect key="frame" x="5" y="30" width="93" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Fill layer" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lsl-Qj-HDe">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -316,8 +338,19 @@
                                         <action selector="clickdFillLayerButton:" target="CPC-wt-uy5" id="XoV-CL-x8O"/>
                                     </connections>
                                 </button>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KV4-Vw-t7L">
+                                    <rect key="frame" x="90" y="30" width="86" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="push" title="ShiftUp" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="BZj-rV-LFs">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="clickdShiftUpZButton:" target="CPC-wt-uy5" id="9J1-5x-qgZ"/>
+                                    </connections>
+                                </button>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1VU-k6-85y">
-                                    <rect key="frame" x="12" y="1" width="107" height="32"/>
+                                    <rect key="frame" x="5" y="7" width="107" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Clear layer" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="z2K-vH-4vX">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -328,9 +361,9 @@
                                     </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rk5-Eb-9SL">
-                                    <rect key="frame" x="116" y="74" width="58" height="32"/>
+                                    <rect key="frame" x="90" y="156" width="85" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="push" title="Up" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pWM-lN-iok">
+                                    <buttonCell key="cell" type="push" title="ZUp" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pWM-lN-iok">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
@@ -339,9 +372,9 @@
                                     </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="od3-Wv-beG">
-                                    <rect key="frame" x="98" y="50" width="76" height="32"/>
+                                    <rect key="frame" x="91" y="131" width="84" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="push" title="Down" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kjP-NZ-NPv">
+                                    <buttonCell key="cell" type="push" title="ZDown" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kjP-NZ-NPv">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
@@ -350,18 +383,40 @@
                                     </connections>
                                 </button>
                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aFz-X2-6gF">
-                                    <rect key="frame" x="12" y="89" width="79" height="32"/>
+                                    <rect key="frame" x="5" y="110" width="102" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="push" title="Eraser" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="K2u-y7-8tq">
+                                    <buttonCell key="cell" type="push" title="Eraser1x1" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="K2u-y7-8tq">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
                                     <connections>
-                                        <action selector="clickdEraserButton:" target="CPC-wt-uy5" id="ftu-sV-OoM"/>
+                                        <action selector="clickdEraser1Button:" target="CPC-wt-uy5" id="ftu-sV-OoM"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dQu-22-pwr">
+                                    <rect key="frame" x="5" y="83" width="102" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="push" title="Eraser2x2" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tyv-a9-NuR">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="clickdEraser2Button:" target="CPC-wt-uy5" id="ole-Vg-GW9"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DH4-wP-d4A">
+                                    <rect key="frame" x="5" y="56" width="102" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="push" title="Eraser3x3" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="x9e-fP-TiN">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="clickdEraser3Button:" target="CPC-wt-uy5" id="hyJ-56-VBD"/>
                                     </connections>
                                 </button>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BAF-Lf-EbB">
-                                    <rect key="frame" x="97" y="136" width="48" height="17"/>
+                                    <rect key="frame" x="97" y="212" width="48" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="cursor:" id="g9q-vr-9AW">
                                         <font key="font" metaFont="system"/>
@@ -370,7 +425,7 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N7p-j5-AVL">
-                                    <rect key="frame" x="97" y="116" width="62" height="17"/>
+                                    <rect key="frame" x="97" y="192" width="62" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="z:" id="rro-wf-WEr">
                                         <font key="font" metaFont="system"/>
