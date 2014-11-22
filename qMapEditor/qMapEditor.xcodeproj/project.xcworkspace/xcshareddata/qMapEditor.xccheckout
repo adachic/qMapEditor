@@ -10,29 +10,29 @@
 	<string>qMapEditor</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>F1762B95-16DB-4686-8A98-FAA1986D09CA</key>
+		<key>A1ADF254BBC2895721B9D5529C3914E93E393134</key>
 		<string>https://github.com/adachic/qMapEditor</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>qMapEditor/qMapEditor.xcodeproj/project.xcworkspace</string>
+	<string>qMapEditor/qMapEditor.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>F1762B95-16DB-4686-8A98-FAA1986D09CA</key>
+		<key>A1ADF254BBC2895721B9D5529C3914E93E393134</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/adachic/qMapEditor</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>F1762B95-16DB-4686-8A98-FAA1986D09CA</string>
+	<string>A1ADF254BBC2895721B9D5529C3914E93E393134</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>F1762B95-16DB-4686-8A98-FAA1986D09CA</string>
+			<string>A1ADF254BBC2895721B9D5529C3914E93E393134</string>
 			<key>IDESourceControlWCCName</key>
 			<string>qMapEditor</string>
 		</dict>
