@@ -66,7 +66,6 @@
 
     //先頭のMapwindowにToolsの値を反映させる
     self.gameMapToolsWindowController.onSetToMapWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t) {
-        NSLog(@"ahoaho");
         MEGameMapWindowController *front = [blockself frontGameMapWindowController];
         [front fixedValuesFromToolBar:_maxM x:_x y:_y t:_t];
     } copy];

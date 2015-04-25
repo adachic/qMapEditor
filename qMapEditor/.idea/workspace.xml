@@ -4,6 +4,7 @@
     <list default="true" id="3bd3e6cf-bf35-4758-be1f-07166da0fef9" name="Default" comment="" />
     <ignored path="qMapEditor.iws" />
     <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,37 +24,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="NSURL.h" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="NSURL.h" pinned="false" current-in-tab="false">
         <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURL.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="426" column="14" selection-start="47383" selection-end="47383" vertical-scroll-proportion="0.0" vertical-offset="6390" max-vertical-offset="7290">
+            <state vertical-scroll-proportion="0.0" vertical-offset="6390" max-vertical-offset="7290">
+              <caret line="426" column="14" selection-start-line="426" selection-start-column="14" selection-end-line="426" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MEGameMapToolsWindowController.h" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MEGameMapToolsWindowController.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapToolsWindowController.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="25" selection-start="3064" selection-end="3064" vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="1680">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1545" max-vertical-offset="1680">
+              <caret line="103" column="25" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MEGameMapToolsWindowController.m" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MEGameMapToolsWindowController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapToolsWindowController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="68" column="4" selection-start="2215" selection-end="2215" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="3105">
+            <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="3105">
+              <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MEEditSet.m" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MEEditSet.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEEditSet.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="125" column="4" selection-start="5616" selection-end="5616" vertical-scroll-proportion="0.0" vertical-offset="1470" max-vertical-offset="3120">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1875" max-vertical-offset="3120">
+              <caret line="125" column="4" selection-start-line="125" selection-start-column="4" selection-end-line="125" selection-end-column="4" />
               <folding>
                 <element signature="e#103#124#0" expanded="true" />
               </folding>
@@ -61,55 +66,61 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MEEditSet.h" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MEEditSet.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEEditSet.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="76" selection-start="1364" selection-end="1364" vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="645">
+            <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="645">
+              <caret line="36" column="76" selection-start-line="36" selection-start-column="76" selection-end-line="36" selection-end-column="76" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MEMainMenu.m" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MEMainMenu.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEMainMenu.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="115" column="15" selection-start="4829" selection-end="4829" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="6015">
+            <state vertical-scroll-proportion="0.5267423" vertical-offset="635" max-vertical-offset="6000">
+              <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MEGameMapWindowController.h" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MEGameMapWindowController.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapWindowController.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="72" column="0" selection-start="1799" selection-end="1799" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="1290">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="1290">
+              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MEGameParts.h" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MEGameParts.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameParts.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="0" selection-start="693" selection-end="693" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="720">
+            <state vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="720">
+              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MEGameMapChipLayer.m" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MEGameMapChipLayer.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapChipLayer.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="11" selection-start="2278" selection-end="2278" vertical-scroll-proportion="0.0" vertical-offset="811" max-vertical-offset="2475">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1125" max-vertical-offset="2505">
+              <caret line="75" column="11" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MEGameMapWindowController.m" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MEGameMapWindowController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapWindowController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="235" column="105" selection-start="8338" selection-end="8338" vertical-scroll-proportion="0.5018587" vertical-offset="3075" max-vertical-offset="7245">
+            <state vertical-scroll-proportion="0.0" vertical-offset="3525" max-vertical-offset="7245">
+              <caret line="264" column="69" selection-start-line="264" selection-start-column="69" selection-end-line="264" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -123,32 +134,20 @@
     </FindUsagesManager>
   </component>
   <component name="IdeDocumentHistory">
-    <option name="changedFiles">
+    <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/qMapEditor/METileView.m" />
-        <option value="$PROJECT_DIR$/qMapEditor/MEGamePartsEditWindowController.h" />
-        <option value="$PROJECT_DIR$/qMapEditor/MEGamePartsEditWindowController.m" />
-        <option value="$PROJECT_DIR$/qMapEditor/MEMainMenu.h" />
-        <option value="$PROJECT_DIR$/qMapEditor/MEGamePartsViewController.m" />
-        <option value="$PROJECT_DIR$/qMapEditor/MEGamePartsViewController.h" />
-        <option value="$PROJECT_DIR$/qMapEditor/MEGameMapChipLayer.h" />
-        <option value="$PROJECT_DIR$/qMapEditor/MEGamePartsViewItem.m" />
-        <option value="$PROJECT_DIR$/qMapEditor/MEGameMapChipLayer.m" />
-        <option value="$PROJECT_DIR$/qMapEditor/MEEditSet.h" />
-        <option value="$PROJECT_DIR$/qMapEditor/MEEditSet.m" />
-        <option value="$PROJECT_DIR$/qMapEditor/MEGameMapToolsWindowController.h" />
-        <option value="$PROJECT_DIR$/qMapEditor/MEGameMapToolsWindowController.m" />
-        <option value="$PROJECT_DIR$/qMapEditor/MEGameMapWindowController.h" />
         <option value="$PROJECT_DIR$/qMapEditor/MEMainMenu.m" />
-        <option value="$PROJECT_DIR$/qMapEditor/MEGameMapWindowController.m" />
       </list>
     </option>
   </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="62" />
+    <option name="x" value="256" />
     <option name="y" value="22" />
-    <option name="width" value="1318" />
-    <option name="height" value="878" />
+    <option name="width" value="1361" />
+    <option name="height" value="1005" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -164,7 +163,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -176,7 +175,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Cidr.FilesView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -361,6 +359,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Cidr.FilesView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -370,20 +369,26 @@
     <property name="OBJC.PRESERVED_TARGET_SELECTION" value="qMapEditor" />
   </component>
   <component name="RunManager" selected="Application.qMapEditor">
-    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" PROJECT_NAME="qMapEditor" TARGET_NAME="qMapEditor" CONFIG_NAME="Debug" PASS_PARENT_ENVS="FALSE" RUN_TARGET_PROJECT_NAME="qMapEditor" RUN_TARGET_NAME="qMapEditor" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="qMapEditor" TARGET_NAME="qMapEditor" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="qMapEditor" RUN_TARGET_NAME="qMapEditor" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
+      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
+      <method />
+    </configuration>
+    <configuration default="true" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="qMapEditor" TARGET_NAME="qMapEditorTests" CONFIG_NAME="Debug" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="OCUnitRunConfiguration" factoryName="XCTest/Kiwi" PROJECT_NAME="qMapEditor" TARGET_NAME="qMapEditorTests" CONFIG_NAME="Debug" PASS_PARENT_ENVS="FALSE" TEST_MODE="SUITE_TEST">
+    <configuration default="true" type="OCGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="qMapEditor" TARGET_NAME="qMapEditor" CONFIG_NAME="Debug" TEST_MODE="SUITE_TEST">
       <envs />
       <method />
     </configuration>
-    <configuration default="true" type="OCGoogleTestRunConfigurationType" factoryName="Google Test" PROJECT_NAME="qMapEditor" TARGET_NAME="qMapEditor" CONFIG_NAME="Debug" PASS_PARENT_ENVS="FALSE" TEST_MODE="SUITE_TEST">
+    <configuration default="false" name="qMapEditor" type="AppleRunConfiguration" factoryName="Application" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="qMapEditor" TARGET_NAME="qMapEditor" CONFIG_NAME="Debug" SCHEME_NAME="qMapEditor" RUN_TARGET_PROJECT_NAME="qMapEditor" RUN_TARGET_NAME="qMapEditor" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
       <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="qMapEditor" type="AppleRunConfiguration" factoryName="Application" SCHEME_NAME="qMapEditor" PROJECT_NAME="qMapEditor" TARGET_NAME="qMapEditor" CONFIG_NAME="Debug" WORKING_DIR="" PASS_PARENT_ENVS="FALSE" RUN_TARGET_PROJECT_NAME="qMapEditor" RUN_TARGET_NAME="qMapEditor" MAKE_ACTIVE="TRUE" WAIT_FOR="FALSE">
-      <envs />
+      <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
+        <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
+      </EXTENSION>
       <method />
     </configuration>
     <list size="1">
@@ -395,31 +400,43 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="3bd3e6cf-bf35-4758-be1f-07166da0fef9" name="Default" comment="" />
       <created>1402079639618</created>
+      <option name="number" value="Default" />
       <updated>1402079639618</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="62" y="22" width="1318" height="878" extended-state="0" />
+    <frame x="256" y="22" width="1361" height="1005" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32952183" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21927163" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21895665" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -431,116 +448,217 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
+    <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGamePartsListWindowController.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="0" selection-start="1247" selection-end="1247" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGamePartsViewController.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="4" selection-start="4408" selection-end="4408" vertical-scroll-proportion="0.0" vertical-offset="1555" max-vertical-offset="2445" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qMapEditor/MEMatrix.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="20" selection-start="309" selection-end="309" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSavePanel.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="261" column="0" selection-start="14074" selection-end="14074" vertical-scroll-proportion="0.0" vertical-offset="3030" max-vertical-offset="4860" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qMapEditor/MEMainMenu.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="11" selection-start="849" selection-end="849" vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="675">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameParts.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="25" selection-start="2889" selection-end="2889" vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="2295">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameParts.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="693" selection-end="693" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURL.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="426" column="14" selection-start="47383" selection-end="47383" vertical-scroll-proportion="0.0" vertical-offset="6064" max-vertical-offset="7260">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qMapEditor/MEEditSet.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="76" selection-start="1364" selection-end="1364" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapChipLayer.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="11" selection-start="2278" selection-end="2278" vertical-scroll-proportion="0.0" vertical-offset="811" max-vertical-offset="2475">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6390" max-vertical-offset="7290">
+          <caret line="426" column="14" selection-start-line="426" selection-start-column="14" selection-end-line="426" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapToolsWindowController.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="25" selection-start="3064" selection-end="3064" vertical-scroll-proportion="0.0" vertical-offset="780" max-vertical-offset="1680">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1545" max-vertical-offset="1680">
+          <caret line="103" column="25" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapToolsWindowController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="4" selection-start="2215" selection-end="2215" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="3105">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapWindowController.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="0" selection-start="1799" selection-end="1799" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="1290">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1020" max-vertical-offset="3135">
+          <caret line="68" column="4" selection-start-line="68" selection-start-column="4" selection-end-line="68" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/qMapEditor/MEEditSet.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="4" selection-start="5616" selection-end="5616" vertical-scroll-proportion="0.0" vertical-offset="1470" max-vertical-offset="3120">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1875" max-vertical-offset="3120">
+          <caret line="125" column="4" selection-start-line="125" selection-start-column="4" selection-end-line="125" selection-end-column="4" />
           <folding>
             <element signature="e#103#124#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEEditSet.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="645">
+          <caret line="36" column="76" selection-start-line="36" selection-start-column="76" selection-end-line="36" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/qMapEditor/MEMainMenu.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="115" column="15" selection-start="4829" selection-end="4829" vertical-scroll-proportion="0.0" vertical-offset="1260" max-vertical-offset="6015">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1725" max-vertical-offset="6075">
+          <caret line="115" column="15" selection-start-line="115" selection-start-column="15" selection-end-line="115" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapWindowController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="1290">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameParts.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="720">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapChipLayer.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1125" max-vertical-offset="2505">
+          <caret line="75" column="11" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapWindowController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="235" column="105" selection-start="8338" selection-end="8338" vertical-scroll-proportion="0.5018587" vertical-offset="3075" max-vertical-offset="7245">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="100">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGamePartsListWindowController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="855">
+          <caret line="43" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGamePartsViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1555" max-vertical-offset="2445">
+          <caret line="128" column="4" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEMatrix.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="330">
+          <caret line="13" column="20" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSSavePanel.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3030" max-vertical-offset="4860">
+          <caret line="261" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEMainMenu.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="465" max-vertical-offset="675">
+          <caret line="31" column="11" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameParts.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="2295">
+          <caret line="82" column="25" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameParts.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="720">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURL.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="6390" max-vertical-offset="7290">
+          <caret line="426" column="14" selection-start-line="426" selection-start-column="14" selection-end-line="426" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEEditSet.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="540" max-vertical-offset="645">
+          <caret line="36" column="76" selection-start-line="36" selection-start-column="76" selection-end-line="36" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapChipLayer.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1125" max-vertical-offset="2505">
+          <caret line="75" column="11" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapToolsWindowController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1545" max-vertical-offset="1680">
+          <caret line="103" column="25" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapWindowController.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1080" max-vertical-offset="1290">
+          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEEditSet.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1875" max-vertical-offset="3120">
+          <caret line="125" column="4" selection-start-line="125" selection-start-column="4" selection-end-line="125" selection-end-column="4" />
+          <folding>
+            <element signature="e#103#124#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapWindowController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="3525" max-vertical-offset="7245">
+          <caret line="264" column="69" selection-start-line="264" selection-start-column="69" selection-end-line="264" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGameMapToolsWindowController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="3105">
+          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEMainMenu.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5267423" vertical-offset="635" max-vertical-offset="6000">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
   </component>
 </project>
-

@@ -200,7 +200,7 @@
     CGFloat yOrigin =
             self.aspectY / 2.0f * matrix.x * -1.0f +
                     self.aspectY / 2.0f * matrix.y +
-                    self.aspectT * matrix.z;
+                    self.aspectT / 2.0f * matrix.z;
     CGFloat yAid = [self aidOfZ0Position];
     return CGPointMake(xOrigin, yOrigin + yAid);
 }
@@ -210,7 +210,7 @@
 }
 
 - (CGFloat)aidOfZCurrentCursorPosition {
-    return self.aspectY / 2.0f * self.maxM.x + self.currentCursor.z * self.aspectT;
+    return self.aspectY / 2.0f * self.maxM.x + self.currentCursor.z * self.aspectT / 2.0f;
 }
 
 
