@@ -271,8 +271,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "72"
             endingLineNumber = "72"
-            landmarkName = "@implementation MEGamePartsEditWindowController"
-            landmarkType = "3">
+            landmarkName = "-updateAnimationBaseView"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

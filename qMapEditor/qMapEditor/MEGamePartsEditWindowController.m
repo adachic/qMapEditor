@@ -44,12 +44,12 @@
 //    [CATransaction begin];
     [self.topImageView setWantsLayer:YES];
 
-    CALayer* animationLayer = [CALayer layer];
+    CALayer *animationLayer = [CALayer layer];
     animationLayer.frame = self.topImageView.bounds;
     [self.topImageView.layer addSublayer:animationLayer];
 
     CAKeyframeAnimation *keyAnimation = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
-    
+
     NSMutableArray *array = [NSMutableArray array];
     CGImageRef maskRef;
     for (METile *tile in buildingGameParts.tiles) {
@@ -59,18 +59,18 @@
         maskRef = CGImageSourceCreateImageAtIndex(source, 0, NULL);
         [array addObject:(__bridge id) (maskRef)];
     }
-    
-    NSLog(@"array:%@",array);
-    keyAnimation.values = (NSArray*)array;
+
+    NSLog(@"array:%@", array);
+    keyAnimation.values = (NSArray *) array;
     keyAnimation.duration = 1.0f;
     keyAnimation.repeatCount = HUGE_VALF;
-    [keyAnimation setCalculationMode: kCAAnimationDiscrete];
+    [keyAnimation setCalculationMode:kCAAnimationDiscrete];
 
     [animationLayer addAnimation:keyAnimation forKey:@"aho2"];
 //    [CATransaction commit];
 }
 
-- (void)updateAnimationBaseView{
+- (void)updateAnimationBaseView {
     //アニメーションあり
     int idx = 0;
     for (METile *tile in buildingGameParts.tiles) {
@@ -92,7 +92,7 @@
     buildingGameParts = gameParts;
 
     int i = 0;
-    for (CALayer *layer in [self.topImageView.layer.sublayers mutableCopy]){
+    for (CALayer *layer in [self.topImageView.layer.sublayers mutableCopy]) {
         [layer removeAllAnimations];
     }
     for (NSView *subView in [self.animationViewBase.subviews mutableCopy]) {
@@ -106,13 +106,13 @@
     } else {
         NSLog(@"updated imageView");
         [self.topImageView setImage:[buildingGameParts image]];
-        if(self.animationViewBase.editable){
+        if (self.animationViewBase.editable) {
             [self updateAnimationBaseView];
         }
     }
     [buildingGameParts initSampleImageWithKVO:NO];
     buildingGameParts.walkable = [self.walkable state] == NSOnState;
-    buildingGameParts.harf = [self.harf state] == NSOnState;
+    buildingGameParts.watertype = self.waterRadioGroup.selectedRow;
     NSLog(@"topImageView  id;%@ %@", self.topImageView, self.topImageView.image);
 }
 
@@ -125,7 +125,7 @@
     if (!buildingGameParts) {
         buildingGameParts = [[MEGameParts alloc] initWithTiles:tiles
                                                       walkable:YES
-                                                        harf:NO
+                waterType:0
                                                       duration:0
                                                   customEvents:nil];
     }
@@ -184,6 +184,30 @@
 - (IBAction)pushedClearAnim:(id)sender {
     [buildingGameParts.tiles removeAllObjects];
     [self setViewWithGameParts:buildingGameParts];
+}
+
+//ラジオボタン
+- (IBAction)pushedRadioCell:(id)sender {
+    NSInteger tag;
+    tag = [[self.waterRadioGroup selectedCell] tag];
+    NSLog(@"selected tag:%d", tag);
+    switch (tag) {
+        case 1:
+            buildingGameParts.watertype = kWaterTypeWater;
+            break;
+        case 2:
+            buildingGameParts.watertype = kWaterTypePoison;
+            break;
+        case 3:
+            buildingGameParts.watertype = kWaterTypeFlame;
+            break;
+        case 4:
+            buildingGameParts.watertype = kWaterTypeHeal;
+            break;
+        default:
+            buildingGameParts.watertype = kWaterTypeNone;
+            break;
+    }
 }
 
 

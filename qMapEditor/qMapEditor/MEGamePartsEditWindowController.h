@@ -26,8 +26,7 @@
 
 - (IBAction)pushedSwitchAnimMode:(id)sender;
 - (IBAction)pushedClearAnim:(id)sender;
-
-- (void)hoge:(id)obj;
+- (IBAction)pushedRadioCell:(id)sender;
 
 typedef void (^_onRegistGameParts)(MEGameParts *gameParts);
 typedef void (^_onUpdateGameParts)(MEGameParts *gameParts);
@@ -40,11 +39,9 @@ typedef void (^_onSelectedGameParts)(MEGameParts *gameParts);
 @property (copy) _onSelectedGameParts onSelectedGameParts;
 
 @property IBOutlet NSImageView *topImageView;
-@property IBOutlet NSTextField *durationPerFlame;
-
 @property IBOutlet NSButton *walkable;
-@property IBOutlet NSButton *harf;
 @property IBOutlet NSButton *animation;
+@property IBOutlet NSMatrix *waterRadioGroup;
 
 @property IBOutlet MEAnimationBaseView *animationViewBase;
 @property IBOutlet NSButton *addAnimationModeButton;

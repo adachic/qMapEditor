@@ -55,7 +55,7 @@ static NSInteger idCounter = 2000;
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:self.tiles forKey:@"tiles"];
     [encoder encodeBool:self.walkable forKey:@"walkable"];
-    [encoder encodeBool:self.harf forKey:@"harf"];
+    [encoder encodeInt:self.watertype forKey:@"waterType"];
     [encoder encodeFloat:(float) self.durationPerFrame forKey:@"durationPerFrame"];
     [encoder encodeObject:self.customEvents forKey:@"customEvents"];
     [encoder encodeObject:self.sampleImage forKey:@"sampleImage"];
@@ -65,7 +65,7 @@ static NSInteger idCounter = 2000;
 - (id)initWithCoder:(NSCoder *)decoder {
     self.tiles = [decoder decodeObjectForKey:@"tiles"];
     self.walkable = [decoder decodeBoolForKey:@"walkable"];
-    self.harf = [decoder decodeBoolForKey:@"harf"];
+    self.watertype = [decoder decodeIntForKey:@"waterType"];
     self.durationPerFrame = [decoder decodeFloatForKey:@"durationPerFrame"];
     self.customEvents = [decoder decodeObjectForKey:@"customEvents"];
     self.sampleImage = [decoder decodeObjectForKey:@"sampleImage"];
@@ -80,7 +80,7 @@ static NSInteger idCounter = 2000;
     another.tiles = (NSMutableArray *) [[NSArray allocWithZone:zone] initWithArray:_tiles copyItems:YES];
     another.name = [NSString stringWithFormat:@"%d", ++idCounter];
     another.walkable = _walkable;
-    another.harf = _harf;
+    another.watertype = _watertype;
 
     another.durationPerFrame = _durationPerFrame;
     another.customEvents = [[NSDictionary allocWithZone:zone] initWithDictionary:_customEvents];
@@ -89,16 +89,15 @@ static NSInteger idCounter = 2000;
     [another.sampleImage setImage:[_sampleImage.image copyWithZone:zone]];
     return another;
 }
-
 - (id)initWithTiles:(NSArray *)tiles
            walkable:(BOOL)walkable
-           harf:(BOOL)harf
+          waterType:(WaterType)waterType
            duration:(CGFloat)duration
-       customEvents:(NSDictionary *)custom {
+       customEvents:(NSDictionary *)custom{
     if (self = [super init]) {
         _tiles = (NSMutableArray *) tiles;
         _walkable = walkable;
-        _harf = harf;
+        _watertype = waterType;
         _durationPerFrame = duration;
         _customEvents = custom;
         _name = [NSString stringWithFormat:@"%d", ++idCounter];
@@ -137,7 +136,7 @@ static NSInteger idCounter = 2000;
     self.tiles = nil;
     self.tiles = otherObj.tiles;
     self.walkable = otherObj.walkable;
-    self.harf = otherObj.harf;
+    self.watertype = otherObj.watertype;
     self.durationPerFrame = otherObj.durationPerFrame;
     self.customEvents = nil;
     self.customEvents = otherObj.customEvents;

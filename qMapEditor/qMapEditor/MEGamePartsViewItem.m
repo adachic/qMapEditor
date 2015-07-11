@@ -54,7 +54,7 @@
         sublayer.frame = CGRectMake(0, 0, 10, 10);
         [self.imageView2.layer addSublayer:sublayer];
     }
-    if (parts.harf) {
+    if (0) {
         CALayer *sublayer2 = [CALayer layer];
         sublayer2.backgroundColor = [NSColor orangeColor].CGColor;
         sublayer2.frame = CGRectMake(10, 0, 10, 10);

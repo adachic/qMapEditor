@@ -158,7 +158,7 @@ gamePartsListWindowController:(MEGamePartsListWindowController *)gamePartsListWi
                 }
                 [partsDict setObject:tiles forKey:@"tiles"];
                 [partsDict setObject:[NSNumber numberWithBool:cube.walkable] forKey:@"walkable"];
-                [partsDict setObject:[NSNumber numberWithBool:cube.harf] forKey:@"harf"];
+                [partsDict setObject:[NSNumber numberWithInt:cube.watertype] forKey:@"waterType"];
                 [gamePartsArray addObject:partsDict];
             }
         }
