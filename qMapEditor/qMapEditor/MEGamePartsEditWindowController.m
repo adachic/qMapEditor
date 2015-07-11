@@ -111,6 +111,7 @@
         }
     }
     [buildingGameParts initSampleImageWithKVO:NO];
+    
     buildingGameParts.walkable = [self.walkable state] == NSOnState;
     buildingGameParts.watertype = self.waterRadioGroup.selectedRow;
     NSLog(@"topImageView  id;%@ %@", self.topImageView, self.topImageView.image);
@@ -147,6 +148,9 @@
     MEGameParts *parts = [dict objectForKey:@"game_parts"];
     NSLog(@"selectedGameParts,%@", parts);
 
+    
+    self.walkable.state = parts.walkable?NSOnState:NSOffState;
+    [self.waterRadioGroup setState:1 atRow:parts.watertype column:0];
     [self setViewWithGameParts:[parts copy]];
     if (self.onSelectedGameParts) {
         self.onSelectedGameParts([buildingGameParts copy]);
