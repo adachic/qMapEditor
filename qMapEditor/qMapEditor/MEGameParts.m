@@ -154,6 +154,7 @@ static NSInteger idCounter = 2000;
     self.durationPerFrame = otherObj.durationPerFrame;
     self.customEvents = nil;
     self.customEvents = otherObj.customEvents;
+
     self.half = otherObj.half;
     self.rezoTypeRect = otherObj.rezoTypeRect;
 //    self.name = otherObj.name;

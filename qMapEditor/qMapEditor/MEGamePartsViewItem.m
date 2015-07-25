@@ -62,8 +62,27 @@
     }
     if (parts.rezoTypeRect == kRezoTypeRect64) {
         CALayer *sublayer2 = [CALayer layer];
-        sublayer2.backgroundColor = [NSColor greenColor].CGColor;
+        sublayer2.backgroundColor = [NSColor yellowColor].CGColor;
         sublayer2.frame = CGRectMake(20, 0, 10, 10);
+        [self.imageView2.layer addSublayer:sublayer2];
+    }
+    if (parts.watertype) {
+        CALayer *sublayer2 = [CALayer layer];
+        switch (parts.watertype){
+            case kWaterTypeWater:
+                sublayer2.backgroundColor = [NSColor cyanColor].CGColor;
+                break;
+            case kWaterTypePoison:
+                sublayer2.backgroundColor = [NSColor purpleColor].CGColor;
+                break;
+            case kWaterTypeFlame:
+                sublayer2.backgroundColor = [NSColor redColor].CGColor;
+                break;
+            case kWaterTypeHeal:
+                sublayer2.backgroundColor = [NSColor greenColor].CGColor;
+                break;
+        }
+        sublayer2.frame = CGRectMake(30, 0, 10, 10);
         [self.imageView2.layer addSublayer:sublayer2];
     }
 }
@@ -108,6 +127,7 @@
     NSLog(@"item mouseDown");
     NSDictionary *item = [NSDictionary dictionaryWithObject:self.representedObject
                                                      forKey:@"KEY"];
+    self.selected = YES;
     NSNotification *n =
             [NSNotification notificationWithName:@"selectedGameParts" object:self userInfo:item];
     [[NSNotificationCenter defaultCenter] postNotification:n];

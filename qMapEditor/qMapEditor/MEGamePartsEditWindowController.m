@@ -180,7 +180,6 @@
 //Modifyボタン：GameParts上書き
 - (IBAction)pushedModifyGameParts:(id)sender {
     [self _setParamsFromUI];
-
     self.onUpdateGameParts([buildingGameParts copy]);
 }
 
