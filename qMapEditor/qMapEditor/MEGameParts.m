@@ -60,6 +60,7 @@ static NSInteger idCounter = 2000;
     [encoder encodeObject:self.customEvents forKey:@"customEvents"];
     [encoder encodeObject:self.sampleImage forKey:@"sampleImage"];
     [encoder encodeObject:self.name forKey:@"name"];
+
     [encoder encodeBool:self.half forKey:@"half"];
     [encoder encodeInt:self.rezoTypeRect forKey:@"rezoTypeRect"];
 }
@@ -72,6 +73,7 @@ static NSInteger idCounter = 2000;
     self.customEvents = [decoder decodeObjectForKey:@"customEvents"];
     self.sampleImage = [decoder decodeObjectForKey:@"sampleImage"];
     self.name = [decoder decodeObjectForKey:@"name"];
+
     self.half = [decoder decodeBoolForKey:@"half"];
     self.rezoTypeRect = [decoder decodeIntForKey:@"rezoTypeRect"];
     return self;
@@ -85,6 +87,7 @@ static NSInteger idCounter = 2000;
     another.name = [NSString stringWithFormat:@"%d", ++idCounter];
     another.walkable = _walkable;
     another.watertype = _watertype;
+
     another.half = _half;
     another.rezoTypeRect = _rezoTypeRect;
 

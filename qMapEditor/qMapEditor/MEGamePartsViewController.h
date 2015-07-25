@@ -37,14 +37,11 @@
 @property(nonatomic, assign) BOOL alternateColors;
 @property(nonatomic, assign) BOOL showWalkable;
 
-
-
 - (void)addGameParts:(MEGameParts *)gameParts;
 - (void)updateGameParts:(MEGameParts*)gameParts;
 - (void)deleteGameParts;
 
 - (MEGameParts *)searchItemWithName:(NSString*)name;
-
 - (MEGameParts *)selectedGameParts;
 @end
 

@@ -57,7 +57,9 @@
 
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
     [tempArray addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:
-            [[MEGameParts alloc] initWithTiles:[NSArray arrayWithObjects:[[METile alloc] initWithURL:[[NSURL alloc] initWithString:@"file:///Users/adachic/Desktop/78003b0a-s.jpg"] rect:CGRectMake(0, 0, 100, 100)], nil]
+            [[MEGameParts alloc] initWithTiles:[NSArray arrayWithObjects:[[METile alloc]
+                                      initWithURL:[[NSURL alloc] initWithString:@"file:///Users/adachic/Desktop/78003b0a-s.jpg"]
+                                             rect:CGRectMake(0, 0, 100, 100)], nil]
                                       walkable:NO
                                           waterType:0
                                       duration:0

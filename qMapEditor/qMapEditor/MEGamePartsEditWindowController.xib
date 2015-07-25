@@ -80,14 +80,14 @@
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BTY-6q-JrF">
                                             <rect key="frame" x="13" y="250" width="87" height="18"/>
-                                            <buttonCell key="cell" type="check" title="Half" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XVx-ZO-JE4">
+                                            <buttonCell key="cell" type="check" title="Half" bezelStyle="regularSquare" imagePosition="left" inset="2" id="XVx-ZO-JE4">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7En-5b-AYt">
                                             <rect key="frame" x="13" y="221" width="87" height="18"/>
-                                            <buttonCell key="cell" type="check" title="64" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="vGy-Yc-J8F">
+                                            <buttonCell key="cell" type="check" title="64" bezelStyle="regularSquare" imagePosition="left" inset="2" id="vGy-Yc-J8F">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>

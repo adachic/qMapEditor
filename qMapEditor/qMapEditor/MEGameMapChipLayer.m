@@ -35,7 +35,6 @@
 
     CALayer *animationLayer = [CALayer layer];
 
-
     animationLayer.frame = self.bounds;
     CAKeyframeAnimation *keyAnimation = [CAKeyframeAnimation animationWithKeyPath:@"contents"];
 
@@ -56,6 +55,9 @@
     [keyAnimation setCalculationMode:kCAAnimationDiscrete];
 
     [self addSublayer:animationLayer];
+    if(_gameParts.rezoTypeRect == kRezoTypeRect64){
+        [animationLayer setContentsScale:0.5f];
+    }
     [animationLayer addAnimation:keyAnimation forKey:@"aho"];
 }
 

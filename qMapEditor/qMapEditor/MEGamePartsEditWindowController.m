@@ -85,6 +85,13 @@
     }
 }
 
+- (void)_setParamsFromUI{
+    buildingGameParts.walkable = [self.walkable state] == NSOnState;
+    buildingGameParts.half = [self.half state] == NSOnState;
+    buildingGameParts.rezoTypeRect = ([self.rezoType state] == NSOnState) ? kRezoTypeRect64 : kRezoTypeRect32;
+    buildingGameParts.watertype = self.waterRadioGroup.selectedRow;
+}
+
 //セットアップ
 - (void)setViewWithGameParts:(MEGameParts *)gameParts {
     NSAssert(gameParts, @"gameParts should not nil");
@@ -111,11 +118,9 @@
         }
     }
     [buildingGameParts initSampleImageWithKVO:NO];
+    
+    [self _setParamsFromUI];
 
-    buildingGameParts.walkable = [self.walkable state] == NSOnState;
-    buildingGameParts.half = [self.half state] == NSOnState;
-    buildingGameParts.rezoTypeRect = ([self.rezoType state] == NSOnState) ? kRezoTypeRect64 : kRezoTypeRect32;
-    buildingGameParts.watertype = self.waterRadioGroup.selectedRow;
     NSLog(@"topImageView  id;%@ %@", self.topImageView, self.topImageView.image);
 }
 
@@ -167,11 +172,15 @@
 //Addボタン：GameParts追加
 - (IBAction)pushedAddGameParts:(id)sender {
     NSLog(@"topImageView2 id;%@ %@", self.topImageView, self.topImageView.image);
+    [self _setParamsFromUI];
+
     self.onRegistGameParts([buildingGameParts copy]);
 }
 
 //Modifyボタン：GameParts上書き
 - (IBAction)pushedModifyGameParts:(id)sender {
+    [self _setParamsFromUI];
+
     self.onUpdateGameParts([buildingGameParts copy]);
 }
 
