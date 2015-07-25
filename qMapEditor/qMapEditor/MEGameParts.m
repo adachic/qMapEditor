@@ -5,6 +5,33 @@
 
 #import "MEGameParts.h"
 
+@implementation MECategory
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.categoryName forKey:@"categoryName"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        self.categoryName = [decoder decodeObjectForKey:@"categoryName"];
+    }
+    return self;
+}
+
+
++ (NSArray *)existCategories {
+    return @[@"ALL",
+                                                 @"平原",
+                                                 @"洞窟",
+                                                 @"神殿",
+                                                 @"城内",
+                                                 @"飾り",
+                                                 ];;
+}
+
+
+@end
+
 @implementation METile
 
 - (id)initWithURL:(NSURL *)filePath rect:(CGRect)rect {
@@ -50,10 +77,12 @@
 
 @implementation MEGameParts
 
-static NSInteger idCounter = 2000;
+static NSInteger idCounter = 1;
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:self.tiles forKey:@"tiles"];
+    [encoder encodeObject:self.categories forKey:@"categories"];
+
     [encoder encodeBool:self.walkable forKey:@"walkable"];
     [encoder encodeInt:self.watertype forKey:@"waterType"];
     [encoder encodeFloat:(float) self.durationPerFrame forKey:@"durationPerFrame"];
@@ -76,6 +105,7 @@ static NSInteger idCounter = 2000;
 
     self.half = [decoder decodeBoolForKey:@"half"];
     self.rezoTypeRect = [decoder decodeIntForKey:@"rezoTypeRect"];
+    self.categories = [decoder decodeObjectForKey:@"categories"];
     return self;
 }
 
@@ -84,6 +114,7 @@ static NSInteger idCounter = 2000;
     // We'll ignore the zone for now
     MEGameParts *another = [[MEGameParts alloc] init];
     another.tiles = (NSMutableArray *) [[NSArray allocWithZone:zone] initWithArray:_tiles copyItems:YES];
+    another.categories = (NSMutableArray *) [[NSArray allocWithZone:zone] initWithArray:_categories copyItems:YES];;
     another.name = [NSString stringWithFormat:@"%d", ++idCounter];
     another.walkable = _walkable;
     another.watertype = _watertype;
@@ -105,9 +136,11 @@ static NSInteger idCounter = 2000;
            duration:(CGFloat)duration
                half:(BOOL)half
            rezoType:(RezoTypeRect)rezoType
+         categories:(NSArray *)categories
        customEvents:(NSDictionary *)custom {
     if (self = [super init]) {
         _tiles = (NSMutableArray *) tiles;
+        _categories = (NSMutableArray *) categories;
         _walkable = walkable;
         _watertype = waterType;
         _durationPerFrame = duration;
@@ -157,6 +190,8 @@ static NSInteger idCounter = 2000;
 
     self.half = otherObj.half;
     self.rezoTypeRect = otherObj.rezoTypeRect;
+    self.categories = nil;
+    self.categories = otherObj.categories;
 //    self.name = otherObj.name;
 
 }

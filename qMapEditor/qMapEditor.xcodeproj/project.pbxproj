@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8118A6371952FA4700B9DCE7 /* MEGameMapChipLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8118A6361952FA4700B9DCE7 /* MEGameMapChipLayer.m */; };
+		8125DE6D1B640D88003A7D6D /* MECategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8125DE6C1B640D88003A7D6D /* MECategoryTableViewCell.xib */; };
 		813AD47C193FA3F600B949C5 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813AD47B193FA3F600B949C5 /* Cocoa.framework */; };
 		813AD486193FA3F600B949C5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 813AD484193FA3F600B949C5 /* InfoPlist.strings */; };
 		813AD488193FA3F600B949C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 813AD487193FA3F600B949C5 /* main.m */; };
@@ -38,6 +39,7 @@
 		81BD68EA194BD2F2005E1652 /* MEGameMapToolsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BD68E8194BD2F2005E1652 /* MEGameMapToolsWindowController.m */; };
 		81BD68EB194BD2F2005E1652 /* MEGameMapToolsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81BD68E9194BD2F2005E1652 /* MEGameMapToolsWindowController.xib */; };
 		81BD68EE194C0662005E1652 /* METileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BD68ED194C0662005E1652 /* METileView.m */; };
+		BB66808CAABE4517BE6C320A /* MECategoryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB668AB95EE7F22E8705111A /* MECategoryTableView.m */; };
 		BB6686A731B2E09E85491CB7 /* MEGameParts.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6687532CDC436EBEEC4E82 /* MEGameParts.m */; };
 		BB668A4D66FFDD07939EF50E /* MEEditSet.m in Sources */ = {isa = PBXBuildFile; fileRef = BB668B2D60BE2B714E3FBADE /* MEEditSet.m */; };
 		BB668B67ADDE84BCD96B9BC5 /* MEMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = BB668B20BBFCC055FEFFF0C0 /* MEMatrix.m */; };
@@ -56,6 +58,7 @@
 /* Begin PBXFileReference section */
 		8118A6351952FA4700B9DCE7 /* MEGameMapChipLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEGameMapChipLayer.h; sourceTree = "<group>"; };
 		8118A6361952FA4700B9DCE7 /* MEGameMapChipLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEGameMapChipLayer.m; sourceTree = "<group>"; };
+		8125DE6C1B640D88003A7D6D /* MECategoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MECategoryTableViewCell.xib; sourceTree = "<group>"; };
 		813AD478193FA3F600B949C5 /* qMapEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = qMapEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		813AD47B193FA3F600B949C5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		813AD47E193FA3F600B949C5 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -104,10 +107,12 @@
 		81BD68E9194BD2F2005E1652 /* MEGameMapToolsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEGameMapToolsWindowController.xib; sourceTree = "<group>"; };
 		81BD68EC194C0662005E1652 /* METileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METileView.h; sourceTree = "<group>"; };
 		81BD68ED194C0662005E1652 /* METileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METileView.m; sourceTree = "<group>"; };
+		BB66849759467F6D97608F72 /* MECategoryTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECategoryTableView.h; sourceTree = "<group>"; };
 		BB66867F3D2E1E1DB135E799 /* MEGameParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEGameParts.h; sourceTree = "<group>"; };
 		BB6687532CDC436EBEEC4E82 /* MEGameParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEGameParts.m; sourceTree = "<group>"; };
 		BB6688EC7DE352EF17F5971D /* MEEditSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEEditSet.h; sourceTree = "<group>"; };
 		BB668A5843A93D9AF216BE8A /* MEMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEMatrix.h; sourceTree = "<group>"; };
+		BB668AB95EE7F22E8705111A /* MECategoryTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MECategoryTableView.m; sourceTree = "<group>"; };
 		BB668B20BBFCC055FEFFF0C0 /* MEMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEMatrix.m; sourceTree = "<group>"; };
 		BB668B2D60BE2B714E3FBADE /* MEEditSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEEditSet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -256,6 +261,9 @@
 				813BE7EC1940234B0034A0B8 /* MEGamePartsEditWindowController.xib */,
 				817E99ED1948845400B08786 /* MEAnimationBaseView.h */,
 				817E99EE1948845400B08786 /* MEAnimationBaseView.m */,
+				BB668AB95EE7F22E8705111A /* MECategoryTableView.m */,
+				BB66849759467F6D97608F72 /* MECategoryTableView.h */,
+				8125DE6C1B640D88003A7D6D /* MECategoryTableViewCell.xib */,
 			);
 			name = GamePartsEdit;
 			sourceTree = "<group>";
@@ -387,6 +395,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				813BE7FA194102970034A0B8 /* GamePartsIconViewPrototype.xib in Resources */,
+				8125DE6D1B640D88003A7D6D /* MECategoryTableViewCell.xib in Resources */,
 				813BE7EE1940234B0034A0B8 /* MEGamePartsEditWindowController.xib in Resources */,
 				813AD486193FA3F600B949C5 /* InfoPlist.strings in Resources */,
 				817E99CF1941125300B08786 /* METileWindowController.xib in Resources */,
@@ -432,6 +441,7 @@
 				BB6686A731B2E09E85491CB7 /* MEGameParts.m in Sources */,
 				BB668A4D66FFDD07939EF50E /* MEEditSet.m in Sources */,
 				BB668B67ADDE84BCD96B9BC5 /* MEMatrix.m in Sources */,
+				BB66808CAABE4517BE6C320A /* MECategoryTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

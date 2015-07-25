@@ -11,14 +11,16 @@
 @class MEGameParts;
 @class METile;
 @class MEAnimationBaseView;
+@class MECategoryTableView;
 
-@interface MEGamePartsEditWindowController : NSWindowController
+@interface MEGamePartsEditWindowController : NSWindowController<NSTableViewDataSource, NSTableViewDelegate>
 {
     MEGameParts *buildingGameParts;
 }
 
 - (void)setViewWithGameParts:(MEGameParts *)gameParts;
 - (void)setViewWithTile:(METile *)tile;
+- (void)tableViewReload;
 
 - (IBAction)pushedAddGameParts:(id)sender;
 - (IBAction)pushedDeleteGameParts:(id)sender;
@@ -43,6 +45,7 @@ typedef void (^_onSelectedGameParts)(MEGameParts *gameParts);
 @property IBOutlet NSButton *walkable;
 @property IBOutlet NSButton *half;
 @property IBOutlet NSButton *rezoType;
+@property IBOutlet MECategoryTableView *categoryTableView;
 
 @property IBOutlet MEAnimationBaseView *animationViewBase;
 @property IBOutlet NSButton *addAnimationModeButton;

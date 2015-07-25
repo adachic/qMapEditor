@@ -5,6 +5,14 @@
 
 #import <Foundation/Foundation.h>
 
+@interface MECategory : NSObject <NSCoding>{
+}
+@property NSString *categoryName;
+- (void)encodeWithCoder:(NSCoder *)encoder;
+- (id)initWithCoder:(NSCoder *)decoder;
++ (NSArray*)existCategories;
+@end
+
 @interface METile : NSObject <NSCopying, NSCoding> {
 }
 @property NSURL *tileFilePath;
@@ -32,16 +40,16 @@ typedef enum RezoTypeRect {
     kRezoTypeRect64 = 1,
 } RezoTypeRect;
 
-@interface MEGameParts : NSObject <NSCopying, NSCoding> {
-}
+@interface MEGameParts : NSObject <NSCopying, NSCoding>
+
 @property NSMutableArray *tiles;
+@property NSMutableArray *categories;
 @property BOOL walkable;
 @property WaterType watertype;
 @property CGFloat durationPerFrame;
 @property NSDictionary *customEvents;
 @property NSImageView *sampleImage;
 @property NSString *name;
-
 @property BOOL half;
 @property RezoTypeRect rezoTypeRect;
 
@@ -53,6 +61,7 @@ typedef enum RezoTypeRect {
            duration:(CGFloat)duration
                half:(BOOL)half
            rezoType:(RezoTypeRect)rezoType
+         categories:(NSArray *)categories
        customEvents:(NSDictionary *)custom;
 
 - (NSImage *)image;

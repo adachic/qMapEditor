@@ -9,9 +9,10 @@
 #import "MEGamePartsEditWindowController.h"
 #import "MEGameParts.h"
 #import "MEAnimationBaseView.h"
+#import "MECategoryTableView.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface MEGamePartsEditWindowController ()
+@interface MEGamePartsEditWindowController () <NSTableViewDataSource, NSTableViewDelegate>
 
 @end
 
@@ -28,17 +29,31 @@
         // この例だと、通知センターに"Tuchi"という名前の通知がされた時に、
         // hogeメソッドを呼び出すという通知要求の登録を行っている。
         [nc addObserver:self selector:@selector(selectedGameParts:) name:@"selectedGameParts" object:nil];
+
+
+        NSNib *cellNib = [[NSNib alloc] initWithNibNamed:@"MECategoryTableViewCell" bundle:nil];
+        [self.categoryTableView registerNib:cellNib forIdentifier:@"category_"];
+        NSDictionary *dict = [self.categoryTableView registeredNibsByIdentifier];
+
+        self.categoryTableView.dataSource = self;
+        self.categoryTableView.delegate = self;
     }
     return self;
 }
 
-#ifdef NEVER
 - (void)windowDidLoad {
     [super windowDidLoad];
 
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    [self.categoryTableView reloadData];
+
 }
-#endif
+
+- (void)awakeFromNib {
+
+    [self.categoryTableView reloadData];
+}
+
 
 - (void)runAnimation {
 //    [CATransaction begin];
@@ -120,6 +135,7 @@
     [buildingGameParts initSampleImageWithKVO:NO];
     
     [self _setParamsFromUI];
+    [self.categoryTableView reloadData];
 
     NSLog(@"topImageView  id;%@ %@", self.topImageView, self.topImageView.image);
 }
@@ -137,6 +153,7 @@
                                                       duration:0
                                                           half:NO
                                                       rezoType:kRezoTypeRect32
+                             categories:nil 
 
                                                   customEvents:nil];
     }
@@ -227,6 +244,42 @@
             buildingGameParts.watertype = kWaterTypeNone;
             break;
     }
+}
+
+#pragma mark - tableview delegate
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView{
+    return [MECategory existCategories].count;
+}
+#if 0
+- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex{
+#if 1
+    MECategoryTableViewCell *cell = [aTableView makeViewWithIdentifier:@"categoryCell" owner:nil];
+    [cell.textField setStringValue:[MECategory existCategories][rowIndex]];
+    return cell;
+#else
+    NSLog(@"aTableColumn:%@, row:%d, category:%@",[aTableColumn identifier], rowIndex, [MECategory existCategories][rowIndex]);
+    return [MECategory existCategories][rowIndex];
+#endif
+}
+ #endif
+
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+#if 1
+    MECategoryTableViewCell *cell = [tableView makeViewWithIdentifier:@"category_" owner:self];
+    if (cell == nil)
+    {
+        NSDictionary *dict = [tableView registeredNibsByIdentifier];
+    }
+   // cell.title = [MECategory existCategories][row];
+    [cell.textField setStringValue:[MECategory existCategories][row]];
+    return cell;
+#else
+    NSLog(@"aTableColumn:%@, row:%d, category:%@",[tableColumn identifier], row, [MECategory existCategories][row]);
+    return [MECategory existCategories][row];
+#endif
+
+
 }
 
 

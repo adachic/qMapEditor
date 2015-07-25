@@ -13,7 +13,8 @@
 
 @property MEGamePartsViewController *gamePartsViewController;
 
-@property IBOutlet NSView	*targetView;
+//@property IBOutlet NSView	*targetView;
+@property IBOutlet NSTabView	*tabView;
 @property IBOutlet NSTextField *selectionField;
 
 

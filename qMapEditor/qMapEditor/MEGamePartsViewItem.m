@@ -119,7 +119,6 @@
     [keyAnimation setCalculationMode: kCAAnimationDiscrete];
 
     [animationLayer addAnimation:keyAnimation forKey:@"aho"];
-
 }
 
 - (void)mouseDown:(NSEvent *)theEvent {
@@ -139,3 +138,5 @@
 }
 
 @end
+
+
