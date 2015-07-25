@@ -22,10 +22,15 @@
 typedef enum WaterType {
     kWaterTypeNone = 0, //個体、ソリッド
     kWaterTypeWater = 1,
-    kWaterTypePoison ,
+    kWaterTypePoison,
     kWaterTypeFlame,
     kWaterTypeHeal,
 } WaterType;
+
+typedef enum RezoTypeRect {
+    kRezoTypeRect32 = 0, //旧バージョン
+    kRezoTypeRect64 = 1,
+} RezoTypeRect;
 
 @interface MEGameParts : NSObject <NSCopying, NSCoding> {
 }
@@ -37,12 +42,17 @@ typedef enum WaterType {
 @property NSImageView *sampleImage;
 @property NSString *name;
 
+@property BOOL half;
+@property RezoTypeRect rezoTypeRect;
+
 - (void)encodeWithCoder:(NSCoder *)encoder;
 
 - (id)initWithTiles:(NSArray *)tiles
            walkable:(BOOL)walkable
           waterType:(WaterType)waterType
            duration:(CGFloat)duration
+               half:(BOOL)half
+           rezoType:(RezoTypeRect)rezoType
        customEvents:(NSDictionary *)custom;
 
 - (NSImage *)image;

@@ -159,6 +159,8 @@ gamePartsListWindowController:(MEGamePartsListWindowController *)gamePartsListWi
                 [partsDict setObject:tiles forKey:@"tiles"];
                 [partsDict setObject:[NSNumber numberWithBool:cube.walkable] forKey:@"walkable"];
                 [partsDict setObject:[NSNumber numberWithInt:cube.watertype] forKey:@"waterType"];
+                [partsDict setObject:[NSNumber numberWithBool:cube.half] forKey:@"half"];
+                [partsDict setObject:[NSNumber numberWithInt:cube.rezoTypeRect] forKey:@"rezo"];
                 [gamePartsArray addObject:partsDict];
             }
         }
@@ -171,6 +173,7 @@ gamePartsListWindowController:(MEGamePartsListWindowController *)gamePartsListWi
     [mapData setObject:[NSNumber numberWithInteger:mapWindowController.maxM.x] forKey:@"maxX"];
     [mapData setObject:[NSNumber numberWithInteger:mapWindowController.maxM.y] forKey:@"maxY"];
     [mapData setObject:[NSNumber numberWithInteger:mapWindowController.maxM.z] forKey:@"maxZ"];
+
     NSMutableArray *cubes = [NSMutableArray array];
     for (int x = 0; x < mapWindowController.maxM.x; x++) {
         for (int y = 0; y < mapWindowController.maxM.y; y++) {
@@ -190,7 +193,6 @@ gamePartsListWindowController:(MEGamePartsListWindowController *)gamePartsListWi
         }
     }
     [mapData setObject:cubes forKey:@"jungleGym"];
-
 
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:mapData options:0 error:&error];

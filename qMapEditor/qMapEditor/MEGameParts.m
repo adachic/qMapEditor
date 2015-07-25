@@ -60,6 +60,8 @@ static NSInteger idCounter = 2000;
     [encoder encodeObject:self.customEvents forKey:@"customEvents"];
     [encoder encodeObject:self.sampleImage forKey:@"sampleImage"];
     [encoder encodeObject:self.name forKey:@"name"];
+    [encoder encodeBool:self.half forKey:@"half"];
+    [encoder encodeInt:self.rezoTypeRect forKey:@"rezoTypeRect"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
@@ -70,6 +72,8 @@ static NSInteger idCounter = 2000;
     self.customEvents = [decoder decodeObjectForKey:@"customEvents"];
     self.sampleImage = [decoder decodeObjectForKey:@"sampleImage"];
     self.name = [decoder decodeObjectForKey:@"name"];
+    self.half = [decoder decodeBoolForKey:@"half"];
+    self.rezoTypeRect = [decoder decodeIntForKey:@"rezoTypeRect"];
     return self;
 }
 
@@ -81,6 +85,8 @@ static NSInteger idCounter = 2000;
     another.name = [NSString stringWithFormat:@"%d", ++idCounter];
     another.walkable = _walkable;
     another.watertype = _watertype;
+    another.half = _half;
+    another.rezoTypeRect = _rezoTypeRect;
 
     another.durationPerFrame = _durationPerFrame;
     another.customEvents = [[NSDictionary allocWithZone:zone] initWithDictionary:_customEvents];
@@ -89,17 +95,22 @@ static NSInteger idCounter = 2000;
     [another.sampleImage setImage:[_sampleImage.image copyWithZone:zone]];
     return another;
 }
+
 - (id)initWithTiles:(NSArray *)tiles
            walkable:(BOOL)walkable
           waterType:(WaterType)waterType
            duration:(CGFloat)duration
-       customEvents:(NSDictionary *)custom{
+               half:(BOOL)half
+           rezoType:(RezoTypeRect)rezoType
+       customEvents:(NSDictionary *)custom {
     if (self = [super init]) {
         _tiles = (NSMutableArray *) tiles;
         _walkable = walkable;
         _watertype = waterType;
         _durationPerFrame = duration;
         _customEvents = custom;
+        _half = half;
+        _rezoTypeRect = rezoType;
         _name = [NSString stringWithFormat:@"%d", ++idCounter];
     }
     return self;
@@ -140,6 +151,8 @@ static NSInteger idCounter = 2000;
     self.durationPerFrame = otherObj.durationPerFrame;
     self.customEvents = nil;
     self.customEvents = otherObj.customEvents;
+    self.half = otherObj.half;
+    self.rezoTypeRect = otherObj.rezoTypeRect;
 //    self.name = otherObj.name;
 
 }

@@ -54,13 +54,18 @@
         sublayer.frame = CGRectMake(0, 0, 10, 10);
         [self.imageView2.layer addSublayer:sublayer];
     }
-    if (0) {
+    if (parts.half) {
         CALayer *sublayer2 = [CALayer layer];
         sublayer2.backgroundColor = [NSColor orangeColor].CGColor;
         sublayer2.frame = CGRectMake(10, 0, 10, 10);
         [self.imageView2.layer addSublayer:sublayer2];
     }
-    
+    if (parts.rezoTypeRect == kRezoTypeRect64) {
+        CALayer *sublayer2 = [CALayer layer];
+        sublayer2.backgroundColor = [NSColor greenColor].CGColor;
+        sublayer2.frame = CGRectMake(20, 0, 10, 10);
+        [self.imageView2.layer addSublayer:sublayer2];
+    }
 }
 
 - (void)runAnimation {

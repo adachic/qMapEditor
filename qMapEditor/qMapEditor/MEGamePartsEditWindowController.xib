@@ -78,9 +78,16 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
-                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o9F-xJ-Oct">
-                                            <rect key="frame" x="13" y="246" width="87" height="18"/>
-                                            <buttonCell key="cell" type="check" title="Animation" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="gdy-UM-ejQ">
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BTY-6q-JrF">
+                                            <rect key="frame" x="13" y="250" width="87" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Half" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XVx-ZO-JE4">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7En-5b-AYt">
+                                            <rect key="frame" x="13" y="221" width="87" height="18"/>
+                                            <buttonCell key="cell" type="check" title="64" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="vGy-Yc-J8F">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -119,7 +126,7 @@
                                             </connections>
                                         </button>
                                         <matrix verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" autorecalculatesCellSize="YES" translatesAutoresizingMaskIntoConstraints="NO" id="trs-lJ-B6Z">
-                                            <rect key="frame" x="135" y="195" width="74" height="98"/>
+                                            <rect key="frame" x="150" y="195" width="74" height="98"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             <size key="cellSize" width="74" height="18"/>
                                             <size key="intercellSpacing" width="4" height="2"/>
@@ -284,10 +291,11 @@
         <customObject id="ThR-1Q-ZkZ" customClass="MEGamePartsEditWindowController">
             <connections>
                 <outlet property="addAnimationModeButton" destination="Y4M-k5-BtY" id="XYh-lp-KIl"/>
-                <outlet property="animation" destination="o9F-xJ-Oct" id="llw-oL-o7A"/>
                 <outlet property="animationViewBase" destination="J0Z-gb-3rb" id="a7H-D6-rAP"/>
                 <outlet property="clearAnimationButton" destination="WAB-BF-Xfq" id="udQ-VZ-CeS"/>
+                <outlet property="half" destination="BTY-6q-JrF" id="SOl-Oz-0D1"/>
                 <outlet property="modeLabel" destination="QPV-yh-UB3" id="A1L-sk-1WY"/>
+                <outlet property="rezoType" destination="7En-5b-AYt" id="OKp-K9-enG"/>
                 <outlet property="topImageView" destination="yBs-pV-6VJ" id="aPm-i2-afU"/>
                 <outlet property="walkable" destination="WSW-QA-cpH" id="Uub-Ve-ley"/>
                 <outlet property="waterRadioGroup" destination="trs-lJ-B6Z" id="w9h-6I-UQy"/>

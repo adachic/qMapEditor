@@ -111,8 +111,10 @@
         }
     }
     [buildingGameParts initSampleImageWithKVO:NO];
-    
+
     buildingGameParts.walkable = [self.walkable state] == NSOnState;
+    buildingGameParts.half = [self.half state] == NSOnState;
+    buildingGameParts.rezoTypeRect = ([self.rezoType state] == NSOnState) ? kRezoTypeRect64 : kRezoTypeRect32;
     buildingGameParts.watertype = self.waterRadioGroup.selectedRow;
     NSLog(@"topImageView  id;%@ %@", self.topImageView, self.topImageView.image);
 }
@@ -126,8 +128,11 @@
     if (!buildingGameParts) {
         buildingGameParts = [[MEGameParts alloc] initWithTiles:tiles
                                                       walkable:YES
-                waterType:0
+                                                     waterType:0
                                                       duration:0
+                                                          half:NO
+                                                      rezoType:kRezoTypeRect32
+
                                                   customEvents:nil];
     }
     if (self.animationViewBase.editable) {
@@ -148,8 +153,10 @@
     MEGameParts *parts = [dict objectForKey:@"game_parts"];
     NSLog(@"selectedGameParts,%@", parts);
 
-    
-    self.walkable.state = parts.walkable?NSOnState:NSOffState;
+    self.walkable.state = parts.walkable ? NSOnState : NSOffState;
+    self.half.state = parts.half ? NSOnState : NSOffState;
+    self.rezoType.state = (parts.rezoTypeRect == kRezoTypeRect64) ? NSOnState : NSOffState;
+
     [self.waterRadioGroup setState:1 atRow:parts.watertype column:0];
     [self setViewWithGameParts:[parts copy]];
     if (self.onSelectedGameParts) {

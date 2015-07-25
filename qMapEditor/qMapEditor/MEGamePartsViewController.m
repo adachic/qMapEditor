@@ -61,6 +61,8 @@
                                       walkable:NO
                                           waterType:0
                                       duration:0
+                    half:NO
+                rezoType:kRezoTypeRect32
                                   customEvents:nil], KEY_GAMEPARTS,
             @"aho", KEY_NAME,
             nil]];

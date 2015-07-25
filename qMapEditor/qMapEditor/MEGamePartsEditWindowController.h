@@ -39,9 +39,10 @@ typedef void (^_onSelectedGameParts)(MEGameParts *gameParts);
 @property (copy) _onSelectedGameParts onSelectedGameParts;
 
 @property IBOutlet NSImageView *topImageView;
-@property IBOutlet NSButton *walkable;
-@property IBOutlet NSButton *animation;
 @property IBOutlet NSMatrix *waterRadioGroup;
+@property IBOutlet NSButton *walkable;
+@property IBOutlet NSButton *half;
+@property IBOutlet NSButton *rezoType;
 
 @property IBOutlet MEAnimationBaseView *animationViewBase;
 @property IBOutlet NSButton *addAnimationModeButton;
