@@ -13,6 +13,9 @@
 
 @implementation MEEditSet
 
+/*
+* gameParts情報を保存
+ */
 + (void)saveGamePartsListWithPath:(NSURL *)filePath
             tileWindowControllers:(NSArray *)tileWindowControllers
     gamePartsListWindowController:(MEGamePartsListWindowController *)gamePartsListWindowController {
@@ -29,7 +32,12 @@
         [tileSheets addObject:tileSheet];
     }
     {
-        NSArray *values = @[gamePartsListWindowController.gamePartsViewController.gamePartsArray, tileSheets];
+        //すべてのゲームパーツを収集
+        NSMutableArray *allGameParts = [@[] mutableCopy];
+        for(MEGamePartsViewController *gamePartsViewController in gamePartsListWindowController.gamePartsViewControllers){
+            [allGameParts addObjectsFromArray:gamePartsViewController.gamePartsArray];
+        }
+        NSArray *values = @[allGameParts, tileSheets];
         NSArray *keys = [NSArray arrayWithObjects:@"gamePartsArray",
                                                   @"tileSheets",
                                                   nil];
@@ -96,8 +104,13 @@ gamePartsListWindowController:(MEGamePartsListWindowController *)gamePartsListWi
         mapInfo = [NSDictionary dictionaryWithObjects:values forKeys:key];
     }
     {
+        //すべてのゲームパーツを収集
+        NSMutableArray *allGameParts = [@[] mutableCopy];
+        for(MEGamePartsViewController *gamePartsViewController in gamePartsListWindowController.gamePartsViewControllers){
+            [allGameParts addObjectsFromArray:gamePartsViewController.gamePartsArray];
+        }
         NSArray *values = @[
-                gamePartsListWindowController.gamePartsViewController.gamePartsArray,
+                allGameParts,
                 tileSheets,
                 mapInfo
         ];
@@ -126,6 +139,9 @@ gamePartsListWindowController:(MEGamePartsListWindowController *)gamePartsListWi
     completed(gamePartsArray, tileSheets, mapInfo);
 };
 
+/*
+* jsonエクスポートする。
+ */
 + (void)saveMapJsonWithPath:(NSURL *)filePath
         mapWindowController:(MEGameMapWindowController *)mapWindowController {
 

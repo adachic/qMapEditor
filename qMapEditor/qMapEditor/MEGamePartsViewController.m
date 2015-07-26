@@ -158,9 +158,16 @@
     return ret;
 }
 
+- (BOOL)hasCategory:(MEGameParts *)gameParts{
+    for(NSString *category in gameParts.categories){
+        if([self.category isEqualToString:category]){
+            return YES;
+        }
+    }
+    return NO;
+}
 
 @end
-
 
 @implementation MyScrollView
 

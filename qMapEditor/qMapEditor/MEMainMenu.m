@@ -44,15 +44,15 @@
 
     /*編集ウィンドウ:ボタンのコールバック*/
     self.gamePartsEditWindowController.onRegistGameParts = [^(MEGameParts *gameParts) {
-        [blockself.gamePartsListWindowController.gamePartsViewController addGameParts:gameParts];
+        [blockself.gamePartsListWindowController addGameParts:gameParts];
     } copy];
 
     self.gamePartsEditWindowController.onUpdateGameParts = [^(MEGameParts *gameParts) {
-        [blockself.gamePartsListWindowController.gamePartsViewController updateGameParts:gameParts];
+        [blockself.gamePartsListWindowController updateGameParts:gameParts];
     } copy];
 
     self.gamePartsEditWindowController.onDeleteGameParts = [^() {
-        [blockself.gamePartsListWindowController.gamePartsViewController deleteGameParts];
+        [blockself.gamePartsListWindowController deleteGameParts];
     } copy];
 
     //toolにparhapsを表示
@@ -162,7 +162,7 @@
                           aspectY:self.gameMapToolsWindowController.aspectY
                           aspectT:self.gameMapToolsWindowController.aspectT
                         jungleGym:nil
-                selectedGameParts:[self.gamePartsListWindowController.gamePartsViewController selectedGameParts]
+                selectedGameParts:[self.gamePartsListWindowController selectedGameParts]
     ];
     w.onSetToToolWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t, MEMatrix *cursor) {
         [self.gameMapToolsWindowController changedMapWindow:_maxM
@@ -194,7 +194,16 @@
         [self.tileWindowControllers addObject:w];
     }
     //リストウィンドウの復元
-    self.gamePartsListWindowController.gamePartsViewController.gamePartsArray = gamePartsArray;
+    for (MEGamePartsViewController *gamePartsViewController in self.gamePartsListWindowController.gamePartsViewControllers) {
+        NSMutableArray *gamePartsInCategory = [@[] mutableCopy];
+        for (MEGameParts *gameParts in gamePartsArray) {
+            if (![gamePartsViewController hasCategory:gameParts]) {
+                continue;
+            }
+            [gamePartsInCategory addObject:gameParts];
+        }
+        gamePartsViewController.gamePartsArray = gamePartsInCategory;
+    }
 }
 
 //マップの復元
@@ -216,7 +225,7 @@
                           aspectY:[mapInfo[@"aspectY"] floatValue]
                           aspectT:[mapInfo[@"aspectT"] floatValue]
                         jungleGym:mapInfo[@"jungleGym"]
-                selectedGameParts:[self.gamePartsListWindowController.gamePartsViewController selectedGameParts]
+                selectedGameParts:[self.gamePartsListWindowController selectedGameParts]
     ];
     w.onSetToToolWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t, MEMatrix *cursor) {
         [blockself.gameMapToolsWindowController changedMapWindow:_maxM
@@ -364,32 +373,32 @@
 }
 
 
-- (IBAction)syncToGameParts:(id)menuItem{
+- (IBAction)syncToGameParts:(id)menuItem {
     MEGameMapWindowController *front = [self frontGameMapWindowController];
-    if(!front){
+    if (!front) {
         return;
     }
-    
+
     for (int x = 0; x < front.maxM.x; x++) {
         for (int y = 0; y < front.maxM.y; y++) {
             for (int z = 0; z < front.maxM.z; z++) {
-                MEGameParts * cube = [front.jungleJym objectForKey:[front makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
-                                                                                                    Y:y
-                                                                                                    Z:z]]];
-                
-                if(!cube){
+                MEGameParts *cube = [front.jungleJym objectForKey:[front makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
+                                                                                                                     Y:y
+                                                                                                                     Z:z]]];
+
+                if (!cube) {
                     continue;
                 }
 
-                MEGameParts * cube2 = [self.gamePartsListWindowController.gamePartsViewController searchItemWithName:cube.name];
+                MEGameParts *cube2 = [self.gamePartsListWindowController searchItemWithName:cube.name];
                 if (!cube2) {
-                    NSLog(@"name:%@ is nil. skip.",cube.name);
+                    NSLog(@"name:%@ is nil. skip.", cube.name);
                     continue;
-                    
+
                 }
                 [front.jungleJym setObject:cube2 forKey:[front makeTagWithMatrix:[[MEMatrix alloc] initWithX:x
-                                                                                                Y:y
-                                                                                                          Z:z]]];
+                                                                                                           Y:y
+                                                                                                           Z:z]]];
             }
         }
     }

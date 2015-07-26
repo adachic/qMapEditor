@@ -33,7 +33,6 @@
 
         NSNib *cellNib = [[NSNib alloc] initWithNibNamed:@"MECategoryTableViewCell" bundle:nil];
         [self.categoryTableView registerNib:cellNib forIdentifier:@"category_"];
-        NSDictionary *dict = [self.categoryTableView registeredNibsByIdentifier];
 
         self.categoryTableView.dataSource = self;
         self.categoryTableView.delegate = self;
@@ -265,21 +264,10 @@
  #endif
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-#if 1
     MECategoryTableViewCell *cell = [tableView makeViewWithIdentifier:@"category_" owner:self];
-    if (cell == nil)
-    {
-        NSDictionary *dict = [tableView registeredNibsByIdentifier];
-    }
-   // cell.title = [MECategory existCategories][row];
     [cell.textField setStringValue:[MECategory existCategories][row]];
+    [cell.imageView.layer setBackgroundColor:[NSColor redColor].CGColor];
     return cell;
-#else
-    NSLog(@"aTableColumn:%@, row:%d, category:%@",[tableColumn identifier], row, [MECategory existCategories][row]);
-    return [MECategory existCategories][row];
-#endif
-
-
 }
 
 

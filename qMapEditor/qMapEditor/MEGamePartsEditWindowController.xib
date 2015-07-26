@@ -307,7 +307,7 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <prototypeCellViews>
-                                                <tableCellView id="qvy-3I-vsm" customClass="MECategoryTableViewCell">
+                                                <tableCellView identifier="category_" id="qvy-3I-vsm" customClass="MECategoryTableViewCell">
                                                     <rect key="frame" x="1" y="1" width="110" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>

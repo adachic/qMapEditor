@@ -36,10 +36,12 @@
 @property(nonatomic, assign) NSUInteger sortingMode;
 @property(nonatomic, assign) BOOL alternateColors;
 @property(nonatomic, assign) BOOL showWalkable;
+@property(nonatomic) NSString *category;
 
 - (void)addGameParts:(MEGameParts *)gameParts;
 - (void)updateGameParts:(MEGameParts*)gameParts;
 - (void)deleteGameParts;
+- (BOOL)hasCategory:(MEGameParts *)gameParts;
 
 - (MEGameParts *)searchItemWithName:(NSString*)name;
 - (MEGameParts *)selectedGameParts;
