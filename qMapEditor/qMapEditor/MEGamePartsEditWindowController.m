@@ -104,6 +104,7 @@
     buildingGameParts.half = [self.half state] == NSOnState;
     buildingGameParts.rezoTypeRect = ([self.rezoType state] == NSOnState) ? kRezoTypeRect64 : kRezoTypeRect32;
     buildingGameParts.watertype = self.waterRadioGroup.selectedRow;
+//    [buildingGameParts.categories addObject:<#(id)anObject#>];
 }
 
 //セットアップ
@@ -187,6 +188,9 @@
 
 //Addボタン：GameParts追加
 - (IBAction)pushedAddGameParts:(id)sender {
+    if(!buildingGameParts.categories || !buildingGameParts.categories.count){
+        return;
+    }
     NSLog(@"topImageView2 id;%@ %@", self.topImageView, self.topImageView.image);
     [self _setParamsFromUI];
 
@@ -195,6 +199,9 @@
 
 //Modifyボタン：GameParts上書き
 - (IBAction)pushedModifyGameParts:(id)sender {
+    if(!buildingGameParts.categories || !buildingGameParts.categories.count){
+        return;
+    }
     [self _setParamsFromUI];
     self.onUpdateGameParts([buildingGameParts copy]);
 }
@@ -267,8 +274,23 @@
     MECategoryTableViewCell *cell = [tableView makeViewWithIdentifier:@"category_" owner:self];
     [cell.textField setStringValue:[MECategory existCategories][row]];
     [cell.imageView.layer setBackgroundColor:[NSColor redColor].CGColor];
+    for(NSString *category in [MECategory existCategories] ){
+        for(NSString *category_ in buildingGameParts.categories){
+            if([category isEqualToString:category_]){
+                [cell.textField.layer setBackgroundColor:[NSColor blueColor].CGColor];
+            }
+        }
+    }
     return cell;
 }
+
+- (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex{
+    buildingGameParts.categories = [@[] mutableCopy];
+    
+    [buildingGameParts.categories addObject:[MECategory existCategories][rowIndex]];
+    return YES;
+}
+
 
 
 @end

@@ -24,13 +24,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MEGamePartsEditWindowController.m" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MEGamePartsEditWindowController.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEGamePartsEditWindowController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3405" max-vertical-offset="4200">
-              <caret line="261" column="5" selection-start-line="261" selection-start-column="5" selection-end-line="261" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.88461536" vertical-offset="2430" max-vertical-offset="4530">
+              <caret line="208" column="4" selection-start-line="208" selection-start-column="4" selection-end-line="208" selection-end-column="4" />
               <folding>
                 <element signature="e#162#205#0" expanded="true" />
+                <element signature="e#8456#8970#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MEGamePartsListWindowController.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MEGamePartsListWindowController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEGamePartsListWindowController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63461536" vertical-offset="600" max-vertical-offset="1905">
-              <caret line="73" column="48" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1905">
+              <caret line="65" column="35" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
               <folding>
                 <element signature="e#164#207#0" expanded="true" />
                 <element signature="e#1407#1862#0" expanded="true" />
@@ -151,13 +152,13 @@
         <option value="$PROJECT_DIR$/qMapEditor/MEGamePartsEditWindowController.h" />
         <option value="$PROJECT_DIR$/qMapEditor/MECategoryTableView.m" />
         <option value="$PROJECT_DIR$/qMapEditor/MECategoryTableView.h" />
-        <option value="$PROJECT_DIR$/qMapEditor/MEGamePartsEditWindowController.m" />
         <option value="$PROJECT_DIR$/qMapEditor/MEGamePartsViewController.h" />
         <option value="$PROJECT_DIR$/qMapEditor/MEGamePartsViewController.m" />
         <option value="$PROJECT_DIR$/qMapEditor/MEGamePartsListWindowController.h" />
         <option value="$PROJECT_DIR$/qMapEditor/MEMainMenu.m" />
         <option value="$PROJECT_DIR$/qMapEditor/MEEditSet.m" />
         <option value="$PROJECT_DIR$/qMapEditor/MEGamePartsListWindowController.m" />
+        <option value="$PROJECT_DIR$/qMapEditor/MEGamePartsEditWindowController.m" />
       </list>
     </option>
   </component>
@@ -780,16 +781,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGamePartsEditWindowController.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3405" max-vertical-offset="4200">
-          <caret line="261" column="5" selection-start-line="261" selection-start-column="5" selection-end-line="261" selection-end-column="5" />
-          <folding>
-            <element signature="e#162#205#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/qMapEditor/MEGamePartsViewController.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="840">
@@ -832,11 +823,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/qMapEditor/MEGamePartsListWindowController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63461536" vertical-offset="600" max-vertical-offset="1905">
-          <caret line="73" column="48" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1905">
+          <caret line="65" column="35" selection-start-line="65" selection-start-column="35" selection-end-line="65" selection-end-column="35" />
           <folding>
             <element signature="e#164#207#0" expanded="true" />
             <element signature="e#1407#1862#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEGamePartsEditWindowController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.88461536" vertical-offset="2430" max-vertical-offset="4530">
+          <caret line="208" column="4" selection-start-line="208" selection-start-column="4" selection-end-line="208" selection-end-column="4" />
+          <folding>
+            <element signature="e#162#205#0" expanded="true" />
+            <element signature="e#8456#8970#0" expanded="true" />
           </folding>
         </state>
       </provider>
