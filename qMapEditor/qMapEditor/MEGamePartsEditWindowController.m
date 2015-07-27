@@ -43,9 +43,7 @@
 - (void)windowDidLoad {
     [super windowDidLoad];
 
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
     [self.categoryTableView reloadData];
-
 }
 
 - (void)awakeFromNib {
@@ -168,7 +166,6 @@
     [self setViewWithGameParts:buildingGameParts];
 }
 
-
 //リストから選択された
 - (void)selectedGameParts:(id)obj {
     NSDictionary *dict = [[obj userInfo] objectForKey:@"KEY"];
@@ -257,6 +254,7 @@
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView{
     return [MECategory existCategories].count;
 }
+
 #if 0
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex{
 #if 1
@@ -268,7 +266,7 @@
     return [MECategory existCategories][rowIndex];
 #endif
 }
- #endif
+#endif
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     MECategoryTableViewCell *cell = [tableView makeViewWithIdentifier:@"category_" owner:self];
@@ -286,7 +284,6 @@
 
 - (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex{
     buildingGameParts.categories = [@[] mutableCopy];
-    
     [buildingGameParts.categories addObject:[MECategory existCategories][rowIndex]];
     return YES;
 }

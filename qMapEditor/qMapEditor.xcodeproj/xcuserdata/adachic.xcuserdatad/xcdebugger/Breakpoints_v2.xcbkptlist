@@ -1151,8 +1151,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "271"
             endingLineNumber = "271"
-            landmarkName = "@implementation MEGamePartsEditWindowController"
-            landmarkType = "3">
+            landmarkName = "-tableView:viewForTableColumn:row:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1167,8 +1167,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "252"
             endingLineNumber = "252"
-            landmarkName = "-pushedRadioCell:"
-            landmarkType = "5">
+            landmarkName = "@implementation MEGamePartsEditWindowController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1183,7 +1183,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "259"
             endingLineNumber = "259"
-            landmarkName = "-numberOfRowsInTableView:"
+            landmarkName = "-tableView:objectValueForTableColumn:row:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1199,8 +1199,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "255"
             endingLineNumber = "255"
-            landmarkName = "@implementation MEGamePartsEditWindowController"
-            landmarkType = "3">
+            landmarkName = "-numberOfRowsInTableView:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1247,7 +1247,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "270"
             endingLineNumber = "270"
-            landmarkName = "-tableView:objectValueForTableColumn:row:"
+            landmarkName = "-tableView:viewForTableColumn:row:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1407,7 +1407,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "285"
             endingLineNumber = "285"
-            landmarkName = "-tableView:viewForTableColumn:row:"
+            landmarkName = "-tableView:shouldSelectRow:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

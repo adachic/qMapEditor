@@ -24,7 +24,7 @@
 }
 @end
 
-@interface MEGamePartsListWindowController ()
+@interface MEGamePartsListWindowController ()<NSTabViewDelegate>
 @end
 
 @implementation MEGamePartsListWindowController
@@ -64,11 +64,12 @@
         MEGamePartsViewController *gamePartsViewController = [[MEGamePartsViewController alloc] initWithNibName:@"Collection" bundle:nil];
         MEGamePartsTabViewItem *tabViewItem = [[MEGamePartsTabViewItem alloc] initWithIdentifier:gamePartsViewController];
         [[gamePartsViewController view] setFrame:[self.tabView bounds]];
+
         tabViewItem.label = categoryName;
         gamePartsViewController.category = categoryName;
 
-        [gamePartsViewController setSortingMode:0];        // ascending sort order
-        [gamePartsViewController setAlternateColors:NO];    // no alternate background colors (initially use gradient background)
+       // [gamePartsViewController setSortingMode:0];        // ascending sort order
+       // [gamePartsViewController setAlternateColors:NO];    // no alternate background colors (initially use gradient background)
 
         [self.tabView addTabViewItem:tabViewItem];
         [self.gamePartsViewControllers addObject:gamePartsViewController];
@@ -112,6 +113,14 @@
         }
     }
     return nil;
+}
+
+- (void)tabView:(NSTabView *)tabView willSelectTabViewItem:(MEGamePartsTabViewItem *)tabViewItem{
+    [tabViewItem.gamePartsViewController.view needsLayout];
+    [tabViewItem.gamePartsViewController.view display];
+    [tabViewItem.gamePartsViewController.view layout];
+
+    [tabViewItem.gamePartsViewController showUpdate];
 }
 
 @end

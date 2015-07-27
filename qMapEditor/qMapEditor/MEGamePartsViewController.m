@@ -36,6 +36,10 @@
 
 @synthesize gamePartsArray, sortingMode, alternateColors;
 
+- (void)showUpdate{
+
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
@@ -54,21 +58,20 @@
     [self setSortingMode:0];        // icon collection in ascending sort order
     [self setAlternateColors:NO];    // no alternate background colors (initially use gradient background)
 
-
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
     [tempArray addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:
             [[MEGameParts alloc] initWithTiles:[NSArray arrayWithObjects:[[METile alloc]
-                                      initWithURL:[[NSURL alloc] initWithString:@"file:///Users/adachic/Desktop/78003b0a-s.jpg"]
-                                             rect:CGRectMake(0, 0, 100, 100)], nil]
+                                                                                 initWithURL:[[NSURL alloc] initWithString:@"file:///Users/adachic/Desktop/78003b0a-s.jpg"]
+                                                                                        rect:CGRectMake(0, 0, 100, 100)], nil]
                                       walkable:NO
-                                          waterType:0
+                                     waterType:0
                                       duration:0
-                    half:NO
-                rezoType:kRezoTypeRect32
-                                    categories:nil 
-                                  customEvents:nil], KEY_GAMEPARTS,
-            @"aho", KEY_NAME,
-            nil]];
+                                          half:NO
+                                      rezoType:kRezoTypeRect32
+                                    categories:nil
+                                  customEvents:nil],
+                    KEY_GAMEPARTS,@"aho", KEY_NAME,
+                    nil]];
     [self setGamePartsArray:tempArray];
     [collectionView setDraggingSourceOperationMask:NSDragOperationCopy forLocal:NO];
 }
@@ -80,7 +83,7 @@
         [tempArray addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:
                 gameParts, KEY_GAMEPARTS,
                 gameParts.name, KEY_NAME,
-                nil]];
+                        nil]];
         [self setGamePartsArray:tempArray];
     } else {
         NSMutableArray *tempArray = [[NSMutableArray alloc] init];
@@ -88,11 +91,12 @@
         [tempArray addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:
                 gameParts, KEY_GAMEPARTS,
                 gameParts.name, KEY_NAME,
-                nil]];
+                        nil]];
         [self setGamePartsArray:tempArray];
     }
 }
-- (MEGameParts *)selectedGameParts{
+
+- (MEGameParts *)selectedGameParts {
     NSMutableDictionary *dict = [arrayController.selectedObjects lastObject];
     return [dict objectForKey:@"game_parts"];
 }
@@ -128,10 +132,10 @@
     }
 }
 
-- (void)setShowWalkable:(BOOL)showWalkable{
-    if(showWalkable){
+- (void)setShowWalkable:(BOOL)showWalkable {
+    if (showWalkable) {
         [arrayController setFilterPredicate:[NSPredicate predicateWithFormat:@"walkable == YES"]];
-    }else{
+    } else {
         [arrayController setFilterPredicate:[NSPredicate predicateWithFormat:@"walkable == NO"]];
     }
 }
@@ -146,11 +150,11 @@
     [arrayController setSortDescriptors:[NSArray arrayWithObject:sort]];
 }
 
-- (MEGameParts *)searchItemWithName:(NSString*)name{
+- (MEGameParts *)searchItemWithName:(NSString *)name {
     MEGameParts *ret = nil;
-    for(NSMutableDictionary *dict in self.gamePartsArray){
+    for (NSMutableDictionary *dict in self.gamePartsArray) {
         MEGameParts *gp = [dict objectForKey:KEY_GAMEPARTS];
-        if([gp.name isEqualToString:name]){
+        if ([gp.name isEqualToString:name]) {
             ret = gp;
             break;
         }
@@ -158,9 +162,9 @@
     return ret;
 }
 
-- (BOOL)hasCategory:(MEGameParts *)gameParts{
-    for(NSString *category in gameParts.categories){
-        if([self.category isEqualToString:category]){
+- (BOOL)hasCategory:(MEGameParts *)gameParts {
+    for (NSString *category in gameParts.categories) {
+        if ([self.category isEqualToString:category]) {
             return YES;
         }
     }
@@ -174,7 +178,7 @@
 - (void)awakeFromNib {
     // set up the background gradient for this custom scrollView
     backgroundGradient = [[NSGradient alloc] initWithStartingColor:
-            [NSColor colorWithDeviceRed:0.349f green:0.6f blue:0.898f alpha:0.0f]
+                    [NSColor colorWithDeviceRed:0.349f green:0.6f blue:0.898f alpha:0.0f]
                                                        endingColor:[NSColor colorWithDeviceRed:0.349f green:0.6f blue:.898f alpha:0.6f]];
 }
 
