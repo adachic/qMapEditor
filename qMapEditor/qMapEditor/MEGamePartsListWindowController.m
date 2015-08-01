@@ -9,31 +9,24 @@
 #import "MEGamePartsListWindowController.h"
 #import "MEGameParts.h"
 
-@interface MEGamePartsTabViewItem : NSTabViewItem
-@property MEGamePartsViewController *gamePartsViewController;
-@end
-
-@implementation MEGamePartsTabViewItem
-- (instancetype)initWithIdentifier:(id)gamePartsViewController {
-    self = [super initWithIdentifier:gamePartsViewController];
-    if (self) {
-        self.gamePartsViewController = gamePartsViewController;
-        self.view = [gamePartsViewController view];
-    }
-    return self;
-}
-@end
-
-@interface MEGamePartsListWindowController ()<NSTabViewDelegate>
+@interface MEGamePartsListWindowController () <NSTabViewDelegate>
+@property NSString *category;
 @end
 
 @implementation MEGamePartsListWindowController
 
+- (id)initWithWindowNibName:(NSString *)windowNibName
+                   category:(NSString *)category {
+    self = [super initWithWindowNibName:windowNibName];
+    if (self) {
+        _category = category;
+    }
+    return self;
+}
+
 - (id)initWithWindow:(NSWindow *)window {
     self = [super initWithWindow:window];
     if (self) {
-        // Initialization code here.
-        _gamePartsViewControllers = [@[] mutableCopy];
     }
 
     return self;
@@ -47,12 +40,14 @@
 
 - (void)awakeFromNib {
     NSLog(@"hoge");
+
     //[[self window] setAutorecalculatesContentBorderThickness:YES forEdge:NSMinYEdge];
     //[[self window] setContentBorderThickness:50 forEdge:NSMinYEdge];
 
-#ifdef NEVER
+#if 1
     [self willChangeValueForKey:@"gamePartsViewController"];
     self.gamePartsViewController = [[MEGamePartsViewController alloc] initWithNibName:@"Collection" bundle:nil];
+    self.gamePartsViewController.category = self.category;
     [self didChangeValueForKey:@"gamePartsViewController"];
 
     [self.targetView addSubview:[self.gamePartsViewController view]];
@@ -60,6 +55,8 @@
     // make sure we resize the viewController's view to match its super view
     [[self.gamePartsViewController view] setFrame:[self.targetView bounds]];
 #endif
+#if 0
+
     for (NSString *categoryName in [MECategory existCategories]) {
         MEGamePartsViewController *gamePartsViewController = [[MEGamePartsViewController alloc] initWithNibName:@"Collection" bundle:nil];
         MEGamePartsTabViewItem *tabViewItem = [[MEGamePartsTabViewItem alloc] initWithIdentifier:gamePartsViewController];
@@ -74,54 +71,41 @@
         [self.tabView addTabViewItem:tabViewItem];
         [self.gamePartsViewControllers addObject:gamePartsViewController];
     }
+#endif
 }
 
 - (void)addGameParts:(MEGameParts *)gameParts {
-    for(MEGamePartsViewController *gamePartsViewController in self.gamePartsViewControllers){
-        if(![gamePartsViewController hasCategory:gameParts]){
-            continue;
-        }
-        [gamePartsViewController addGameParts:gameParts];
+    if (![self.gamePartsViewController hasCategory:gameParts]) {
+        return;
     }
+    [self.gamePartsViewController addGameParts:gameParts];
 }
 
 - (void)updateGameParts:(MEGameParts *)gameParts {
-    for(MEGamePartsViewController *gamePartsViewController in self.gamePartsViewControllers){
-        if(![gamePartsViewController hasCategory:gameParts]){
-            continue;
-        }
-        [gamePartsViewController updateGameParts:gameParts];
+    if (![self.gamePartsViewController hasCategory:gameParts]) {
+        return;
     }
+    [self.gamePartsViewController updateGameParts:gameParts];
 }
 
 - (void)deleteGameParts {
-    MEGamePartsTabViewItem *tabViewItem = (MEGamePartsTabViewItem *)[self.tabView selectedTabViewItem];
-    [tabViewItem.gamePartsViewController deleteGameParts];
+    [self.gamePartsViewController deleteGameParts];
 }
 
-- (MEGameParts *)selectedGameParts{
-    MEGamePartsTabViewItem *tabViewItem = (MEGamePartsTabViewItem *)[self.tabView selectedTabViewItem];
-    return [tabViewItem.gamePartsViewController selectedGameParts];
+- (MEGameParts *)selectedGameParts {
+    return [self.gamePartsViewController selectedGameParts];
 }
 
-- (MEGameParts *)searchItemWithName:(NSString*)name{
+- (MEGameParts *)searchItemWithName:(NSString *)name {
     MEGameParts *item = nil;
-    for(MEGamePartsViewController *gamePartsViewController in self.gamePartsViewControllers){
-        item = [gamePartsViewController searchItemWithName:name];
-        if(item){
+    
+        item = [self.gamePartsViewController searchItemWithName:name];
+        if (item) {
             return item;
         }
-    }
-    return nil;
+       return nil;
 }
 
-- (void)tabView:(NSTabView *)tabView willSelectTabViewItem:(MEGamePartsTabViewItem *)tabViewItem{
-    [tabViewItem.gamePartsViewController.view needsLayout];
-    [tabViewItem.gamePartsViewController.view display];
-    [tabViewItem.gamePartsViewController.view layout];
-
-    [tabViewItem.gamePartsViewController showUpdate];
-}
 
 @end
 

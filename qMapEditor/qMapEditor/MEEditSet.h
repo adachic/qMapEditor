@@ -13,7 +13,7 @@
 
 + (void)saveGamePartsListWithPath:(NSURL *)filePath
             tileWindowControllers:(NSArray *)tileWindowControllers
-    gamePartsListWindowController:(MEGamePartsListWindowController *)gamePartsListWindowController;
+   gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers;
 
 + (void)loadEditSetFromFile:(NSURL *)filePath
                    complete:(void (^)(
@@ -22,9 +22,9 @@
                    ))completed;
 
 + (void)saveGameMapWithPath:(NSURL *)filePath
-        tileWindowControllers:(NSArray *)tileWindowControllers
-gamePartsListWindowController:(MEGamePartsListWindowController *)gamePartsListWindowController
-      gameMapWindowController:(MEGameMapWindowController *)gameMapWindowController;
+         tileWindowControllers:(NSArray *)tileWindowControllers
+gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
+       gameMapWindowController:(MEGameMapWindowController *)gameMapWindowController;
 
 + (void)loadMapFromFile:filePath
                complete:(void (^)(

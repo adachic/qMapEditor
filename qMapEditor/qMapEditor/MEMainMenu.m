@@ -12,6 +12,10 @@
 #import "MEGameMapWindowController.h"
 #import "MEMatrix.h"
 
+@interface MEMainMenu()
+@property NSMutableArray* gamePartsListWindowControllers;
+@end
+
 @implementation MEMainMenu
 
 - (id)loadFromNibWithNibNamed:(NSString *)nameOfNib {
@@ -33,8 +37,13 @@
     if ([super initWithCoder:aDecoder]) {
         self.gamePartsEditWindowController =
                 (MEGamePartsEditWindowController *) [self loadFromNibWithNibNamed:@"MEGamePartsEditWindowController"];
-        self.gamePartsListWindowController =
-                (MEGamePartsListWindowController *) [self loadFromNibWithNibNamed:@"MEGamePartsListWindowController"];
+        [self.gamePartsEditWindowController.window setTitle:@"edit"];
+
+        self.gamePartsListWindowControllers = [@[] mutableCopy];
+        for (NSString *categoryName in [MECategory existCategories]) {
+            [self createListWindow:categoryName];
+        }
+
         self.gameMapToolsWindowController =
                 (MEGameMapToolsWindowController *) [self loadFromNibWithNibNamed:@"MEGameMapToolsWindowController"];
     }
@@ -44,15 +53,19 @@
 
     /*編集ウィンドウ:ボタンのコールバック*/
     self.gamePartsEditWindowController.onRegistGameParts = [^(MEGameParts *gameParts) {
-        [blockself.gamePartsListWindowController addGameParts:gameParts];
+        for(MEGamePartsListWindowController *wc in blockself.gamePartsListWindowControllers){
+            [wc addGameParts:gameParts];
+        }
     } copy];
 
     self.gamePartsEditWindowController.onUpdateGameParts = [^(MEGameParts *gameParts) {
-        [blockself.gamePartsListWindowController updateGameParts:gameParts];
+        for(MEGamePartsListWindowController *wc in blockself.gamePartsListWindowControllers){
+            [wc updateGameParts:gameParts];
+        }
     } copy];
 
     self.gamePartsEditWindowController.onDeleteGameParts = [^() {
-        [blockself.gamePartsListWindowController deleteGameParts];
+        [[blockself frontGamePartsListWindowController] deleteGameParts];
     } copy];
 
     //toolにparhapsを表示
@@ -133,6 +146,20 @@
     return front;
 }
 
+//一番手前にあるListWindowを取り出す
+- (MEGamePartsListWindowController *)frontGamePartsListWindowController {
+    MEGamePartsListWindowController *front = nil;
+    for (MEGamePartsListWindowController *mw in self.gamePartsListWindowControllers) {
+        int min = 9999;
+        //一番低いやつが先頭
+        if (mw.window.orderedIndex < min) {
+            min = mw.window.orderedIndex;
+            front = mw;
+        }
+    }
+    return front;
+}
+
 - (BOOL)validateMenuItem:(id)menuItem {
     return YES;
 }
@@ -140,6 +167,16 @@
 
 #pragma mark create_window
 
+/*Listウィンドウ生成*/
+- (void)createListWindow:(NSString *)category{
+    MEGamePartsListWindowController *w = [[MEGamePartsListWindowController alloc]
+            initWithWindowNibName:@"MEGamePartsListWindowController"
+                         category:category
+                         ];
+    [w.window makeKeyAndOrderFront:nil];
+    [w.window setTitle:category];
+    [self.gamePartsListWindowControllers addObject:w];
+}
 /*タイルマップウィンドウ生成*/
 - (void)createTileWindow:(NSURL *)filePath {
     METileWindowController *w = [[METileWindowController alloc]
@@ -149,6 +186,7 @@
                              [self.gamePartsEditWindowController setViewWithTile:tile];
                          }];
     [w.window makeKeyAndOrderFront:nil];
+    [w.window setTitle:[filePath absoluteString]];
     [self.tileWindowControllers addObject:w];
 }
 
@@ -162,7 +200,7 @@
                           aspectY:self.gameMapToolsWindowController.aspectY
                           aspectT:self.gameMapToolsWindowController.aspectT
                         jungleGym:nil
-                selectedGameParts:[self.gamePartsListWindowController selectedGameParts]
+                selectedGameParts:[[self frontGamePartsListWindowController] selectedGameParts]
     ];
     w.onSetToToolWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t, MEMatrix *cursor) {
         [self.gameMapToolsWindowController changedMapWindow:_maxM
@@ -171,8 +209,8 @@
                                                           t:_t
                                                      cursor:cursor];
     } copy];
-
     [w.window makeKeyAndOrderFront:nil];
+    [w.window setTitle:[filePath absoluteString]];
     [self.mapWindowControllers addObject:w];
 }
 
@@ -194,15 +232,20 @@
         [self.tileWindowControllers addObject:w];
     }
     //リストウィンドウの復元
-    for (MEGamePartsViewController *gamePartsViewController in self.gamePartsListWindowController.gamePartsViewControllers) {
+    [self.gamePartsListWindowControllers removeAllObjects];
+    for (NSString *categoryName in [MECategory existCategories]) {
+        MEGamePartsListWindowController *w = [[MEGamePartsListWindowController alloc]
+                initWithWindowNibName:@"MEGamePartsListWindowController " category:categoryName];
+        [w.window setTitle:categoryName];
+        [self.gamePartsListWindowControllers addObject:w];
         NSMutableArray *gamePartsInCategory = [@[] mutableCopy];
         for (MEGameParts *gameParts in gamePartsArray) {
-            if (![gamePartsViewController hasCategory:gameParts]) {
+            if (![w.gamePartsViewController hasCategory:gameParts]) {
                 continue;
             }
             [gamePartsInCategory addObject:gameParts];
         }
-        gamePartsViewController.gamePartsArray = gamePartsInCategory;
+        w.gamePartsViewController.gamePartsArray = gamePartsInCategory;
     }
 }
 
@@ -225,7 +268,7 @@
                           aspectY:[mapInfo[@"aspectY"] floatValue]
                           aspectT:[mapInfo[@"aspectT"] floatValue]
                         jungleGym:mapInfo[@"jungleGym"]
-                selectedGameParts:[self.gamePartsListWindowController selectedGameParts]
+                selectedGameParts:[[self frontGamePartsListWindowController] selectedGameParts]
     ];
     w.onSetToToolWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t, MEMatrix *cursor) {
         [blockself.gameMapToolsWindowController changedMapWindow:_maxM
@@ -308,7 +351,7 @@
         /*シリアライズして保存*/
         [MEEditSet saveGameMapWithPath:filePath
                  tileWindowControllers:self.tileWindowControllers
-         gamePartsListWindowController:self.gamePartsListWindowController
+         gamePartsListWindowControllers:self.gamePartsListWindowControllers
                gameMapWindowController:[self frontGameMapWindowController]
         ];
     }
@@ -330,7 +373,7 @@
         //todo:ファイル名保存
         [MEEditSet saveGamePartsListWithPath:filePath
                        tileWindowControllers:self.tileWindowControllers
-               gamePartsListWindowController:self.gamePartsListWindowController];
+               gamePartsListWindowControllers:self.gamePartsListWindowControllers];
     }
 }
 
@@ -374,6 +417,7 @@
 
 
 - (IBAction)syncToGameParts:(id)menuItem {
+    /*
     MEGameMapWindowController *front = [self frontGameMapWindowController];
     if (!front) {
         return;
@@ -403,5 +447,7 @@
         }
     }
     [front syncToGameParts];
+    */
 }
+
 @end

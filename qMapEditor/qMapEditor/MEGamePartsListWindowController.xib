@@ -5,7 +5,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="MEGamePartsListWindowController"/>
+        <customObject id="-2" userLabel="File's Owner" customClass="MEGamePartsListWindowController">
+            <connections>
+                <outlet property="targetView" destination="se5-gp-TjO" id="rYs-WT-tOa"/>
+                <outlet property="window" destination="F0z-JX-Cv5" id="XpK-Fc-7J5"/>
+            </connections>
+        </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
@@ -17,20 +22,12 @@
             <view key="contentView" horizontalHuggingPriority="251" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="-2" width="511" height="400"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <tabView id="Zid-AH-dNn">
-                        <rect key="frame" x="-8" y="-10" width="527" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <font key="font" metaFont="system"/>
-                        <tabViewItems/>
-                    </tabView>
-                </subviews>
             </view>
             <point key="canvasLocation" x="80.5" y="96"/>
         </window>
         <customObject id="cwX-Wi-L3c" customClass="MEGamePartsListWindowController">
             <connections>
-                <outlet property="tabView" destination="Zid-AH-dNn" id="NWg-sR-OQU"/>
+                <outlet property="targetView" destination="se5-gp-TjO" id="y9w-dq-plX"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="q65-SM-18e"/>
             </connections>
         </customObject>

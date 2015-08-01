@@ -44,11 +44,16 @@
     MEGameParts *parts = [self.representedObject objectForKey:@"game_parts"];
     [self.imageView2 setWantsLayer:YES];
     self.imageView2.layer.backgroundColor = [NSColor clearColor].CGColor;
-    
+
+    /*
     for(CALayer *layer in [self.imageView2.layer.sublayers mutableCopy]){
         [layer removeFromSuperlayer];
     }
-    
+    */
+    for(CALayer *layer in self.imageView2.layer.sublayers){
+        [layer removeFromSuperlayer];
+    }
+
     if (parts.walkable) {
         CALayer *sublayer = [CALayer layer];
         sublayer.backgroundColor = [NSColor blueColor].CGColor;

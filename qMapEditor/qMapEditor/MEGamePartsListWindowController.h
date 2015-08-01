@@ -11,16 +11,16 @@
 
 @interface MEGamePartsListWindowController : NSWindowController
 
-//@property MEGamePartsViewController *gamePartsViewController;
-@property NSMutableArray *gamePartsViewControllers;
-
-@property IBOutlet NSTabView	*tabView;
-@property IBOutlet NSTextField *selectionField;
+- (id)initWithWindowNibName:(NSString *)windowNibName
+                   category:(NSString *)category;
 
 - (void)addGameParts:(MEGameParts *)gameParts;
 - (void)updateGameParts:(MEGameParts *)gameParts;
 - (void)deleteGameParts;
 - (MEGameParts *)selectedGameParts;
 - (MEGameParts *)searchItemWithName:(NSString*)name;
+
+@property IBOutlet NSView *targetView;
+@property MEGamePartsViewController *gamePartsViewController;
 
 @end

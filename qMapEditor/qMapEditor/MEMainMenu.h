@@ -19,7 +19,7 @@
 @property IBOutlet NSMenuItem *itemCreateGameParts;
 
 @property IBOutlet  MEGamePartsEditWindowController *gamePartsEditWindowController;
-@property IBOutlet  MEGamePartsListWindowController *gamePartsListWindowController;
+//@property IBOutlet  MEGamePartsListWindowController *gamePartsListWindowController;
 @property IBOutlet  MEGameMapToolsWindowController *gameMapToolsWindowController;
 
 @property NSMutableArray *tileWindowControllers;

@@ -18,7 +18,7 @@
  */
 + (void)saveGamePartsListWithPath:(NSURL *)filePath
             tileWindowControllers:(NSArray *)tileWindowControllers
-    gamePartsListWindowController:(MEGamePartsListWindowController *)gamePartsListWindowController {
+    gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers {
     NSMutableArray *tileSheets = [NSMutableArray array];
     for (METileWindowController *twc in tileWindowControllers) {
         if (!twc.readyToPickUp) {
@@ -34,8 +34,8 @@
     {
         //すべてのゲームパーツを収集
         NSMutableArray *allGameParts = [@[] mutableCopy];
-        for(MEGamePartsViewController *gamePartsViewController in gamePartsListWindowController.gamePartsViewControllers){
-            [allGameParts addObjectsFromArray:gamePartsViewController.gamePartsArray];
+        for(MEGamePartsListWindowController *w in gamePartsListWindowControllers){
+            [allGameParts addObjectsFromArray:w.gamePartsViewController.gamePartsArray];
         }
         NSArray *values = @[allGameParts, tileSheets];
         NSArray *keys = [NSArray arrayWithObjects:@"gamePartsArray",
@@ -68,7 +68,7 @@
 
 + (void)saveGameMapWithPath:(NSURL *)filePath
         tileWindowControllers:(NSArray *)tileWindowControllers
-gamePartsListWindowController:(MEGamePartsListWindowController *)gamePartsListWindowController
+gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
       gameMapWindowController:(MEGameMapWindowController *)gameMapWindowController {
     NSMutableArray *tileSheets = [NSMutableArray array];
     for (METileWindowController *twc in tileWindowControllers) {
@@ -106,8 +106,8 @@ gamePartsListWindowController:(MEGamePartsListWindowController *)gamePartsListWi
     {
         //すべてのゲームパーツを収集
         NSMutableArray *allGameParts = [@[] mutableCopy];
-        for(MEGamePartsViewController *gamePartsViewController in gamePartsListWindowController.gamePartsViewControllers){
-            [allGameParts addObjectsFromArray:gamePartsViewController.gamePartsArray];
+        for(MEGamePartsListWindowController *w in gamePartsListWindowControllers){
+            [allGameParts addObjectsFromArray:w.gamePartsViewController.gamePartsArray];
         }
         NSArray *values = @[
                 allGameParts,
