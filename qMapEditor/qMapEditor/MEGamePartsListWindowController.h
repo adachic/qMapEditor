@@ -22,5 +22,6 @@
 
 @property IBOutlet NSView *targetView;
 @property MEGamePartsViewController *gamePartsViewController;
+@property NSArray *tmpArray;
 
 @end

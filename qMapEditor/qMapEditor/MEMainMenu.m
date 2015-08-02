@@ -235,15 +235,19 @@
     [self.gamePartsListWindowControllers removeAllObjects];
     for (NSString *categoryName in [MECategory existCategories]) {
         MEGamePartsListWindowController *w = [[MEGamePartsListWindowController alloc]
-                initWithWindowNibName:@"MEGamePartsListWindowController " category:categoryName];
-        [w.window setTitle:categoryName];
+                initWithWindowNibName:@"MEGamePartsListWindowController"
+                             category:categoryName];
+        [w.window setTitle:categoryName];        
+        [w.window makeKeyAndOrderFront:nil];
         [self.gamePartsListWindowControllers addObject:w];
+
         NSMutableArray *gamePartsInCategory = [@[] mutableCopy];
-        for (MEGameParts *gameParts in gamePartsArray) {
+        for (NSDictionary *gamePartsDict in gamePartsArray) {
+            MEGameParts *gameParts = gamePartsDict[@"game_parts"];
             if (![w.gamePartsViewController hasCategory:gameParts]) {
                 continue;
             }
-            [gamePartsInCategory addObject:gameParts];
+            [gamePartsInCategory addObject:gamePartsDict];
         }
         w.gamePartsViewController.gamePartsArray = gamePartsInCategory;
     }

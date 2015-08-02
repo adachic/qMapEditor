@@ -39,8 +39,7 @@
         }
         NSArray *values = @[allGameParts, tileSheets];
         NSArray *keys = [NSArray arrayWithObjects:@"gamePartsArray",
-                                                  @"tileSheets",
-                                                  nil];
+                                                  @"tileSheets",nil];
         NSDictionary *saveDict = [NSDictionary dictionaryWithObjects:values
                                                              forKeys:keys];
         /*

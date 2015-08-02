@@ -163,6 +163,9 @@
 }
 
 - (BOOL)hasCategory:(MEGameParts *)gameParts {
+    if (!gameParts.categories) {
+        return NO;
+    }
     for (NSString *category in gameParts.categories) {
         if ([self.category isEqualToString:category]) {
             return YES;
