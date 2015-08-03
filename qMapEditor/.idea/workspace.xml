@@ -49,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MEMainMenu.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MEMainMenu.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEMainMenu.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8076923" vertical-offset="3105" max-vertical-offset="6945">
-              <caret line="249" column="55" selection-start-line="249" selection-start-column="55" selection-end-line="249" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2535" max-vertical-offset="6945">
+              <caret line="212" column="41" selection-start-line="212" selection-start-column="41" selection-end-line="212" selection-end-column="41" />
               <folding>
                 <element signature="e#141#163#0" expanded="true" />
               </folding>
@@ -61,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MEEditSet.m" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MEEditSet.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEEditSet.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1740" max-vertical-offset="3300">
-              <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.78846157" vertical-offset="1080" max-vertical-offset="3285">
+              <caret line="118" column="47" selection-start-line="118" selection-start-column="47" selection-end-line="118" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -157,9 +157,9 @@
         <option value="$PROJECT_DIR$/qMapEditor/MEMainMenu.h" />
         <option value="$PROJECT_DIR$/qMapEditor/MEEditSet.h" />
         <option value="$PROJECT_DIR$/qMapEditor/MEGamePartsListWindowController.h" />
-        <option value="$PROJECT_DIR$/qMapEditor/MEEditSet.m" />
         <option value="$PROJECT_DIR$/qMapEditor/MEGamePartsListWindowController.m" />
         <option value="$PROJECT_DIR$/qMapEditor/MEMainMenu.m" />
+        <option value="$PROJECT_DIR$/qMapEditor/MEEditSet.m" />
       </list>
     </option>
   </component>
@@ -167,7 +167,7 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="53" />
+    <option name="x" value="32" />
     <option name="y" value="23" />
     <option name="width" value="1361" />
     <option name="height" value="877" />
@@ -398,7 +398,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="53" y="23" width="1361" height="877" extended-state="0" />
+    <frame x="32" y="23" width="1361" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -813,21 +813,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/qMapEditor/MEEditSet.m">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1740" max-vertical-offset="3300">
-          <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/qMapEditor/MEMainMenu.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8076923" vertical-offset="3105" max-vertical-offset="6945">
-          <caret line="249" column="55" selection-start-line="249" selection-start-column="55" selection-end-line="249" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2535" max-vertical-offset="6945">
+          <caret line="212" column="41" selection-start-line="212" selection-start-column="41" selection-end-line="212" selection-end-column="41" />
           <folding>
             <element signature="e#141#163#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qMapEditor/MEEditSet.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.78846157" vertical-offset="1080" max-vertical-offset="3285">
+          <caret line="118" column="47" selection-start-line="118" selection-start-column="47" selection-end-line="118" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
     </entry>

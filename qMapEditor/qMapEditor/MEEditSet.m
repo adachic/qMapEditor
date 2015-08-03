@@ -113,10 +113,9 @@ gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
                 tileSheets,
                 mapInfo
         ];
-        NSArray *keys = [NSArray arrayWithObjects:@"gamePartsArray",
-                                                  @"tileSheets",
-                                                  @"mapInfo",
-                                                  nil];
+        NSArray *keys = @[@"gamePartsArray",
+                @"tileSheets",
+                @"mapInfo"];
         NSDictionary *saveDict = [NSDictionary dictionaryWithObjects:values
                                                              forKeys:keys];
         if (![NSKeyedArchiver archiveRootObject:saveDict toFile:[filePath path]]) {

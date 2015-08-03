@@ -210,7 +210,7 @@
                                                      cursor:cursor];
     } copy];
     [w.window makeKeyAndOrderFront:nil];
-    [w.window setTitle:[filePath absoluteString]];
+//    [w.window setTitle:[filePath absoluteString]];
     [self.mapWindowControllers addObject:w];
 }
 
