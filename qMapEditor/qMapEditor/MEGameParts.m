@@ -21,12 +21,16 @@
 
 + (NSArray *)existCategories {
     return @[@"ALL",
-                                                 @"平原",
-                                                 @"洞窟",
-                                                 @"神殿",
-                                                 @"城内",
-                                                 @"飾り",
-                                                 ];;
+            @"平原",
+            @"洞窟",
+            @"神殿",
+            @"城内",
+            @"飾り",
+            @"飾り2",
+            @"飾り3(樹木)",
+            @"クリスタル",
+            @"溶岩",
+    ];;
 }
 
 
@@ -106,6 +110,9 @@ static NSInteger idCounter = 1;
     self.half = [decoder decodeBoolForKey:@"half"];
     self.rezoTypeRect = [decoder decodeIntForKey:@"rezoTypeRect"];
     self.categories = [decoder decodeObjectForKey:@"categories"];
+    if(idCounter < [self.name intValue]){
+        idCounter = self.name.intValue;
+    }
     return self;
 }
 
