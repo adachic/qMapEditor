@@ -173,7 +173,7 @@ gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
                 [partsDict setObject:tiles forKey:@"tiles"];
                 [partsDict setObject:[NSNumber numberWithBool:cube.walkable] forKey:@"walkable"];
                 [partsDict setObject:[NSNumber numberWithInt:cube.watertype] forKey:@"waterType"];
-                [partsDict setObject:[NSNumber numberWithBool:cube.half] forKey:@"half"];
+                [partsDict setObject:[NSNumber numberWithBool:cube.half] forKey:@"harf"];
                 [partsDict setObject:[NSNumber numberWithInt:cube.rezoTypeRect] forKey:@"rezo"];
                 [gamePartsArray addObject:partsDict];
             }
