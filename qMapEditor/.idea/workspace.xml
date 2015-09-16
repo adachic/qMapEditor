@@ -64,8 +64,8 @@
       <file leaf-file-name="MEEditSet.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/qMapEditor/MEEditSet.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5192308" vertical-offset="1650" max-vertical-offset="3285">
-              <caret line="142" column="44" selection-start-line="142" selection-start-column="44" selection-end-line="142" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.42307693" vertical-offset="1650" max-vertical-offset="3285">
+              <caret line="137" column="1" selection-start-line="137" selection-start-column="1" selection-end-line="137" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -158,8 +158,8 @@
         <option value="$PROJECT_DIR$/qMapEditor/MEGamePartsListWindowController.h" />
         <option value="$PROJECT_DIR$/qMapEditor/MEGamePartsListWindowController.m" />
         <option value="$PROJECT_DIR$/qMapEditor/MEMainMenu.m" />
-        <option value="$PROJECT_DIR$/qMapEditor/MEEditSet.m" />
         <option value="$PROJECT_DIR$/qMapEditor/MEGameParts.m" />
+        <option value="$PROJECT_DIR$/qMapEditor/MEEditSet.m" />
       </list>
     </option>
   </component>
@@ -827,8 +827,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/qMapEditor/MEEditSet.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5192308" vertical-offset="1650" max-vertical-offset="3285">
-          <caret line="142" column="44" selection-start-line="142" selection-start-column="44" selection-end-line="142" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.42307693" vertical-offset="1650" max-vertical-offset="3285">
+          <caret line="137" column="1" selection-start-line="137" selection-start-column="1" selection-end-line="137" selection-end-column="1" />
           <folding />
         </state>
       </provider>
