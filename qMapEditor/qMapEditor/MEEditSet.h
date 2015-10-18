@@ -35,4 +35,7 @@ gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
 
 + (void)saveMapJsonWithPath:(NSURL *)filePath
         mapWindowController:(MEGameMapWindowController *)mapWindowController;
+
++ (void)saveGamePartsListJsonWithPath:(NSURL *)filePath
+       gamePartsListWindowControllers:(NSMutableArray *)gamePartsListWindowControllers;
 @end

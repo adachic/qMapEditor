@@ -34,6 +34,26 @@
 		817E99EC1947C1D500B08786 /* 37221362_p0.png in Resources */ = {isa = PBXBuildFile; fileRef = 817E99EB1947C1D500B08786 /* 37221362_p0.png */; };
 		817E99EF1948845400B08786 /* MEAnimationBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E99EE1948845400B08786 /* MEAnimationBaseView.m */; };
 		817E99F119497AA100B08786 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817E99F019497AA100B08786 /* QuartzCore.framework */; };
+		8189F1BD1BC0F6730023B6AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8189F1BC1BC0F6730023B6AE /* main.m */; };
+		8189F1C11BC0F7400023B6AE /* MEGameParts.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6687532CDC436EBEEC4E82 /* MEGameParts.m */; settings = {ASSET_TAGS = (); }; };
+		8189F1C21BC0F7430023B6AE /* MEEditSet.m in Sources */ = {isa = PBXBuildFile; fileRef = BB668B2D60BE2B714E3FBADE /* MEEditSet.m */; settings = {ASSET_TAGS = (); }; };
+		8189F1C31BC0F7470023B6AE /* MEMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = BB668B20BBFCC055FEFFF0C0 /* MEMatrix.m */; settings = {ASSET_TAGS = (); }; };
+		8189F1C41BC0F7D70023B6AE /* MEGameMapToolsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BD68E8194BD2F2005E1652 /* MEGameMapToolsWindowController.m */; settings = {ASSET_TAGS = (); }; };
+		8189F1C51BC0F7DB0023B6AE /* MEGameMapWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BD68E3194BD241005E1652 /* MEGameMapWindowController.m */; settings = {ASSET_TAGS = (); }; };
+		8189F1C61BC0F7DE0023B6AE /* METileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BD68ED194C0662005E1652 /* METileView.m */; settings = {ASSET_TAGS = (); }; };
+		8189F1C71BC0F7E20023B6AE /* MEGameMapChipLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8118A6361952FA4700B9DCE7 /* MEGameMapChipLayer.m */; settings = {ASSET_TAGS = (); }; };
+		8189F1C81BC0F7E80023B6AE /* METileWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E99CC1941125300B08786 /* METileWindowController.m */; settings = {ASSET_TAGS = (); }; };
+		8189F1C91BC0F7ED0023B6AE /* MEGamePartsEditWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813BE7EB1940234B0034A0B8 /* MEGamePartsEditWindowController.m */; settings = {ASSET_TAGS = (); }; };
+		8189F1CA1BC0F7F40023B6AE /* MEAnimationBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E99EE1948845400B08786 /* MEAnimationBaseView.m */; settings = {ASSET_TAGS = (); }; };
+		8189F1CB1BC0F7F70023B6AE /* MECategoryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB668AB95EE7F22E8705111A /* MECategoryTableView.m */; settings = {ASSET_TAGS = (); }; };
+		8189F1CC1BC0F8010023B6AE /* MEGamePartsListWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813BE7F0194023D60034A0B8 /* MEGamePartsListWindowController.m */; settings = {ASSET_TAGS = (); }; };
+		8189F1CD1BC0F8060023B6AE /* MEGamePartsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813BE7F71940DEFC0034A0B8 /* MEGamePartsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		8189F1CE1BC0F8090023B6AE /* MEGamePartsViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E99D81946943A00B08786 /* MEGamePartsViewItem.m */; settings = {ASSET_TAGS = (); }; };
+		8189F1CF1BC0F80D0023B6AE /* MEMainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 813AD4B3193FC32200B949C5 /* MEMainMenu.m */; settings = {ASSET_TAGS = (); }; };
+		8189F1D01BC0F8100023B6AE /* MEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 813AD48E193FA3F600B949C5 /* MEAppDelegate.m */; settings = {ASSET_TAGS = (); }; };
+		8189F1D11BC0F8D20023B6AE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813AD47B193FA3F600B949C5 /* Cocoa.framework */; };
+		8189F1D21BC0F8DC0023B6AE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817E99F019497AA100B08786 /* QuartzCore.framework */; };
+		8189F1D41BC0F8DC0023B6AE /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8189F1D31BC0F8DC0023B6AE /* Quartz.framework */; };
 		81BD68E5194BD241005E1652 /* MEGameMapWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BD68E3194BD241005E1652 /* MEGameMapWindowController.m */; };
 		81BD68E6194BD241005E1652 /* MEGameMapWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81BD68E4194BD241005E1652 /* MEGameMapWindowController.xib */; };
 		81BD68EA194BD2F2005E1652 /* MEGameMapToolsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BD68E8194BD2F2005E1652 /* MEGameMapToolsWindowController.m */; };
@@ -54,6 +74,18 @@
 			remoteInfo = qMapEditor;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8189F1B81BC0F6730023B6AE /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8118A6351952FA4700B9DCE7 /* MEGameMapChipLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEGameMapChipLayer.h; sourceTree = "<group>"; };
@@ -99,6 +131,9 @@
 		817E99ED1948845400B08786 /* MEAnimationBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEAnimationBaseView.h; sourceTree = "<group>"; };
 		817E99EE1948845400B08786 /* MEAnimationBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEAnimationBaseView.m; sourceTree = "<group>"; };
 		817E99F019497AA100B08786 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		8189F1BA1BC0F6730023B6AE /* qMapEditorTool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = qMapEditorTool; sourceTree = BUILT_PRODUCTS_DIR; };
+		8189F1BC1BC0F6730023B6AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8189F1D31BC0F8DC0023B6AE /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		81BD68E2194BD241005E1652 /* MEGameMapWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEGameMapWindowController.h; sourceTree = "<group>"; };
 		81BD68E3194BD241005E1652 /* MEGameMapWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEGameMapWindowController.m; sourceTree = "<group>"; };
 		81BD68E4194BD241005E1652 /* MEGameMapWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEGameMapWindowController.xib; sourceTree = "<group>"; };
@@ -136,6 +171,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8189F1B71BC0F6730023B6AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8189F1D41BC0F8DC0023B6AE /* Quartz.framework in Frameworks */,
+				8189F1D21BC0F8DC0023B6AE /* QuartzCore.framework in Frameworks */,
+				8189F1D11BC0F8D20023B6AE /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -144,6 +189,7 @@
 			children = (
 				813AD481193FA3F600B949C5 /* qMapEditor */,
 				813AD49F193FA3F600B949C5 /* qMapEditorTests */,
+				8189F1BB1BC0F6730023B6AE /* qMapEditorTool */,
 				813AD47A193FA3F600B949C5 /* Frameworks */,
 				813AD479193FA3F600B949C5 /* Products */,
 				817E99EA1947C1D500B08786 /* TestResource */,
@@ -155,6 +201,7 @@
 			children = (
 				813AD478193FA3F600B949C5 /* qMapEditor.app */,
 				813AD499193FA3F600B949C5 /* qMapEditorTests.xctest */,
+				8189F1BA1BC0F6730023B6AE /* qMapEditorTool */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,6 +209,7 @@
 		813AD47A193FA3F600B949C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8189F1D31BC0F8DC0023B6AE /* Quartz.framework */,
 				817E99F019497AA100B08786 /* QuartzCore.framework */,
 				813AD47B193FA3F600B949C5 /* Cocoa.framework */,
 				813AD49A193FA3F600B949C5 /* XCTest.framework */,
@@ -287,6 +335,14 @@
 			path = qMapEditor/TestResource;
 			sourceTree = "<group>";
 		};
+		8189F1BB1BC0F6730023B6AE /* qMapEditorTool */ = {
+			isa = PBXGroup;
+			children = (
+				8189F1BC1BC0F6730023B6AE /* main.m */,
+			);
+			path = qMapEditorTool;
+			sourceTree = "<group>";
+		};
 		81BD68E1194BD20B005E1652 /* GameMap */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +411,23 @@
 			productReference = 813AD499193FA3F600B949C5 /* qMapEditorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		8189F1B91BC0F6730023B6AE /* qMapEditorTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8189F1C01BC0F6730023B6AE /* Build configuration list for PBXNativeTarget "qMapEditorTool" */;
+			buildPhases = (
+				8189F1B61BC0F6730023B6AE /* Sources */,
+				8189F1B71BC0F6730023B6AE /* Frameworks */,
+				8189F1B81BC0F6730023B6AE /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = qMapEditorTool;
+			productName = qMapEditorTool;
+			productReference = 8189F1BA1BC0F6730023B6AE /* qMapEditorTool */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -367,6 +440,9 @@
 				TargetAttributes = {
 					813AD498193FA3F600B949C5 = {
 						TestTargetID = 813AD477193FA3F600B949C5;
+					};
+					8189F1B91BC0F6730023B6AE = {
+						CreatedOnToolsVersion = 7.0;
 					};
 				};
 			};
@@ -385,6 +461,7 @@
 			targets = (
 				813AD477193FA3F600B949C5 /* qMapEditor */,
 				813AD498193FA3F600B949C5 /* qMapEditorTests */,
+				8189F1B91BC0F6730023B6AE /* qMapEditorTool */,
 			);
 		};
 /* End PBXProject section */
@@ -450,6 +527,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				813AD4A6193FA3F600B949C5 /* qMapEditorTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8189F1B61BC0F6730023B6AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8189F1C61BC0F7DE0023B6AE /* METileView.m in Sources */,
+				8189F1C31BC0F7470023B6AE /* MEMatrix.m in Sources */,
+				8189F1C71BC0F7E20023B6AE /* MEGameMapChipLayer.m in Sources */,
+				8189F1CF1BC0F80D0023B6AE /* MEMainMenu.m in Sources */,
+				8189F1CE1BC0F8090023B6AE /* MEGamePartsViewItem.m in Sources */,
+				8189F1CA1BC0F7F40023B6AE /* MEAnimationBaseView.m in Sources */,
+				8189F1C41BC0F7D70023B6AE /* MEGameMapToolsWindowController.m in Sources */,
+				8189F1CD1BC0F8060023B6AE /* MEGamePartsViewController.m in Sources */,
+				8189F1C11BC0F7400023B6AE /* MEGameParts.m in Sources */,
+				8189F1C21BC0F7430023B6AE /* MEEditSet.m in Sources */,
+				8189F1CC1BC0F8010023B6AE /* MEGamePartsListWindowController.m in Sources */,
+				8189F1CB1BC0F7F70023B6AE /* MECategoryTableView.m in Sources */,
+				8189F1D01BC0F8100023B6AE /* MEAppDelegate.m in Sources */,
+				8189F1C91BC0F7ED0023B6AE /* MEGamePartsEditWindowController.m in Sources */,
+				8189F1C81BC0F7E80023B6AE /* METileWindowController.m in Sources */,
+				8189F1C51BC0F7DB0023B6AE /* MEGameMapWindowController.m in Sources */,
+				8189F1BD1BC0F6730023B6AE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,6 +730,33 @@
 			};
 			name = Release;
 		};
+		8189F1BE1BC0F6730023B6AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		8189F1BF1BC0F6730023B6AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -658,6 +786,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		8189F1C01BC0F6730023B6AE /* Build configuration list for PBXNativeTarget "qMapEditorTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8189F1BE1BC0F6730023B6AE /* Debug */,
+				8189F1BF1BC0F6730023B6AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

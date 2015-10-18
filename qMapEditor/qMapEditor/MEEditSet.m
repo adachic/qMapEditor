@@ -138,7 +138,56 @@ gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
 };
 
 /*
-* jsonエクスポートする。
+* PartsListをjsonエクスポートする。
+ */
++ (void)saveGamePartsListJsonWithPath:(NSURL *)filePath
+        gamePartsListWindowControllers:(NSMutableArray *)gamePartsListWindowControllers{
+    
+    NSMutableDictionary *partsData = [NSMutableDictionary dictionary];
+//    NSMutableArray *gamePartsArray = [NSMutableArray array];
+    NSMutableSet *doubleCheck = [NSMutableSet set];
+    
+    for(MEGamePartsListWindowController *gamePartsListWC in gamePartsListWindowControllers){
+        for(NSDictionary *gameP in gamePartsListWC.gamePartsViewController.gamePartsArray){
+            MEGameParts *cube = gameP[@"game_parts"];
+            if([doubleCheck containsObject:cube]){
+                NSAssert(false, @"doubleCheck fault.");
+                continue;
+            }
+            [doubleCheck addObject:cube];
+            
+            NSMutableDictionary *partsDict = [NSMutableDictionary dictionary];
+            [partsDict setObject:cube.name forKey:@"id"];
+            NSMutableArray *tiles = [NSMutableArray array];
+            for (METile *tile in cube.tiles) {
+                NSMutableDictionary *tileDict = [NSMutableDictionary dictionary];
+                [tileDict setObject:[tile.tileFilePath lastPathComponent] forKey:@"tile"];
+                [tileDict setObject:[NSNumber numberWithFloat:(float) tile.tileRect.origin.x] forKey:@"x"];
+                [tileDict setObject:[NSNumber numberWithFloat:(float) tile.tileRect.origin.y] forKey:@"y"];
+                [tileDict setObject:[NSNumber numberWithFloat:(float) tile.tileRect.size.width] forKey:@"w"];
+                [tileDict setObject:[NSNumber numberWithFloat:(float) tile.tileRect.size.height] forKey:@"h"];
+                [tiles addObject:tileDict];
+            }
+            [partsDict setObject:tiles forKey:@"tiles"];
+            [partsDict setObject:[NSNumber numberWithBool:cube.walkable] forKey:@"walkable"];
+            [partsDict setObject:[NSNumber numberWithInt:cube.watertype] forKey:@"waterType"];
+            [partsDict setObject:[NSNumber numberWithBool:cube.half] forKey:@"harf"];
+            [partsDict setObject:[NSNumber numberWithInt:cube.rezoTypeRect] forKey:@"rezo"];
+            
+            [partsDict setObject:cube.categories forKey:@"category"];
+            partsData[cube.name] = partsDict;
+//            [gamePartsArray addObject:partsDict];
+        }
+    }
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:partsData options:0 error:&error];
+    NSLog(@"returned error1: %@", [error localizedDescription]);
+    [jsonData writeToFile:[filePath path] options:NSDataWritingAtomic error:&error];
+    NSLog(@"returned error2: %@", [error localizedDescription]);
+}
+
+/*
+* Mapをjsonエクスポートする。
  */
 + (void)saveMapJsonWithPath:(NSURL *)filePath
         mapWindowController:(MEGameMapWindowController *)mapWindowController {

@@ -742,7 +742,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "qMapEditor/MEGameMapWindowController.m"
@@ -778,11 +778,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "qMapEditor/MEEditSet.m"
-            timestampString = "426556074.210718"
+            timestampString = "466835919.686065"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
             landmarkName = "+saveMapJsonWithPath:mapWindowController:"
             landmarkType = "5">
          </BreakpointContent>
@@ -794,11 +794,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "qMapEditor/MEEditSet.m"
-            timestampString = "425081850.532464"
+            timestampString = "466835919.686065"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "152"
-            endingLineNumber = "152"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
             landmarkName = "+saveMapJsonWithPath:mapWindowController:"
             landmarkType = "5">
          </BreakpointContent>
@@ -1793,6 +1793,38 @@
             endingLineNumber = "138"
             landmarkName = "-frontGameMapWindowController"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MEMainMenu frontGameMapWindowController]"
+                  moduleName = "qMapEditor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adachic/Documents/qMapEditor/qMapEditor/qMapEditor/MEMainMenu.m"
+                  timestampString = "466835921.014412"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "66">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MEMainMenu frontGameMapWindowController]"
+                  moduleName = "qMapEditor"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/adachic/Documents/qMapEditor/qMapEditor/qMapEditor/MEMainMenu.m"
+                  timestampString = "466835921.014555"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "76">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1818,7 +1850,7 @@
                   moduleName = "qMapEditor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/adachic/Documents/qMapEditor/qMapEditor/qMapEditor/MEMainMenu.m"
-                  timestampString = "460284054.884729"
+                  timestampString = "466835921.015284"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "205"
@@ -1833,7 +1865,7 @@
                   moduleName = "qMapEditor"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/adachic/Documents/qMapEditor/qMapEditor/qMapEditor/MEMainMenu.m"
-                  timestampString = "460284054.884883"
+                  timestampString = "466835921.015429"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "205"
@@ -1872,6 +1904,70 @@
             startingLineNumber = "214"
             endingLineNumber = "214"
             landmarkName = "-createGameMapWindow:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "qMapEditor/MEEditSet.m"
+            timestampString = "466835919.686065"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "+saveGamePartsListJsonWithPath:gamePartsListWindowControllers:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "qMapEditor/MEEditSet.m"
+            timestampString = "466835919.686065"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "+saveGamePartsListJsonWithPath:gamePartsListWindowControllers:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "qMapEditor/MEEditSet.m"
+            timestampString = "466835919.686065"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "+saveGamePartsListJsonWithPath:gamePartsListWindowControllers:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "qMapEditor/MEEditSet.m"
+            timestampString = "466835919.686065"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "+saveGamePartsListJsonWithPath:gamePartsListWindowControllers:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

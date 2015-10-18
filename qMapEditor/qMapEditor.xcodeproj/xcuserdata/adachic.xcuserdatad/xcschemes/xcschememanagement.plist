@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>qMapEditorTool.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,11 @@
 			<true/>
 		</dict>
 		<key>813AD498193FA3F600B949C5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8189F1B91BC0F6730023B6AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

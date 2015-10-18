@@ -401,6 +401,26 @@
     }
 }
 
+/*GamePartsListをjsonとしてexportする*/
+- (IBAction)exportGamePartsListWindow:(id)sender {
+    /*Saveダイアログを表示*/
+    NSSavePanel *savePanel = [NSSavePanel savePanel];
+    NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"parts", nil];
+    [savePanel setAllowedFileTypes:allowedFileTypes];
+    NSInteger pressedButton = [savePanel runModal];
+
+    if (pressedButton == NSOKButton) {
+        NSURL *filePath = [savePanel URL];
+        NSLog(@"file saved %@", filePath);
+        /*jsonシリアライズして保存*/
+        [MEEditSet saveGamePartsListJsonWithPath:filePath
+                  gamePartsListWindowControllers:self.gamePartsListWindowControllers];
+        
+//                   mapWindowController:[self frontGameMapWindowController]];
+    }
+    
+}
+
 //Mapをjsonとしてexportする
 - (IBAction)exportGameMapWindow:(id)sender {
     /*Saveダイアログを表示*/
