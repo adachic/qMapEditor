@@ -69,6 +69,9 @@
                                           half:NO
                                       rezoType:kRezoTypeRect32
                                     categories:nil
+             pavementType:0
+                                    macroTypes:nil
+                                          snow:NO
                                   customEvents:nil],
                     KEY_GAMEPARTS, @"aho", KEY_NAME,
                     nil]];

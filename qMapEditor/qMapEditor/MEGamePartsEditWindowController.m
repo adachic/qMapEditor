@@ -30,7 +30,6 @@
         // hogeメソッドを呼び出すという通知要求の登録を行っている。
         [nc addObserver:self selector:@selector(selectedGameParts:) name:@"selectedGameParts" object:nil];
 
-
         NSNib *cellNib = [[NSNib alloc] initWithNibNamed:@"MECategoryTableViewCell" bundle:nil];
         [self.categoryTableView registerNib:cellNib forIdentifier:@"category_"];
 
@@ -42,12 +41,10 @@
 
 - (void)windowDidLoad {
     [super windowDidLoad];
-
     [self.categoryTableView reloadData];
 }
 
 - (void)awakeFromNib {
-
     [self.categoryTableView reloadData];
 }
 
@@ -97,11 +94,32 @@
     }
 }
 
-- (void)_setParamsFromUI{
+- (void)_setParamsFromUI {
     buildingGameParts.walkable = [self.walkable state] == NSOnState;
+    buildingGameParts.snow = [self.snowButton state] == NSOnState;
     buildingGameParts.half = [self.half state] == NSOnState;
     buildingGameParts.rezoTypeRect = ([self.rezoType state] == NSOnState) ? kRezoTypeRect64 : kRezoTypeRect32;
+    buildingGameParts.pavementType = self.pavementControl.selectedSegment;
     buildingGameParts.watertype = self.waterRadioGroup.selectedRow;
+
+    NSMutableArray *macroTypes = [@[] mutableCopy];
+    if (self.macroRoad.state == NSOnState) {
+        [macroTypes addObject:@(kMacroTypeRoad)];
+    }
+    if (self.macroRaugh.state == NSOnState) {
+        [macroTypes addObject:@(kMacroTypeRough)];
+    }
+    if (self.macroWall.state == NSOnState) {
+        [macroTypes addObject:@(kMacroTypeWall)];
+    }
+    if (self.macroCantEnter.state == NSOnState) {
+        [macroTypes addObject:@(kMacroTypeCantEnter)];
+    }
+    if (self.macroOther.state == NSOnState) {
+        [macroTypes addObject:@(kMacroTypeOther)];
+    }
+
+    buildingGameParts.macroTypes = macroTypes;
 //    [buildingGameParts.categories addObject:<#(id)anObject#>];
 }
 
@@ -131,7 +149,7 @@
         }
     }
     [buildingGameParts initSampleImageWithKVO:NO];
-    
+
     [self _setParamsFromUI];
     [self.categoryTableView reloadData];
 
@@ -151,8 +169,10 @@
                                                       duration:0
                                                           half:NO
                                                       rezoType:kRezoTypeRect32
-                             categories:nil 
-
+                                                    categories:nil
+                                                  pavementType:kPavementTypeNone
+                                                    macroTypes:@[]
+                                                          snow:NO
                                                   customEvents:nil];
     }
     if (self.animationViewBase.editable) {
@@ -173,8 +193,35 @@
     NSLog(@"selectedGameParts,%@", parts);
 
     self.walkable.state = parts.walkable ? NSOnState : NSOffState;
+    self.snowButton.state = parts.snow? NSOnState : NSOffState;
     self.half.state = parts.half ? NSOnState : NSOffState;
     self.rezoType.state = (parts.rezoTypeRect == kRezoTypeRect64) ? NSOnState : NSOffState;
+
+    self.pavementControl.selectedSegment = parts.pavementType;
+    self.macroRoad.state = NSOffState;
+    self.macroRaugh.state = NSOffState;
+    self.macroWall.state = NSOffState;
+    self.macroCantEnter.state = NSOffState;
+    self.macroOther.state = NSOffState;
+    for (NSNumber *macroType in parts.macroTypes) {
+        switch (macroType.integerValue) {
+            case kMacroTypeRoad:
+                self.macroRoad.state = NSOnState;
+                break;
+            case kMacroTypeRough:
+                self.macroRaugh.state = NSOnState;
+                break;
+            case kMacroTypeWall:
+                self.macroWall.state = NSOnState;
+                break;
+            case kMacroTypeCantEnter:
+                self.macroCantEnter.state = NSOnState;
+                break;
+            case kMacroTypeOther:
+                self.macroOther.state = NSOnState;
+                break;
+        }
+    }
 
     [self.waterRadioGroup setState:1 atRow:parts.watertype column:0];
     [self setViewWithGameParts:[parts copy]];
@@ -183,9 +230,17 @@
     }
 }
 
+//pavement選択
+- (IBAction)didChanged:(id)sender {
+    if ([sender isKindOfClass:[NSSegmentedControl class]]) {
+        NSSegmentedControl *segmentedControl = (NSSegmentedControl *) sender;
+        buildingGameParts.pavementType = segmentedControl.selectedSegment;
+    }
+}
+
 //Addボタン：GameParts追加
 - (IBAction)pushedAddGameParts:(id)sender {
-    if(!buildingGameParts.categories || !buildingGameParts.categories.count){
+    if (!buildingGameParts.categories || !buildingGameParts.categories.count) {
         return;
     }
     NSLog(@"topImageView2 id;%@ %@", self.topImageView, self.topImageView.image);
@@ -196,7 +251,7 @@
 
 //Modifyボタン：GameParts上書き
 - (IBAction)pushedModifyGameParts:(id)sender {
-    if(!buildingGameParts.categories || !buildingGameParts.categories.count){
+    if (!buildingGameParts.categories || !buildingGameParts.categories.count) {
         return;
     }
     [self _setParamsFromUI];
@@ -251,7 +306,7 @@
 
 #pragma mark - tableview delegate
 
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView{
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
     return [MECategory existCategories].count;
 }
 
@@ -272,9 +327,9 @@
     MECategoryTableViewCell *cell = [tableView makeViewWithIdentifier:@"category_" owner:self];
     [cell.textField setStringValue:[MECategory existCategories][row]];
     [cell.imageView.layer setBackgroundColor:[NSColor redColor].CGColor];
-    for(NSString *category in [MECategory existCategories] ){
-        for(NSString *category_ in buildingGameParts.categories){
-            if([category isEqualToString:category_]){
+    for (NSString *category in [MECategory existCategories]) {
+        for (NSString *category_ in buildingGameParts.categories) {
+            if ([category isEqualToString:category_]) {
                 [cell.textField.layer setBackgroundColor:[NSColor blueColor].CGColor];
             }
         }
@@ -282,12 +337,11 @@
     return cell;
 }
 
-- (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex{
+- (BOOL)tableView:(NSTableView *)aTableView shouldSelectRow:(NSInteger)rowIndex {
     buildingGameParts.categories = [@[] mutableCopy];
     [buildingGameParts.categories addObject:[MECategory existCategories][rowIndex]];
     return YES;
 }
-
 
 
 @end

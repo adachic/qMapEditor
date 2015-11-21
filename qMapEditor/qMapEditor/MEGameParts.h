@@ -5,12 +5,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MECategory : NSObject <NSCoding>{
+@interface MECategory : NSObject <NSCoding> {
 }
 @property NSString *categoryName;
+
 - (void)encodeWithCoder:(NSCoder *)encoder;
+
 - (id)initWithCoder:(NSCoder *)decoder;
-+ (NSArray*)existCategories;
+
++ (NSArray *)existCategories;
 @end
 
 @interface METile : NSObject <NSCopying, NSCoding> {
@@ -40,6 +43,23 @@ typedef enum RezoTypeRect {
     kRezoTypeRect64 = 1,
 } RezoTypeRect;
 
+typedef enum PavementType {
+    kPavementTypeNone = 0,
+    kPavementTypeLv1 = 1,
+    kPavementTypeLv2,
+    kPavementTypeLv3,
+    kPavementTypeLv4,
+    kPavementTypeLv5,
+} PavementType;
+
+typedef enum MacroType {
+    kMacroTypeRoad = 1,
+    kMacroTypeRough,
+    kMacroTypeWall,
+    kMacroTypeCantEnter,
+    kMacroTypeOther,
+} MacroType;
+
 @interface MEGameParts : NSObject <NSCopying, NSCoding>
 
 @property NSMutableArray *tiles;
@@ -51,7 +71,10 @@ typedef enum RezoTypeRect {
 @property NSImageView *sampleImage;
 @property NSString *name;
 @property BOOL half;
+@property BOOL snow;
 @property RezoTypeRect rezoTypeRect;
+@property PavementType pavementType;
+@property NSMutableArray<NSNumber *> *macroTypes;
 
 - (void)encodeWithCoder:(NSCoder *)encoder;
 
@@ -62,6 +85,9 @@ typedef enum RezoTypeRect {
                half:(BOOL)half
            rezoType:(RezoTypeRect)rezoType
          categories:(NSArray *)categories
+       pavementType:(PavementType)pavementType
+         macroTypes:(NSMutableArray *)macroTypes
+               snow:(BOOL)snow
        customEvents:(NSDictionary *)custom;
 
 - (NSImage *)image;

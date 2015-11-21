@@ -53,4 +53,13 @@ typedef void (^_onSelectedGameParts)(MEGameParts *gameParts);
 
 @property IBOutlet NSTextField *modeLabel;
 
+@property IBOutlet NSSegmentedControl *pavementControl;
+@property IBOutlet NSButton *macroRoad;
+@property IBOutlet NSButton *macroRaugh;
+@property IBOutlet NSButton *macroWall;
+@property IBOutlet NSButton *macroCantEnter;
+@property IBOutlet NSButton *macroOther;
+
+@property IBOutlet NSButton *snowButton;
+
 @end

@@ -41,6 +41,7 @@
 }
 
 - (void)updateImageView2{
+    return;
     MEGameParts *parts = [self.representedObject objectForKey:@"game_parts"];
     [self.imageView2 setWantsLayer:YES];
     self.imageView2.layer.backgroundColor = [NSColor clearColor].CGColor;

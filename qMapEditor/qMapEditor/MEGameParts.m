@@ -88,6 +88,7 @@ static NSInteger idCounter = 1;
     [encoder encodeObject:self.categories forKey:@"categories"];
 
     [encoder encodeBool:self.walkable forKey:@"walkable"];
+    [encoder encodeBool:self.snow forKey:@"snow"];
     [encoder encodeInt:self.watertype forKey:@"waterType"];
     [encoder encodeFloat:(float) self.durationPerFrame forKey:@"durationPerFrame"];
     [encoder encodeObject:self.customEvents forKey:@"customEvents"];
@@ -95,12 +96,17 @@ static NSInteger idCounter = 1;
     [encoder encodeObject:self.name forKey:@"name"];
 
     [encoder encodeBool:self.half forKey:@"half"];
+
     [encoder encodeInt:self.rezoTypeRect forKey:@"rezoTypeRect"];
+    [encoder encodeInt:self.pavementType forKey:@"pavementType"];
+
+    [encoder encodeObject:self.macroTypes forKey:@"macroTypes"];
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
     self.tiles = [decoder decodeObjectForKey:@"tiles"];
     self.walkable = [decoder decodeBoolForKey:@"walkable"];
+    self.snow = [decoder decodeBoolForKey:@"snow"];
     self.watertype = [decoder decodeIntForKey:@"waterType"];
     self.durationPerFrame = [decoder decodeFloatForKey:@"durationPerFrame"];
     self.customEvents = [decoder decodeObjectForKey:@"customEvents"];
@@ -108,9 +114,13 @@ static NSInteger idCounter = 1;
     self.name = [decoder decodeObjectForKey:@"name"];
 
     self.half = [decoder decodeBoolForKey:@"half"];
-    self.rezoTypeRect = [decoder decodeIntForKey:@"rezoTypeRect"];
     self.categories = [decoder decodeObjectForKey:@"categories"];
-    if(idCounter < [self.name intValue]){
+
+    self.rezoTypeRect = [decoder decodeIntForKey:@"rezoTypeRect"];
+    self.pavementType = [decoder decodeIntForKey:@"pavementType"];
+
+    self.macroTypes = [decoder decodeObjectForKey:@"macroTypes"];
+    if (idCounter < [self.name intValue]) {
         idCounter = self.name.intValue;
     }
     return self;
@@ -124,10 +134,13 @@ static NSInteger idCounter = 1;
     another.categories = (NSMutableArray *) [[NSArray allocWithZone:zone] initWithArray:_categories copyItems:YES];;
     another.name = [NSString stringWithFormat:@"%d", ++idCounter];
     another.walkable = _walkable;
+    another.snow = _snow;
     another.watertype = _watertype;
 
     another.half = _half;
     another.rezoTypeRect = _rezoTypeRect;
+    another.pavementType = _pavementType;
+    another.macroTypes = _macroTypes;
 
     another.durationPerFrame = _durationPerFrame;
     another.customEvents = [[NSDictionary allocWithZone:zone] initWithDictionary:_customEvents];
@@ -144,7 +157,11 @@ static NSInteger idCounter = 1;
                half:(BOOL)half
            rezoType:(RezoTypeRect)rezoType
          categories:(NSArray *)categories
+       pavementType:(PavementType)pavementType
+         macroTypes:(NSMutableArray *)macroTypes
+               snow:(BOOL)snow
        customEvents:(NSDictionary *)custom {
+
     if (self = [super init]) {
         _tiles = (NSMutableArray *) tiles;
         _categories = (NSMutableArray *) categories;
@@ -152,8 +169,12 @@ static NSInteger idCounter = 1;
         _watertype = waterType;
         _durationPerFrame = duration;
         _customEvents = custom;
+        _pavementType = pavementType;
+        _snow = snow;
         _half = half;
         _rezoTypeRect = rezoType;
+        _pavementType = pavementType;
+        _macroTypes = macroTypes;
         _name = [NSString stringWithFormat:@"%d", ++idCounter];
     }
     return self;
@@ -190,6 +211,7 @@ static NSInteger idCounter = 1;
     self.tiles = nil;
     self.tiles = otherObj.tiles;
     self.walkable = otherObj.walkable;
+    self.snow = otherObj.snow;
     self.watertype = otherObj.watertype;
     self.durationPerFrame = otherObj.durationPerFrame;
     self.customEvents = nil;
@@ -199,8 +221,11 @@ static NSInteger idCounter = 1;
     self.rezoTypeRect = otherObj.rezoTypeRect;
     self.categories = nil;
     self.categories = otherObj.categories;
-//    self.name = otherObj.name;
 
+    self.macroTypes = otherObj.macroTypes;
+    self.pavementType = otherObj.pavementType;
+
+//    self.name = otherObj.name;
 }
 
 @end
