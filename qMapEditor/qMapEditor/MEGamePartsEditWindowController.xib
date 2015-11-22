@@ -30,11 +30,11 @@
                         <tabViewItems>
                             <tabViewItem label="Basic" identifier="1" id="kMf-Dn-ThV">
                                 <view key="view" ambiguous="YES" id="qbl-Yo-lkW">
-                                    <rect key="frame" x="10" y="33" width="292" height="418"/>
+                                    <rect key="frame" x="10" y="33" width="134" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Btl-TZ-Xyk">
-                                            <rect key="frame" x="29" y="151" width="243" height="17"/>
+                                            <rect key="frame" x="29" y="-267" width="243" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="AnimationSlot (backkey to delete slot)" id="QN8-rF-vgc">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -42,28 +42,28 @@
                                             </textFieldCell>
                                         </textField>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WSW-QA-cpH">
-                                            <rect key="frame" x="20" y="394" width="78" height="18"/>
+                                            <rect key="frame" x="20" y="-24" width="78" height="18"/>
                                             <buttonCell key="cell" type="check" title="Walkable" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="BWm-r0-0iM">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BTY-6q-JrF">
-                                            <rect key="frame" x="20" y="367" width="87" height="18"/>
+                                            <rect key="frame" x="20" y="-51" width="87" height="18"/>
                                             <buttonCell key="cell" type="check" title="Half" bezelStyle="regularSquare" imagePosition="left" inset="2" id="XVx-ZO-JE4">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7En-5b-AYt">
-                                            <rect key="frame" x="20" y="338" width="87" height="18"/>
+                                            <rect key="frame" x="20" y="-80" width="87" height="18"/>
                                             <buttonCell key="cell" type="check" title="64" bezelStyle="regularSquare" imagePosition="left" inset="2" id="vGy-Yc-J8F">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J0Z-gb-3rb" customClass="MEAnimationBaseView">
-                                            <rect key="frame" x="25" y="35" width="246" height="114"/>
+                                            <rect key="frame" x="25" y="-383" width="246" height="114"/>
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QPV-yh-UB3">
                                                     <rect key="frame" x="3" y="67" width="225" height="42"/>
@@ -76,7 +76,7 @@
                                             </subviews>
                                         </customView>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y4M-k5-BtY">
-                                            <rect key="frame" x="16" y="-4" width="153" height="32"/>
+                                            <rect key="frame" x="16" y="-422" width="153" height="32"/>
                                             <buttonCell key="cell" type="push" title="Switch Animmode" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NST-8d-cHl">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -86,7 +86,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WAB-BF-Xfq">
-                                            <rect key="frame" x="189" y="-4" width="73" height="32"/>
+                                            <rect key="frame" x="189" y="-422" width="73" height="32"/>
                                             <buttonCell key="cell" type="push" title="Clear" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Zjx-lU-cGc">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -96,7 +96,7 @@
                                             </connections>
                                         </button>
                                         <matrix verticalHuggingPriority="750" fixedFrame="YES" allowsEmptySelection="NO" autorecalculatesCellSize="YES" translatesAutoresizingMaskIntoConstraints="NO" id="trs-lJ-B6Z">
-                                            <rect key="frame" x="182" y="317" width="74" height="98"/>
+                                            <rect key="frame" x="182" y="-101" width="74" height="98"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                             <size key="cellSize" width="74" height="18"/>
                                             <size key="intercellSpacing" width="4" height="2"/>
@@ -133,7 +133,7 @@
                                             </connections>
                                         </matrix>
                                         <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4EX-cd-2qD">
-                                            <rect key="frame" x="22" y="215" width="255" height="20"/>
+                                            <rect key="frame" x="22" y="-203" width="255" height="20"/>
                                             <segmentedCell key="cell" controlSize="small" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="mCO-aS-hgB">
                                                 <font key="font" metaFont="smallSystem"/>
                                                 <segments>
@@ -150,7 +150,7 @@
                                             </connections>
                                         </segmentedControl>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jsF-sY-4uq">
-                                            <rect key="frame" x="21" y="238" width="43" height="17"/>
+                                            <rect key="frame" x="21" y="-180" width="43" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="舗装度" id="38b-6x-7CE">
                                                 <font key="font" size="13" name="HiraKakuProN-W3"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -158,7 +158,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KH3-y7-cUU">
-                                            <rect key="frame" x="22" y="192" width="147" height="17"/>
+                                            <rect key="frame" x="22" y="-226" width="147" height="17"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="自動生成用マクロタイプ" id="CjI-TH-zaQ">
                                                 <font key="font" size="13" name="HiraKakuProN-W3"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -166,42 +166,42 @@
                                             </textFieldCell>
                                         </textField>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qTC-1X-DEL">
-                                            <rect key="frame" x="24" y="175" width="35" height="18"/>
+                                            <rect key="frame" x="24" y="-243" width="35" height="18"/>
                                             <buttonCell key="cell" type="check" title="道" bezelStyle="regularSquare" imagePosition="left" inset="2" id="5aS-Lh-Y2P">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="HiraKakuProN-W3"/>
                                             </buttonCell>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N6b-ww-sfn">
-                                            <rect key="frame" x="69" y="175" width="48" height="18"/>
+                                            <rect key="frame" x="69" y="-243" width="48" height="18"/>
                                             <buttonCell key="cell" type="check" title="ラフ" bezelStyle="regularSquare" imagePosition="left" inset="2" id="rEe-bl-GHG">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="HiraKakuProN-W3"/>
                                             </buttonCell>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tvv-i5-tRV">
-                                            <rect key="frame" x="121" y="175" width="35" height="18"/>
+                                            <rect key="frame" x="121" y="-243" width="35" height="18"/>
                                             <buttonCell key="cell" type="check" title="壁" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Lfz-5v-E4n">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="HiraKakuProN-W3"/>
                                             </buttonCell>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hza-bH-ZY5">
-                                            <rect key="frame" x="160" y="175" width="74" height="18"/>
+                                            <rect key="frame" x="160" y="-243" width="74" height="18"/>
                                             <buttonCell key="cell" type="check" title="進入不可" bezelStyle="regularSquare" imagePosition="left" inset="2" id="2wH-Uv-Vmm">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="HiraKakuProN-W3"/>
                                             </buttonCell>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OQA-uq-nXx">
-                                            <rect key="frame" x="238" y="175" width="35" height="18"/>
+                                            <rect key="frame" x="238" y="-243" width="35" height="18"/>
                                             <buttonCell key="cell" type="check" title="他" bezelStyle="regularSquare" imagePosition="left" inset="2" id="vTp-cG-66l">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="HiraKakuProN-W3"/>
                                             </buttonCell>
                                         </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7j0-ej-vov">
-                                            <rect key="frame" x="20" y="266" width="35" height="18"/>
+                                            <rect key="frame" x="20" y="-152" width="35" height="18"/>
                                             <buttonCell key="cell" type="check" title="雪" bezelStyle="regularSquare" imagePosition="left" inset="2" id="opS-cC-f5S">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="HiraKakuProN-W3"/>

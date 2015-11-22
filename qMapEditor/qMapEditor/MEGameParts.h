@@ -95,5 +95,6 @@ typedef enum MacroType {
 - (void)initSampleImageWithKVO:(BOOL)notify;
 
 - (void)refOf:(MEGameParts *)otherObj;
+- (int)getCategoryInt;
 
 @end

@@ -176,6 +176,7 @@ gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
             [partsDict setObject:[NSNumber numberWithInt:cube.rezoTypeRect] forKey:@"rezo"];
             
             [partsDict setObject:cube.categories forKey:@"category"];
+            [partsDict setObject:@(cube.getCategoryInt) forKey:@"category"];
 
             [partsDict setObject:@(cube.pavementType) forKey:@"pavementType"];
             if(cube.macroTypes){

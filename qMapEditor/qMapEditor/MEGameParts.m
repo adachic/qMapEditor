@@ -207,6 +207,35 @@ static NSInteger idCounter = 1;
     }
 }
 
+
+- (int)getCategoryInt{
+    typedef enum {
+        CategoryStep     = 14,
+        CategoryMountain = 9,
+        CategoryCave      = 8,
+        CategoryShrine    = 7,
+        CategoryTown      = 6,
+        CategoryCastle    = 5,
+    } gCategoryTYpe;
+
+    if(!self.categories[0]){
+        return 0;
+    }
+    NSString *category = self.categories[0];
+    if([category isEqualToString:@"平原"]){
+        return CategoryStep;
+    }else if([category isEqualToString:@"溶岩"]){
+        return CategoryMountain;
+    }else if([category isEqualToString:@"洞窟"]){
+        return CategoryCave;
+    }else if([category isEqualToString:@"神殿"]){
+        return CategoryShrine;
+    }else if([category isEqualToString:@"城内"]){
+        return CategoryCastle;
+    }
+    return 0;
+}
+
 - (void)refOf:(MEGameParts *)otherObj {
     self.tiles = nil;
     self.tiles = otherObj.tiles;
