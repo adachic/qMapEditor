@@ -96,6 +96,7 @@ static NSInteger idCounter = 1;
     [encoder encodeObject:self.name forKey:@"name"];
 
     [encoder encodeBool:self.half forKey:@"half"];
+    [encoder encodeObject:self.harfIdName forKey:@"halfIdName"];
 
     [encoder encodeInt:self.rezoTypeRect forKey:@"rezoTypeRect"];
     [encoder encodeInt:self.pavementType forKey:@"pavementType"];
@@ -114,6 +115,8 @@ static NSInteger idCounter = 1;
     self.name = [decoder decodeObjectForKey:@"name"];
 
     self.half = [decoder decodeBoolForKey:@"half"];
+    self.harfIdName = [decoder decodeObjectForKey:@"halfIdName"];
+    
     self.categories = [decoder decodeObjectForKey:@"categories"];
 
     self.rezoTypeRect = [decoder decodeIntForKey:@"rezoTypeRect"];
@@ -138,6 +141,8 @@ static NSInteger idCounter = 1;
     another.watertype = _watertype;
 
     another.half = _half;
+    another.harfIdName = _harfIdName;
+    
     another.rezoTypeRect = _rezoTypeRect;
     another.pavementType = _pavementType;
     another.macroTypes = _macroTypes;
@@ -160,6 +165,7 @@ static NSInteger idCounter = 1;
        pavementType:(PavementType)pavementType
          macroTypes:(NSMutableArray *)macroTypes
                snow:(BOOL)snow
+         harfIdName:(NSString*)harfIdName
        customEvents:(NSDictionary *)custom {
 
     if (self = [super init]) {
@@ -172,6 +178,10 @@ static NSInteger idCounter = 1;
         _pavementType = pavementType;
         _snow = snow;
         _half = half;
+        _harfIdName = harfIdName;
+        if(!harfIdName){
+            _harfIdName = @"";
+        }
         _rezoTypeRect = rezoType;
         _pavementType = pavementType;
         _macroTypes = macroTypes;
@@ -247,6 +257,8 @@ static NSInteger idCounter = 1;
     self.customEvents = otherObj.customEvents;
 
     self.half = otherObj.half;
+    self.harfIdName = otherObj.harfIdName;
+    
     self.rezoTypeRect = otherObj.rezoTypeRect;
     self.categories = nil;
     self.categories = otherObj.categories;

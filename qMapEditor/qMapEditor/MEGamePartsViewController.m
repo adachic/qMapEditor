@@ -72,6 +72,7 @@
              pavementType:0
                                     macroTypes:nil
                                           snow:NO
+             harfIdName:nil
                                   customEvents:nil],
                     KEY_GAMEPARTS, @"aho", KEY_NAME,
                     nil]];

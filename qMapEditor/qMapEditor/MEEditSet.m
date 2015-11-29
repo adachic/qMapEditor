@@ -175,6 +175,8 @@ gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
             [partsDict setObject:[NSNumber numberWithBool:cube.half] forKey:@"harf"];
             [partsDict setObject:[NSNumber numberWithInt:cube.rezoTypeRect] forKey:@"rezo"];
             
+            [partsDict setObject:cube.harfIdName?:@"" forKey:@"harfId"];
+            
             [partsDict setObject:cube.categories forKey:@"category"];
             [partsDict setObject:@(cube.getCategoryInt) forKey:@"category"];
 

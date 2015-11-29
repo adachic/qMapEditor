@@ -13,7 +13,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface MEGamePartsEditWindowController () <NSTableViewDataSource, NSTableViewDelegate>
-
 @end
 
 @implementation MEGamePartsEditWindowController
@@ -101,6 +100,8 @@
     buildingGameParts.rezoTypeRect = ([self.rezoType state] == NSOnState) ? kRezoTypeRect64 : kRezoTypeRect32;
     buildingGameParts.pavementType = self.pavementControl.selectedSegment;
     buildingGameParts.watertype = self.waterRadioGroup.selectedRow;
+    
+    buildingGameParts.harfIdName = self.harfIdTextField.selectedCell.title;
 
     NSMutableArray *macroTypes = [@[] mutableCopy];
     if (self.macroRoad.state == NSOnState) {
@@ -173,6 +174,7 @@
                                                   pavementType:kPavementTypeNone
                                                     macroTypes:@[]
                                                           snow:NO
+                                                    harfIdName:@""
                                                   customEvents:nil];
     }
     if (self.animationViewBase.editable) {
@@ -195,6 +197,8 @@
     self.walkable.state = parts.walkable ? NSOnState : NSOffState;
     self.snowButton.state = parts.snow? NSOnState : NSOffState;
     self.half.state = parts.half ? NSOnState : NSOffState;
+    self.harfIdTextField.selectedCell.title = parts.harfIdName ? : @"";
+    
     self.rezoType.state = (parts.rezoTypeRect == kRezoTypeRect64) ? NSOnState : NSOffState;
 
     self.pavementControl.selectedSegment = parts.pavementType;

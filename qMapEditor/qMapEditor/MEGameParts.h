@@ -75,6 +75,7 @@ typedef enum MacroType {
 @property RezoTypeRect rezoTypeRect;
 @property PavementType pavementType;
 @property NSMutableArray<NSNumber *> *macroTypes;
+@property NSString *harfIdName;
 
 - (void)encodeWithCoder:(NSCoder *)encoder;
 
@@ -88,6 +89,7 @@ typedef enum MacroType {
        pavementType:(PavementType)pavementType
          macroTypes:(NSMutableArray *)macroTypes
                snow:(BOOL)snow
+         harfIdName:(NSString*)harfIdName
        customEvents:(NSDictionary *)custom;
 
 - (NSImage *)image;

@@ -62,4 +62,6 @@ typedef void (^_onSelectedGameParts)(MEGameParts *gameParts);
 
 @property IBOutlet NSButton *snowButton;
 
+@property IBOutlet NSTextField *harfIdTextField;
+
 @end
