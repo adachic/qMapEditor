@@ -32,6 +32,8 @@
     NSArray *savedAlternateColors;
 }
 
+- (void)setArray:(NSArray*)array;
+
 @property(retain) NSMutableArray *gamePartsArray;
 @property(nonatomic, assign) NSUInteger sortingMode;
 @property(nonatomic, assign) BOOL alternateColors;

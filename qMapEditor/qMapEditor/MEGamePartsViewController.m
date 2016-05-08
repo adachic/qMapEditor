@@ -36,7 +36,7 @@
 
 @synthesize gamePartsArray, sortingMode, alternateColors;
 
-- (void)showUpdate{
+- (void)showUpdate {
 
 }
 
@@ -51,6 +51,10 @@
 #define KEY_GAMEPARTS    @"game_parts"
 #define KEY_NAME    @"name"
 
+- (void)setArray:(NSArray *)array {
+    gamePartsArray = array;
+}
+
 - (void)awakeFromNib {
     // save this for later when toggling between alternate colors
     savedAlternateColors = [collectionView backgroundColors];
@@ -61,18 +65,18 @@
     NSMutableArray *tempArray = [[NSMutableArray alloc] init];
     [tempArray addObject:[NSMutableDictionary dictionaryWithObjectsAndKeys:
             [[MEGameParts alloc] initWithTiles:[NSArray arrayWithObjects:[[METile alloc]
-                                   initWithURL:[[NSURL alloc] initWithString:@"file:///Users/adachic/Desktop/78003b0a-s.jpg"]
-                                          rect:CGRectMake(0, 0, 100, 100)], nil]
+                                                                                 initWithURL:[[NSURL alloc] initWithString:@"file:///Users/adachic/Desktop/78003b0a-s.jpg"]
+                                                                                        rect:CGRectMake(0, 0, 100, 100)], nil]
                                       walkable:NO
                                      waterType:0
                                       duration:0
                                           half:NO
                                       rezoType:kRezoTypeRect32
                                     categories:nil
-             pavementType:0
+                                  pavementType:0
                                     macroTypes:nil
                                           snow:NO
-             harfIdName:nil
+                                    harfIdName:nil
                                   customEvents:nil],
                     KEY_GAMEPARTS, @"aho", KEY_NAME,
                     nil]];

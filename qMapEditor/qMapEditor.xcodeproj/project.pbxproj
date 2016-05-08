@@ -35,22 +35,22 @@
 		817E99EF1948845400B08786 /* MEAnimationBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E99EE1948845400B08786 /* MEAnimationBaseView.m */; };
 		817E99F119497AA100B08786 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817E99F019497AA100B08786 /* QuartzCore.framework */; };
 		8189F1BD1BC0F6730023B6AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8189F1BC1BC0F6730023B6AE /* main.m */; };
-		8189F1C11BC0F7400023B6AE /* MEGameParts.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6687532CDC436EBEEC4E82 /* MEGameParts.m */; settings = {ASSET_TAGS = (); }; };
-		8189F1C21BC0F7430023B6AE /* MEEditSet.m in Sources */ = {isa = PBXBuildFile; fileRef = BB668B2D60BE2B714E3FBADE /* MEEditSet.m */; settings = {ASSET_TAGS = (); }; };
-		8189F1C31BC0F7470023B6AE /* MEMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = BB668B20BBFCC055FEFFF0C0 /* MEMatrix.m */; settings = {ASSET_TAGS = (); }; };
-		8189F1C41BC0F7D70023B6AE /* MEGameMapToolsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BD68E8194BD2F2005E1652 /* MEGameMapToolsWindowController.m */; settings = {ASSET_TAGS = (); }; };
-		8189F1C51BC0F7DB0023B6AE /* MEGameMapWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BD68E3194BD241005E1652 /* MEGameMapWindowController.m */; settings = {ASSET_TAGS = (); }; };
-		8189F1C61BC0F7DE0023B6AE /* METileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BD68ED194C0662005E1652 /* METileView.m */; settings = {ASSET_TAGS = (); }; };
-		8189F1C71BC0F7E20023B6AE /* MEGameMapChipLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8118A6361952FA4700B9DCE7 /* MEGameMapChipLayer.m */; settings = {ASSET_TAGS = (); }; };
-		8189F1C81BC0F7E80023B6AE /* METileWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E99CC1941125300B08786 /* METileWindowController.m */; settings = {ASSET_TAGS = (); }; };
-		8189F1C91BC0F7ED0023B6AE /* MEGamePartsEditWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813BE7EB1940234B0034A0B8 /* MEGamePartsEditWindowController.m */; settings = {ASSET_TAGS = (); }; };
-		8189F1CA1BC0F7F40023B6AE /* MEAnimationBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E99EE1948845400B08786 /* MEAnimationBaseView.m */; settings = {ASSET_TAGS = (); }; };
-		8189F1CB1BC0F7F70023B6AE /* MECategoryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB668AB95EE7F22E8705111A /* MECategoryTableView.m */; settings = {ASSET_TAGS = (); }; };
-		8189F1CC1BC0F8010023B6AE /* MEGamePartsListWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813BE7F0194023D60034A0B8 /* MEGamePartsListWindowController.m */; settings = {ASSET_TAGS = (); }; };
-		8189F1CD1BC0F8060023B6AE /* MEGamePartsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813BE7F71940DEFC0034A0B8 /* MEGamePartsViewController.m */; settings = {ASSET_TAGS = (); }; };
-		8189F1CE1BC0F8090023B6AE /* MEGamePartsViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E99D81946943A00B08786 /* MEGamePartsViewItem.m */; settings = {ASSET_TAGS = (); }; };
-		8189F1CF1BC0F80D0023B6AE /* MEMainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 813AD4B3193FC32200B949C5 /* MEMainMenu.m */; settings = {ASSET_TAGS = (); }; };
-		8189F1D01BC0F8100023B6AE /* MEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 813AD48E193FA3F600B949C5 /* MEAppDelegate.m */; settings = {ASSET_TAGS = (); }; };
+		8189F1C11BC0F7400023B6AE /* MEGameParts.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6687532CDC436EBEEC4E82 /* MEGameParts.m */; };
+		8189F1C21BC0F7430023B6AE /* MEEditSet.m in Sources */ = {isa = PBXBuildFile; fileRef = BB668B2D60BE2B714E3FBADE /* MEEditSet.m */; };
+		8189F1C31BC0F7470023B6AE /* MEMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = BB668B20BBFCC055FEFFF0C0 /* MEMatrix.m */; };
+		8189F1C41BC0F7D70023B6AE /* MEGameMapToolsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BD68E8194BD2F2005E1652 /* MEGameMapToolsWindowController.m */; };
+		8189F1C51BC0F7DB0023B6AE /* MEGameMapWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BD68E3194BD241005E1652 /* MEGameMapWindowController.m */; };
+		8189F1C61BC0F7DE0023B6AE /* METileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BD68ED194C0662005E1652 /* METileView.m */; };
+		8189F1C71BC0F7E20023B6AE /* MEGameMapChipLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8118A6361952FA4700B9DCE7 /* MEGameMapChipLayer.m */; };
+		8189F1C81BC0F7E80023B6AE /* METileWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E99CC1941125300B08786 /* METileWindowController.m */; };
+		8189F1C91BC0F7ED0023B6AE /* MEGamePartsEditWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813BE7EB1940234B0034A0B8 /* MEGamePartsEditWindowController.m */; };
+		8189F1CA1BC0F7F40023B6AE /* MEAnimationBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E99EE1948845400B08786 /* MEAnimationBaseView.m */; };
+		8189F1CB1BC0F7F70023B6AE /* MECategoryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB668AB95EE7F22E8705111A /* MECategoryTableView.m */; };
+		8189F1CC1BC0F8010023B6AE /* MEGamePartsListWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813BE7F0194023D60034A0B8 /* MEGamePartsListWindowController.m */; };
+		8189F1CD1BC0F8060023B6AE /* MEGamePartsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 813BE7F71940DEFC0034A0B8 /* MEGamePartsViewController.m */; };
+		8189F1CE1BC0F8090023B6AE /* MEGamePartsViewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 817E99D81946943A00B08786 /* MEGamePartsViewItem.m */; };
+		8189F1CF1BC0F80D0023B6AE /* MEMainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 813AD4B3193FC32200B949C5 /* MEMainMenu.m */; };
+		8189F1D01BC0F8100023B6AE /* MEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 813AD48E193FA3F600B949C5 /* MEAppDelegate.m */; };
 		8189F1D11BC0F8D20023B6AE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 813AD47B193FA3F600B949C5 /* Cocoa.framework */; };
 		8189F1D21BC0F8DC0023B6AE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817E99F019497AA100B08786 /* QuartzCore.framework */; };
 		8189F1D41BC0F8DC0023B6AE /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8189F1D31BC0F8DC0023B6AE /* Quartz.framework */; };
@@ -59,6 +59,12 @@
 		81BD68EA194BD2F2005E1652 /* MEGameMapToolsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BD68E8194BD2F2005E1652 /* MEGameMapToolsWindowController.m */; };
 		81BD68EB194BD2F2005E1652 /* MEGameMapToolsWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81BD68E9194BD2F2005E1652 /* MEGameMapToolsWindowController.xib */; };
 		81BD68EE194C0662005E1652 /* METileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81BD68ED194C0662005E1652 /* METileView.m */; };
+		81C913D31CDE7079007A6CAF /* panel-d.png in Resources */ = {isa = PBXBuildFile; fileRef = 81C913CD1CDE7079007A6CAF /* panel-d.png */; };
+		81C913D41CDE7079007A6CAF /* panel-d2.png in Resources */ = {isa = PBXBuildFile; fileRef = 81C913CE1CDE7079007A6CAF /* panel-d2.png */; };
+		81C913D51CDE7079007A6CAF /* panel-d2.psd in Resources */ = {isa = PBXBuildFile; fileRef = 81C913CF1CDE7079007A6CAF /* panel-d2.psd */; };
+		81C913D61CDE7079007A6CAF /* panel1.png in Resources */ = {isa = PBXBuildFile; fileRef = 81C913D01CDE7079007A6CAF /* panel1.png */; };
+		81C913D71CDE7079007A6CAF /* panel2.png in Resources */ = {isa = PBXBuildFile; fileRef = 81C913D11CDE7079007A6CAF /* panel2.png */; };
+		81C913D81CDE7079007A6CAF /* panel3.png in Resources */ = {isa = PBXBuildFile; fileRef = 81C913D21CDE7079007A6CAF /* panel3.png */; };
 		BB66808CAABE4517BE6C320A /* MECategoryTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB668AB95EE7F22E8705111A /* MECategoryTableView.m */; };
 		BB6686A731B2E09E85491CB7 /* MEGameParts.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6687532CDC436EBEEC4E82 /* MEGameParts.m */; };
 		BB668A4D66FFDD07939EF50E /* MEEditSet.m in Sources */ = {isa = PBXBuildFile; fileRef = BB668B2D60BE2B714E3FBADE /* MEEditSet.m */; };
@@ -142,6 +148,12 @@
 		81BD68E9194BD2F2005E1652 /* MEGameMapToolsWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEGameMapToolsWindowController.xib; sourceTree = "<group>"; };
 		81BD68EC194C0662005E1652 /* METileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = METileView.h; sourceTree = "<group>"; };
 		81BD68ED194C0662005E1652 /* METileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = METileView.m; sourceTree = "<group>"; };
+		81C913CD1CDE7079007A6CAF /* panel-d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "panel-d.png"; path = "../../../assets/tiles/panel-d.png"; sourceTree = "<group>"; };
+		81C913CE1CDE7079007A6CAF /* panel-d2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "panel-d2.png"; path = "../../../assets/tiles/panel-d2.png"; sourceTree = "<group>"; };
+		81C913CF1CDE7079007A6CAF /* panel-d2.psd */ = {isa = PBXFileReference; lastKnownFileType = file; name = "panel-d2.psd"; path = "../../../assets/tiles/panel-d2.psd"; sourceTree = "<group>"; };
+		81C913D01CDE7079007A6CAF /* panel1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = panel1.png; path = ../../../assets/tiles/panel1.png; sourceTree = "<group>"; };
+		81C913D11CDE7079007A6CAF /* panel2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = panel2.png; path = ../../../assets/tiles/panel2.png; sourceTree = "<group>"; };
+		81C913D21CDE7079007A6CAF /* panel3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = panel3.png; path = ../../../assets/tiles/panel3.png; sourceTree = "<group>"; };
 		BB66849759467F6D97608F72 /* MECategoryTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MECategoryTableView.h; sourceTree = "<group>"; };
 		BB66867F3D2E1E1DB135E799 /* MEGameParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEGameParts.h; sourceTree = "<group>"; };
 		BB6687532CDC436EBEEC4E82 /* MEGameParts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEGameParts.m; sourceTree = "<group>"; };
@@ -329,6 +341,12 @@
 		817E99EA1947C1D500B08786 /* TestResource */ = {
 			isa = PBXGroup;
 			children = (
+				81C913CD1CDE7079007A6CAF /* panel-d.png */,
+				81C913CE1CDE7079007A6CAF /* panel-d2.png */,
+				81C913CF1CDE7079007A6CAF /* panel-d2.psd */,
+				81C913D01CDE7079007A6CAF /* panel1.png */,
+				81C913D11CDE7079007A6CAF /* panel2.png */,
+				81C913D21CDE7079007A6CAF /* panel3.png */,
 				817E99EB1947C1D500B08786 /* 37221362_p0.png */,
 			);
 			name = TestResource;
@@ -474,16 +492,22 @@
 				813BE7FA194102970034A0B8 /* GamePartsIconViewPrototype.xib in Resources */,
 				8125DE6D1B640D88003A7D6D /* MECategoryTableViewCell.xib in Resources */,
 				813BE7EE1940234B0034A0B8 /* MEGamePartsEditWindowController.xib in Resources */,
+				81C913D71CDE7079007A6CAF /* panel2.png in Resources */,
+				81C913D31CDE7079007A6CAF /* panel-d.png in Resources */,
+				81C913D51CDE7079007A6CAF /* panel-d2.psd in Resources */,
 				813AD486193FA3F600B949C5 /* InfoPlist.strings in Resources */,
 				817E99CF1941125300B08786 /* METileWindowController.xib in Resources */,
 				813AD494193FA3F600B949C5 /* Images.xcassets in Resources */,
+				81C913D61CDE7079007A6CAF /* panel1.png in Resources */,
 				813BE7F51940DC420034A0B8 /* Collection.xib in Resources */,
 				813AD48C193FA3F600B949C5 /* Credits.rtf in Resources */,
 				81BD68EB194BD2F2005E1652 /* MEGameMapToolsWindowController.xib in Resources */,
+				81C913D41CDE7079007A6CAF /* panel-d2.png in Resources */,
 				817E99EC1947C1D500B08786 /* 37221362_p0.png in Resources */,
 				81BD68E6194BD241005E1652 /* MEGameMapWindowController.xib in Resources */,
 				813BE7F3194023D60034A0B8 /* MEGamePartsListWindowController.xib in Resources */,
 				813AD4B0193FC27800B949C5 /* MEMainMenu.xib in Resources */,
+				81C913D81CDE7079007A6CAF /* panel3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,6 +818,7 @@
 				8189F1BF1BC0F6730023B6AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

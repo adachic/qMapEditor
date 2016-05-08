@@ -21,10 +21,16 @@
                            NSMutableArray *tileSheets
                    ))completed;
 
-+ (void)saveGameMapWithPath:(NSURL *)filePath
++ (void)   saveGameMapWithPath:(NSURL *)filePath
          tileWindowControllers:(NSArray *)tileWindowControllers
 gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
        gameMapWindowController:(MEGameMapWindowController *)gameMapWindowController;
+
++ (void)loadMapFromJson:(NSURL *)filePath
+         gamePartsArray:(NSArray *)gamePartsArray
+               complete:(void (^)(
+                       NSMutableDictionary *mapInfo
+               ))completed;
 
 + (void)loadMapFromFile:filePath
                complete:(void (^)(
@@ -35,6 +41,8 @@ gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
 
 + (void)saveMapJsonWithPath:(NSURL *)filePath
         mapWindowController:(MEGameMapWindowController *)mapWindowController;
+
++ (NSMutableArray *)gamePartsFromJson:(NSURL *)filePath;
 
 + (void)saveGamePartsListJsonWithPath:(NSURL *)filePath
        gamePartsListWindowControllers:(NSMutableArray *)gamePartsListWindowControllers;

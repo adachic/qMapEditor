@@ -27,13 +27,33 @@
 
 - (id)initWithCoder:(NSCoder *)aDecoder;
 
+- (BOOL)validateMenuItem:(id)menuItem;
+
+- (void)createTileWindow:(NSURL *)filePath;
+
+
+
 - (IBAction)showGameParts:(id)sender;
 
-- (BOOL)validateMenuItem:(id)menuItem;
 
 - (IBAction)openTileFile:(id)sender;
 
-- (void)createTileWindow:(NSURL *)filePath;
+- (IBAction)openGamePartsListFile:(id)sender;
+
+- (IBAction)openGameMapWindow:(id)sender;
+
+
+- (IBAction)newGameMapWindow:(id)sender;
+
+- (IBAction)saveGamePartsListFile:(id)sender;
+
+- (IBAction)saveGameMapWindow:(id)sender;
+
+
+
+- (IBAction)exportGamePartsListWindow:(id)sender;
+
+- (IBAction)exportGameMapWindow:(id)sender;
 
 - (IBAction)syncToGameParts:(id)menuItem;
 @end

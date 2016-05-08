@@ -99,4 +99,6 @@ typedef enum MacroType {
 - (void)refOf:(MEGameParts *)otherObj;
 - (int)getCategoryInt;
 
+- (void)createSampleImageForJsonLoading;
++ (NSString *)getCategory:(int)id ;
 @end

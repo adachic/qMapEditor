@@ -207,6 +207,7 @@
     self.macroWall.state = NSOffState;
     self.macroCantEnter.state = NSOffState;
     self.macroOther.state = NSOffState;
+    
     for (NSNumber *macroType in parts.macroTypes) {
         switch (macroType.integerValue) {
             case kMacroTypeRoad:

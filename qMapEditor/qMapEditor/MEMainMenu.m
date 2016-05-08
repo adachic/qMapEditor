@@ -12,8 +12,8 @@
 #import "MEGameMapWindowController.h"
 #import "MEMatrix.h"
 
-@interface MEMainMenu()
-@property NSMutableArray* gamePartsListWindowControllers;
+@interface MEMainMenu ()
+@property NSMutableArray *gamePartsListWindowControllers;
 @end
 
 @implementation MEMainMenu
@@ -53,13 +53,13 @@
 
     /*編集ウィンドウ:ボタンのコールバック*/
     self.gamePartsEditWindowController.onRegistGameParts = [^(MEGameParts *gameParts) {
-        for(MEGamePartsListWindowController *wc in blockself.gamePartsListWindowControllers){
+        for (MEGamePartsListWindowController *wc in blockself.gamePartsListWindowControllers) {
             [wc addGameParts:gameParts];
         }
     } copy];
 
     self.gamePartsEditWindowController.onUpdateGameParts = [^(MEGameParts *gameParts) {
-        for(MEGamePartsListWindowController *wc in blockself.gamePartsListWindowControllers){
+        for (MEGamePartsListWindowController *wc in blockself.gamePartsListWindowControllers) {
             [wc updateGameParts:gameParts];
         }
     } copy];
@@ -168,15 +168,16 @@
 #pragma mark create_window
 
 /*Listウィンドウ生成*/
-- (void)createListWindow:(NSString *)category{
+- (void)createListWindow:(NSString *)category {
     MEGamePartsListWindowController *w = [[MEGamePartsListWindowController alloc]
             initWithWindowNibName:@"MEGamePartsListWindowController"
                          category:category
-                         ];
+    ];
     [w.window makeKeyAndOrderFront:nil];
     [w.window setTitle:category];
     [self.gamePartsListWindowControllers addObject:w];
 }
+
 /*タイルマップウィンドウ生成*/
 - (void)createTileWindow:(NSURL *)filePath {
     METileWindowController *w = [[METileWindowController alloc]
@@ -218,6 +219,7 @@
 - (void)restoreGamePartsListWindows:(NSMutableArray *)gamePartsArray tileSheets:(NSMutableArray *)tileSheets {
     //タイルウィンドウの復元
     [self.tileWindowControllers removeAllObjects];
+    NSLog(@"unko0");
     for (NSDictionary *tileDict in tileSheets) {
         METileWindowController *w = [[METileWindowController alloc]
                 initWithWindowNibName:@"METileWindowController"
@@ -231,27 +233,44 @@
         [w drawLineAfterLoad];
         [self.tileWindowControllers addObject:w];
     }
+
+    NSLog(@"unko1");
+
     //リストウィンドウの復元
     [self.gamePartsListWindowControllers removeAllObjects];
     for (NSString *categoryName in [MECategory existCategories]) {
         MEGamePartsListWindowController *w = [[MEGamePartsListWindowController alloc]
                 initWithWindowNibName:@"MEGamePartsListWindowController"
                              category:categoryName];
-        [w.window setTitle:categoryName];        
+        [w.window setTitle:categoryName];
         [w.window makeKeyAndOrderFront:nil];
-        [self.gamePartsListWindowControllers addObject:w];
 
-        NSMutableArray *gamePartsInCategory = [@[] mutableCopy];
         for (NSDictionary *gamePartsDict in gamePartsArray) {
             MEGameParts *gameParts = gamePartsDict[@"game_parts"];
+            /*
             if (![w.gamePartsViewController hasCategory:gameParts]) {
                 continue;
             }
-            [gamePartsInCategory addObject:gamePartsDict];
+            */
+            BOOL included = NO;
+            for (NSString *category in gameParts.categories) {
+                if ([category isEqualToString:categoryName]) {
+                    included = YES;
+                }
+            }
+            if (included) {
+//                [w.gamePartsViewController.gamePartsArray addObject:gamePartsDict];
+                [w.gamePartsViewController addGameParts:gameParts];
+            }
         }
-        w.gamePartsViewController.gamePartsArray = gamePartsInCategory;
+        w.gamePartsViewController.gamePartsArray =
+                w.gamePartsViewController.gamePartsArray;
+        [self.gamePartsListWindowControllers addObject:w];
     }
+
+    NSLog(@"unko2");
 }
+
 
 //マップの復元
 - (void)restoreMapWindow:(NSMutableArray *)gamePartsArray
@@ -261,6 +280,8 @@
     __block MEMainMenu *blockself = self;
     [self restoreGamePartsListWindows:gamePartsArray
                            tileSheets:tileSheets];
+    
+    NSLog(@"unko3");
     //マップの復元
     MEGameMapWindowController *w = [[MEGameMapWindowController alloc]
             initWithWindowNibName:@"MEGameMapWindowController"
@@ -274,6 +295,7 @@
                         jungleGym:mapInfo[@"jungleGym"]
                 selectedGameParts:[[self frontGamePartsListWindowController] selectedGameParts]
     ];
+    NSLog(@"unko4");
     w.onSetToToolWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t, MEMatrix *cursor) {
         [blockself.gameMapToolsWindowController changedMapWindow:_maxM
                                                                x:_x
@@ -281,6 +303,7 @@
                                                                t:_t
                                                           cursor:cursor];
     } copy];
+    NSLog(@"unko5");
     [w.window makeKeyAndOrderFront:nil];
     [self.mapWindowControllers addObject:w];
 }
@@ -304,10 +327,11 @@
     if (pressedButton == NSOKButton) {
         NSURL *filePath = [openPanel URL];
         NSLog(@"file opened %@", filePath);
-        /*タイルウィンドウを表示*/
+        /* タイルウィンドウを表示 */
         [self createTileWindow:filePath];
     }
 }
+
 
 /*ゲームマップウィンドウを開く*/
 - (IBAction)openGameMapWindow:(id)sender {
@@ -355,7 +379,7 @@
         /*シリアライズして保存*/
         [MEEditSet saveGameMapWithPath:filePath
                  tileWindowControllers:self.tileWindowControllers
-         gamePartsListWindowControllers:self.gamePartsListWindowControllers
+        gamePartsListWindowControllers:self.gamePartsListWindowControllers
                gameMapWindowController:[self frontGameMapWindowController]
         ];
     }
@@ -377,7 +401,7 @@
         //todo:ファイル名保存
         [MEEditSet saveGamePartsListWithPath:filePath
                        tileWindowControllers:self.tileWindowControllers
-               gamePartsListWindowControllers:self.gamePartsListWindowControllers];
+              gamePartsListWindowControllers:self.gamePartsListWindowControllers];
     }
 }
 
@@ -415,10 +439,10 @@
         /*jsonシリアライズして保存*/
         [MEEditSet saveGamePartsListJsonWithPath:filePath
                   gamePartsListWindowControllers:self.gamePartsListWindowControllers];
-        
+
 //                   mapWindowController:[self frontGameMapWindowController]];
     }
-    
+
 }
 
 //Mapをjsonとしてexportする
@@ -474,4 +498,52 @@
     */
 }
 
+
+/*JSONからゲームマップウィンドウを開く*/
+- (void)openGameMapWindowFromJson_:(NSArray *)gamePartsArray {
+    __block MEMainMenu *blockself = self;
+    /*Openダイアログを表示*/
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"json", nil];
+    [openPanel setAllowedFileTypes:allowedFileTypes];
+    NSInteger pressedButton = [openPanel runModal];
+
+    // NSLog(@"id:%@", self.gamePartsEditWindowController);
+    if (pressedButton == NSOKButton) {
+        NSURL *filePath = [openPanel URL];
+        NSLog(@"file opened %@", filePath);
+        [MEEditSet loadMapFromJson:filePath
+                    gamePartsArray:gamePartsArray
+                          complete:^(
+                NSMutableDictionary *mapInfo
+
+        ) {
+            [blockself restoreMapWindow:gamePartsArray
+                             tileSheets:nil
+                                mapInfo:mapInfo
+                               filePath:filePath
+            ];
+        }];
+    }
+}
+
+/*ゲームパーツとマップ情報をロードし、ゲームマップウィンドウを開く*/
+- (IBAction)openGameMapWindowFromJson:(id)sender {
+    __block MEMainMenu *blockself = self;
+    /*Openダイアログを表示*/
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"json", nil];
+    [openPanel setAllowedFileTypes:allowedFileTypes];
+    NSInteger pressedButton = [openPanel runModal];
+
+    // NSLog(@"id:%@", self.gamePartsEditWindowController);
+    if (pressedButton == NSOKButton) {
+        NSURL *filePath = [openPanel URL];
+        NSLog(@"file opened %@", filePath);
+        //ゲームパーツをロード
+        NSArray *gamePartsArray =
+                [MEEditSet gamePartsFromJson:filePath];
+        [self openGameMapWindowFromJson_:gamePartsArray];
+    }
+}
 @end

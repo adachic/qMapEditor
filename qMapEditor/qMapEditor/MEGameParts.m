@@ -116,7 +116,7 @@ static NSInteger idCounter = 1;
 
     self.half = [decoder decodeBoolForKey:@"half"];
     self.harfIdName = [decoder decodeObjectForKey:@"halfIdName"];
-    
+
     self.categories = [decoder decodeObjectForKey:@"categories"];
 
     self.rezoTypeRect = [decoder decodeIntForKey:@"rezoTypeRect"];
@@ -142,7 +142,7 @@ static NSInteger idCounter = 1;
 
     another.half = _half;
     another.harfIdName = _harfIdName;
-    
+
     another.rezoTypeRect = _rezoTypeRect;
     another.pavementType = _pavementType;
     another.macroTypes = _macroTypes;
@@ -165,7 +165,7 @@ static NSInteger idCounter = 1;
        pavementType:(PavementType)pavementType
          macroTypes:(NSMutableArray *)macroTypes
                snow:(BOOL)snow
-         harfIdName:(NSString*)harfIdName
+         harfIdName:(NSString *)harfIdName
        customEvents:(NSDictionary *)custom {
 
     if (self = [super init]) {
@@ -179,7 +179,7 @@ static NSInteger idCounter = 1;
         _snow = snow;
         _half = half;
         _harfIdName = harfIdName;
-        if(!harfIdName){
+        if (!harfIdName) {
             _harfIdName = @"";
         }
         _rezoTypeRect = rezoType;
@@ -194,6 +194,8 @@ static NSInteger idCounter = 1;
     METile *tile = [self.tiles lastObject];
     NSAssert(tile, @"GAMEPARTS:tile should not nil");
     NSImage *image = [[NSImage alloc] initByReferencingURL:tile.tileFilePath];
+
+    //tile.tileFilePath = [NSURL URLWithString:@"unko"];
     NSImage *imageFrom = [[NSImage alloc] initByReferencingURL:tile.tileFilePath];
     [image setSize:tile.tileRect.size];
     [image lockFocus];
@@ -203,6 +205,12 @@ static NSInteger idCounter = 1;
                  fraction:1.0f];
     [image unlockFocus];
     return image;
+}
+
+- (void)createSampleImageForJsonLoading {
+    METile *tile = [self.tiles lastObject];
+    _sampleImage = [[NSImageView alloc] initWithFrame:CGRectMake(0, 0, tile.tileRect.size.width, tile.tileRect.size.height)];
+    [_sampleImage setImage:[self image]];
 }
 
 - (void)initSampleImageWithKVO:(BOOL)notify {
@@ -217,33 +225,51 @@ static NSInteger idCounter = 1;
     }
 }
 
+typedef enum {
+    CategoryStep = 14,
+    CategoryMountain = 9,
+    CategoryCave = 8,
+    CategoryShrine = 7,
+    CategoryTown = 6,
+    CategoryCastle = 5,
+} gCategoryTYpe;
 
-- (int)getCategoryInt{
-    typedef enum {
-        CategoryStep     = 14,
-        CategoryMountain = 9,
-        CategoryCave      = 8,
-        CategoryShrine    = 7,
-        CategoryTown      = 6,
-        CategoryCastle    = 5,
-    } gCategoryTYpe;
-
-    if(!self.categories[0]){
+- (int)getCategoryInt {
+    if (!self.categories[0]) {
         return 0;
     }
     NSString *category = self.categories[0];
-    if([category isEqualToString:@"平原"]){
+    if ([category isEqualToString:@"平原"]) {
         return CategoryStep;
-    }else if([category isEqualToString:@"溶岩"]){
+    } else if ([category isEqualToString:@"溶岩"]) {
         return CategoryMountain;
-    }else if([category isEqualToString:@"洞窟"]){
+    } else if ([category isEqualToString:@"洞窟"]) {
         return CategoryCave;
-    }else if([category isEqualToString:@"神殿"]){
+    } else if ([category isEqualToString:@"神殿"]) {
         return CategoryShrine;
-    }else if([category isEqualToString:@"城内"]){
+    } else if ([category isEqualToString:@"城内"]) {
         return CategoryCastle;
     }
     return 0;
+}
+
++ (NSString *)getCategory:(int)id {
+    switch (id)
+    {
+        case 14:
+            return @"平原";
+        case 9:
+            return @"溶岩";
+        case 8:
+            return @"洞窟";
+        case 7:
+            return @"神殿";
+        case 6:
+            return @"城内";
+        case 5:
+            return @"城内";
+    }
+    return @"飾り";
 }
 
 - (void)refOf:(MEGameParts *)otherObj {
@@ -258,7 +284,7 @@ static NSInteger idCounter = 1;
 
     self.half = otherObj.half;
     self.harfIdName = otherObj.harfIdName;
-    
+
     self.rezoTypeRect = otherObj.rezoTypeRect;
     self.categories = nil;
     self.categories = otherObj.categories;

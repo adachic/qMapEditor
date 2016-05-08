@@ -18,7 +18,7 @@
  */
 + (void)saveGamePartsListWithPath:(NSURL *)filePath
             tileWindowControllers:(NSArray *)tileWindowControllers
-    gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers {
+   gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers {
     NSMutableArray *tileSheets = [NSMutableArray array];
     for (METileWindowController *twc in tileWindowControllers) {
         if (!twc.readyToPickUp) {
@@ -34,12 +34,12 @@
     {
         //すべてのゲームパーツを収集
         NSMutableArray *allGameParts = [@[] mutableCopy];
-        for(MEGamePartsListWindowController *w in gamePartsListWindowControllers){
+        for (MEGamePartsListWindowController *w in gamePartsListWindowControllers) {
             [allGameParts addObjectsFromArray:w.gamePartsViewController.gamePartsArray];
         }
         NSArray *values = @[allGameParts, tileSheets];
         NSArray *keys = [NSArray arrayWithObjects:@"gamePartsArray",
-                                                  @"tileSheets",nil];
+                                                  @"tileSheets", nil];
         NSDictionary *saveDict = [NSDictionary dictionaryWithObjects:values
                                                              forKeys:keys];
         /*
@@ -65,10 +65,10 @@
     completed(gamePartsArray, tileSheets);
 }
 
-+ (void)saveGameMapWithPath:(NSURL *)filePath
-        tileWindowControllers:(NSArray *)tileWindowControllers
++ (void)   saveGameMapWithPath:(NSURL *)filePath
+         tileWindowControllers:(NSArray *)tileWindowControllers
 gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
-      gameMapWindowController:(MEGameMapWindowController *)gameMapWindowController {
+       gameMapWindowController:(MEGameMapWindowController *)gameMapWindowController {
     NSMutableArray *tileSheets = [NSMutableArray array];
     for (METileWindowController *twc in tileWindowControllers) {
         if (!twc.readyToPickUp) {
@@ -81,6 +81,7 @@ gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
         NSDictionary *tileSheet = [NSDictionary dictionaryWithObjects:values forKeys:key];
         [tileSheets addObject:tileSheet];
     }
+
     NSDictionary *mapInfo;
     {
         NSArray *values = @[
@@ -105,7 +106,7 @@ gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
     {
         //すべてのゲームパーツを収集
         NSMutableArray *allGameParts = [@[] mutableCopy];
-        for(MEGamePartsListWindowController *w in gamePartsListWindowControllers){
+        for (MEGamePartsListWindowController *w in gamePartsListWindowControllers) {
             [allGameParts addObjectsFromArray:w.gamePartsViewController.gamePartsArray];
         }
         NSArray *values = @[
@@ -124,6 +125,56 @@ gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
     }
 }
 
+/*
+ * jsonを開く
+ */
++ (void)loadMapFromJson:(NSURL *)filePath
+         gamePartsArray:(NSArray *)gamePartsArray
+               complete:(void (^)(
+                       NSMutableDictionary *mapInfo
+               ))completed {
+    /*
+    NSDictionary *loadDict = [NSKeyedUnarchiver unarchiveObjectWithFile:[filePath path]];
+    NSMutableArray *gamePartsArray = [loadDict objectForKey:@"gamePartsArray"];
+    NSMutableArray *tileSheets = [loadDict objectForKey:@"tileSheets"];
+    NSMutableDictionary *mapInfo = [loadDict objectForKey:@"mapInfo"];
+    */
+
+    NSData *data = [NSData dataWithContentsOfURL:filePath];
+    id obj = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    NSLog(@"%@", obj);
+
+    NSDictionary *rootDict = obj;
+    NSMutableDictionary *mapDict = [@{} mutableCopy];
+    mapDict[@"maxX"] = rootDict[@"maxX"];
+    mapDict[@"maxY"] = rootDict[@"maxY"];
+    mapDict[@"maxZ"] = rootDict[@"maxZ"];
+    mapDict[@"aspectX"] = rootDict[@"aspectX"];
+    mapDict[@"aspectY"] = rootDict[@"aspectY"];
+    mapDict[@"aspectT"] = rootDict[@"aspectT"];
+
+    mapDict[@"jungleGym"] = [@{} mutableCopy];
+    {
+        for (NSDictionary *cubeDict in rootDict[@"jungleGym"]) {
+            for (NSDictionary *partsDict  in gamePartsArray) {
+                NSString *idStr = partsDict[@"name"];
+                NSString *cubeIdStr = cubeDict[@"id"];
+                if ([idStr isEqualToString:cubeIdStr]) {
+                    int idx = [cubeDict[@"z"] intValue] * 10000 +
+                            [cubeDict[@"y"] intValue] * 100 +
+                            [cubeDict[@"x"] intValue];
+                    NSString *idxStr = [NSString stringWithFormat:@"%d", idx];
+                    mapDict[@"jungleGym"][idxStr] = partsDict[@"game_parts"];
+                }
+            }
+        }
+    }
+    completed(mapDict);
+};
+
+/**
+ * mdatを開く
+ */
 + (void)loadMapFromFile:(NSURL *)filePath
                complete:(void (^)(
                        NSMutableArray *gamePartsArray,
@@ -141,21 +192,21 @@ gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
 * PartsListをjsonエクスポートする。
  */
 + (void)saveGamePartsListJsonWithPath:(NSURL *)filePath
-        gamePartsListWindowControllers:(NSMutableArray *)gamePartsListWindowControllers{
-    
+       gamePartsListWindowControllers:(NSMutableArray *)gamePartsListWindowControllers {
+
     NSMutableDictionary *partsData = [NSMutableDictionary dictionary];
 //    NSMutableArray *gamePartsArray = [NSMutableArray array];
     NSMutableSet *doubleCheck = [NSMutableSet set];
-    
-    for(MEGamePartsListWindowController *gamePartsListWC in gamePartsListWindowControllers){
-        for(NSDictionary *gameP in gamePartsListWC.gamePartsViewController.gamePartsArray){
+
+    for (MEGamePartsListWindowController *gamePartsListWC in gamePartsListWindowControllers) {
+        for (NSDictionary *gameP in gamePartsListWC.gamePartsViewController.gamePartsArray) {
             MEGameParts *cube = gameP[@"game_parts"];
-            if([doubleCheck containsObject:cube]){
+            if ([doubleCheck containsObject:cube]) {
                 NSAssert(false, @"doubleCheck fault.");
                 continue;
             }
             [doubleCheck addObject:cube];
-            
+
             NSMutableDictionary *partsDict = [NSMutableDictionary dictionary];
             [partsDict setObject:cube.name forKey:@"id"];
             NSMutableArray *tiles = [NSMutableArray array];
@@ -174,14 +225,14 @@ gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
             [partsDict setObject:[NSNumber numberWithInt:cube.snow] forKey:@"snow"];
             [partsDict setObject:[NSNumber numberWithBool:cube.half] forKey:@"harf"];
             [partsDict setObject:[NSNumber numberWithInt:cube.rezoTypeRect] forKey:@"rezo"];
-            
-            [partsDict setObject:cube.harfIdName?:@"" forKey:@"harfId"];
-            
+
+            [partsDict setObject:cube.harfIdName ?: @"" forKey:@"harfId"];
+
             [partsDict setObject:cube.categories forKey:@"category"];
             [partsDict setObject:@(cube.getCategoryInt) forKey:@"category"];
 
             [partsDict setObject:@(cube.pavementType) forKey:@"pavementType"];
-            if(cube.macroTypes){
+            if (cube.macroTypes) {
                 [partsDict setObject:cube.macroTypes forKey:@"macroTypes"];
             }
             partsData[cube.name] = partsDict;
@@ -193,6 +244,74 @@ gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
     NSLog(@"returned error1: %@", [error localizedDescription]);
     [jsonData writeToFile:[filePath path] options:NSDataWritingAtomic error:&error];
     NSLog(@"returned error2: %@", [error localizedDescription]);
+}
+
+/**
+ * PartsListをjsonインポートする
+ */
++ (NSMutableArray *)gamePartsFromJson:(NSURL *)filePath {
+    NSData *data = [NSData dataWithContentsOfURL:filePath];
+    id obj = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+    NSLog(@"%@", obj);
+
+    NSMutableArray *partsArray = [@[] mutableCopy];
+    {
+        NSDictionary *rootDict = obj;
+        for (id key in rootDict) {
+            NSDictionary *partRoot = rootDict[key];
+            NSMutableArray *tiles = [@[] mutableCopy];
+            {
+                NSArray *parttiles = partRoot[@"tiles"];
+                for (NSDictionary *tileDict in parttiles) {
+                    CGRect rect = CGRectMake([tileDict[@"x"] intValue],
+                            [tileDict[@"y"] intValue],
+                            [tileDict[@"w"] intValue],
+                            [tileDict[@"h"] intValue]);
+                    NSMutableString *fpath = [@"file://" mutableCopy];
+                    [fpath appendString:NSHomeDirectory()];
+                    [fpath appendString:@"/Documents/qMapEditor/assets/tiles/"];
+                    [fpath appendString:tileDict[@"tile"]];
+                    NSURL *tileFilePath = [NSURL URLWithString:fpath];
+//                    NSURL *tileFilePath = [NSURL fileURLWithPath:tileDict[@"tile"]];
+                    METile *tile = [[METile alloc] initWithURL:tileFilePath rect:rect];
+                    [tiles addObject:tile];
+                }
+            }
+            NSMutableArray *categories = [@[] mutableCopy];
+            {
+                [categories addObject:[MEGameParts getCategory:[partRoot[@"category"] intValue]]];
+            }
+            /*
+            NSMutableArray *macroTypes = [@[] mutableCopy];
+            {
+                NSArray *macros = partRoot[@"macroTypes"];
+                for(NSNumber *num in macros){
+                    [macroTypes addObject:num];
+                }
+            }
+            */
+            MEGameParts *cube = [[MEGameParts alloc] initWithTiles:tiles
+                                                          walkable:[partRoot[@"walkable"] boolValue]
+                                                         waterType:(WaterType) [partRoot[@"waterType"] intValue]
+                                                          duration:0
+                                                              half:[partRoot[@"harf"] boolValue]
+                                                          rezoType:(RezoTypeRect) [partRoot[@"rezo"] intValue]
+                                                        categories:categories
+                                                      pavementType:(PavementType) [partRoot[@"pavementType"] intValue]
+                                                        macroTypes:partRoot[@"macroTypes"]
+                                                              snow:[partRoot[@"snow"] boolValue]
+                                                        harfIdName:partRoot[@"harfId"]
+                                                      customEvents:@{}];
+            cube.name = partRoot[@"id"];
+            [cube createSampleImageForJsonLoading];
+
+            NSMutableDictionary *dictCube = [@{} mutableCopy];
+            dictCube[@"game_parts"] = cube;
+            dictCube[@"name"] = cube.name;
+            [partsArray addObject:dictCube];
+        }
+    }
+    return partsArray;
 }
 
 /*
@@ -212,7 +331,7 @@ gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
                 if (!cube) {
                     continue;
                 }
-                if ([doubleCheck containsObject:cube.name]){
+                if ([doubleCheck containsObject:cube.name]) {
                     continue;
                 }
                 [doubleCheck addObject:cube.name];
