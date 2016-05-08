@@ -295,6 +295,9 @@
                         jungleGym:mapInfo[@"jungleGym"]
                 selectedGameParts:[[self frontGamePartsListWindowController] selectedGameParts]
     ];
+    w.allyStartPoint = mapInfo[@"allyStartPoint"];
+    w.enemyStartPoints = mapInfo[@"enemyStartPoints"];
+    w.category = mapInfo[@"category"];
     NSLog(@"unko4");
     w.onSetToToolWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t, MEMatrix *cursor) {
         [blockself.gameMapToolsWindowController changedMapWindow:_maxM

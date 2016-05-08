@@ -29,6 +29,10 @@ typedef void (^_onSetToToolWindow)(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFl
 @property BOOL shouldShowGriph;
 @property BOOL shouldShowLines;
 
+@property NSDictionary *allyStartPoint;
+@property NSArray *enemyStartPoints;
+@property NSNumber *category;
+
 @property NSMutableDictionary *jungleJym;
 @property NSString *filePath;
 @property NSMutableArray *workingEmptyCursors;

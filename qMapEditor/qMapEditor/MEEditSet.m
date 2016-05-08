@@ -153,6 +153,10 @@ gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
     mapDict[@"aspectY"] = rootDict[@"aspectY"];
     mapDict[@"aspectT"] = rootDict[@"aspectT"];
 
+    mapDict[@"allyStartPoint"] = rootDict[@"allyStartPoint"];
+    mapDict[@"enemyStartPoints"] = rootDict[@"enemyStartPoints"];
+    mapDict[@"category"] = rootDict[@"category"];
+
     mapDict[@"jungleGym"] = [@{} mutableCopy];
     {
         for (NSDictionary *cubeDict in rootDict[@"jungleGym"]) {
@@ -364,6 +368,10 @@ gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
     [mapData setObject:[NSNumber numberWithInteger:mapWindowController.maxM.x] forKey:@"maxX"];
     [mapData setObject:[NSNumber numberWithInteger:mapWindowController.maxM.y] forKey:@"maxY"];
     [mapData setObject:[NSNumber numberWithInteger:mapWindowController.maxM.z] forKey:@"maxZ"];
+
+    [mapData setObject:mapWindowController.allyStartPoint forKey:@"allyStartPoint"];
+    [mapData setObject:mapWindowController.enemyStartPoints forKey:@"enemyStartPoints"];
+    [mapData setObject:mapWindowController.category forKey:@"category"];
 
     NSMutableArray *cubes = [NSMutableArray array];
     for (int x = 0; x < mapWindowController.maxM.x; x++) {
