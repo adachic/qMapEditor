@@ -369,9 +369,15 @@ gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
     [mapData setObject:[NSNumber numberWithInteger:mapWindowController.maxM.y] forKey:@"maxY"];
     [mapData setObject:[NSNumber numberWithInteger:mapWindowController.maxM.z] forKey:@"maxZ"];
 
+    if(mapWindowController.allyStartPoint){
     [mapData setObject:mapWindowController.allyStartPoint forKey:@"allyStartPoint"];
+    }
+    if(mapWindowController.enemyStartPoints){
     [mapData setObject:mapWindowController.enemyStartPoints forKey:@"enemyStartPoints"];
+    }
+    if(mapWindowController.category){
     [mapData setObject:mapWindowController.category forKey:@"category"];
+    }
 
     NSMutableArray *cubes = [NSMutableArray array];
     for (int x = 0; x < mapWindowController.maxM.x; x++) {

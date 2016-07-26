@@ -20,51 +20,51 @@
       <sourceFolder url="file://$MODULE_DIR$/../assets/tiles/panel3.png" isTestSource="false" />
     </content>
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGameMapToolsWindowController.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MECategoryTableView.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEAppDelegate.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGamePartsEditWindowController.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/GamePartsIconViewPrototype.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/METileView.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGamePartsEditWindowController.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGamePartsViewController.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEAnimationBaseView.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEAnimationBaseView.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/Collection.xib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/main.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGameMapChipLayer.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEMainMenu.xib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/METileWindowController.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGameMapChipLayer.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGameParts.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEEditSet.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEAnimationBaseView.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/METileWindowController.xib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEMainMenu.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/METileView.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/TestResource/37221362_p0.png" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGamePartsListWindowController.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEMatrix.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGamePartsListWindowController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MECategoryTableView.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/qMapEditor-Info.plist" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/qMapEditor-Prefix.pch" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEMatrix.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGamePartsListWindowController.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/METileWindowController.xib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEMainMenu.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGameMapWindowController.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEMatrix.m" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGameMapWindowController.xib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGamePartsListWindowController.xib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MECategoryTableView.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEMainMenu.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGameMapWindowController.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGameMapToolsWindowController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGameParts.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/Images.xcassets" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGameMapToolsWindowController.xib" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGameMapToolsWindowController.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGameMapWindowController.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGameParts.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGamePartsViewController.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MECategoryTableViewCell.xib" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEAnimationBaseView.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/METileWindowController.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/en.lproj/InfoPlist.strings" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/en.lproj/Credits.rtf" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGameMapWindowController.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGameMapToolsWindowController.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEAppDelegate.m" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGamePartsViewItem.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEEditSet.m" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGameMapWindowController.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/METileView.h" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/TestResource/37221362_p0.png" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEAppDelegate.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGamePartsViewItem.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEEditSet.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/qMapEditor/MEGamePartsEditWindowController.xib" isTestSource="false" />
