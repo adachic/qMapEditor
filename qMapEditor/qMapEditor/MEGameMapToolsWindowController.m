@@ -138,6 +138,31 @@
     }
 }
 
+- (IBAction)clickdPutFlagAllyButton:(id)sender {
+    if (self.onSwitchPutFlagAllyToMapWindow) {
+        self.onSwitchPutFlagAllyToMapWindow();
+    }
+}
+
+- (IBAction)clickdPutFlagEnemyButton:(id)sender {
+    if (self.onSwitchPutFlagEnemyToMapWindow) {
+        self.onSwitchPutFlagEnemyToMapWindow();
+    }
+}
+
+- (IBAction)clickdEraseFlagEnemyButton:(id)sender {
+    if (self.onSwitchEraseFlagEnemyToMapWindow) {
+        self.onSwitchEraseFlagEnemyToMapWindow();
+    }
+}
+
+- (IBAction)clickdClearFlagEnemyButton:(id)sender {
+    if (self.onClearFlagEnemyToMapWindow) {
+        self.onClearFlagEnemyToMapWindow();
+    }
+}
+
+
 - (IBAction)clickdPen1Button:(id)sender {
     if (self.onSwitchPenToMapWindow) {
         self.buttonPen.layer.backgroundColor = [[NSColor greenColor] CGColor];

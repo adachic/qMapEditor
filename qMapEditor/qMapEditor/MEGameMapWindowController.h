@@ -33,12 +33,18 @@ typedef void (^_onSetToToolWindow)(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFl
 @property NSArray *enemyStartPoints;
 @property NSNumber *category;
 
+@property MEMatrix *allyStartPoint2;
+@property NSMutableArray<MEMatrix *> *enemyStartPoints2;
+
 @property NSMutableDictionary *jungleJym;
 @property NSString *filePath;
 @property NSMutableArray *workingEmptyCursors;
 typedef enum EditMapMode {
     kEditMapModePenMode,
     kEditMapModeEraserMode,
+    kEditMapModeAllyFlagMode,
+    kEditMapModeEnemyFlagMode,
+    kEditMapModeEraserEnemyFlagMode,
 };
 
 @property enum EditMapMode editMapMode;
@@ -69,15 +75,25 @@ typedef enum EditMapMode {
 @property int penSize;
 @property int eraseSize;
 
+
+- (void)putEnemyFlag;
+
+- (void)putAllyFlag;
+
+- (void)eraseEnemyFlag;
+
+- (void)clearEnemyFlag;
+
 - (void)fillLayer;
 
 - (void)clearLayer;
 
 - (void)syncToGameParts;
 
--(void) shiftUpZ;
+- (void)shiftUpZ;
 
 - (NSString *)makeTagWithMatrix:(MEMatrix *)mat;
+- (void)showFlags ;
 
 @property IBOutlet NSView *targetView;
 

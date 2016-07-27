@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
         <development version="6300" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="MEGameMapToolsWindowController">
@@ -17,7 +17,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="194" height="649"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
             <view key="contentView" id="se5-gp-TjO">
                 <rect key="frame" x="0.0" y="0.0" width="194" height="649"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -141,32 +141,51 @@
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
-                    <box autoresizesSubviews="NO" fixedFrame="YES" title="View option" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="rsh-lv-YxH">
+                    <box autoresizesSubviews="NO" fixedFrame="YES" title="Put flag" borderType="line" translatesAutoresizingMaskIntoConstraints="NO" id="rsh-lv-YxH">
                         <rect key="frame" x="9" y="254" width="177" height="114"/>
                         <view key="contentView">
                             <rect key="frame" x="1" y="1" width="175" height="98"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mIg-pM-Pct">
-                                    <rect key="frame" x="21" y="72" width="131" height="18"/>
-                                    <buttonCell key="cell" type="check" title="Show upper layer" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="52t-uS-AEX">
-                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="brF-z5-ROm">
+                                    <rect key="frame" x="2" y="70" width="171" height="32"/>
+                                    <buttonCell key="cell" type="push" title="Ally Start Point" bezelStyle="rounded" alignment="center" state="mixed" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="ckP-jh-k7U">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
+                                    <connections>
+                                        <action selector="clickdPutFlagAllyButton:" target="CPC-wt-uy5" id="8xm-hB-dPY"/>
+                                    </connections>
                                 </button>
-                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fgs-LB-bUh">
-                                    <rect key="frame" x="21" y="42" width="135" height="18"/>
-                                    <buttonCell key="cell" type="check" title="Show support line" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="eg4-29-ojX">
-                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YB5-U2-u8E">
+                                    <rect key="frame" x="2" y="44" width="171" height="32"/>
+                                    <buttonCell key="cell" type="push" title="Put EnemyAP" bezelStyle="rounded" alignment="center" state="mixed" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="zDY-Ac-tyK">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
+                                    <connections>
+                                        <action selector="clickdPutFlagEnemyButton:" target="CPC-wt-uy5" id="fD6-VK-2UW"/>
+                                    </connections>
                                 </button>
-                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="24r-16-hLM">
-                                    <rect key="frame" x="21" y="12" width="93" height="18"/>
-                                    <buttonCell key="cell" type="check" title="Show letter" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="TUz-V7-d6F">
-                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dpw-Zm-0eN">
+                                    <rect key="frame" x="2" y="19" width="171" height="32"/>
+                                    <buttonCell key="cell" type="push" title="Erase EnemyAP" bezelStyle="rounded" alignment="center" state="mixed" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="ZMX-r3-rgZ">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
+                                    <connections>
+                                        <action selector="clickdEraseFlagEnemyButton:" target="CPC-wt-uy5" id="ICO-vt-KVh"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dNw-Fd-bGN">
+                                    <rect key="frame" x="2" y="-7" width="171" height="32"/>
+                                    <buttonCell key="cell" type="push" title="Clear EnemyAP" bezelStyle="rounded" alignment="center" state="mixed" borderStyle="border" allowsMixedState="YES" imageScaling="proportionallyDown" inset="2" id="Slf-J5-FTV">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="clickdClearFlagEnemyButton:" target="CPC-wt-uy5" id="2K4-jd-Ewo"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </view>

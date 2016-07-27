@@ -61,6 +61,20 @@
     [animationLayer addAnimation:keyAnimation forKey:@"aho"];
 }
 
+
+- (void)drawFlag:(BOOL)isEnemy {
+    NSLog(@"drawFlag");
+    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
+    [shapeLayer setFillColor:[[NSColor clearColor] CGColor]];
+    if(isEnemy){
+        [shapeLayer setStrokeColor:[[NSColor redColor] CGColor]];
+    }else{
+        [shapeLayer setStrokeColor:[[NSColor yellowColor] CGColor]];
+    }
+    [self _drawLineRed:shapeLayer];
+}
+
+
 - (void)drawEmptyCursor {
     NSLog(@"emptyCursor");
     CAShapeLayer *shapeLayer = [CAShapeLayer layer];
@@ -158,6 +172,78 @@
         return YES;
     }
     return NO;
+}
+
+- (void)_drawLineRed:(CAShapeLayer *)shapeLayer {
+//    [shapeLayer setStrokeColor:[[NSColor redColor] CGColor]];
+    [shapeLayer setLineCap:kCALineCapButt];
+    [shapeLayer setLineJoin:kCALineJoinRound];
+    [shapeLayer setLineWidth:1.0f];
+
+    NSPoint from = NSMakePoint(
+            NSMinX([self bounds]),
+            NSMinY([self bounds]) + _aspectY / 2.0f
+    );
+    NSPoint to = NSMakePoint(
+            NSMinX([self bounds]) + _aspectX / 2.0f,
+            NSMinY([self bounds]) + _aspectY
+    );
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathMoveToPoint(path, NULL, from.x, from.y);
+    CGPathAddLineToPoint(path, NULL, to.x, to.y);
+
+    from = to;
+    to = NSMakePoint(
+            NSMinX([self bounds]) + _aspectX,
+            NSMinY([self bounds]) + _aspectY / 2.0f
+    );
+    CGPathAddLineToPoint(path, NULL, to.x, to.y);
+
+    from = to;
+    to = NSMakePoint(
+            NSMinX([self bounds]) + _aspectX / 2.0f,
+            NSMinY([self bounds])
+    );
+    CGPathAddLineToPoint(path, NULL, to.x, to.y);
+
+    from = to;
+    to = NSMakePoint(
+            NSMinX([self bounds]),
+            NSMinY([self bounds]) + _aspectY / 2.0f
+    );
+    CGPathAddLineToPoint(path, NULL, to.x, to.y);
+
+    from = to;
+    to = NSMakePoint(
+            NSMinX([self bounds]) + _aspectX / 2.0f /2.0f,
+            NSMinY([self bounds]) + _aspectY / 2.0f
+    );
+    CGPathAddLineToPoint(path, NULL, to.x, to.y);
+
+    to = NSMakePoint(
+            NSMinX([self bounds]) + _aspectX / 2.0f,
+            NSMinY([self bounds]) + _aspectY / 2.0f / 2.0f
+    );
+    CGPathAddLineToPoint(path, NULL, to.x, to.y);
+
+    from = to;
+    to = NSMakePoint(
+            NSMinX([self bounds]) + _aspectX / 2.0f / 2.0f,
+            NSMinY([self bounds])
+    );
+    CGPathAddLineToPoint(path, NULL, to.x, to.y);
+
+    from = to;
+    to = NSMakePoint(
+            NSMinX([self bounds]),
+            NSMinY([self bounds]) + _aspectY / 2.0f / 2.0f
+    );
+    CGPathAddLineToPoint(path, NULL, to.x, to.y);
+
+    [shapeLayer setPath:path];
+    [shapeLayer strokeStart];
+
+    [self addSublayer:shapeLayer];
 }
 
 @end

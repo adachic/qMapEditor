@@ -32,6 +32,11 @@ typedef void (^_onClearLayerToMapWindow)();
 
 typedef void (^_onShiftUpZMapWindow)();
 
+typedef void (^_onSwitchPutFlagAllyToMapWindow)();
+typedef void (^_onSwitchPutFlagEnemyToMapWindow)();
+typedef void (^_onSwitchEraseFlagEnemyToMapWindow)();
+typedef void (^_onClearFlagEnemyToMapWindow)();
+
 @property(strong) _onSetToMapWindow onSetToMapWindow;
 @property(strong) _onMaxXModifyToMapWindow onMaxXModifyToMapWindow;
 @property(strong) _onMaxYModifyToMapWindow onMaxYModifyToMapWindow;
@@ -42,6 +47,12 @@ typedef void (^_onShiftUpZMapWindow)();
 @property(strong) _onFillLayerToMapWindow onFillLayerToMapWindow;
 @property(strong) _onClearLayerToMapWindow onClearLayerToMapWindow;
 @property(strong) _onShiftUpZMapWindow onShiftUpZMapWindow;
+
+
+@property(strong) _onSwitchPutFlagAllyToMapWindow  onSwitchPutFlagAllyToMapWindow;
+@property(strong) _onSwitchPutFlagEnemyToMapWindow  onSwitchPutFlagEnemyToMapWindow;
+@property(strong) _onSwitchEraseFlagEnemyToMapWindow  onSwitchEraseFlagEnemyToMapWindow;
+@property(strong) _onClearFlagEnemyToMapWindow  onClearFlagEnemyToMapWindow;
 
 @property IBOutlet NSTextField *tfAspectX;
 @property IBOutlet NSTextField *tfAspectY;

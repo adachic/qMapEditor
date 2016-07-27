@@ -48,6 +48,9 @@
         _workingEmptyCursors = [NSMutableArray array];
         _currentCursor = [[MEMatrix alloc] initWithX:0 Y:0 Z:0];
         _selectedGameParts = gameParts;
+        
+        _allyStartPoint2 = nil;
+        _enemyStartPoints2 = [NSMutableArray array];
 
         if (!materialGym) {
             [self makeJungleJym];
@@ -122,6 +125,7 @@
     [self clear];
     [self showBackground];
     [self showTiles];
+    [self showFlags];
     [self redrawEmptyCursor:self.currentCursor.z];
 }
 
@@ -160,6 +164,15 @@
             }
             [self drawTile:[[MEMatrix alloc] initWithX:x Y:y Z:z]];
         }
+    }
+}
+
+- (void)showFlags {
+    if(self.allyStartPoint2){
+        [self drawFlag:self.allyStartPoint2 isEnemy:NO removeMode:NO];
+    }
+    for (MEMatrix *mat in self.enemyStartPoints2){
+        [self drawFlag:mat isEnemy:YES removeMode:NO];
     }
 }
 
@@ -301,13 +314,66 @@
                                 }
                             }
                             break;
+                        case kEditMapModeAllyFlagMode:
+                            _allyStartPoint2 = [[MEMatrix alloc] initWithX:x
+                                                                           Y:y
+                                                                           Z:z];
+                                        [self drawFlag:[[MEMatrix alloc] initWithX:x
+                                                                                 Y:y
+                                                                                 Z:z] isEnemy:NO removeMode:NO];
+                            
+                            break;
+                        case kEditMapModeEnemyFlagMode:
+                            for(MEMatrix *pos in _enemyStartPoints2){
+                                if(pos.x == x && pos.y == y && pos.z == z){
+                                    [_enemyStartPoints2 removeObject:pos];
+                                }
+                            }
+                            [_enemyStartPoints2 addObject:[[MEMatrix alloc] initWithX:x
+                                                                           Y:y
+                                                                                   Z:z]];
+                            [self drawFlag:[[MEMatrix alloc] initWithX:x
+                                                                     Y:y
+                                                                     Z:z] isEnemy:YES removeMode:NO];
 
+                            break;
+                        case kEditMapModeEraserEnemyFlagMode:
+                            for(MEMatrix *pos in _enemyStartPoints2){
+                                if(pos.x == x && pos.y == y && pos.z == z){
+                                    [_enemyStartPoints2 removeObject:pos];
+                                }
+                            }
+                            [self drawFlag:[[MEMatrix alloc] initWithX:x
+                                                                     Y:y
+                                                                     Z:z] isEnemy:YES removeMode:YES];
+                            break;
                     }
-
                 }
             }
         }
     }
+}
+
+- (void)drawFlag:(MEMatrix *)mat_ isEnemy:(BOOL)isEnemy removeMode:(BOOL)removeMode{
+    MEMatrix *mat = [[MEMatrix alloc] initWithX:mat_.x Y:mat_.y Z:mat_.z];
+    mat.z++;
+    MEGameMapChipLayer *chip = [self.targetView.layer valueForKey:[self makeTagWithMatrix:mat]];
+    [chip removeFromSuperlayer];
+    if(removeMode){
+        return;
+    }
+
+    chip = [[MEGameMapChipLayer alloc] initWithGameParts:nil
+                                                       x:self.aspectX
+                                                       y:self.aspectY
+                                                       t:self.aspectT];
+    CGPoint origin = [self pointOfChipPositionWithMatrix:mat];
+    [chip setFrame:CGRectMake(origin.x, origin.y, chip.bounds.size.width, chip.bounds.size.height)];
+    [chip setZPosition:(mat.x - mat.y) + 1000 * (mat.z + 1)];
+    [self.targetView.layer addSublayer:chip];
+    [self.targetView.layer setValue:chip forKey:[self makeTagWithMatrix:mat]];
+    
+    [chip drawFlag:isEnemy];
 }
 
 - (void)drawTile:(MEMatrix *)mat {
@@ -404,6 +470,24 @@
     }
     [self redrawEmptyCursor:beforeZ];
 }
+
+
+- (void)putAllyFlag{
+    self.editMapMode = kEditMapModeAllyFlagMode;
+}
+
+- (void)putEnemyFlag{
+    self.editMapMode = kEditMapModeEnemyFlagMode;
+}
+
+- (void)clearEnemyFlag{
+    [self.enemyStartPoints2 removeAllObjects];
+}
+
+- (void)eraseEnemyFlag{
+    self.editMapMode = kEditMapModeEraserEnemyFlagMode;
+}
+
 
 - (void)switchToPenMode:(int)penSize {
     self.editMapMode = kEditMapModePenMode;

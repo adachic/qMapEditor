@@ -117,6 +117,28 @@
         MEGameMapWindowController *front = [blockself frontGameMapWindowController];
         [front fillLayer];
     } copy];
+    
+    
+    self.gameMapToolsWindowController.onSwitchPutFlagAllyToMapWindow = [^() {
+        MEGameMapWindowController *front = [blockself frontGameMapWindowController];
+        [front putAllyFlag];
+    } copy];
+    
+    self.gameMapToolsWindowController.onSwitchPutFlagEnemyToMapWindow = [^() {
+        MEGameMapWindowController *front = [blockself frontGameMapWindowController];
+        [front putEnemyFlag];
+    } copy];
+    
+    self.gameMapToolsWindowController.onSwitchEraseFlagEnemyToMapWindow = [^() {
+        MEGameMapWindowController *front = [blockself frontGameMapWindowController];
+        [front eraseEnemyFlag];
+    } copy];
+
+    self.gameMapToolsWindowController.onClearFlagEnemyToMapWindow = [^() {
+        MEGameMapWindowController *front = [blockself frontGameMapWindowController];
+        [front clearEnemyFlag];
+    } copy];
+
 
     self.gameMapToolsWindowController.onClearLayerToMapWindow = [^() {
         MEGameMapWindowController *front = [blockself frontGameMapWindowController];
@@ -295,8 +317,16 @@
                         jungleGym:mapInfo[@"jungleGym"]
                 selectedGameParts:[[self frontGamePartsListWindowController] selectedGameParts]
     ];
-    w.allyStartPoint = mapInfo[@"allyStartPoint"];
-    w.enemyStartPoints = mapInfo[@"enemyStartPoints"];
+    {
+        NSDictionary *dict = mapInfo[@"allyStartPoint"];
+        MEMatrix *mat = [[MEMatrix alloc] initWithX:[dict[@"x"] integerValue] Y:[dict[@"y"] integerValue] Z:[dict[@"z"] integerValue]];
+        w.allyStartPoint2 = mat;
+    }
+    for(NSDictionary *dict in mapInfo[@"enemyStartPoints"]){
+        MEMatrix *mat = [[MEMatrix alloc] initWithX:[dict[@"x"] integerValue] Y:[dict[@"y"] integerValue] Z:[dict[@"z"] integerValue]];
+        [w.enemyStartPoints2 addObject:mat];
+    }
+    [w showFlags];
     w.category = mapInfo[@"category"];
     NSLog(@"unko4");
     w.onSetToToolWindow = [^(MEMatrix *_maxM, CGFloat _x, CGFloat _y, CGFloat _t, MEMatrix *cursor) {
@@ -442,8 +472,6 @@
         /*jsonシリアライズして保存*/
         [MEEditSet saveGamePartsListJsonWithPath:filePath
                   gamePartsListWindowControllers:self.gamePartsListWindowControllers];
-
-//                   mapWindowController:[self frontGameMapWindowController]];
     }
 
 }
@@ -507,7 +535,7 @@
     __block MEMainMenu *blockself = self;
     /*Openダイアログを表示*/
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
-    NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"json", nil];
+    NSArray *allowedFileTypes = [NSArray arrayWithObjects:@"json",@"map", nil];
     [openPanel setAllowedFileTypes:allowedFileTypes];
     NSInteger pressedButton = [openPanel runModal];
 

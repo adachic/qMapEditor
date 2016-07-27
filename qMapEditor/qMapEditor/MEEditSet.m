@@ -369,14 +369,26 @@ gamePartsListWindowControllers:(NSArray *)gamePartsListWindowControllers
     [mapData setObject:[NSNumber numberWithInteger:mapWindowController.maxM.y] forKey:@"maxY"];
     [mapData setObject:[NSNumber numberWithInteger:mapWindowController.maxM.z] forKey:@"maxZ"];
 
-    if(mapWindowController.allyStartPoint){
-    [mapData setObject:mapWindowController.allyStartPoint forKey:@"allyStartPoint"];
+    if(mapWindowController.allyStartPoint2){
+        NSMutableDictionary *dict = [@{} mutableCopy];
+        dict[@"x"] = @(mapWindowController.allyStartPoint2.x);
+        dict[@"y"] = @(mapWindowController.allyStartPoint2.y);
+        dict[@"z"] = @(mapWindowController.allyStartPoint2.z);
+        [mapData setObject:dict forKey:@"allyStartPoint"];
     }
-    if(mapWindowController.enemyStartPoints){
-    [mapData setObject:mapWindowController.enemyStartPoints forKey:@"enemyStartPoints"];
+    if(mapWindowController.enemyStartPoints2){
+        NSMutableArray *arr = [@[] mutableCopy];
+        for(MEMatrix *mat in mapWindowController.enemyStartPoints2){
+            NSMutableDictionary *dict = [@{} mutableCopy];
+            dict[@"x"] = @(mat.x);
+            dict[@"y"] = @(mat.y);
+            dict[@"z"] = @(mat.z);
+            [arr addObject:dict];
+        }
+        [mapData setObject:arr forKey:@"enemyStartPoints"];
     }
     if(mapWindowController.category){
-    [mapData setObject:mapWindowController.category forKey:@"category"];
+        [mapData setObject:mapWindowController.category forKey:@"category"];
     }
 
     NSMutableArray *cubes = [NSMutableArray array];

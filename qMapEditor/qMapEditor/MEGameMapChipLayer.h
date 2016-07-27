@@ -21,6 +21,7 @@
 - (id)initWithGameParts:(MEGameParts *)gameParts1 x:(CGFloat)aspectX y:(CGFloat)aspectY t:(CGFloat)aspectT ;
 
 - (void)drawEmptyCursor;
+- (void)drawFlag:(BOOL)isEnemy;
 
 - (void)drawCurrentCursor;
 
